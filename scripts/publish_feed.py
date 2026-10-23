@@ -39,7 +39,7 @@ OPTIONAL = {"significance": str, "photo": str, "lane": str, "quiet": bool, "sold
 FORBIDDEN_KEYS = {"fieldnotes", "field_notes", "mls", "mlsnumber", "scores", "score", "acqscore", "confidence",
                   "triplediscore", "tripled", "death", "diseased", "stigma", "prioritysscore", "priorityscore",
                   "ownershipnotes", "pricebrl", "fx", "brazilflag", "sitevisit", "lat", "lon", "country"}
-DEFAULT_PRIORITY = 50  # Field Desk's own default for new listings; our Priority Score is withheld
+DEFAULT_PRIORITY = 50  # Field Desk's own default, used only when our Priority Score is blank
 
 
 def norm_key(addr):
@@ -127,7 +127,7 @@ def read_sheet(path):
             "citation": get("Archival Citation") or "", "doc": get("Episode / Research Doc Link"),
             "category": get("Map Category") or "", "verification": get("Verification Status") or "",
             "facts": get("Beds/Baths/SqFt") or "", "logged": get("Date Logged"), "sources": get("Sources") or "",
-            "pid": get("Property ID"),
+            "pid": get("Property ID"), "priority": get("Priority Score"),
         })
     return rows, notes_text, mls_tokens
 
@@ -136,6 +136,14 @@ def iso_date(v):
     if hasattr(v, "strftime"):
         return v.strftime("%Y-%m-%d")
     return str(v or "")[:10]
+
+
+def to_priority(v):
+    try:
+        n = float(v)
+    except (TypeError, ValueError):
+        return DEFAULT_PRIORITY
+    return int(n) if n == int(n) else n
 
 
 def map_row(row, mls_tokens):
@@ -154,7 +162,7 @@ def map_row(row, mls_tokens):
         "kind": kind_from(row["name"], ps), "address": row["address"], "place": place,
         "price": price, "status": status, "url": row["url"], "hook": row["hook"], "story": "", "history": "",
         "citation": strip_mls(str(row["citation"]), mls_tokens), "notes": "", "facts": facts, "images": [],
-        "priority": DEFAULT_PRIORITY, "logged": logged, "lastChecked": logged,
+        "priority": to_priority(row.get("priority")), "logged": logged, "lastChecked": logged,
         "dossier": bool(row["doc"]), "lore": bool(row["hook"]),
         "extra": {"source": "master-sheet", "priceStatus": strip_mls(ps, mls_tokens),
                   "verification": row["verification"], "mapCategory": row["category"],
@@ -166,6 +174,8 @@ def map_row(row, mls_tokens):
 def merge_dup(base, ours, mls_tokens=()):
     """Keep Field Desk id/text. Take our price/status/lastChecked only when our check is newer."""
     out = json.loads(json.dumps(base))
+    if not isinstance(out.get("priority"), (int, float)):
+        out["priority"] = ours["priority"]  # only fill a missing Field Desk priority
     clean = lambda u: u if u and not any(t in u for t in mls_tokens) else ""
     sheet = {"name": ours["name"], "price": ours["price"], "status": ours["status"], "url": clean(ours["url"]),
              "lastChecked": ours["lastChecked"], **ours["extra"]}

@@ -88,6 +88,6 @@ Derived in the app, not stored: the category chip (`crime`, `paranormal`, `aband
 | facts | Beds/Baths/SqFt |
 | logged, lastChecked | Date Logged |
 | dossier | true only if an Episode / Research Doc Link exists |
-| priority | fixed 50 (Field Desk's default). Our Priority Score is not published |
+| priority | Priority Score (0–100; 50 if blank). Merged rows keep Field Desk's priority unless it is missing |
 
-**Never published:** Brazil or any non-US row, Field Notes, MLS #, Priority/Triple D/Death/Diseased/Stigma scores, Confidence, all Brazil columns, and anything from the internal build file. `scripts/publish_feed.py` fails the publish if any of these show up. Built-in Field Desk text is passed through unchanged; some of it already mentions MLS numbers.
+**Never published:** Brazil or any non-US row, Field Notes, MLS #, Triple D/Death/Diseased/Stigma scores, Confidence, all Brazil columns, and anything from the internal build file. `scripts/publish_feed.py` fails the publish if any of these show up. Built-in Field Desk text is passed through unchanged by decision; some of it already mentions MLS numbers, which are public in the live app.
