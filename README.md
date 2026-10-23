@@ -21,3 +21,6 @@ python3 scripts/publish_feed.py --check    # build + validate only
 python3 scripts/publish_feed.py --sheet path/to/sheet.xlsx --no-push
 ```
 Requires `openpyxl`. CDN caches refresh in about 10 minutes (Pages) or 5 minutes (raw).
+
+### Coordinates
+`publish_feed.py` adds `lat`/`lon`/`geo_precision`/`geo_source` to every listing. It uses the internal map-layer seeds where an address matches; otherwise it calls OpenStreetMap Nominatim (1 req/s, with a proper User-Agent). The results are cached in `baseline/geocode_cache.json`, so only new listings trigger requests. Use `--offline-geo` to publish with the cache only. Geocoding data © OpenStreetMap contributors, ODbL.

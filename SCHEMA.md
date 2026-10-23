@@ -91,3 +91,16 @@ Derived in the app, not stored: the category chip (`crime`, `paranormal`, `aband
 | priority | Priority Score (0–100; 50 if blank). Merged rows keep Field Desk's priority unless it is missing |
 
 **Never published:** Brazil or any non-US row, Field Notes, MLS #, Triple D/Death/Diseased/Stigma scores, Confidence, all Brazil columns, and anything from the internal build file. `scripts/publish_feed.py` fails the publish if any of these show up. Built-in Field Desk text is passed through unchanged by decision; some of it already mentions MLS numbers, which are public in the live app.
+
+## Coordinates (added in v3)
+
+Every listing may carry:
+
+| field | type | meaning |
+|---|---|---|
+| `lat`, `lon` | number | WGS84 decimal degrees (US only) |
+| `geo_precision` | `address` \| `listing` \| `town` | `address`: the street address was matched to a house number; `listing`: coordinates published on the listing page; `town`: town or ZIP centre only (draw as approximate) |
+| `geo_source` | string | where the point came from, e.g. `OpenStreetMap Nominatim`, `OpenStreetMap Nominatim (town centre)`, `Twisted Deeds map layer (...)` |
+
+If a listing has no coordinates, these fields are left out. The feed envelope has `geo_attribution` (OSM/ODbL credit).
+Geocoding happens only when the feed is published (Nominatim, 1 request per second, cached in `baseline/geocode_cache.json`). Clients should never geocode.
