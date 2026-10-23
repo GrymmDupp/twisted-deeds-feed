@@ -15,7 +15,7 @@ Exclusions enforced (the script exits non-zero if any is violated):
   * no internal scores (Triple D, Death/Diseased/Stigma, Confidence, Acquisition, Priority Score)
   * nothing from _build/properties_internal.json (used only as a deny-list, never as a source)
 """
-import argparse, glob, hashlib, json, os, re, subprocess, sys
+import argparse, csv, glob, hashlib, json, os, re, subprocess, sys, time, urllib.parse, urllib.request
 from datetime import datetime, timezone
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,6 +23,12 @@ BASELINE = os.path.join(REPO, "baseline", "fielddesk_listings.json")
 FEED = os.path.join(REPO, "feed", "listings.json")
 DEFAULT_SHEET_GLOB = "/workspace/twisted-deeds/Twisted_Deeds_Master_Sheet_*.xlsx"
 DEFAULT_INTERNAL = "/workspace/twisted-deeds/_build/properties_internal.json"
+DEFAULT_MAP_LAYERS = "/workspace/twisted-deeds/map_layers.csv"
+GEOCACHE = os.path.join(REPO, "baseline", "geocode_cache.json")
+NOMINATIM = "https://nominatim.openstreetmap.org/search"
+USER_AGENT = "twisted-deeds-feed/1.0 (+https://github.com/GrymmDupp/twisted-deeds-feed)"
+GEO_ATTRIBUTION = "Geocoding: OpenStreetMap Nominatim, (c) OpenStreetMap contributors, ODbL"
+US_BBOX = (17.0, 72.0, -180.0, -60.0)  # lat min/max, lon min/max (US incl. AK/HI/PR)
 FEED_URL = "https://grymmdupp.github.io/twisted-deeds-feed/feed/listings.json"
 
 US_STATES = set("AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY DC".split())
@@ -34,7 +40,7 @@ REQUIRED = {"id": str, "name": str, "grade": str, "layer": str, "kind": str, "ad
             "price": str, "status": str, "url": str, "hook": str, "story": str, "history": str, "citation": str,
             "notes": str, "facts": str, "images": list, "priority": (int, float), "logged": str,
             "lastChecked": str, "dossier": bool, "lore": bool}
-OPTIONAL = {"significance": str, "photo": str, "lane": str, "quiet": bool, "soldOn": str, "bargain": bool,
+OPTIONAL = {"lat": (int, float), "lon": (int, float), "geo_precision": str, "geo_source": str, "significance": str, "photo": str, "lane": str, "quiet": bool, "soldOn": str, "bargain": bool,
             "ground": str, "figure": str, "community": bool, "grid": str, "extra": dict}
 FORBIDDEN_KEYS = {"fieldnotes", "field_notes", "mls", "mlsnumber", "scores", "score", "acqscore", "confidence",
                   "triplediscore", "tripled", "death", "diseased", "stigma", "prioritysscore", "priorityscore",
@@ -237,6 +243,11 @@ def validate(base, listings):
         for d in ("logged", "lastChecked", "soldOn"):
             if l.get(d) and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", l[d]):
                 errs.append(f"{lid}: {d} not YYYY-MM-DD")
+        if "lat" in l or "lon" in l:
+            if not all(isinstance(l.get(k), (int, float)) for k in ("lat", "lon")) or not in_us(l["lat"], l["lon"]):
+                errs.append(f"{lid}: bad lat/lon")
+            if l.get("geo_precision") not in ("address", "listing", "town") or not isinstance(l.get("geo_source"), str):
+                errs.append(f"{lid}: bad geo_precision/geo_source")
         for im in l.get("images", []):
             if im.get("rights") not in set(e["image_rights"]) or im.get("era") not in set(e["image_era"]):
                 errs.append(f"{lid}: bad image {im.get('id')}")
@@ -291,6 +302,112 @@ def enforce_exclusions(base, listings, notes_text, mls_tokens, internal_path):
     return errs
 
 
+
+# ---------------------------------------------------------------- geocoding
+def addr_key(a):
+    return re.sub(r"\s+", " ", (a or "").strip().lower())
+
+
+def in_us(lat, lon):
+    return US_BBOX[0] <= lat <= US_BBOX[1] and US_BBOX[2] <= lon <= US_BBOX[3]
+
+
+class Geocoder:
+    """Nominatim with a persistent cache (baseline/geocode_cache.json). 1 request/second max."""
+
+    def __init__(self, path=GEOCACHE, offline=False):
+        self.path, self.offline, self.last, self.calls, self.failures = path, offline, 0.0, 0, []
+        self.cache = json.load(open(path)) if os.path.exists(path) else {}
+        self.dirty = False
+
+    def save(self):
+        if self.dirty:
+            with open(self.path, "w") as f:
+                json.dump(dict(sorted(self.cache.items())), f, ensure_ascii=False, indent=1)
+                f.write("\n")
+
+    def _query(self, q):
+        ck = "q:" + addr_key(q)
+        if ck in self.cache:
+            return self.cache[ck]
+        if self.offline:
+            return None
+        wait = 1.1 - (time.time() - self.last)
+        if wait > 0:
+            time.sleep(wait)
+        url = NOMINATIM + "?" + urllib.parse.urlencode(
+            {"q": q, "format": "jsonv2", "limit": 1, "countrycodes": "us", "addressdetails": 1})
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept-Language": "en"})
+        try:
+            with urllib.request.urlopen(req, timeout=20) as r:
+                res = json.load(r)
+        except Exception as e:  # network trouble: do not cache, try again next publish
+            self.last = time.time()
+            self.failures.append(f"{q}: {e}")
+            return None
+        self.last, self.calls = time.time(), self.calls + 1
+        hit = None
+        if res:
+            x = res[0]
+            hit = {"lat": round(float(x["lat"]), 7), "lon": round(float(x["lon"]), 7),
+                   "house": bool(x.get("address", {}).get("house_number")),
+                   "type": f"{x.get('category', x.get('class', ''))}/{x.get('type', '')}",
+                   "display": x.get("display_name", "")}
+        self.cache[ck] = hit
+        self.dirty = True
+        return hit
+
+    def locate(self, listing, seeds):
+        a = listing.get("address", "")
+        if addr_key(a) in seeds:
+            return seeds[addr_key(a)]
+        if re.match(r"\s*\d", a):
+            hit = self._query(a)
+            if hit and hit["house"] and in_us(hit["lat"], hit["lon"]):
+                return {"lat": hit["lat"], "lon": hit["lon"], "geo_precision": "address",
+                        "geo_source": "OpenStreetMap Nominatim (address match)"}
+        parts = [p.strip() for p in listing.get("place", "").split(",") if p.strip()]
+        for q in ([f"{parts[0]}, {parts[-1]}"] if len(parts) >= 2 else []) + ([listing["place"]] if parts else []):
+            hit = self._query(q)
+            if hit and in_us(hit["lat"], hit["lon"]):
+                return {"lat": hit["lat"], "lon": hit["lon"], "geo_precision": "town",
+                        "geo_source": "OpenStreetMap Nominatim (town centre)"}
+        return None
+
+
+def load_seeds(path, us_addresses):
+    """Our own geocodes from map_layers.csv, only for US Master Sheet addresses."""
+    seeds = {}
+    if not path or not os.path.exists(path):
+        return seeds
+    want = {addr_key(a) for a in us_addresses}
+    for r in csv.DictReader(open(path, encoding="utf-8")):
+        k = addr_key(r.get("address"))
+        if k not in want:
+            continue
+        try:
+            lat, lon = float(r["lat"]), float(r["lon"])
+        except (TypeError, ValueError):
+            continue
+        if not in_us(lat, lon):
+            continue
+        prec = (r.get("geocode_precision") or "").lower()
+        p = "listing" if prec.startswith("listing") else "address" if prec.startswith("address") else "town"
+        seeds[k] = {"lat": round(lat, 7), "lon": round(lon, 7), "geo_precision": p,
+                    "geo_source": f"Twisted Deeds map layer ({r.get('geocode_precision')})"}
+    return seeds
+
+
+def add_coordinates(listings, seeds, geocoder):
+    for l in listings:
+        for k in ("lat", "lon", "geo_precision", "geo_source"):
+            l.pop(k, None)
+        g = geocoder.locate(l, seeds)
+        if g:
+            l.update(g)
+    geocoder.save()
+
+
 def listings_hash(listings):
     return hashlib.sha256(json.dumps(listings, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
 
@@ -299,11 +416,23 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--sheet", help="Master Sheet .xlsx (default: newest match of %s)" % DEFAULT_SHEET_GLOB)
     ap.add_argument("--internal", default=DEFAULT_INTERNAL, help="deny-list file (read only for checks)")
+    ap.add_argument("--map-layers", default=DEFAULT_MAP_LAYERS, help="our geocodes (US rows only are used)")
+    ap.add_argument("--offline-geo", action="store_true", help="use the geocode cache only")
     ap.add_argument("--no-push", action="store_true")
     ap.add_argument("--check", action="store_true", help="build + validate only; write nothing")
     a = ap.parse_args()
     sheet = a.sheet or newest_sheet(DEFAULT_SHEET_GLOB)
     base, listings, stats, notes_text, mls_tokens = build(sheet)
+    us_addrs = [l["address"] for l in listings if l.get("extra", {}).get("source") == "master-sheet"]
+    us_addrs += [l["extra"]["masterSheet"].get("address", "") for l in listings if "masterSheet" in l.get("extra", {})]
+    seeds = load_seeds(a.map_layers, us_addrs + [l["address"] for l in listings])
+    geo = Geocoder(offline=a.offline_geo)
+    add_coordinates(listings, seeds, geo)
+    from collections import Counter
+    stats["geo"] = dict(Counter(l.get("geo_precision", "none") for l in listings))
+    stats["geo_new_requests"] = geo.calls
+    if geo.failures:
+        stats["geo_failures"] = geo.failures
     errs = validate(base, listings) + enforce_exclusions(base, listings, notes_text, mls_tokens, a.internal)
     print(json.dumps({k: v for k, v in stats.items()}, indent=1))
     if errs:
@@ -325,6 +454,7 @@ def main():
         "source": ("Twisted Deeds listings feed. Field Desk built-in listings (baseline) merged with US rows "
                    "of the Twisted Deeds Master Sheet. Auto-generated by scripts/publish_feed.py; do not edit by hand."),
         "feed_url": FEED_URL,
+        "geo_attribution": GEO_ATTRIBUTION,
         "content_hash": h,
         "listings": listings,
     }
@@ -334,8 +464,8 @@ def main():
         f.write("\n")
     print(f"wrote feed v{feed['version']} ({len(listings)} listings)")
     git = lambda *c: subprocess.run(["git", "-C", REPO, *c], check=True, capture_output=True, text=True).stdout
-    git("add", "feed/listings.json")
-    if not git("status", "--porcelain", "feed/listings.json").strip():
+    git("add", "feed/listings.json", "baseline/geocode_cache.json")
+    if not git("status", "--porcelain", "feed/listings.json", "baseline/geocode_cache.json").strip():
         print("no git changes")
         return
     git("commit", "-m", f"Feed v{feed['version']}: {len(listings)} listings ({os.path.basename(sheet)})")

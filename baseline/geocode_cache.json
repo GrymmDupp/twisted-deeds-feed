@@ -1,0 +1,730 @@
+{
+ "q:0 rockmart hwy, cedartown, ga 30125": {
+  "lat": 34.0140956,
+  "lon": -85.2330289,
+  "house": false,
+  "type": "highway/primary",
+  "display": "Rockmart Highway, Cedartown, Polk County, Georgia, 30125, United States"
+ },
+ "q:1 west ave, arkport, ny 14807": {
+  "lat": 42.394799,
+  "lon": -77.6956025,
+  "house": true,
+  "type": "building/yes",
+  "display": "1, West Avenue, Village of Arkport, Town of Hornellsville, Steuben County, New York, 14807, United States"
+ },
+ "q:10192 halls ferry rd, st. louis, mo 63136": {
+  "lat": 38.7247913,
+  "lon": -90.2415548,
+  "house": false,
+  "type": "highway/primary",
+  "display": "Halls Ferry Road, North Pointe, Jennings, Saint Louis County, Missouri, 63136, United States"
+ },
+ "q:105 n granville st, edenton, nc 27932": {
+  "lat": 36.0616807,
+  "lon": -76.6111617,
+  "house": true,
+  "type": "place/house",
+  "display": "105, North Granville Street, Edenton, Chowan County, North Carolina, 27932, United States"
+ },
+ "q:105 n jose serna st, hatch, nm 87937": null,
+ "q:108 gatehouse rd, kennett square, pa 19348": null,
+ "q:110 pinckney st, chester, sc 29706": {
+  "lat": 34.7057153,
+  "lon": -81.2174599,
+  "house": true,
+  "type": "place/house",
+  "display": "110, Pinckney Street, Brooklyn, Chester, Chester County, South Carolina, 29706, United States"
+ },
+ "q:110 w 2nd st, junction city, ar 71749": {
+  "lat": 33.0155924,
+  "lon": -92.725021,
+  "house": true,
+  "type": "place/house",
+  "display": "110, West 2nd Street, Junction City, Union County, Arkansas, 71749, United States"
+ },
+ "q:1108 n dixie, new smyrna beach, fl 32168": {
+  "lat": 29.043569,
+  "lon": -80.9345855,
+  "house": true,
+  "type": "place/house",
+  "display": "1108, Dixie Freeway, New Smyrna Beach, Volusia County, Florida, 32168, United States"
+ },
+ "q:11833 n owls butte trl, san simon, az": null,
+ "q:12101 lima rd, fort wayne, in": {
+  "lat": 41.1940228,
+  "lon": -85.1685759,
+  "house": true,
+  "type": "place/house",
+  "display": "12101, Lima Road, Wallen, Fort Wayne, Allen County, Indiana, 46818, United States"
+ },
+ "q:123 e deshler ave, columbus, oh 43206": {
+  "lat": 39.9408073,
+  "lon": -82.9930868,
+  "house": true,
+  "type": "place/house",
+  "display": "123, East Deshler Avenue, German Village, Columbus, Franklin County, Ohio, 43206, United States"
+ },
+ "q:1424 s 55th st, kansas city, ks 66106": {
+  "lat": 39.0743167,
+  "lon": -94.7057727,
+  "house": true,
+  "type": "amenity/place_of_worship",
+  "display": "Assembly of God Full Gospel, 1424, South 55th Street, Turner, Kansas City, Wyandotte County, Kansas, 66106, United States"
+ },
+ "q:14286 old highway 50, clay city, il 62824": null,
+ "q:1492 garden st, east meadow, ny 11554": {
+  "lat": 40.7086492,
+  "lon": -73.5660107,
+  "house": true,
+  "type": "place/house",
+  "display": "1492, Garden Street, East Meadow, Town of Hempstead, Nassau County, New York, 11554, United States"
+ },
+ "q:159 matthewson rd sw, pelham, ga 31779": null,
+ "q:1629 nebraska ave, toledo, oh 43607": {
+  "lat": 41.6454297,
+  "lon": -83.5832912,
+  "house": true,
+  "type": "place/house",
+  "display": "1629, Nebraska Avenue, ONYX, Air Line Junction, Toledo, Lucas County, Ohio, 43607, United States"
+ },
+ "q:163 n ashland ave, lexington, ky": {
+  "lat": 38.0373736,
+  "lon": -84.4822925,
+  "house": true,
+  "type": "amenity/place_of_worship",
+  "display": "Heritage Baptist Church, 163, North Ashland Avenue, Woodlands, Lexington Manor, Lexington, Fayette County, Kentucky, 40508, United States"
+ },
+ "q:17321 old rome rd, watertown, ny 13601": {
+  "lat": 43.9176515,
+  "lon": -75.9774586,
+  "house": true,
+  "type": "building/yes",
+  "display": "17321, Old Rome Road, Fields Settlement, City of Watertown, Town of Watertown, Jefferson County, New York, 13601, United States"
+ },
+ "q:17736 auburn rd, brandy station, va 22714": {
+  "lat": 38.5107295,
+  "lon": -77.9278799,
+  "house": true,
+  "type": "place/house",
+  "display": "17736, Auburn Road, Ridgelea, Brandy Station, Culpeper County, Virginia, 22714, United States"
+ },
+ "q:190 e grove st, sheldon, il 60966": {
+  "lat": 40.7702751,
+  "lon": -87.5625369,
+  "house": true,
+  "type": "place/house",
+  "display": "190, East Grove Street, Sheldon, Iroquois County, Illinois, 60966, United States"
+ },
+ "q:200 s cedar st, seymour, tx 76380": {
+  "lat": 33.586726,
+  "lon": -99.264187,
+  "house": true,
+  "type": "place/house",
+  "display": "200, South Cedar Street, Seymour, Baylor County, Texas, 76380, United States"
+ },
+ "q:202 s main st, belton, tx 76513": {
+  "lat": 31.0556902,
+  "lon": -97.4641295,
+  "house": true,
+  "type": "place/house",
+  "display": "202, South Main Street, Belton, Bell County, Texas, 76513, United States"
+ },
+ "q:2071 deer creek rd, linden, tn 37096": null,
+ "q:20771 eight mile rd, detroit, mi 48219": null,
+ "q:210 5th ave nw, mandan, nd 58554": {
+  "lat": 46.8271526,
+  "lon": -100.8975054,
+  "house": true,
+  "type": "place/house",
+  "display": "210, 5th Avenue Northwest, Mandan, Morton County, North Dakota, 58554, United States"
+ },
+ "q:21177 us highway 80 e, wills point, tx 75169": null,
+ "q:2134 willow spring rd, dundalk, md 21222": {
+  "lat": 39.2659028,
+  "lon": -76.526774,
+  "house": true,
+  "type": "place/house",
+  "display": "2134, Willow Spring Road, Dundalk, Baltimore County, Maryland, 21222, United States"
+ },
+ "q:21920 branson rd, poteau, ok 74953": {
+  "lat": 35.1089734,
+  "lon": -94.6449986,
+  "house": true,
+  "type": "place/house",
+  "display": "21920, Branson Road, Poteau, LeFlore County, Oklahoma, 74953, United States"
+ },
+ "q:2208 jefferson hwy, lutcher, la 70071": null,
+ "q:2211 clarkson rd, chesterfield, mo 63017": {
+  "lat": 38.6290451,
+  "lon": -90.5797972,
+  "house": true,
+  "type": "shop/funeral_directors",
+  "display": "Buchholz Mortuary West, 2211, Clarkson Road, Chesterfield, Saint Louis County, Missouri, 63017, United States"
+ },
+ "q:226 n walnut st, wilmington, de 19801": {
+  "lat": 39.7384645,
+  "lon": -75.548869,
+  "house": true,
+  "type": "historic/heritage",
+  "display": "Asbury Methodist Church, 226, North Walnut Street, Downtown, South Wilmington, Wilmington, New Castle County, Delaware, 19801, United States"
+ },
+ "q:23-40 205th st, bayside, ny 11360": {
+  "lat": 40.7667219,
+  "lon": -73.7827367,
+  "house": false,
+  "type": "highway/residential",
+  "display": "205th Street, Bayside, Queens, Queens County, New York, 11361, United States"
+ },
+ "q:233 northbound gratiot, mount clemens, mi 48043": {
+  "lat": 42.6045934,
+  "lon": -82.8740977,
+  "house": true,
+  "type": "place/house",
+  "display": "233, Northbound Gratiot Avenue, Mount Clemens Downtown Loop, Mount Clemens, Macomb County, Michigan, 48043, United States"
+ },
+ "q:239 96th st, stone harbor, nj 08247": {
+  "lat": 39.0539059,
+  "lon": -74.7595081,
+  "house": true,
+  "type": "place/house",
+  "display": "239, 96th Street, Stone Harbor, Cape May County, New Jersey, 08247, United States"
+ },
+ "q:24228 state highway 210, deerwood, mn 56444": null,
+ "q:256 halltown rd, harpers ferry, wv 25425": null,
+ "q:266 farallones st, san francisco, ca": {
+  "lat": 37.7142309,
+  "lon": -122.4614579,
+  "house": true,
+  "type": "building/yes",
+  "display": "266, Farallones Street, Ocean View, Ingleside, San Francisco, California, 94112, United States"
+ },
+ "q:27398 us 12, edwardsburg, mi 49112": {
+  "lat": 41.7975117,
+  "lon": -86.0875564,
+  "house": false,
+  "type": "highway/trunk",
+  "display": "West Main Street, Ontwa Township, Cass County, Michigan, 49112, United States"
+ },
+ "q:288 county road 3650, hawkins, tx 75765": null,
+ "q:3 winkelman ave, big piney, wy 83113": null,
+ "q:302 w corunna ave, corunna, mi 48817": {
+  "lat": 42.981979,
+  "lon": -84.1208692,
+  "house": true,
+  "type": "place/house",
+  "display": "302, West Corunna Avenue, Caledonia Charter Township, Shiawassee County, Michigan, 48817, United States"
+ },
+ "q:30600 michigan ave, westland, mi 48186": {
+  "lat": 42.28675,
+  "lon": -83.341444,
+  "house": true,
+  "type": "place/house",
+  "display": "30600, Michigan Avenue, Westland, Wayne County, Michigan, 48186, United States"
+ },
+ "q:316 eau claire st, eau claire, wi 54701": {
+  "lat": 44.8127859,
+  "lon": -91.5000228,
+  "house": true,
+  "type": "amenity/theatre",
+  "display": "Eau Claire Regional Arts Center, 316, Eau Claire Street, Eau Claire, Eau Claire County, Wisconsin, 54701, United States"
+ },
+ "q:320 w trilby rd, fort collins, co 80525": {
+  "lat": 40.4948344,
+  "lon": -105.0810144,
+  "house": true,
+  "type": "place/house",
+  "display": "320, West Trilby Road, Fort Collins, Larimer County, Colorado, 80525, United States"
+ },
+ "q:3235 us route 52, felicity, oh 45120": null,
+ "q:3500 governor's trail, kettering, oh": null,
+ "q:3500 montgomery rd, cincinnati, oh 45207": {
+  "lat": 39.1424511,
+  "lon": -84.4706672,
+  "house": true,
+  "type": "building/church",
+  "display": "Saint Mark Church, 3500, Montgomery Road, O’Bryonville, Evanston, Cincinnati, Hamilton County, Ohio, 45207, United States"
+ },
+ "q:35553 m-43, paw paw, mi 49079": null,
+ "q:3664 fields station rd, la grange, nc 28551": {
+  "lat": 35.2815599,
+  "lon": -77.7214319,
+  "house": true,
+  "type": "place/house",
+  "display": "3664, Fields Station Road, Eastwood, La Grange, Lenoir County, North Carolina, 28551, United States"
+ },
+ "q:3771 e reading rd, osseo, mi 49266": null,
+ "q:3860 w 44th st, cleveland, oh 44109": {
+  "lat": 41.4519581,
+  "lon": -81.7156163,
+  "house": true,
+  "type": "place/house",
+  "display": "3860, West 44th Street, Brooklyn Centre, Cleveland, Cuyahoga County, Ohio, 44109, United States"
+ },
+ "q:394 prost st, rubio, ia 52585": {
+  "lat": 41.2182681,
+  "lon": -91.936742,
+  "house": true,
+  "type": "place/house",
+  "display": "394, Prost Street, Rubio, Clay Township, Washington County, Iowa, 52585, United States"
+ },
+ "q:4009 lloyd noland pkwy, fairfield, al 35064": {
+  "lat": 33.4939467,
+  "lon": -86.9107149,
+  "house": true,
+  "type": "place/house",
+  "display": "4009, Lloyd Noland Parkway, Ensley Junction, Fairfield, Jefferson County, Alabama, 35064, United States"
+ },
+ "q:403 e adams st, sandusky, oh 44870": {
+  "lat": 41.4554249,
+  "lon": -82.705359,
+  "house": true,
+  "type": "place/house",
+  "display": "403, East Adams Street, Kilbourne Plat, Sandusky, Erie County, Ohio, 44870, United States"
+ },
+ "q:404 n main st, twin bridges, mt 59754": {
+  "lat": 45.5400632,
+  "lon": -112.3310047,
+  "house": false,
+  "type": "highway/secondary",
+  "display": "Main Street, Twin Bridges, Madison County, Montana, 59754, United States"
+ },
+ "q:410 n eagle st, marshall, mi 49068": {
+  "lat": 42.2753474,
+  "lon": -84.961141,
+  "house": true,
+  "type": "place/house",
+  "display": "410, North Eagle Street, Marshall, Calhoun County, Michigan, 49068, United States"
+ },
+ "q:4117 decatur st, philadelphia, pa 19136": {
+  "lat": 40.0399874,
+  "lon": -75.0292337,
+  "house": true,
+  "type": "shop/funeral_directors",
+  "display": "Aldworth Funeral Home, 4117, Decatur Street, Holmesburg, Northeast Philadelphia, Philadelphia, Philadelphia County, Pennsylvania, 19136, United States"
+ },
+ "q:415 harrison st, port townsend, wa 98368": {
+  "lat": 48.114197,
+  "lon": -122.7623503,
+  "house": true,
+  "type": "building/yes",
+  "display": "415, Harrison Street, Port Townsend, Jefferson County, Washington, 98368, United States"
+ },
+ "q:417 main st, ashton, id 83420": {
+  "lat": 44.0713657,
+  "lon": -111.4483409,
+  "house": false,
+  "type": "highway/secondary",
+  "display": "Main Street, Ashton, Fremont County, Idaho, 83420, United States"
+ },
+ "q:437 s main st, bowling green, oh 43402": {
+  "lat": 41.36895,
+  "lon": -83.650294,
+  "house": true,
+  "type": "place/house",
+  "display": "437, South Main Street, Bowling Green, Wood County, Ohio, 43402, United States"
+ },
+ "q:463 s main st, woonsocket, ri 02895": {
+  "lat": 41.993982,
+  "lon": -71.5258471,
+  "house": true,
+  "type": "building/yes",
+  "display": "463, South Main Street, Globe, Woonsocket, Providence County, Rhode Island, 02895, United States"
+ },
+ "q:4653 glendale ave, toledo, oh 43614": {
+  "lat": 41.6077138,
+  "lon": -83.6514223,
+  "house": true,
+  "type": "place/house",
+  "display": "4653, Glendale Avenue, Toledo, Lucas County, Ohio, 43614, United States"
+ },
+ "q:504 main st, woodville, ms 39669": {
+  "lat": 31.1041733,
+  "lon": -91.2996164,
+  "house": true,
+  "type": "place/house",
+  "display": "504, Main Street, Woodville, Wilkinson County, Mississippi, 39669, United States"
+ },
+ "q:51 duncan st, new bedford, ma 02745": {
+  "lat": 41.6742827,
+  "lon": -70.9225135,
+  "house": true,
+  "type": "place/house",
+  "display": "51, Duncan Street, New Bedford, Bristol County, Massachusetts, 02745, United States"
+ },
+ "q:5227 old seward hwy, anchorage, ak 99518": {
+  "lat": 61.172856,
+  "lon": -149.8674578,
+  "house": true,
+  "type": "amenity/restaurant",
+  "display": "Peanut Farm, 5227, Old Seward Highway, Anchorage, Alaska, 99518, United States"
+ },
+ "q:54100 48th ave, lawrence, mi 49064": {
+  "lat": 42.2438717,
+  "lon": -86.0724149,
+  "house": true,
+  "type": "place/house",
+  "display": "54100, 48th Avenue, Arlington Township, Van Buren County, Michigan, 49064, United States"
+ },
+ "q:557 unity center rd, pittsburgh, pa 15239": null,
+ "q:564 hoaka rd, hilo, hi 96720": {
+  "lat": 19.6594717,
+  "lon": -155.1288626,
+  "house": true,
+  "type": "place/house",
+  "display": "564, Hoaka Road, Hilo, Hawaiʻi County, Hawaii, 96720, United States"
+ },
+ "q:564 s 800 e, clearfield, ut 84015": {
+  "lat": 41.1053583,
+  "lon": -112.0111822,
+  "house": true,
+  "type": "amenity/place_of_worship",
+  "display": "Calvary Chapel, 564, South 800 East, Clearfield, Davis County, Utah, 84015, United States"
+ },
+ "q:5730 schuss mountain rd, bellaire, mi 49615": null,
+ "q:585 w main st, wytheville, va 24382": {
+  "lat": 36.9464057,
+  "lon": -81.0878504,
+  "house": true,
+  "type": "place/house",
+  "display": "585, West Main Street, Wytheville, Wythe County, Virginia, 24382, United States"
+ },
+ "q:627 jefferson ave se, grand rapids, mi 49503": {
+  "lat": 42.950828,
+  "lon": -85.664111,
+  "house": true,
+  "type": "place/house",
+  "display": "627, Jefferson Avenue Southeast, Grand Rapids, Kent County, Michigan, 49503, United States"
+ },
+ "q:66 duttonsville school dr, cavendish, vt 05142": {
+  "lat": 43.3860978,
+  "lon": -72.6052389,
+  "house": true,
+  "type": "building/yes",
+  "display": "66, Duttonsville School Drive, Whitesville, Cavendish, Windsor County, Vermont, 05142, United States"
+ },
+ "q:662 main, deadwood, sd 57732": {
+  "lat": 44.3775413,
+  "lon": -103.7294152,
+  "house": true,
+  "type": "place/house",
+  "display": "662, Main Street, Chinatown, Deadwood, Lawrence County, South Dakota, 57732, United States"
+ },
+ "q:685 kent rd, new milford, ct 06755": {
+  "lat": 41.6447232,
+  "lon": -73.4845299,
+  "house": true,
+  "type": "amenity/place_of_worship",
+  "display": "Gaylordsville United Methodist Church, 685, Kent Road, Merwinsville, Gaylordsville, New Milford, Western Connecticut Planning Region, Connecticut, 06755, United States"
+ },
+ "q:7026 church rd, gardendale, al 35071": {
+  "lat": 33.7118469,
+  "lon": -86.8218448,
+  "house": true,
+  "type": "place/house",
+  "display": "7026, Church Road, Gardendale, Jefferson County, Alabama, 35071, United States"
+ },
+ "q:76 s main st, fairport, ny 14450": {
+  "lat": 43.0994586,
+  "lon": -77.4423158,
+  "house": true,
+  "type": "place/house",
+  "display": "76, South Main Street, Village of Fairport, Town of Perinton, Monroe County, New York, 14450, United States"
+ },
+ "q:79 alfred st, detroit, mi 48201": {
+  "lat": 42.3435623,
+  "lon": -83.0536247,
+  "house": true,
+  "type": "building/yes",
+  "display": "Hudson-Evans House, 79, Alfred Street, Brush Park, Midtown, Detroit, Wayne County, Michigan, 48201, United States"
+ },
+ "q:8 eastern ave, barrington, nh 03825": {
+  "lat": 43.2157519,
+  "lon": -70.9942497,
+  "house": false,
+  "type": "highway/residential",
+  "display": "Eastern Avenue, East Barrington, Barrington, Strafford County, New Hampshire, 03825, United States"
+ },
+ "q:8011 w montgomery rd, houston, tx 77088": {
+  "lat": 29.8662973,
+  "lon": -95.4312416,
+  "house": true,
+  "type": "place/house",
+  "display": "8011, West Montgomery Road, Highland Heights, Acres Homes, Houston, Harris County, Texas, 77088, United States"
+ },
+ "q:8488 main st, rushville, oh 43150": {
+  "lat": 39.7646204,
+  "lon": -82.4312586,
+  "house": true,
+  "type": "place/house",
+  "display": "8488, Main Street, Rushville Historic District, Rushville, Richland Township, Fairfield County, Ohio, 43150, United States"
+ },
+ "q:85-15 wareham pl, jamaica, ny 11432": {
+  "lat": 40.7170392,
+  "lon": -73.7857982,
+  "house": true,
+  "type": "building/detached",
+  "display": "85-15, Wareham Place, Queens, Queens County, New York, 11432, United States"
+ },
+ "q:8833 ashwood dr, riverdale, ga 30274": null,
+ "q:900 o st, gering, ne 69341": {
+  "lat": 41.823768,
+  "lon": -103.659055,
+  "house": true,
+  "type": "place/house",
+  "display": "900, O Street, Gering, Scotts Bluff County, Nebraska, 69341, United States"
+ },
+ "q:900 ridge ave, new cumberland, wv 26047": {
+  "lat": 40.492972,
+  "lon": -80.603265,
+  "house": true,
+  "type": "place/house",
+  "display": "900, Ridge Avenue, Chelsea, New Cumberland, Clay District, Hancock County, West Virginia, 26047, United States"
+ },
+ "q:901 w main st, merced, ca 95340": {
+  "lat": 37.3040822,
+  "lon": -120.4895378,
+  "house": true,
+  "type": "building/commercial",
+  "display": "901, West Main Street, Merced, Merced County, California, 95340, United States"
+ },
+ "q:904 juliana st, parkersburg, wv 26101": {
+  "lat": 39.2688425,
+  "lon": -81.5571175,
+  "house": true,
+  "type": "place/house",
+  "display": "904, Juliana Street, Julia-Ann Square Historic District, North Parkersburg, Parkersburg, Wood County, West Virginia, 26101, United States"
+ },
+ "q:906 e 2nd ave, rome, ga 30161": {
+  "lat": 34.2402662,
+  "lon": -85.1622599,
+  "house": true,
+  "type": "place/house",
+  "display": "906, East 2nd Avenue, Rome, Floyd County, Georgia, 30161, United States"
+ },
+ "q:92 cayuse trl, sonoita, az 85637": {
+  "lat": 31.659597,
+  "lon": -110.6246717,
+  "house": true,
+  "type": "building/yes",
+  "display": "92, Cayuse Trail, Sonoita, Santa Cruz County, Arizona, 85637, United States"
+ },
+ "q:92250 schoolhouse st, marcola, or 97454": null,
+ "q:ashton, id": {
+  "lat": 44.071581,
+  "lon": -111.448288,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Ashton, Fremont County, Idaho, United States"
+ },
+ "q:barrington, nh": {
+  "lat": 43.223191,
+  "lon": -71.047211,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Barrington, Strafford County, New Hampshire, United States"
+ },
+ "q:bayside, ny": {
+  "lat": 40.7684351,
+  "lon": -73.7770774,
+  "house": false,
+  "type": "place/neighbourhood",
+  "display": "Bayside, Queens, Queens County, New York, 11361, United States"
+ },
+ "q:bellaire, mi": {
+  "lat": 44.9754211,
+  "lon": -85.2099992,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Bellaire, Antrim County, Michigan, 49615, United States"
+ },
+ "q:big piney, wy": {
+  "lat": 42.5381646,
+  "lon": -110.113681,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Big Piney, Sublette County, Wyoming, United States"
+ },
+ "q:cedartown, ga": {
+  "lat": 34.0124425,
+  "lon": -85.2559398,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Cedartown, Polk County, Georgia, 30125, United States"
+ },
+ "q:clay city, il": {
+  "lat": 38.6886589,
+  "lon": -88.354212,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Clay City, Clay City Township, Clay County, Illinois, 62824, United States"
+ },
+ "q:deerwood, mn": {
+  "lat": 46.4735725,
+  "lon": -93.8988695,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Deerwood, Crow Wing County, Minnesota, United States"
+ },
+ "q:detroit, mi": {
+  "lat": 42.3315509,
+  "lon": -83.0466403,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Detroit, Wayne County, Michigan, United States"
+ },
+ "q:edwardsburg, mi": {
+  "lat": 41.7956038,
+  "lon": -86.0808384,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Edwardsburg, Cass County, Michigan, United States"
+ },
+ "q:felicity, oh": {
+  "lat": 38.8389576,
+  "lon": -84.096321,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Felicity, Franklin Township, Clermont County, Ohio, United States"
+ },
+ "q:harpers ferry, wv": {
+  "lat": 39.323418,
+  "lon": -77.7319766,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Harpers Ferry, Jefferson County, West Virginia, United States"
+ },
+ "q:hatch, nm": {
+  "lat": 32.6651718,
+  "lon": -107.153438,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Hatch, Doña Ana County, New Mexico, United States"
+ },
+ "q:hawkins, tx": {
+  "lat": 32.5884735,
+  "lon": -95.2041135,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Hawkins, Wood County, Texas, United States"
+ },
+ "q:kennett square, pa": {
+  "lat": 39.8467414,
+  "lon": -75.7116997,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Kennett Square, Chester County, Pennsylvania, United States"
+ },
+ "q:kettering, oh": {
+  "lat": 39.6895036,
+  "lon": -84.1688274,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Kettering, Montgomery County, Ohio, United States"
+ },
+ "q:linden, tn": {
+  "lat": 35.6172918,
+  "lon": -87.8394705,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Linden, Perry County, Middle Tennessee, Tennessee, 37096, United States"
+ },
+ "q:lutcher, la": {
+  "lat": 30.0404796,
+  "lon": -90.6989797,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Lutcher, Saint James Parish, Louisiana, 70071, United States"
+ },
+ "q:marcola, or": {
+  "lat": 44.1722212,
+  "lon": -122.8606374,
+  "house": false,
+  "type": "place/village",
+  "display": "Marcola, Lane County, Oregon, 97454, United States"
+ },
+ "q:mound house, nv": {
+  "lat": 39.212239,
+  "lon": -119.6758129,
+  "house": false,
+  "type": "place/village",
+  "display": "Mound House, Lyon County, Nevada, United States"
+ },
+ "q:osseo, mi": {
+  "lat": 41.885881,
+  "lon": -84.544117,
+  "house": false,
+  "type": "place/village",
+  "display": "Osseo, Jefferson Township, Hillsdale County, Michigan, United States"
+ },
+ "q:parsonsfield, me": {
+  "lat": 43.8065208,
+  "lon": -70.8869006,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Parsonsfield, York County, Maine, 04047, United States"
+ },
+ "q:paw paw, mi": {
+  "lat": 42.2178171,
+  "lon": -85.8911246,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Paw Paw, Van Buren County, Michigan, United States"
+ },
+ "q:pelham, ga": {
+  "lat": 31.1276849,
+  "lon": -84.1518466,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Pelham, Mitchell County, Georgia, United States"
+ },
+ "q:plum, pa": {
+  "lat": 40.5003457,
+  "lon": -79.7494911,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Plum, Allegheny County, Pennsylvania, 15239, United States"
+ },
+ "q:riverdale, ga": {
+  "lat": 33.5726113,
+  "lon": -84.4132594,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Riverdale, Clayton County, Georgia, United States"
+ },
+ "q:san simon, az": {
+  "lat": 32.2665117,
+  "lon": -109.2270613,
+  "house": false,
+  "type": "place/village",
+  "display": "San Simon, Cochise County, Arizona, United States"
+ },
+ "q:st. louis, mo": {
+  "lat": 38.6254063,
+  "lon": -90.190009,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Saint Louis, Missouri, United States"
+ },
+ "q:twin bridges, mt": {
+  "lat": 45.54437,
+  "lon": -112.331112,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Twin Bridges, Madison County, Montana, United States"
+ },
+ "q:wills point, tx": {
+  "lat": 32.7092955,
+  "lon": -96.0083018,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Wills Point, Van Zandt County, Texas, United States"
+ },
+ "q:winder, ga": {
+  "lat": 33.9919085,
+  "lon": -83.7184368,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Winder, Barrow County, Georgia, United States"
+ }
+}
