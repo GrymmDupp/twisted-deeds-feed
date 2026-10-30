@@ -1,7 +1,7 @@
 {
  "listings": {
   "arkport-church": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:26+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Residential.com)",
@@ -88,7 +88,7 @@
    "url": "https://www.residential.com/l/1-West-Ave-Arkport-NY-14807-50b67d1697"
   },
   "asbury-cemetery": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Residential.com)",
@@ -175,7 +175,7 @@
    "url": "https://www.residential.com/l/226-N-WALNUT-St-Wilmington-DE-19801-f9b05585b1"
   },
   "ashton-bar": {
-   "checked_at": "2026-10-30T20:57:02+00:00",
+   "checked_at": "2026-10-30T21:42:36+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Residential.com)",
@@ -262,13 +262,13 @@
    "url": "https://www.residential.com/l/417-Main-St-Ashton-ID-83420-a472f79cd3"
   },
   "ashwood-fire": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:28+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": ""
   },
   "auburn-farm": {
-   "checked_at": "2026-10-30T20:56:53+00:00",
+   "checked_at": "2026-10-30T21:42:30+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (HomeFront)",
@@ -285,7 +285,7 @@
    "url": "https://www.homefront.com/homes/va/brandy-station/property/17736-auburn-rd-abdcbc28-e690-387e-b9bf-e9732210d781"
   },
   "barrington-church": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Bean Group)",
@@ -372,47 +372,25 @@
    "url": "https://beangroup.com/new-hampshire/barrington/8-eastern-avenue/"
   },
   "bayside-cape": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:25+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.redfin.com/NY/Bayside/2340-205th-St-11360/home/20843700"
   },
   "bayview-hospital": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Bay View General Hospital (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "bayview-hospital-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/bayview-hospital.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/bayview-hospital.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:25+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.redfin.com/WA/Port-Townsend/415-Harrison-St-98368/home/40083022"
   },
   "belden-town-ca": {
-   "checked_at": "2026-10-30T21:14:37+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Belden Town (entire Gold Rush settlement) (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "belden-town-ca-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/belden-town-ca.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/belden-town-ca.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:43:12+00:00",
+   "images": [],
    "lastChecked": "2026-10-30",
    "url": "https://www.beldentownforsale.com/"
   },
   "belton-opera": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:28+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Residential.com)",
@@ -499,116 +477,61 @@
    "url": "https://www.residential.com/l/202-S-Main-St-Belton-TX-76513-1d6dd23a7e"
   },
   "bolem-house": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Thomas Bolem House (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "bolem-house-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/bolem-house.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/bolem-house.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:25+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.exprealty.com/georgetown-sc-real-estate/not-within-a-subdivision/719-prince-st"
   },
   "boxshop-track": {
-   "checked_at": "2026-10-30T20:56:53+00:00",
+   "checked_at": "2026-10-30T21:42:29+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": ""
   },
   "brook-forest-inn-evergreen": {
-   "checked_at": "2026-10-30T21:09:39+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Brook Forest Inn (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "brook-forest-inn-evergreen-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/brook-forest-inn-evergreen.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/brook-forest-inn-evergreen.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:43:07+00:00",
+   "images": [],
    "lastChecked": "2026-10-30",
    "url": "https://www.propertyshark.com/cre/commercial-property/us/co/evergreen/brook-forest-inn/"
   },
   "brooklyn-castle": {
-   "checked_at": "2026-10-30T20:56:44+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Brooklyn Centre Castle (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "brooklyn-castle-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/brooklyn-castle.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/brooklyn-castle.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:21+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.zillow.com/homedetails/3860-W-44th-St-Cleveland-OH-44109/33349250_zpid/"
   },
   "browns-funeral": {
-   "checked_at": "2026-10-30T20:56:44+00:00",
+   "checked_at": "2026-10-30T21:42:22+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.commercialcafe.com/commercial-property/us/mi/grand-rapids/brown-s-funeral-home/"
   },
   "brownsville-road-house": {
-   "checked_at": "2026-10-30T21:02:26+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Brownsville Road House ('The Demon of Brownsville Road') (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "brownsville-road-house-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/brownsville-road-house.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/brownsville-road-house.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:55+00:00",
+   "images": [],
    "lastChecked": "2026-10-30",
    "url": "https://global.bhhs.com/commercial-for-sale/3406-Brownsville-Rd-Brentwood-PA-15227-436100739"
   },
   "buffalo-bodega": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Buffalo-Bodega (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "buffalo-bodega-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/buffalo-bodega.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/buffalo-bodega.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:53+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.hegg.com/realestate/details/139170659/662-main-deadwood-sd-57732"
   },
   "bunny-ranch": {
-   "checked_at": "2026-10-30T20:56:44+00:00",
+   "checked_at": "2026-10-30T21:42:22+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.rgj.com/story/news/money/business/2026/09/04/moonlite-bunny-ranch-sale-dennis-hof/91600354007/"
   },
   "byron-campus": {
-   "checked_at": "2026-10-30T20:56:53+00:00",
+   "checked_at": "2026-10-30T21:42:30+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.journalgazette.net/local/local-government/former-byron-hospital-property-up-for-online-auction-by-allen-county-commissioners/article_591bf756-477f-4392-aa60-6c36c2352911.html"
   },
   "castle-rock": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:55+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Century 21 Commercial)",
@@ -625,30 +548,19 @@
    "url": "https://commercial.century21.com/property/n2690-castle-rock-rd-st-ignace-mi-49781-REN036025650"
   },
   "cavendish-school": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Duttonsville Schoolhouse (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "cavendish-school-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/cavendish-school.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/cavendish-school.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:28+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": ""
   },
   "cbrown-funeral": {
-   "checked_at": "2026-10-30T20:56:44+00:00",
+   "checked_at": "2026-10-30T21:42:22+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.crexi.com/properties/2242223/ohio-former-c-brown-funeral-home"
   },
   "cedarcroft": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:25+00:00",
    "images": [
     {
      "author": "Ned Goode, Photographer,",
@@ -681,13 +593,13 @@
    "url": ""
   },
   "cedartown-church": {
-   "checked_at": "2026-10-30T20:56:56+00:00",
+   "checked_at": "2026-10-30T21:42:31+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": ""
   },
   "central-virginia": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (dgs.virginia.gov)",
@@ -764,36 +676,25 @@
    "url": "https://property.jll.com/listings/386-acre-riverfront-redevelopment-opportunity-521-colony-rd-not-tracked-virginia"
   },
   "chancellor-house": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Chancellor House (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "chancellor-house-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/chancellor-house.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/chancellor-house.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:26+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.redfin.com/WV/Parkersburg/904-Juliana-St-26101/home/128464729"
   },
   "chesterfield-crematory": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": ""
   },
   "cielo-drive-estate": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.coldwellbanker.com/ca/los-angeles/10066-cielo-dr/lid-P00800000HECKQNyFlTDdWvPabgqeBl03T8z4TXs"
   },
   "claycity-church": {
-   "checked_at": "2026-10-30T20:57:02+00:00",
+   "checked_at": "2026-10-30T21:42:36+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Residential.com)",
@@ -880,7 +781,7 @@
    "url": "https://www.residential.com/l/14286-Old-Highway-50-Clay-City-IL-62824-bd226d868c"
   },
   "clearfield-church": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Residential.com)",
@@ -967,30 +868,19 @@
    "url": "https://www.residential.com/l/564-S-800-E-Clearfield-UT-84015-ff2029e2b0"
   },
   "corunna-funeral": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:28+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.showcase.com/302-w-corunna-ave-corunna-mi-48817/26846968/"
   },
   "creel-house": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Creel House (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "creel-house-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/creel-house.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/creel-house.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:26+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.homes.com/news/exclusive-iconic-creel-house-from-stranger-things-hits-market-in-georgia-for-1-7-million/775853311/"
   },
   "decatur-funeral": {
-   "checked_at": "2026-10-30T20:56:56+00:00",
+   "checked_at": "2026-10-30T21:42:31+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (baltimorehousehunters.com)",
@@ -1017,7 +907,7 @@
    "url": "https://www.baltimorehousehunters.com/homes/4117-Decatur-Multiple-Lots-Street/PHILADELPHIA/PA/19136/173310193/"
   },
   "deercreek-homestead": {
-   "checked_at": "2026-10-30T20:56:56+00:00",
+   "checked_at": "2026-10-30T21:42:31+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (homeslandcountrypropertyforsale.com)",
@@ -1104,7 +994,7 @@
    "url": "https://homeslandcountrypropertyforsale.com/sustainable-properties/real-estate-listings/tennessee/2071-deer-creek-rd-linden-tennessee-37096-7003/"
   },
   "deerwood-golf": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:28+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Residential.com)",
@@ -1191,7 +1081,7 @@
    "url": "https://www.residential.com/l/24228-State-Highway-210-Deerwood-MN-56444-74ad9b603c"
   },
   "deshler-foursquare": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:25+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Coldwell Banker)",
@@ -1208,100 +1098,67 @@
    "url": "https://www.coldwellbanker.com/oh/columbus/123-e-deshler-ave/lid-P00800000HHoiPYpky2vR9wk8vE3aLwZUF2N3Dja"
   },
   "duncan-church": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.wandamooney.com/property/51-duncan-new-bedford-ma-02745/102558061/"
   },
   "dundalk-funeral": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:25+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.commercialcafe.com/commercial-property/us/md/dundalk/2134-willow-spring-road/"
   },
   "edwardsburg-farm": {
-   "checked_at": "2026-10-30T20:57:02+00:00",
+   "checked_at": "2026-10-30T21:42:36+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.landsearch.com/properties/27398-us-12-edwardsburg-mi-49112/5618705"
   },
   "eight-mile-club": {
-   "checked_at": "2026-10-30T20:56:44+00:00",
+   "checked_at": "2026-10-30T21:42:21+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.commercialcafe.com/commercial-property/us/mi/detroit/former-adult-entertainment-club/"
   },
   "ellis-funeral": {
-   "checked_at": "2026-10-30T20:56:44+00:00",
+   "checked_at": "2026-10-30T21:42:21+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.commercialcafe.com/commercial-property/us/mi/detroit/ellis-funeral-home/"
   },
   "eloise-complex": {
-   "checked_at": "2026-10-30T20:56:44+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Eloise Complex (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "eloise-complex-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/eloise-complex.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/eloise-complex.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:22+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.commercialcafe.com/commercial-property/us/mi/westland/eloise-complex/"
   },
   "emmons-mansion": {
-   "checked_at": "2026-10-30T20:56:44+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Emmons Mansion (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "emmons-mansion-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/emmons-mansion.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/emmons-mansion.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:21+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.lansingstatejournal.com/story/news/local/2026/10/20/historic-st-johns-mansion-for-sale-comes-with-history-ghost-stories/92251369007/"
   },
   "eppstein-house": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Eppstein House (Frank Lloyd Wright Usonian, The Acres) (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "eppstein-house-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/eppstein-house.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/eppstein-house.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:55+00:00",
+   "images": [],
    "lastChecked": "2026-10-30",
    "url": "https://www.coldwellbanker.com/mi/galesburg/11090-hawthorne-dr/lid-P00800000HH8ebqnotq5w4jfecbtBpV4Dts3UbRV"
   },
   "fairfield-funeral": {
-   "checked_at": "2026-10-30T20:57:02+00:00",
+   "checked_at": "2026-10-30T21:42:36+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://realmo.com/listing/4009-lloyd-noland-pkwy-fairfield-al-35064/20194090"
   },
   "fairport-funeral": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:28+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": ""
   },
   "fantasy-island-grand-island": {
-   "checked_at": "2026-10-30T21:02:29+00:00",
+   "checked_at": "2026-10-30T21:42:55+00:00",
    "images": [
     {
      "author": "anthony dyer",
@@ -1321,13 +1178,13 @@
    "url": "https://www.huntrealestate.com/realestate/details/75381646/2400-grand-island-boulevard-grand-island-ny-14072"
   },
   "farallones-fire": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:28+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://hoodline.com/2026/10/fire-gutted-oceanview-shack-with-squatters-sells-for-555k-106k-over-ask/"
   },
   "farrand-hall": {
-   "checked_at": "2026-10-30T20:57:17+00:00",
+   "checked_at": "2026-10-30T21:42:55+00:00",
    "images": [
     {
      "author": "Jjameshagan",
@@ -1373,7 +1230,7 @@
    "url": "https://www.coldwellbankerhomes.com/mi/colon/58522-farrand-rd/pid_73134158/"
   },
   "fobes-ranch": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:55+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (garyelminoufi.com)",
@@ -1460,41 +1317,19 @@
    "url": "https://www.coldwellbankerhomes.com/ca/mountain-center/55101-state-hwy-74/pid_73049140/"
   },
   "forest-hills-auction": {
-   "checked_at": "2026-10-30T20:56:53+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Forest Hills Colonial (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "forest-hills-auction-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/forest-hills-auction.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/forest-hills-auction.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:30+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.treasury.gov/auctions/treasury/rp/69foresthills.shtml"
   },
   "former-funeral-home-new": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Former funeral home, New Florence (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "former-funeral-home-new-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/former-funeral-home-new.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/former-funeral-home-new.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:55+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.coldwellbankerhomes.com/st-louis/330-milton-st/pid_73739593/"
   },
   "fossores-chapter-house": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:55+00:00",
    "images": [
     {
      "author": "Andrew Jameson",
@@ -1514,42 +1349,31 @@
    "url": "https://www.redfin.com/MI/Jackson/505-Wildwood-Ave-49201/home/202109763"
   },
   "frisco-bagley-mill": {
-   "checked_at": "2026-10-30T21:05:06+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Frisco-Bagley Mill (near Animas Forks ghost town) (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "frisco-bagley-mill-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/frisco-bagley-mill.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/frisco-bagley-mill.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:43:07+00:00",
+   "images": [],
    "lastChecked": "2026-10-30",
    "url": "https://global.bhhs.com/homes-for-sale/820-County-Road-9-Silverton-CO-81433-440182363"
   },
   "gardendale-churchyard": {
-   "checked_at": "2026-10-30T20:57:02+00:00",
+   "checked_at": "2026-10-30T21:42:36+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.propertyshark.com/cre/commercial-property/us/al/gardendale/7026-church-rd-gardendale-al-35071-1/"
   },
   "gering-umc": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://realmo.com/listing/900-o-st-gering-ne-69341/13172206"
   },
   "gratiot-funeral": {
-   "checked_at": "2026-10-30T20:56:44+00:00",
+   "checked_at": "2026-10-30T21:42:21+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": ""
   },
   "guntown-mountain": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:55+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (eXp Commercial)",
@@ -1576,13 +1400,13 @@
    "url": "https://www.expcommercial.com/listings/101-huckleberry-knob-rd-cave-city-ky-187072850"
   },
   "hallsferry-funeral-church": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": ""
   },
   "halltown-funeral": {
-   "checked_at": "2026-10-30T20:56:56+00:00",
+   "checked_at": "2026-10-30T21:42:31+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (enggarcia.com)",
@@ -1609,7 +1433,7 @@
    "url": "https://www.enggarcia.com/homes/256-Halltown-Road/HARPERS-FERRY/WV/25425/157016896/"
   },
   "hangten-golf": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:28+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Residential.com)",
@@ -1696,7 +1520,7 @@
    "url": "https://www.residential.com/l/239-96th-St-Stone-Harbor-NJ-08247-55dbd46ebe"
   },
   "hatch-adobe": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Coldwell Banker)",
@@ -1713,7 +1537,7 @@
    "url": "https://www.coldwellbanker.com/nm/hatch/105-n-jose-serna-st/lid-P00800000HDJyQrRvKiN1dURK7QI1lFz2Jr2bARK"
   },
   "haunted-hotel-new-orleans": {
-   "checked_at": "2026-10-30T21:06:18+00:00",
+   "checked_at": "2026-10-30T21:42:55+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (nar.realtor)",
@@ -1730,7 +1554,7 @@
    "url": "https://accesshospitality.net/ads/623-ursuline-st-the-haunted-hotel/"
   },
   "hawkins-church": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:28+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (uccommercialproperties.com)",
@@ -1817,87 +1641,43 @@
    "url": "https://uccommercialproperties.com/real-estate-listings/288-county-road-3650/"
   },
   "heritage-baptist": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.cityfeet.com/cont/listing/lexington-ky/cs42473333"
   },
   "hermitage": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [
-    {
-     "caption": "Illustration of The Hermitage (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "hermitage-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hermitage.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hermitage.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:25+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.redfin.com/SC/Murrells-Inlet/563-Chandler-Ave-29576/home/124135814"
   },
   "hilo-sanctuary": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [
-    {
-     "caption": "Illustration of House of Light (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "hilo-sanctuary-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hilo-sanctuary.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hilo-sanctuary.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:53+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.commercialcafe.com/commercial-property/us/hi/hilo/house-of-light-sanctuary/"
   },
   "holliday-house": {
-   "checked_at": "2026-10-30T20:56:43+00:00",
-   "images": [
-    {
-     "caption": "Illustration of 1895 Holliday House (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "holliday-house-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/holliday-house.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/holliday-house.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:19+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.zillow.com/homedetails/619-Willcox-Ave-Marion-SC-29571/462376109_zpid/"
   },
   "houston-funeral": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:25+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.commercialcafe.com/commercial-property/us/tx/houston/8011-w-montgomery-premium-funeral-home-property-redevelopmnt/"
   },
   "hudson-evans": {
-   "checked_at": "2026-10-30T20:56:44+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Hudson-Evans House (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "hudson-evans-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hudson-evans.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hudson-evans.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:21+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.zillow.com/homedetails/79-Alfred-St-Detroit-MI-48201/462316532_zpid/"
   },
   "hyde-house": {
-   "checked_at": "2026-10-30T20:56:53+00:00",
+   "checked_at": "2026-10-30T21:42:29+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Coldwell Banker)",
@@ -1914,75 +1694,31 @@
    "url": "https://www.coldwellbanker.com/oh/rushville/8488-main-st/lid-P00800000HGchV0HlsZy4ESLWlKgdt4kb2XfdMOw"
   },
   "ionia-prohibition": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Ionia Prohibition 'Speakeasy & Brothel' House (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "ionia-prohibition-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/ionia-prohibition.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/ionia-prohibition.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:55+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.remax-michigan.com/realestate/details/124822219/404-e-main-street-ionia-mi-48846"
   },
   "jackson-county-old-jail-kc": {
-   "checked_at": "2026-10-30T21:11:28+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Former Jackson County Detention Center block (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "jackson-county-old-jail-kc-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/jackson-county-old-jail-kc.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/jackson-county-old-jail-kc.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:43:12+00:00",
+   "images": [],
    "lastChecked": "2026-10-30",
    "url": "https://www.kctv5.com/2026/10/26/former-jackson-county-jail-downtown-block-up-sale/"
   },
   "jacob-ten-broeck-house": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Jacob Ten Broeck House (HGTV 'Would You Buy This Haunted House?' Kingston stop - match unconfirmed) (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "jacob-ten-broeck-house-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/jacob-ten-broeck-house.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/jacob-ten-broeck-house.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:55+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.coldwellbanker.com/ny/kingston/169-albany-ave/lid-P00800000HCTrY14lz7rChHNh8ip5ItbudQfUDD7"
   },
   "judge-oliver-house": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Judge Oliver house (Midnight in the Garden of Good and Evil link) (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "judge-oliver-house-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/judge-oliver-house.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/judge-oliver-house.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:55+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.coldwellbankerhomes.com/ga/tybee-island/1105-lovell-ave/pid_72466279/"
   },
   "junction-funeral": {
-   "checked_at": "2026-10-30T20:57:02+00:00",
+   "checked_at": "2026-10-30T21:42:36+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Residential.com)",
@@ -2069,7 +1805,7 @@
    "url": "https://www.residential.com/l/110-W-2nd-St-Junction-City-AR-71749-2db9f2db3f"
   },
   "kck-parsonage": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [
     {
      "author": "Mwkruse",
@@ -2089,30 +1825,19 @@
    "url": "https://www.trophypa.com/p/1424-S-55th-Street-Kansas-City-KS-66106/dmgid_187379806"
   },
   "kendallville-carnegie": {
-   "checked_at": "2026-10-30T20:57:17+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Former Kendallville Carnegie Library (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "kendallville-carnegie-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/kendallville-carnegie.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/kendallville-carnegie.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:55+00:00",
+   "images": [],
    "lastChecked": "2026-10-30",
    "url": "https://www.howardhanna.com/property/124-east-rush-street-kendallville-in-46755-180001101307"
   },
   "labelle-camp": {
-   "checked_at": "2026-10-30T20:56:53+00:00",
+   "checked_at": "2026-10-30T21:42:29+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.coldwellbanker.com/oh/franklin/3235-us-route-52/lid-P00800000HIy4zC23RXu2MV4pgLABAKF12ZEew7g"
   },
   "lagrange-church": {
-   "checked_at": "2026-10-30T20:56:56+00:00",
+   "checked_at": "2026-10-30T21:42:31+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Residential.com)",
@@ -2199,65 +1924,43 @@
    "url": "https://www.residential.com/l/3664-Fields-Station-Rd-La-Grange-NC-28551-242a3b3061"
   },
   "lawrence-farm": {
-   "checked_at": "2026-10-30T20:56:53+00:00",
+   "checked_at": "2026-10-30T21:42:30+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.landsearch.com/properties/54100-48th-ave-lawrence-mi-49064/5608010"
   },
   "lemp-mansion": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Lemp Mansion (Restaurant & Inn) (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "lemp-mansion-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/lemp-mansion.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/lemp-mansion.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:53+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.lempmansion.com/news.htm"
   },
   "lumber-baron-inn-denver": {
-   "checked_at": "2026-10-30T21:06:24+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Lumber Baron Inn (John Mouat House) (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "lumber-baron-inn-denver-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/lumber-baron-inn-denver.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/lumber-baron-inn-denver.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:55+00:00",
+   "images": [],
    "lastChecked": "2026-10-30",
    "url": "https://www.loopnet.com/Listing/2555-W-37th-Ave-Denver-CO/35352223/"
   },
   "lutcher-funeral": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://myelisting.com/listing/239748/2208-jefferson-highway-lutcher-la-70071/"
   },
   "macabre-mansion": {
-   "checked_at": "2026-10-30T20:56:44+00:00",
+   "checked_at": "2026-10-30T21:42:21+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.redfin.com/AZ/Sonoita/92-Cayuse-Trl-85637/home/122034905"
   },
   "mandan-michael": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.showcase.com/210-5th-ave-nw-mandan-nd-58554/35215086/"
   },
   "marbleton-chapel": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Xome)",
@@ -2274,13 +1977,13 @@
    "url": "https://mrcooper.xome.com/homes-for-sale/3-WINKELMAN-Avenue-Big-Piney-WY-83113-426213767"
   },
   "marcola-school": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:28+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": ""
   },
   "merced-funeral": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:25+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (theknightgroupla.com)",
@@ -2337,7 +2040,7 @@
    "url": "https://theknightgroupla.com/ca/merced/901-w-main-street/"
   },
   "middle-island-light": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:55+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Highrises.com)",
@@ -2394,24 +2097,13 @@
    "url": "https://www.highrises.com/realestateandhomes-detail/Middle-Is_Alpena_MI_49707_M98730-31858"
   },
   "moline-carnegie": {
-   "checked_at": "2026-10-30T20:57:17+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Former Moline Public Library (1904 Carnegie) (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "moline-carnegie-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/moline-carnegie.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/moline-carnegie.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:55+00:00",
+   "images": [],
    "lastChecked": "2026-10-30",
    "url": "https://www.coldwellbankerhomes.com/chicago-milwaukee/504-17th-st/pid_73406034/"
   },
   "mulberry-cemetery": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:28+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Residential.com)",
@@ -2498,7 +2190,7 @@
    "url": "https://www.residential.com/l/Ebenezer-Church-Road-Winder-GA-30680-935a64f098"
   },
   "newmilford-church": {
-   "checked_at": "2026-10-30T20:57:02+00:00",
+   "checked_at": "2026-10-30T21:42:36+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Residential.com)",
@@ -2585,19 +2277,19 @@
    "url": "https://www.residential.com/l/685-Kent-Rd-New-Milford-CT-06755-dd5e3c480b"
   },
   "newsmyrna-funeral": {
-   "checked_at": "2026-10-30T20:57:02+00:00",
+   "checked_at": "2026-10-30T21:42:36+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": ""
   },
   "notre-dame-mission": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.crexi.com/properties/2468668/montana-404-north-main-street"
   },
   "oakhill": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:25+00:00",
    "images": [
     {
      "author": "Andrew Jameson",
@@ -2617,7 +2309,7 @@
    "url": "https://www.trulia.com/home/410-n-eagle-st-marshall-mi-49068-74668638"
   },
   "octagon-mansion": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:28+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Coldwell Banker)",
@@ -2634,7 +2326,7 @@
    "url": "https://www.coldwellbanker.com/va/wytheville/585-w-main-st/lid-P00800000HCr8mSlTPXsoBgC48GgCs1HkGyCnk9X"
   },
   "old-henrico-county": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:55+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (commonwealthcommercial.com)",
@@ -2721,7 +2413,7 @@
    "url": "https://commonwealthcommercial.com/property/2125-e-main-street/"
   },
   "old-pearce-mercantile": {
-   "checked_at": "2026-10-30T21:05:05+00:00",
+   "checked_at": "2026-10-30T21:43:07+00:00",
    "images": [
     {
      "author": "Marine 69-71",
@@ -2741,7 +2433,7 @@
    "url": "https://www.coldwellbankerhomes.com/az/pearce/905-s-ghost-town-trail/pid_73174721/"
   },
   "osseo-farm": {
-   "checked_at": "2026-10-30T20:57:02+00:00",
+   "checked_at": "2026-10-30T21:42:36+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Michigan Whitetail Properties)",
@@ -2768,7 +2460,7 @@
    "url": "https://michiganwhitetailproperties.com/michigan-land-for-sale/country-home-for-sale-in-hillsdale-county-8-03-acres-property-id-23579/"
   },
   "pawpaw-farm": {
-   "checked_at": "2026-10-30T20:56:53+00:00",
+   "checked_at": "2026-10-30T21:42:30+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Residential.com)",
@@ -2855,19 +2547,19 @@
    "url": "https://www.residential.com/l/35553-M-43-Paw-Paw-MI-49079-e1955c43e7"
   },
   "peanut-farm": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.crexi.com/properties/2167386/alaska-5227-old-seward-highway"
   },
   "pelham-jail": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:25+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.jromerogroup.com/properties/ga/historic-1920-jail-in-old-pelham-ga-unique-opportunity/1124411/"
   },
   "petes-tavern-nampa": {
-   "checked_at": "2026-10-30T21:12:10+00:00",
+   "checked_at": "2026-10-30T21:43:12+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (pacificcontinentalrealty.com)",
@@ -2884,70 +2576,37 @@
    "url": "https://www.pacificcontinentalrealty.com/listing/11-12th-avenue-nampa-id-83651-11-12th-avenue-s/"
   },
   "philip-knight-house": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Philip Knight House (Salem Witch Trials accuser's home) (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "philip-knight-house-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/philip-knight-house.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/philip-knight-house.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:53+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.coldwellbanker.com/ma/middleton/20-east-st/lid-P00800000HFaR2hEM1yyzhixgP0XahBeTluswxIt"
   },
   "phoenix-funeral": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Allanson-Glanville-Tappan Funeral Home (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "phoenix-funeral-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/phoenix-funeral.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/phoenix-funeral.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:25+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.commercialcafe.com/commercial-property/us/ny/phoenix/431-main-st/"
   },
   "pinckney-inn": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Pinckney Inn (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "pinckney-inn-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/pinckney-inn.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/pinckney-inn.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:25+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.zillow.com/homedetails/110-Pinckney-St-Chester-SC-29706/70215748_zpid/"
   },
   "pirates-park": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:55+00:00",
    "images": [],
    "lastChecked": "2026-10-30",
    "url": "https://land.us/michigan/genesee-county/flint/4175-miller-rd/"
   },
   "plum-funeral": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:25+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": ""
   },
   "poteau-church": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Residential.com)",
@@ -3034,24 +2693,13 @@
    "url": "https://www.residential.com/l/21920-Branson-Rd-Poteau-OK-74953-ec9fc96511"
   },
   "pruden-house": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [
-    {
-     "caption": "Illustration of James N. Pruden House (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "pruden-house-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/pruden-house.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/pruden-house.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:25+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://circaoldhouses.com/property/the-james-n-pruden-house/"
   },
   "ridge-italianate": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:25+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Coldwell Banker)",
@@ -3068,30 +2716,19 @@
    "url": "https://www.coldwellbanker.com/wv/new-cumberland/900-ridge-ave/lid-P00800000GyFZDKkVDjbAu8hEE7SjB73DIny41bO"
   },
   "rifkin-house": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Rifkin House (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "rifkin-house-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/rifkin-house.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/rifkin-house.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:25+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.newsday.com/real-estate/joel-rifkin-house-sold-yz1msnh7"
   },
   "rubio-friends": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.redfin.com/IA/Rubio/394-Prost-St-52585/home/81848080"
   },
   "sansimon-retreat": {
-   "checked_at": "2026-10-30T20:56:55+00:00",
+   "checked_at": "2026-10-30T21:42:31+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Survival Realty)",
@@ -3178,7 +2815,7 @@
    "url": "https://www.survivalrealty.com/listings/off-grid-arizona-retreat-with-solar-power-guest-house-spacious-utility-building/"
   },
   "seymour-funeral": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:25+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Briggs Freeman Sotheby's)",
@@ -3265,7 +2902,7 @@
    "url": "https://www.briggsfreeman.com/property/200-s-cedar-street-seymour-tx-76380/108483781/"
   },
   "sheldon-brick": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Residential.com)",
@@ -3352,13 +2989,13 @@
    "url": "https://www.residential.com/l/190-E-Grove-St-Sheldon-IL-60966-f24787a777"
   },
   "skillagalee-gravelly": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:55+00:00",
    "images": [],
    "lastChecked": "2026-10-30",
    "url": "https://a2forsale.remax-michigan.com/realestate/details/140886068/00-gravelly-shoal-lighthouse-saginaw-mi-48703"
   },
   "sloane-house": {
-   "checked_at": "2026-10-30T20:56:53+00:00",
+   "checked_at": "2026-10-30T21:42:29+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Coldwell Banker)",
@@ -3375,41 +3012,19 @@
    "url": "https://www.coldwellbanker.com/oh/sandusky/403-e-adams-st/lid-P00800000HECFy9Js21nLHvaFBc3YFO2Q6MhbpVl"
   },
   "southmain-school": {
-   "checked_at": "2026-10-30T20:56:56+00:00",
-   "images": [
-    {
-     "caption": "Illustration of South Main School (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "southmain-school-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/southmain-school.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/southmain-school.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:31+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://bgindependentmedia.org/old-south-main-school-up-for-sale-history-buffs-hope-its-future-doesnt-involve-bulldozer/"
   },
   "st-mark-evanston": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [
-    {
-     "caption": "Illustration of St. Mark Church (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "st-mark-evanston-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/st-mark-evanston.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/st-mark-evanston.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:28+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://hoodline.com/2026/10/historic-evanston-church-hits-auction-block-after-21-8m-revival-stalls/"
   },
   "state-theatre": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:26+00:00",
    "images": [
     {
      "author": "Wikipedia Loves Art participant \"xenializ\"",
@@ -3429,7 +3044,7 @@
    "url": ""
   },
   "stover-cabin": {
-   "checked_at": "2026-10-30T20:56:44+00:00",
+   "checked_at": "2026-10-30T21:42:21+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Residential.com)",
@@ -3516,104 +3131,49 @@
    "url": "https://www.residential.com/l/5730-Schuss-Mountain-Rd-Bellaire-MI-49615-2e604c8241"
   },
   "thatch-house": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Earl Young's Thatch House (Young's first house) (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "thatch-house-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/thatch-house.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/thatch-house.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:55+00:00",
+   "images": [],
    "lastChecked": "2026-10-30",
    "url": "https://robbreport.com/listing/304-park-ave-charlevoix-mi-49720/"
   },
   "trails-end": {
-   "checked_at": "2026-10-30T20:56:53+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Trails End (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "trails-end-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/trails-end.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/trails-end.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:30+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.daytondailynews.com/tncms/asset/editorial/710d86e1-c843-5aa4-9f1c-9d861729c561"
   },
   "trilby-baptist": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": ""
   },
   "twelve-tribes-ithaca": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Twelve Tribes Ithaca Community Lodge (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "twelve-tribes-ithaca-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/twelve-tribes-ithaca.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/twelve-tribes-ithaca.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:55+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.coldwellbanker.com/ny/ithaca/119-3rd-st/lid-P00800000H65eNPX6xMkbgnn1m0WxJOB6vINevUM"
   },
   "verdier-mansion-sf": {
-   "checked_at": "2026-10-30T21:08:24+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Verdier Mansion ('House of the Grand Passion') (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "verdier-mansion-sf-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/verdier-mansion-sf.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/verdier-mansion-sf.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:43:07+00:00",
+   "images": [],
    "lastChecked": "2026-10-30",
    "url": "https://robbreport.com/listing/1001-vallejo-st-san-francisco-ca-94133/"
   },
   "walter-funeral": {
-   "checked_at": "2026-10-30T20:56:44+00:00",
+   "checked_at": "2026-10-30T21:42:21+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.commercialcafe.com/commercial-property/us/oh/toledo/walter-funeral-home/"
   },
   "wareham-trump": {
-   "checked_at": "2026-10-30T20:56:53+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Wareham Place House (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "wareham-trump-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/wareham-trump.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/wareham-trump.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:30+00:00",
+   "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.nytimes.com/2026/09/12/nyregion/trumps-childhood-home-sells-queens.html"
   },
   "watertown-funeral": {
-   "checked_at": "2026-10-30T20:56:51+00:00",
+   "checked_at": "2026-10-30T21:42:25+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Residential.com)",
@@ -3700,24 +3260,13 @@
    "url": "https://www.residential.com/l/17321-Old-Rome-Rd-Watertown-NY-13601-bd6b5b5024"
   },
   "wheeler-mansion-orange": {
-   "checked_at": "2026-10-30T21:02:27+00:00",
-   "images": [
-    {
-     "caption": "Illustration of Wheeler Mansion (former Eastern Star Home) (not a photo)",
-     "credit": "Illustration by Twisted Deeds (not a photo)",
-     "era": "current",
-     "id": "wheeler-mansion-orange-i1",
-     "image_type": "illustration",
-     "rights": "illustration",
-     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/wheeler-mansion-orange.jpg",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/wheeler-mansion-orange.jpg"
-    }
-   ],
+   "checked_at": "2026-10-30T21:42:55+00:00",
+   "images": [],
    "lastChecked": "2026-10-30",
    "url": "https://www.coldwellbanker.com/ma/orange/75-e-main-st/lid-P00800000HBrO9rZUTCBuWDXIXIMHiaC96Dk6clE"
   },
   "willspoint-church": {
-   "checked_at": "2026-10-30T20:57:02+00:00",
+   "checked_at": "2026-10-30T21:42:36+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (Briggs Freeman Sotheby's)",
@@ -3804,19 +3353,19 @@
    "url": "https://www.briggsfreeman.com/property/21177-us-highway-80-highway-e-wills-point-tx-75169/109403181/"
   },
   "woodville-chapel": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": ""
   },
   "woonsocket-funeral": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:53+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.commercialcafe.com/commercial-property/us/ri/woonsocket/463-s-main-st/"
   },
   "zinc-collar-pad": {
-   "checked_at": "2026-10-30T20:57:16+00:00",
+   "checked_at": "2026-10-30T21:42:55+00:00",
    "images": [
     {
      "author": "JDNorry",
