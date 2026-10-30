@@ -169,6 +169,16 @@
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hermitage.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hermitage.jpg"
  },
+ "hilo-sanctuary": {
+  "caption": "Illustration of House of Light (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "hilo-sanctuary-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hilo-sanctuary.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hilo-sanctuary.jpg"
+ },
  "holliday-house": {
   "caption": "Illustration of 1895 Holliday House (not a photo)",
   "credit": "Illustration by Twisted Deeds (not a photo)",
@@ -318,6 +328,16 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/rifkin-house.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/rifkin-house.jpg"
+ },
+ "southmain-school": {
+  "caption": "Illustration of South Main School (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "southmain-school-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/southmain-school.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/southmain-school.jpg"
  },
  "st-mark-evanston": {
   "caption": "Illustration of St. Mark Church (not a photo)",

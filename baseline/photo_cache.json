@@ -1841,7 +1841,18 @@
   },
   "hilo-sanctuary": {
    "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of House of Light (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "hilo-sanctuary-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hilo-sanctuary.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hilo-sanctuary.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.commercialcafe.com/commercial-property/us/hi/hilo/house-of-light-sanctuary/"
   },
@@ -3365,7 +3376,18 @@
   },
   "southmain-school": {
    "checked_at": "2026-10-30T20:56:56+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of South Main School (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "southmain-school-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/southmain-school.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/southmain-school.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://bgindependentmedia.org/old-south-main-school-up-for-sale-history-buffs-hope-its-future-doesnt-involve-bulldozer/"
   },
