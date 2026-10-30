@@ -99,6 +99,32 @@ OPTIONAL = {"lat": (int, float), "lon": (int, float), "geo_precision": str, "geo
 PUBLIC_KEYS = set(REQUIRED) | set(OPTIONAL)
 PUBLIC_IMAGE_KEYS = {"id", "era", "caption", "source", "page", "rights"}
 SAMPLE_RIGHTS = {"permission", "cleared"}          # broker/press "reference" images are never samples
+# Listing photos (scripts/listing_photos.py, owner decision 2026-10-30): listing/alt-listing photos are HOTLINKED
+# with a credit and a link back to the page they came from (never rehosted); public-domain / CC photos are
+# downloaded into photos/ with licence + author. News photos are never used.
+PHOTO_IMAGE_KEYS = {"id", "era", "caption", "url", "source", "credit", "image_type", "rights", "author", "license", "license_url"}
+PHOTO_RIGHTS = {"hotlink", "public-domain", "cc", "illustration"}
+IMAGE_TYPES = {"listing", "alt-listing", "public-domain", "cc", "illustration"}
+PHOTO_BASE_URL = "https://grymmdupp.github.io/twisted-deeds-feed/photos/"
+
+
+def photo_errors(lid, im):
+    """Validation for one photo entry in the public feed."""
+    errs = []
+    if set(im) - PHOTO_IMAGE_KEYS:
+        errs.append(f"{lid}: photo {im.get('id')} has non-public keys {sorted(set(im) - PHOTO_IMAGE_KEYS)}")
+    t = im.get("image_type")
+    if t not in IMAGE_TYPES or im.get("rights") not in PHOTO_RIGHTS:
+        errs.append(f"{lid}: photo {im.get('id')} bad image_type/rights {t}/{im.get('rights')}")
+    if not str(im.get("url", "")).startswith("https://") and t != "illustration":
+        errs.append(f"{lid}: photo {im.get('id')} url must be https")
+    if not im.get("credit") or not str(im.get("source", "")).startswith("http"):
+        errs.append(f"{lid}: photo {im.get('id')} needs credit + source link")
+    if t in ("public-domain", "cc") and (not im.get("license") or not im.get("author") or not im["url"].startswith(PHOTO_BASE_URL)):
+        errs.append(f"{lid}: free-licence photo {im.get('id')} needs license, author and a copy in photos/")
+    if t in ("listing", "alt-listing") and str(im.get("url", "")).startswith(PHOTO_BASE_URL):
+        errs.append(f"{lid}: listing photo {im.get('id')} must be hotlinked, not rehosted")
+    return errs
 # Locked (full-file) fields. check_locked() fails the publish if any of these keys appears anywhere in the feed.
 LOCKED_KEYS = {"hook", "story", "history", "citation", "citations", "notes", "photo", "extra", "sources", "links",
                "timeline", "fullLore", "ownershipChain", "ownershipChainSummary", "ownership_chain",
@@ -301,10 +327,12 @@ def build(sheet_path):
         if hit is not None and hit < len(base["listings"]):
             merged.append((listings[hit]["id"], ours["id"]))
             listings[hit] = merge_dup(listings[hit], ours, mls_tokens)
+            listings[hit].setdefault("_sheetRows", []).append(row["row"])
             continue
         if ours["id"] in by_id:
             ours["id"] = "td-" + ours["id"]
         by_id[ours["id"]] = len(listings)
+        ours["_sheetRows"] = [row["row"]]
         listings.append(ours)
         added.append(ours["id"])
     for l in listings:  # schema v2: baseline / merged / Tier 1 listings default to Tier 1 Triple-D
@@ -430,7 +458,11 @@ def validate(base, listings):
             if l.get("geo_precision") not in ("address", "listing", "town") or not isinstance(l.get("geo_source"), str):
                 errs.append(f"{lid}: bad geo_precision/geo_source")
         for im in l.get("images", []):
-            if im.get("rights") not in set(e["image_rights"]) or im.get("era") not in set(e["image_era"]):
+            if "image_type" in im:
+                errs += photo_errors(lid, im)
+                if im.get("era") not in set(e["image_era"]):
+                    errs.append(f"{lid}: bad image era {im.get('id')}")
+            elif im.get("rights") not in set(e["image_rights"]) or im.get("era") not in set(e["image_era"]):
                 errs.append(f"{lid}: bad image {im.get('id')}")
     t1 = [l["priority"] for l in listings if l.get("tier") == 1]
     t2 = [l for l in listings if l.get("tier") == 2]
@@ -538,7 +570,8 @@ def split_access(l):
     samples = [{k: v for k, v in im.items() if k in PUBLIC_IMAGE_KEYS} for im in images
                if im.get("id") in sample_ids and im.get("rights") in SAMPLE_RIGHTS]
     pub = {k: l[k] for k in PUBLIC_KEYS if k in l and k not in ("summary", "loreTeaser", "images")}
-    pub.update(summary=summary, loreTeaser=teaser, images=samples)
+    photos = [{k: v for k, v in im.items() if k in PHOTO_IMAGE_KEYS} for im in (l.get("_photos") or [])]
+    pub.update(summary=summary, loreTeaser=teaser, images=photos + samples)
     pub = {k: pub[k] for k in sorted(pub, key=lambda k: (list(REQUIRED) + list(OPTIONAL)).index(k))}
 
     src, seen = [], set()
@@ -596,7 +629,9 @@ def check_locked(public, full_by_id, envelope_keys=()):
             if k in LOCKED_KEYS or k.startswith("_"):
                 errs.append(f"{lid}: locked key {k!r} in the public feed")
         for im in l.get("images", []):
-            if im.get("rights") not in SAMPLE_RIGHTS or set(im) - PUBLIC_IMAGE_KEYS:
+            if "image_type" in im:
+                errs += photo_errors(lid, im)
+            elif im.get("rights") not in SAMPLE_RIGHTS or set(im) - PUBLIC_IMAGE_KEYS:
                 errs.append(f"{lid}: image {im.get('id')} is not an approved sample")
         if len(l.get("summary", "")) > SUMMARY_MAX + 1 or len(l.get("loreTeaser", "")) > TEASER_MAX + 8:
             errs.append(f"{lid}: summary/loreTeaser longer than the preview limit")
@@ -611,10 +646,13 @@ def check_locked(public, full_by_id, envelope_keys=()):
             for x in sentences(t):
                 if len(x) >= 40 and x in rest:
                     errs.append(f"{lid}: locked text in public feed: {x[:60]}")
+        # a photo entry's own url/source (its credit link back) is allowed; any other locked link is a leak
+        rest_np = json.dumps({k: (v if k != "images" else [i for i in v if "image_type" not in i])
+                              for k, v in l.items() if k not in ("summary", "loreTeaser")}, ensure_ascii=False)
         for x in f["sources"]:
-            if x["url"] != l.get("url") and x["url"] in rest:
+            if x["url"] != l.get("url") and x["url"] in rest_np:
                 errs.append(f"{lid}: locked source URL in public feed: {x['url'][:60]}")
-        if f.get("photo") and f["photo"] in rest:
+        if f.get("photo") and f["photo"] in rest_np:
             errs.append(f"{lid}: locked photo URL in public feed")
     return errs
 
@@ -764,6 +802,52 @@ def add_coordinates(listings, seeds, geocoder):
     geocoder.save()
 
 
+SHEET_PHOTO_HEADER = "Listing Photos"
+BACKUP_DIR = "/workspace/twisted-deeds/_backups"
+
+
+def write_sheet_photos(sheet, row_map):
+    """Store each US row's photo URLs in the Master Sheet's "Listing Photos" column (openpyxl keeps formatting).
+    One line per photo: '<image_type> | <url> | <credit> | <source>'. Backs the sheet up first, only when it changes."""
+    import shutil
+    from copy import copy
+    from openpyxl import load_workbook
+    wb = load_workbook(sheet)
+    ws = wb["Master Sheet"]
+    hdr = {str(c.value).strip(): c.column for c in ws[1] if c.value}
+    col = hdr.get(SHEET_PHOTO_HEADER)
+    new_col = col is None
+    if new_col:
+        col = ws.max_column + 1
+        src = ws.cell(1, col - 1)
+        h = ws.cell(1, col, SHEET_PHOTO_HEADER)
+        h.font, h.fill, h.alignment, h.border = copy(src.font), copy(src.fill), copy(src.alignment), copy(src.border)
+        ws.column_dimensions[h.column_letter].width = 60
+    changed = new_col
+    for r, imgs in row_map.items():
+        v = "\n".join(f"{i['image_type']} | {i['url']} | {i['credit']} | {i['source']}" for i in imgs) or None
+        c = ws.cell(r, col)
+        if (c.value or None) != v:
+            c.value, changed = v, True
+            ref = ws.cell(r, col - 1 if new_col else max(1, col - 1))
+            c.font, c.border, c.fill = copy(ref.font), copy(ref.border), copy(ref.fill)
+            c.alignment = copy(ref.alignment).__class__(wrap_text=True, vertical="top")
+    if not changed:
+        return
+    os.makedirs(BACKUP_DIR, exist_ok=True)
+    ts = datetime.now().strftime("%Y%m%d-%H%M%S")
+    base = os.path.splitext(os.path.basename(sheet))[0]
+    shutil.copy2(sheet, os.path.join(BACKUP_DIR, f"{base}.{ts}.pre-photos.xlsx"))
+    csvp = os.path.splitext(sheet)[0] + ".csv"
+    if os.path.exists(csvp):
+        shutil.copy2(csvp, os.path.join(BACKUP_DIR, f"{base}.{ts}.pre-photos.csv"))
+    wb.save(sheet)
+    exporter = "/workspace/twisted-deeds/_build/export_master_csv.py"
+    if os.path.exists(exporter):
+        subprocess.run([sys.executable, exporter], check=False)
+    print(f"wrote {SHEET_PHOTO_HEADER} for {len(row_map)} sheet rows (backup in {BACKUP_DIR})")
+
+
 def listings_hash(listings):
     return hashlib.sha256(json.dumps(listings, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
 
@@ -778,6 +862,9 @@ def main():
     ap.add_argument("--check", action="store_true", help="build + validate only; write nothing")
     ap.add_argument("--full-out", default=FULL_OUT, help="PRIVATE full-file export (outside the repo)")
     ap.add_argument("--full-only", action="store_true", help="write only the private full file; no feed, no git")
+    ap.add_argument("--offline-photos", action="store_true", help="use the photo cache only (no page fetches)")
+    ap.add_argument("--refresh-photos", action="store_true", help="re-pull photos for every listing")
+    ap.add_argument("--no-sheet-photos", action="store_true", help="do not write the Listing Photos column")
     a = ap.parse_args()
     sheet = a.sheet or newest_sheet(DEFAULT_SHEET_GLOB)
     base, listings, stats, notes_text, mls_tokens = build(sheet)
@@ -791,6 +878,15 @@ def main():
     stats["geo_new_requests"] = geo.calls
     if geo.failures:
         stats["geo_failures"] = geo.failures
+    from listing_photos import add_photos
+    stats["photos"] = add_photos(listings, mls_tokens, offline=a.offline_photos, force=a.refresh_photos)
+    def _mls_free(im):
+        blob = " ".join(str(v) for v in im.values())
+        return not any(rx.search(blob) for rx in MLS_URL_RES) and not any(len(t) >= 5 and t.lower() in blob.lower() for t in mls_tokens)
+    for l in listings:  # photos whose URL or page link carries an MLS number are dropped (same rule as listing URLs)
+        l["_photos"] = [im for im in l.get("_photos", []) if _mls_free(im)]
+    stats["photos"]["with_photos_after_mls_scrub"] = sum(1 for l in listings if l["_photos"])
+    sheet_photo_map = {r: l.get("_photos") or [] for l in listings for r in l.get("_sheetRows", [])}
     pairs = [split_access(l) for l in listings]
     listings, full = [p for p, _ in pairs], [f for _, f in pairs]
     full_by_id = {f["listing_id"]: f for f in full}
@@ -808,6 +904,8 @@ def main():
     write_full(a.full_out, full, sheet)
     if a.full_only:
         return
+    if not a.no_sheet_photos:
+        write_sheet_photos(sheet, sheet_photo_map)
     h = listings_hash(listings)
     old = json.load(open(FEED)) if os.path.exists(FEED) else None
     if old and old.get("content_hash") == h:
@@ -836,8 +934,10 @@ def main():
         f.write("\n")
     print(f"wrote feed v{feed['version']} ({len(listings)} listings)")
     git = lambda *c: subprocess.run(["git", "-C", REPO, *c], check=True, capture_output=True, text=True).stdout
-    git("add", "feed/listings.json", "baseline/geocode_cache.json")
-    if not git("status", "--porcelain", "feed/listings.json", "baseline/geocode_cache.json").strip():
+    tracked = ["feed/listings.json", "baseline/geocode_cache.json", "baseline/photo_cache.json", "photos"]
+    os.makedirs(os.path.join(REPO, "photos"), exist_ok=True)
+    git("add", "-A", *tracked)
+    if not git("status", "--porcelain", *tracked).strip():
         print("no git changes")
         return
     git("commit", "-m", f"Feed v{feed['version']}: {len(listings)} listings ({os.path.basename(sheet)})")

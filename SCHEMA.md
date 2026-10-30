@@ -4,9 +4,9 @@ The listing shape started as Field Desk's built-in listing (reverse-read from th
 
 ## Schema v3 (2026-10-30): the public feed is preview-only
 Every property has a free preview and a locked full file (unlocked per account on the Twisted Deeds community site). From v3 this **public** feed carries **only the preview layer**:
-- **Public (this feed):** `id`, `name`, `grade`, `layer`, `kind`, `tier`, `storyCategory`, `address`, `place`, `price`, `status`, `url`, `lat`/`lon`/`geo_precision`/`geo_source`, `logged`, `lastChecked`, `priority`, `summary` (one-sentence preview, max 240 chars), `facts` (basic facts line), `loreTeaser` (max 160 chars), `images` (**approved sample images only**), the flags `dossier`/`lore`, and the optional enum flags listed below.
+- **Public (this feed):** `id`, `name`, `grade`, `layer`, `kind`, `tier`, `storyCategory`, `address`, `place`, `price`, `status`, `url`, `lat`/`lon`/`geo_precision`/`geo_source`, `logged`, `lastChecked`, `priority`, `summary` (one-sentence preview, max 240 chars), `facts` (basic facts line), `loreTeaser` (max 160 chars), `images` (listing photos and approved sample images, see below), the flags `dossier`/`lore`, and the optional enum flags listed below.
 - **Locked, never in this feed:** the full hook/story, `history`, timeline, `citation` and source links, full lore, ownership chain, the Strong Story long-text fields (`architecturalNotes`, `vacancyYears`, `folkloreType`, `failureReason`, `ownershipChainSummary`, `significanceNote`), the hero `photo` and every non-sample image, the dossier, desk `notes`, and the whole `extra` object.
-- **Removed keys vs v2:** `hook`, `story`, `history`, `citation`, `notes`, `photo`, `extra`. Non-sample images are no longer in `images`. **Added:** `summary`, `loreTeaser`.
+- **Removed keys vs v2:** `hook`, `story`, `history`, `citation`, `notes`, `photo`, `extra`. Broker/press `reference` image pages are not in `images`. **Added:** `summary`, `loreTeaser`.
 - The full-file content is written by `scripts/publish_feed.py` to a **private** file outside this repo (`/workspace/twisted-deeds/_build/listings_full.json`, never committed) and loaded into the site's RLS-protected `listing_full` table.
 - `publish_feed.py` **fails the publish** if any locked key appears anywhere in the feed, if a listing has a key outside the preview allow-list, if a non-sample image appears, or if any 40+ character sentence of a listing's full file appears outside its `summary`/`loreTeaser`.
 
@@ -50,7 +50,7 @@ Required on every listing:
 | `summary` | string | v3. One-sentence preview (sheet "Preview Summary" if set, else the first sentence of the hook/story), max 240 chars |
 | `facts` | string | basic facts, ` · `-separated |
 | `loreTeaser` | string | v3. Short lore teaser (sheet "Lore Teaser", else a lore sentence), max 160 chars; may be `""` |
-| `images` | array | **approved samples only**: `{id, era, caption, source, page, rights: permission\|cleared}`. Usually `[]`. Never `reference` (broker/press) images |
+| `images` | array | Photos, cover first; may be `[]`. Photo entries: `{id, url, source, credit, image_type, rights, caption, era, author?, license?, license_url?}`. `image_type`: `listing` \| `alt-listing` (rights `hotlink`: loaded from the source site, never rehosted) \| `public-domain` \| `cc` (copied to `photos/<id>/` here, with `author`, `license`, `license_url`) \| `illustration`. Up to about 8 per listing, scraped by `scripts/listing_photos.py` (og:image, JSON-LD, gallery; logos, headshots, map tiles and pixels skipped; Zillow, Trulia and Realtor.com not scraped). Approved samples keep the older shape `{id, era, caption, source, page, rights: permission\|cleared}`. Never `reference` (broker/press) images |
 | `priority` | number | sort order (high first) |
 | `logged` | `YYYY-MM-DD` | date first logged |
 | `lastChecked` | `YYYY-MM-DD` | date last verified |
