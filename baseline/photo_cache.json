@@ -385,7 +385,18 @@
   },
   "belden-town-ca": {
    "checked_at": "2026-10-30T21:14:37+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Belden Town (entire Gold Rush settlement) (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "belden-town-ca-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/belden-town-ca.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/belden-town-ca.jpg"
+    }
+   ],
    "lastChecked": "2026-10-30",
    "url": "https://www.beldentownforsale.com/"
   },
@@ -490,7 +501,18 @@
   },
   "brook-forest-inn-evergreen": {
    "checked_at": "2026-10-30T21:09:39+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Brook Forest Inn (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "brook-forest-inn-evergreen-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/brook-forest-inn-evergreen.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/brook-forest-inn-evergreen.jpg"
+    }
+   ],
    "lastChecked": "2026-10-30",
    "url": "https://www.propertyshark.com/cre/commercial-property/us/co/evergreen/brook-forest-inn/"
   },
@@ -514,7 +536,18 @@
   },
   "buffalo-bodega": {
    "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Buffalo-Bodega (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "buffalo-bodega-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/buffalo-bodega.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/buffalo-bodega.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.hegg.com/realestate/details/139170659/662-main-deadwood-sd-57732"
   },
@@ -677,7 +710,18 @@
   },
   "chancellor-house": {
    "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Chancellor House (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "chancellor-house-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/chancellor-house.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/chancellor-house.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.redfin.com/WV/Parkersburg/904-Juliana-St-26101/home/128464729"
   },
@@ -1672,7 +1716,18 @@
   },
   "hudson-evans": {
    "checked_at": "2026-10-30T20:56:44+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Hudson-Evans House (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "hudson-evans-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hudson-evans.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hudson-evans.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.zillow.com/homedetails/79-Alfred-St-Detroit-MI-48201/462316532_zpid/"
   },
@@ -1707,7 +1762,18 @@
   },
   "jacob-ten-broeck-house": {
    "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Jacob Ten Broeck House (HGTV 'Would You Buy This Haunted House?' Kingston stop - match unconfirmed) (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "jacob-ten-broeck-house-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/jacob-ten-broeck-house.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/jacob-ten-broeck-house.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.coldwellbanker.com/ny/kingston/169-albany-ave/lid-P00800000HCTrY14lz7rChHNh8ip5ItbudQfUDD7"
   },
@@ -1826,7 +1892,18 @@
   },
   "kendallville-carnegie": {
    "checked_at": "2026-10-30T20:57:17+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Former Kendallville Carnegie Library (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "kendallville-carnegie-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/kendallville-carnegie.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/kendallville-carnegie.jpg"
+    }
+   ],
    "lastChecked": "2026-10-30",
    "url": "https://www.howardhanna.com/property/124-east-rush-street-kendallville-in-46755-180001101307"
   },
@@ -1931,7 +2008,18 @@
   },
   "lemp-mansion": {
    "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Lemp Mansion (Restaurant & Inn) (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "lemp-mansion-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/lemp-mansion.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/lemp-mansion.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.lempmansion.com/news.htm"
   },
@@ -3019,7 +3107,18 @@
   },
   "st-mark-evanston": {
    "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of St. Mark Church (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "st-mark-evanston-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/st-mark-evanston.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/st-mark-evanston.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://hoodline.com/2026/10/historic-evanston-church-hits-auction-block-after-21-8m-revival-stalls/"
   },
@@ -3168,7 +3267,18 @@
   },
   "wareham-trump": {
    "checked_at": "2026-10-30T20:56:53+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Wareham Place House (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "wareham-trump-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/wareham-trump.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/wareham-trump.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.nytimes.com/2026/09/12/nyregion/trumps-childhood-home-sells-queens.html"
   },
@@ -3261,7 +3371,18 @@
   },
   "wheeler-mansion-orange": {
    "checked_at": "2026-10-30T21:02:27+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Wheeler Mansion (former Eastern Star Home) (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "wheeler-mansion-orange-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/wheeler-mansion-orange.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/wheeler-mansion-orange.jpg"
+    }
+   ],
    "lastChecked": "2026-10-30",
    "url": "https://www.coldwellbanker.com/ma/orange/75-e-main-st/lid-P00800000HBrO9rZUTCBuWDXIXIMHiaC96Dk6clE"
   },
