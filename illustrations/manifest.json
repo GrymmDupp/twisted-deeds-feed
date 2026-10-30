@@ -1,4 +1,14 @@
 {
+ "bayview-hospital": {
+  "caption": "Illustration of Bay View General Hospital (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "bayview-hospital-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/bayview-hospital.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/bayview-hospital.jpg"
+ },
  "belden-town-ca": {
   "caption": "Illustration of Belden Town (entire Gold Rush settlement) (not a photo)",
   "credit": "Illustration by Twisted Deeds (not a photo)",
@@ -58,6 +68,16 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/buffalo-bodega.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/buffalo-bodega.jpg"
+ },
+ "cavendish-school": {
+  "caption": "Illustration of Duttonsville Schoolhouse (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "cavendish-school-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/cavendish-school.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/cavendish-school.jpg"
  },
  "chancellor-house": {
   "caption": "Illustration of Chancellor House (not a photo)",
@@ -128,6 +148,16 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/former-funeral-home-new.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/former-funeral-home-new.jpg"
+ },
+ "frisco-bagley-mill": {
+  "caption": "Illustration of Frisco-Bagley Mill (near Animas Forks ghost town) (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "frisco-bagley-mill-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/frisco-bagley-mill.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/frisco-bagley-mill.jpg"
  },
  "hermitage": {
   "caption": "Illustration of The Hermitage (not a photo)",
@@ -258,6 +288,26 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/phoenix-funeral.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/phoenix-funeral.jpg"
+ },
+ "pinckney-inn": {
+  "caption": "Illustration of Pinckney Inn (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "pinckney-inn-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/pinckney-inn.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/pinckney-inn.jpg"
+ },
+ "pruden-house": {
+  "caption": "Illustration of James N. Pruden House (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "pruden-house-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/pruden-house.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/pruden-house.jpg"
  },
  "rifkin-house": {
   "caption": "Illustration of Rifkin House (not a photo)",

@@ -379,7 +379,18 @@
   },
   "bayview-hospital": {
    "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Bay View General Hospital (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "bayview-hospital-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/bayview-hospital.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/bayview-hospital.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.redfin.com/WA/Port-Townsend/415-Harrison-St-98368/home/40083022"
   },
@@ -615,7 +626,18 @@
   },
   "cavendish-school": {
    "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Duttonsville Schoolhouse (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "cavendish-school-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/cavendish-school.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/cavendish-school.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": ""
   },
@@ -1493,7 +1515,18 @@
   },
   "frisco-bagley-mill": {
    "checked_at": "2026-10-30T21:05:06+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Frisco-Bagley Mill (near Animas Forks ghost town) (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "frisco-bagley-mill-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/frisco-bagley-mill.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/frisco-bagley-mill.jpg"
+    }
+   ],
    "lastChecked": "2026-10-30",
    "url": "https://global.bhhs.com/homes-for-sale/820-County-Road-9-Silverton-CO-81433-440182363"
   },
@@ -2875,7 +2908,18 @@
   },
   "pinckney-inn": {
    "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Pinckney Inn (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "pinckney-inn-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/pinckney-inn.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/pinckney-inn.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.zillow.com/homedetails/110-Pinckney-St-Chester-SC-29706/70215748_zpid/"
   },
@@ -2980,7 +3024,18 @@
   },
   "pruden-house": {
    "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of James N. Pruden House (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "pruden-house-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/pruden-house.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/pruden-house.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://circaoldhouses.com/property/the-james-n-pruden-house/"
   },
