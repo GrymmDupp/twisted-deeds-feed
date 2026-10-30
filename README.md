@@ -7,9 +7,14 @@ Raw mirror: https://raw.githubusercontent.com/GrymmDupp/twisted-deeds-feed/main/
 
 Do not edit `feed/listings.json` by hand. `scripts/publish_feed.py` regenerates it.
 
+### Schema v3 (2026-10-30): free preview layer only
+The feed now carries **only the free preview** of each listing: id, name, grade, layer, kind, tier, storyCategory, address, place, price, status, url, coordinates, dates, priority, a one-sentence `summary`, basic `facts`, a short `loreTeaser` and approved sample images (usually none). The full story, history, timeline, citations and sources, full lore, ownership chain, Strong Story long-text fields, non-sample images and dossiers are **not** in this feed. The script writes them to a private file outside the repo (`_build/listings_full.json`, never committed) for the community site's access-controlled `listing_full` table, and **fails the publish if any locked field appears in the feed**. Clients must merge field by field (a feed value replaces a built-in field only when non-empty). See `SCHEMA.md`.
+
+**History:** commits before v3 (feed v1-v5) still contain full text in `feed/listings.json`, and `baseline/fielddesk_listings.json` holds Field Desk's built-in listings with their full text. History has not been rewritten.
+
 ## What's in it
 - `baseline/fielddesk_listings.json`: Field Desk's built-in listings and enums, extracted from its bundle. Kept as-is.
-- `feed/listings.json`: the baseline merged with the US rows of the Twisted Deeds Master Sheet. Built-in ids and text are kept. Duplicates are merged by address.
+- `feed/listings.json`: the preview layer of the baseline merged with the US rows of the Twisted Deeds Master Sheet. Built-in ids are kept. Duplicates are merged by address.
 - `SCHEMA.md`: the exact listing schema and the sheet-to-feed mapping.
 
 ### Schema v2 (2026-10-30): two tiers
@@ -22,7 +27,8 @@ US listings only. Brazil research, field notes, MLS numbers (including inside UR
 ## Publishing
 ```
 python3 scripts/publish_feed.py            # newest Master Sheet -> validate -> commit + push if changed
-python3 scripts/publish_feed.py --check    # build + validate only
+python3 scripts/publish_feed.py --check    # build + validate only (incl. the locked-field check); writes nothing
+python3 scripts/publish_feed.py --full-only --offline-geo   # write only the private _build/listings_full.json
 python3 scripts/publish_feed.py --sheet path/to/sheet.xlsx --no-push
 ```
 Requires `openpyxl`. CDN caches refresh in about 10 minutes (Pages) or 5 minutes (raw).

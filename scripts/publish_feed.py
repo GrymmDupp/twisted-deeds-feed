@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
-"""Regenerate feed/listings.json for the Twisted Deeds Field Desk app.
+"""Regenerate feed/listings.json (PUBLIC, preview only) and the PRIVATE full-file export.
+
+Schema v3 (2026-10-30): the public feed carries ONLY the free preview layer of every listing
+(id, name, grade, layer, kind, tier, storyCategory, address, place, price, status, url, lat/lon,
+logged/lastChecked, priority, summary, facts, loreTeaser, sample images and a few enum flags).
+The locked full file (full story/hook, history, timeline, citation + sources, full lore, ownership
+chain, the Strong Story long-text fields, every non-sample image, the dossier) is written only to
+/workspace/twisted-deeds/_build/listings_full.json, outside this repo and never committed.
+check_locked() fails the publish if any locked field or locked text reaches the public feed.
 
 Inputs
   * baseline/fielddesk_listings.json  - Field Desk's built-in listings (never edited here)
@@ -36,6 +44,8 @@ USER_AGENT = "twisted-deeds-feed/1.0 (+https://github.com/GrymmDupp/twisted-deed
 GEO_ATTRIBUTION = "Geocoding: OpenStreetMap Nominatim, (c) OpenStreetMap contributors, ODbL"
 US_BBOX = (17.0, 72.0, -180.0, -60.0)  # lat min/max, lon min/max (US incl. AK/HI/PR)
 FEED_URL = "https://grymmdupp.github.io/twisted-deeds-feed/feed/listings.json"
+FULL_OUT = "/workspace/twisted-deeds/_build/listings_full.json"   # PRIVATE; never inside the repo, never committed
+DOSSIER_DIR = "/workspace/twisted-deeds/dossiers"                 # not exported yet (internal scores inside); see SCHEMA.md
 
 US_STATES = set("AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY DC".split())
 LAYER_MAP = {"mortuary/funerary": "mortuary", "paranormal/spectral": "spectral", "prohibition/vice": "vice",
@@ -43,7 +53,7 @@ LAYER_MAP = {"mortuary/funerary": "mortuary", "paranormal/spectral": "spectral",
              # schema v2 Tier 2 layers
              "architecture/oddity": "oddity", "folklore/legend": "folklore",
              "failed attraction/closed institution": "attraction", "historic/heritage": "heritage"}
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 # Enum values added in schema v2 (the baseline file is never edited, so they are declared here).
 ENUM_EXT = {
     "grade": [{"id": "story", "label": "Strong Story (Tier 2)"}],
@@ -78,13 +88,23 @@ def status_of(v):
     if v.startswith("verified active"):  # e.g. "Verified Active (2-step) 2026-10-30"
         return "Active"
     return STATUS_MAP.get(v.split(" ")[0], "Watch")
-REQUIRED = {"id": str, "name": str, "grade": str, "layer": str, "kind": str, "address": str, "place": str,
-            "price": str, "status": str, "url": str, "hook": str, "story": str, "history": str, "citation": str,
-            "notes": str, "facts": str, "images": list, "priority": (int, float), "logged": str,
-            "lastChecked": str, "dossier": bool, "lore": bool}
-OPTIONAL = {"lat": (int, float), "lon": (int, float), "geo_precision": str, "geo_source": str, "significance": str, "photo": str, "lane": str, "quiet": bool, "soldOn": str, "bargain": bool,
-            "ground": str, "figure": str, "community": bool, "grid": str, "extra": dict,
-            "tier": int, "storyCategory": str}
+# Schema v3: the PUBLIC listing object. Anything not listed here is never published (allow-list).
+REQUIRED = {"id": str, "name": str, "grade": str, "layer": str, "kind": str, "tier": int, "storyCategory": str,
+            "address": str, "place": str, "price": str, "status": str, "url": str, "summary": str, "facts": str,
+            "loreTeaser": str, "images": list, "priority": (int, float), "logged": str, "lastChecked": str,
+            "dossier": bool, "lore": bool}
+OPTIONAL = {"lat": (int, float), "lon": (int, float), "geo_precision": str, "geo_source": str, "significance": str,
+            "lane": str, "quiet": bool, "soldOn": str, "bargain": bool, "ground": str, "figure": str,
+            "community": bool, "grid": str}
+PUBLIC_KEYS = set(REQUIRED) | set(OPTIONAL)
+PUBLIC_IMAGE_KEYS = {"id", "era", "caption", "source", "page", "rights"}
+SAMPLE_RIGHTS = {"permission", "cleared"}          # broker/press "reference" images are never samples
+# Locked (full-file) fields. check_locked() fails the publish if any of these keys appears anywhere in the feed.
+LOCKED_KEYS = {"hook", "story", "history", "citation", "citations", "notes", "photo", "extra", "sources", "links",
+               "timeline", "fullLore", "ownershipChain", "ownershipChainSummary", "ownership_chain",
+               "architecturalNotes", "vacancyYears", "folkloreType", "failureReason", "significanceNote",
+               "storyFields", "story_fields", "masterSheet", "dossierMd", "dossier_md", "fullFile", "full"}
+SUMMARY_MAX, TEASER_MAX = 240, 160
 FORBIDDEN_KEYS = {"fieldnotes", "field_notes", "mls", "mlsnumber", "scores", "score", "acqscore", "confidence",
                   "triplediscore", "tripled", "death", "diseased", "stigma", "prioritysscore", "priorityscore",
                   "ownershipnotes", "pricebrl", "fx", "brazilflag", "sitevisit", "lat", "lon", "country",
@@ -179,6 +199,8 @@ def read_sheet(path):
             "facts": get("Beds/Baths/SqFt") or "", "logged": get("Date Logged"), "sources": get("Sources") or "",
             "pid": get("Property ID"), "priority": get("Priority Score"),
             "storyTier": get("Story Tier") or "", "storyCategory": get("Story Category") or "",
+            "pvSummary": get("Preview Summary") or "", "pvTeaser": get("Lore Teaser") or "",
+            "pvSamples": get("Sample Photo Refs") or "",
             **{k: get(k) for k, _ in EXTRA_FIELDS},
         })
     return rows, notes_text, mls_tokens
@@ -226,6 +248,9 @@ def map_row(row, mls_tokens):
         "tier": tier,
         "storyCategory": STORY_CAT_MAP.get(str(row.get("storyCategory", "")).strip().lower(),
                                            "triple-d" if tier == 1 else "research"),
+        # sheet preview columns (AV/AX/AY); used by split_access(), never published under this key
+        "_sheet": {"summary": strip_mls(str(row["pvSummary"]), mls_tokens), "teaser": strip_mls(str(row["pvTeaser"]), mls_tokens),
+                   "samples": [t.strip() for t in re.split(r"[|;,\n]", str(row["pvSamples"])) if re.fullmatch(r"[\w-]{3,64}", t.strip())]},
     }
     if tier == 2:
         for k, ek in EXTRA_FIELDS:
@@ -260,6 +285,7 @@ def merge_dup(base, ours, mls_tokens=()):
     links = [clean(u) for u in [ours["url"]] + ours["extra"]["sources"]]
     links = [u for u in links if u and u != base.get("url")]
     out["extra"] = {**base.get("extra", {}), "masterSheet": sheet, "links": list(dict.fromkeys(links))}
+    out["_sheet"] = ours["_sheet"]
     return out
 
 
@@ -470,6 +496,169 @@ def enforce_exclusions(base, listings, notes_text, mls_tokens, internal_path):
 
 
 
+# ---------------------------------------------------------------- v3 access split: public preview vs private full file
+# Same rules as the community site's js/feed.js (sentence split, 240/160-char cuts, lore keywords).
+SENT_RE = re.compile(r'(?<=[.!?])\s+(?=[A-Z"\u201c(])')
+LORE_RE = re.compile(r"ghost|haunt|legend|lore|spirit|apparition|said to|reported|rumou?r|curse|myth|tale|claim", re.I)
+YEAR_RE = re.compile(r"\b(1[6-9]\d\d|20[0-2]\d)\b")
+
+
+def sentences(t):
+    t = re.sub(r"\s+", " ", str(t or "")).strip()
+    return SENT_RE.split(t) if t else []
+
+
+def cut(t, n):
+    t = str(t or "").strip()
+    if len(t) <= n:
+        return t
+    return re.sub(r"[,;:\u2013-]+$", "", re.sub(r"\s+\S*$", "", t[:n])) + "\u2026"
+
+
+def host_label(u):
+    h = urllib.parse.urlparse(u).netloc.lower()
+    return h[4:] if h.startswith("www.") else h
+
+
+def split_access(l):
+    """-> (public preview listing, private full-file record shaped like the listing_full table)."""
+    ex, sh = l.get("extra", {}) or {}, l.get("_sheet", {}) or {}
+    hook_s, story_s = sentences(l.get("hook")), sentences(l.get("story"))
+    summary = cut(sh.get("summary") or (hook_s[0] if hook_s else "") or (story_s[0] if story_s else ""), SUMMARY_MAX)
+    if sh.get("teaser"):
+        teaser = cut(sh["teaser"], TEASER_MAX)
+    elif ex.get("folkloreType"):
+        teaser = "Lore: " + cut(ex["folkloreType"], TEASER_MAX)
+    else:
+        teaser = cut(next((x for x in story_s if LORE_RE.search(x)), "")
+                     or (hook_s[1] if l.get("tier") == 2 and len(hook_s) > 1 else "")
+                     or next((x for x in story_s if not summary.startswith(x[:30])), ""), TEASER_MAX)
+    images = l.get("images") or []
+    sample_ids = set(sh.get("samples") or [])
+    samples = [{k: v for k, v in im.items() if k in PUBLIC_IMAGE_KEYS} for im in images
+               if im.get("id") in sample_ids and im.get("rights") in SAMPLE_RIGHTS]
+    pub = {k: l[k] for k in PUBLIC_KEYS if k in l and k not in ("summary", "loreTeaser", "images")}
+    pub.update(summary=summary, loreTeaser=teaser, images=samples)
+    pub = {k: pub[k] for k in sorted(pub, key=lambda k: (list(REQUIRED) + list(OPTIONAL)).index(k))}
+
+    src, seen = [], set()
+    for u in list(ex.get("sources") or []) + list(ex.get("links") or []) + ([ex["masterSheet"]["url"]] if ex.get("masterSheet", {}).get("url") else []):
+        if isinstance(u, str) and u.startswith("http") and u not in seen and u != l.get("url"):
+            seen.add(u); src.append({"url": u, "label": host_label(u)})
+    for im in images:
+        u = im.get("page") or ""
+        if im.get("rights") == "reference" and u.startswith("http") and u not in seen:
+            seen.add(u); src.append({"url": u, "label": f"{im.get('source') or host_label(u)}: listing photos (reference only)"})
+    lore = [ex["folkloreType"]] if ex.get("folkloreType") else []
+    lore += [x for x in hook_s + story_s if LORE_RE.search(x) and x not in lore]
+    own = ex.get("ownershipChainSummary") or ""
+    tl, seen_s = [], set()
+    for x in hook_s + story_s + sentences(l.get("history")) + sentences(own):
+        if x in seen_s:
+            continue
+        seen_s.add(x)
+        m = YEAR_RE.search(x)
+        if m:
+            tl.append({"year": int(m.group(1)), "text": x})
+    tl = sorted(tl, key=lambda t: t["year"])[:14]
+    full = {
+        "listing_id": l["id"],
+        "story": "\n\n".join(x for x in (l.get("hook"), l.get("story")) if x),
+        "history": l.get("history") or "",
+        "timeline": tl,
+        "lore": "\n".join(lore),
+        "citations": l.get("citation") or "",
+        "sources": src,
+        "ownership_chain": own,
+        "story_fields": {k: v for k, v in {"architectural_notes": ex.get("architecturalNotes"), "vacancy_years": ex.get("vacancyYears"),
+                                           "folklore_type": ex.get("folkloreType"), "failure_reason": ex.get("failureReason"),
+                                           "significance": ex.get("significanceNote")}.items() if v},
+        "dossier_md": "",   # dossiers/*.md still carry internal scores and listing numbers; not exported yet
+        # not listing_full columns (the import script ignores them):
+        "images": [im for im in images if im not in samples],
+        "photo": l.get("photo") or "",
+    }
+    return pub, full
+
+
+def check_locked(public, full_by_id, envelope_keys=()):
+    """Fail the publish if any locked (full-file) field or locked text appears in the public feed."""
+    errs = []
+    for k in envelope_keys:
+        if k in LOCKED_KEYS:
+            errs.append(f"locked key {k!r} in the feed envelope")
+    for l in public:
+        lid = l.get("id", "?")
+        for k in l:
+            if k not in PUBLIC_KEYS:
+                errs.append(f"{lid}: non-preview key {k!r} in the public feed")
+        for k in walk_keys(l):
+            if k in LOCKED_KEYS or k.startswith("_"):
+                errs.append(f"{lid}: locked key {k!r} in the public feed")
+        for im in l.get("images", []):
+            if im.get("rights") not in SAMPLE_RIGHTS or set(im) - PUBLIC_IMAGE_KEYS:
+                errs.append(f"{lid}: image {im.get('id')} is not an approved sample")
+        if len(l.get("summary", "")) > SUMMARY_MAX + 1 or len(l.get("loreTeaser", "")) > TEASER_MAX + 8:
+            errs.append(f"{lid}: summary/loreTeaser longer than the preview limit")
+        f = full_by_id.get(lid)
+        if not f:
+            errs.append(f"{lid}: no private full-file record")
+            continue
+        # locked text: any full-file sentence (40+ chars) found outside summary/loreTeaser is a leak
+        rest = json.dumps({k: v for k, v in l.items() if k not in ("summary", "loreTeaser")}, ensure_ascii=False)
+        texts = [f["story"], f["history"], f["lore"], f["citations"], f["ownership_chain"], *map(str, f["story_fields"].values())]
+        for t in texts:
+            for x in sentences(t):
+                if len(x) >= 40 and x in rest:
+                    errs.append(f"{lid}: locked text in public feed: {x[:60]}")
+        for x in f["sources"]:
+            if x["url"] != l.get("url") and x["url"] in rest:
+                errs.append(f"{lid}: locked source URL in public feed: {x['url'][:60]}")
+        if f.get("photo") and f["photo"] in rest:
+            errs.append(f"{lid}: locked photo URL in public feed")
+    return errs
+
+
+def check_full_private(full, notes_text, mls_tokens, internal_path):
+    """The private file feeds the paid full file, so it gets the same MLS / Brazil / Field Notes rules."""
+    errs, blob = [], json.dumps(full, ensure_ascii=False)
+    if MLS_TEXT_RE.search(blob):
+        errs.append("full file: 'MLS <number>' text: " + MLS_TEXT_RE.search(blob).group(0))
+    for tok in mls_tokens:
+        if len(tok) >= 5 and tok.lower() in blob.lower():
+            errs.append(f"full file: MLS number {tok}")
+    if re.search(r"\bBrazil\b|\bBrasil\b|\bBRL\b|R\$\s?\d", blob):
+        errs.append("full file: Brazil content")
+    for note in notes_text:
+        for frag in re.split(r"[.;\n]", note):
+            frag = frag.strip()
+            if len(frag) >= 25 and frag in blob:
+                errs.append(f"full file: Field Notes text leaked: {frag[:50]}")
+    if internal_path and os.path.exists(internal_path):
+        for p in json.load(open(internal_path)).get("properties", []):
+            for key in ("fieldNotes", "ownershipNotes", "siteVisit"):
+                v = p.get(key)
+                if isinstance(v, str) and len(v) >= 25 and v in blob:
+                    errs.append(f"full file: internal {key} text from {p.get('id')}")
+    return errs
+
+
+def write_full(path, full, sheet):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    if os.path.commonpath([os.path.abspath(path), REPO]) == REPO:
+        sys.exit(f"refusing to write the private full file inside the public repo: {path}")
+    out = {"PRIVATE": "Locked full-file content. Never publish or commit. Load into Supabase listing_full with site/supabase/import_full_files.py.",
+           "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+           "sheet": os.path.basename(sheet), "count": len(full), "files": full}
+    tmp = path + ".tmp"
+    with open(tmp, "w") as fh:
+        json.dump(out, fh, ensure_ascii=False, indent=1)
+        fh.write("\n")
+    os.replace(tmp, path)
+    os.chmod(path, 0o600)
+    print(f"wrote private full file ({len(full)} records): {path}")
+
+
 # ---------------------------------------------------------------- geocoding
 def addr_key(a):
     return re.sub(r"\s+", " ", (a or "").strip().lower())
@@ -587,6 +776,8 @@ def main():
     ap.add_argument("--offline-geo", action="store_true", help="use the geocode cache only")
     ap.add_argument("--no-push", action="store_true")
     ap.add_argument("--check", action="store_true", help="build + validate only; write nothing")
+    ap.add_argument("--full-out", default=FULL_OUT, help="PRIVATE full-file export (outside the repo)")
+    ap.add_argument("--full-only", action="store_true", help="write only the private full file; no feed, no git")
     a = ap.parse_args()
     sheet = a.sheet or newest_sheet(DEFAULT_SHEET_GLOB)
     base, listings, stats, notes_text, mls_tokens = build(sheet)
@@ -600,13 +791,22 @@ def main():
     stats["geo_new_requests"] = geo.calls
     if geo.failures:
         stats["geo_failures"] = geo.failures
-    errs = validate(base, listings) + enforce_exclusions(base, listings, notes_text, mls_tokens, a.internal)
+    pairs = [split_access(l) for l in listings]
+    listings, full = [p for p, _ in pairs], [f for _, f in pairs]
+    full_by_id = {f["listing_id"]: f for f in full}
+    stats["schema_version"] = SCHEMA_VERSION
+    stats["private_full_records"] = len(full)
+    errs = (validate(base, listings) + enforce_exclusions(base, listings, notes_text, mls_tokens, a.internal)
+            + check_locked(listings, full_by_id) + check_full_private(full, notes_text, mls_tokens, a.internal))
     print(json.dumps({k: v for k, v in stats.items()}, indent=1))
     if errs:
         print("VALIDATION FAILED:\n  " + "\n  ".join(errs))
         sys.exit(1)
-    print(f"valid: {len(listings)} listings from {os.path.basename(sheet)}")
+    print(f"valid: {len(listings)} preview-only listings from {os.path.basename(sheet)}; locked-field check passed")
     if a.check:
+        return
+    write_full(a.full_out, full, sheet)
+    if a.full_only:
         return
     h = listings_hash(listings)
     old = json.load(open(FEED)) if os.path.exists(FEED) else None
@@ -618,14 +818,18 @@ def main():
         "schema_version": SCHEMA_VERSION,
         "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "count": len(listings),
-        "source": ("Twisted Deeds listings feed. Field Desk built-in listings (baseline) merged with US rows "
-                   "of the Twisted Deeds Master Sheet. Auto-generated by scripts/publish_feed.py; do not edit by hand."),
+        "source": ("Twisted Deeds listings feed, FREE PREVIEW LAYER ONLY (schema v3). Field Desk built-in listings (baseline) "
+                   "merged with US rows of the Twisted Deeds Master Sheet. Full files are not in this feed. "
+                   "Auto-generated by scripts/publish_feed.py; do not edit by hand."),
         "feed_url": FEED_URL,
         "geo_attribution": GEO_ATTRIBUTION,
         "content_hash": h,
         "enums_ext": ENUM_EXT,
         "listings": listings,
     }
+    bad = check_locked(listings, full_by_id, feed.keys())
+    if bad:
+        sys.exit("VALIDATION FAILED (envelope):\n  " + "\n  ".join(bad))
     os.makedirs(os.path.dirname(FEED), exist_ok=True)
     with open(FEED, "w") as f:
         json.dump(feed, f, ensure_ascii=False, indent=1)
