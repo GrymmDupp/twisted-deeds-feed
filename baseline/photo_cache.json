@@ -1336,6 +1336,12 @@
    "lastChecked": "2026-10-23",
    "url": "https://www.redfin.com/MI/Jackson/505-Wildwood-Ave-49201/home/202109763"
   },
+  "frisco-bagley-mill": {
+   "checked_at": "2026-10-30T21:05:06+00:00",
+   "images": [],
+   "lastChecked": "2026-10-30",
+   "url": "https://global.bhhs.com/homes-for-sale/820-County-Road-9-Silverton-CO-81433-440182363"
+  },
   "gardendale-churchyard": {
    "checked_at": "2026-10-30T20:57:02+00:00",
    "images": [],
@@ -2364,6 +2370,26 @@
    ],
    "lastChecked": "2026-10-23",
    "url": "https://commonwealthcommercial.com/property/2125-e-main-street/"
+  },
+  "old-pearce-mercantile": {
+   "checked_at": "2026-10-30T21:05:05+00:00",
+   "images": [
+    {
+     "author": "Marine 69-71",
+     "caption": "Pearce-Building-Pearce General Store-1896",
+     "credit": "Marine 69-71, CC BY-SA 4.0, via Wikimedia Commons",
+     "era": "historic",
+     "id": "old-pearce-mercantile-w1",
+     "image_type": "cc",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "rights": "cc",
+     "source": "https://commons.wikimedia.org/wiki/File:Pearce-Building-Pearce_General_Store-1896.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/old-pearce-mercantile/01-a64830d717.jpg"
+    }
+   ],
+   "lastChecked": "2026-10-30",
+   "url": "https://www.coldwellbankerhomes.com/az/pearce/905-s-ghost-town-trail/pid_73174721/"
   },
   "osseo-farm": {
    "checked_at": "2026-10-30T20:57:02+00:00",
