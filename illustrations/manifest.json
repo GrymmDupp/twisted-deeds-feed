@@ -29,6 +29,26 @@
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/brook-forest-inn-evergreen.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/brook-forest-inn-evergreen.jpg"
  },
+ "brooklyn-castle": {
+  "caption": "Illustration of Brooklyn Centre Castle (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "brooklyn-castle-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/brooklyn-castle.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/brooklyn-castle.jpg"
+ },
+ "brownsville-road-house": {
+  "caption": "Illustration of Brownsville Road House ('The Demon of Brownsville Road') (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "brownsville-road-house-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/brownsville-road-house.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/brownsville-road-house.jpg"
+ },
  "buffalo-bodega": {
   "caption": "Illustration of Buffalo-Bodega (not a photo)",
   "credit": "Illustration by Twisted Deeds (not a photo)",
@@ -48,6 +68,26 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/chancellor-house.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/chancellor-house.jpg"
+ },
+ "creel-house": {
+  "caption": "Illustration of Creel House (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "creel-house-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/creel-house.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/creel-house.jpg"
+ },
+ "eloise-complex": {
+  "caption": "Illustration of Eloise Complex (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "eloise-complex-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/eloise-complex.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/eloise-complex.jpg"
  },
  "emmons-mansion": {
   "caption": "Illustration of Emmons Mansion (not a photo)",
@@ -119,6 +159,16 @@
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hudson-evans.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hudson-evans.jpg"
  },
+ "ionia-prohibition": {
+  "caption": "Illustration of Ionia Prohibition 'Speakeasy & Brothel' House (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "ionia-prohibition-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/ionia-prohibition.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/ionia-prohibition.jpg"
+ },
  "jackson-county-old-jail-kc": {
   "caption": "Illustration of Former Jackson County Detention Center block (not a photo)",
   "credit": "Illustration by Twisted Deeds (not a photo)",
@@ -168,6 +218,16 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/lemp-mansion.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/lemp-mansion.jpg"
+ },
+ "lumber-baron-inn-denver": {
+  "caption": "Illustration of Lumber Baron Inn (John Mouat House) (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "lumber-baron-inn-denver-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/lumber-baron-inn-denver.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/lumber-baron-inn-denver.jpg"
  },
  "moline-carnegie": {
   "caption": "Illustration of Former Moline Public Library (1904 Carnegie) (not a photo)",

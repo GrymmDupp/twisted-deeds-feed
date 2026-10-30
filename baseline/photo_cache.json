@@ -529,7 +529,18 @@
   },
   "brooklyn-castle": {
    "checked_at": "2026-10-30T20:56:44+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Brooklyn Centre Castle (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "brooklyn-castle-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/brooklyn-castle.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/brooklyn-castle.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.zillow.com/homedetails/3860-W-44th-St-Cleveland-OH-44109/33349250_zpid/"
   },
@@ -541,7 +552,18 @@
   },
   "brownsville-road-house": {
    "checked_at": "2026-10-30T21:02:26+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Brownsville Road House ('The Demon of Brownsville Road') (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "brownsville-road-house-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/brownsville-road-house.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/brownsville-road-house.jpg"
+    }
+   ],
    "lastChecked": "2026-10-30",
    "url": "https://global.bhhs.com/commercial-for-sale/3406-Brownsville-Rd-Brentwood-PA-15227-436100739"
   },
@@ -930,7 +952,18 @@
   },
   "creel-house": {
    "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Creel House (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "creel-house-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/creel-house.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/creel-house.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.homes.com/news/exclusive-iconic-creel-house-from-stranger-things-hits-market-in-georgia-for-1-7-million/775853311/"
   },
@@ -1184,7 +1217,18 @@
   },
   "eloise-complex": {
    "checked_at": "2026-10-30T20:56:44+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Eloise Complex (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "eloise-complex-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/eloise-complex.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/eloise-complex.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.commercialcafe.com/commercial-property/us/mi/westland/eloise-complex/"
   },
@@ -1827,7 +1871,18 @@
   },
   "ionia-prohibition": {
    "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Ionia Prohibition 'Speakeasy & Brothel' House (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "ionia-prohibition-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/ionia-prohibition.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/ionia-prohibition.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.remax-michigan.com/realestate/details/124822219/404-e-main-street-ionia-mi-48846"
   },
@@ -2124,7 +2179,18 @@
   },
   "lumber-baron-inn-denver": {
    "checked_at": "2026-10-30T21:06:24+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Lumber Baron Inn (John Mouat House) (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "lumber-baron-inn-denver-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/lumber-baron-inn-denver.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/lumber-baron-inn-denver.jpg"
+    }
+   ],
    "lastChecked": "2026-10-30",
    "url": "https://www.loopnet.com/Listing/2555-W-37th-Ave-Denver-CO/35352223/"
   },
