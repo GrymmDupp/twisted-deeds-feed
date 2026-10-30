@@ -1207,7 +1207,18 @@
   },
   "eppstein-house": {
    "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Eppstein House (Frank Lloyd Wright Usonian, The Acres) (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "eppstein-house-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/eppstein-house.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/eppstein-house.jpg"
+    }
+   ],
    "lastChecked": "2026-10-30",
    "url": "https://www.coldwellbanker.com/mi/galesburg/11090-hawthorne-dr/lid-P00800000HH8ebqnotq5w4jfecbtBpV4Dts3UbRV"
   },
@@ -1401,7 +1412,18 @@
   },
   "former-funeral-home-new": {
    "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Former funeral home, New Florence (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "former-funeral-home-new-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/former-funeral-home-new.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/former-funeral-home-new.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.coldwellbankerhomes.com/st-louis/330-milton-st/pid_73739593/"
   },
@@ -1811,7 +1833,18 @@
   },
   "jackson-county-old-jail-kc": {
    "checked_at": "2026-10-30T21:11:28+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Former Jackson County Detention Center block (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "jackson-county-old-jail-kc-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/jackson-county-old-jail-kc.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/jackson-county-old-jail-kc.jpg"
+    }
+   ],
    "lastChecked": "2026-10-30",
    "url": "https://www.kctv5.com/2026/10/26/former-jackson-county-jail-downtown-block-up-sale/"
   },
@@ -1834,7 +1867,18 @@
   },
   "judge-oliver-house": {
    "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Judge Oliver house (Midnight in the Garden of Good and Evil link) (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "judge-oliver-house-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/judge-oliver-house.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/judge-oliver-house.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.coldwellbankerhomes.com/ga/tybee-island/1105-lovell-ave/pid_72466279/"
   },
@@ -2241,7 +2285,18 @@
   },
   "moline-carnegie": {
    "checked_at": "2026-10-30T20:57:17+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Former Moline Public Library (1904 Carnegie) (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "moline-carnegie-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/moline-carnegie.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/moline-carnegie.jpg"
+    }
+   ],
    "lastChecked": "2026-10-30",
    "url": "https://www.coldwellbankerhomes.com/chicago-milwaukee/504-17th-st/pid_73406034/"
   },
@@ -2737,7 +2792,18 @@
   },
   "phoenix-funeral": {
    "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Allanson-Glanville-Tappan Funeral Home (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "phoenix-funeral-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/phoenix-funeral.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/phoenix-funeral.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.commercialcafe.com/commercial-property/us/ny/phoenix/431-main-st/"
   },
@@ -3308,7 +3374,18 @@
   },
   "thatch-house": {
    "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Earl Young's Thatch House (Young's first house) (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "thatch-house-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/thatch-house.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/thatch-house.jpg"
+    }
+   ],
    "lastChecked": "2026-10-30",
    "url": "https://robbreport.com/listing/304-park-ave-charlevoix-mi-49720/"
   },
@@ -3337,13 +3414,35 @@
   },
   "twelve-tribes-ithaca": {
    "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Twelve Tribes Ithaca Community Lodge (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "twelve-tribes-ithaca-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/twelve-tribes-ithaca.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/twelve-tribes-ithaca.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.coldwellbanker.com/ny/ithaca/119-3rd-st/lid-P00800000H65eNPX6xMkbgnn1m0WxJOB6vINevUM"
   },
   "verdier-mansion-sf": {
    "checked_at": "2026-10-30T21:08:24+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Verdier Mansion ('House of the Grand Passion') (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "verdier-mansion-sf-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/verdier-mansion-sf.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/verdier-mansion-sf.jpg"
+    }
+   ],
    "lastChecked": "2026-10-30",
    "url": "https://robbreport.com/listing/1001-vallejo-st-san-francisco-ca-94133/"
   },

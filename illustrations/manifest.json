@@ -59,6 +59,16 @@
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/emmons-mansion.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/emmons-mansion.jpg"
  },
+ "eppstein-house": {
+  "caption": "Illustration of Eppstein House (Frank Lloyd Wright Usonian, The Acres) (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "eppstein-house-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/eppstein-house.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/eppstein-house.jpg"
+ },
  "forest-hills-auction": {
   "caption": "Illustration of Forest Hills Colonial (not a photo)",
   "credit": "Illustration by Twisted Deeds (not a photo)",
@@ -68,6 +78,16 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/forest-hills-auction.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/forest-hills-auction.jpg"
+ },
+ "former-funeral-home-new": {
+  "caption": "Illustration of Former funeral home, New Florence (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "former-funeral-home-new-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/former-funeral-home-new.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/former-funeral-home-new.jpg"
  },
  "hermitage": {
   "caption": "Illustration of The Hermitage (not a photo)",
@@ -99,6 +119,16 @@
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hudson-evans.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hudson-evans.jpg"
  },
+ "jackson-county-old-jail-kc": {
+  "caption": "Illustration of Former Jackson County Detention Center block (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "jackson-county-old-jail-kc-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/jackson-county-old-jail-kc.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/jackson-county-old-jail-kc.jpg"
+ },
  "jacob-ten-broeck-house": {
   "caption": "Illustration of Jacob Ten Broeck House (HGTV 'Would You Buy This Haunted House?' Kingston stop - match unconfirmed) (not a photo)",
   "credit": "Illustration by Twisted Deeds (not a photo)",
@@ -108,6 +138,16 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/jacob-ten-broeck-house.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/jacob-ten-broeck-house.jpg"
+ },
+ "judge-oliver-house": {
+  "caption": "Illustration of Judge Oliver house (Midnight in the Garden of Good and Evil link) (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "judge-oliver-house-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/judge-oliver-house.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/judge-oliver-house.jpg"
  },
  "kendallville-carnegie": {
   "caption": "Illustration of Former Kendallville Carnegie Library (not a photo)",
@@ -129,6 +169,16 @@
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/lemp-mansion.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/lemp-mansion.jpg"
  },
+ "moline-carnegie": {
+  "caption": "Illustration of Former Moline Public Library (1904 Carnegie) (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "moline-carnegie-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/moline-carnegie.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/moline-carnegie.jpg"
+ },
  "philip-knight-house": {
   "caption": "Illustration of Philip Knight House (Salem Witch Trials accuser's home) (not a photo)",
   "credit": "Illustration by Twisted Deeds (not a photo)",
@@ -138,6 +188,16 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/philip-knight-house.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/philip-knight-house.jpg"
+ },
+ "phoenix-funeral": {
+  "caption": "Illustration of Allanson-Glanville-Tappan Funeral Home (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "phoenix-funeral-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/phoenix-funeral.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/phoenix-funeral.jpg"
  },
  "rifkin-house": {
   "caption": "Illustration of Rifkin House (not a photo)",
@@ -159,6 +219,16 @@
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/st-mark-evanston.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/st-mark-evanston.jpg"
  },
+ "thatch-house": {
+  "caption": "Illustration of Earl Young's Thatch House (Young's first house) (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "thatch-house-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/thatch-house.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/thatch-house.jpg"
+ },
  "trails-end": {
   "caption": "Illustration of Trails End (not a photo)",
   "credit": "Illustration by Twisted Deeds (not a photo)",
@@ -168,6 +238,26 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/trails-end.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/trails-end.jpg"
+ },
+ "twelve-tribes-ithaca": {
+  "caption": "Illustration of Twelve Tribes Ithaca Community Lodge (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "twelve-tribes-ithaca-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/twelve-tribes-ithaca.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/twelve-tribes-ithaca.jpg"
+ },
+ "verdier-mansion-sf": {
+  "caption": "Illustration of Verdier Mansion ('House of the Grand Passion') (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "verdier-mansion-sf-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/verdier-mansion-sf.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/verdier-mansion-sf.jpg"
  },
  "wareham-trump": {
   "caption": "Illustration of Wareham Place House (not a photo)",
