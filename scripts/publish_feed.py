@@ -290,10 +290,80 @@ def build(sheet_path):
         if l["tier"] == 2:  # sheet priority 0..79 -> 0..ceiling, so Tier 1 always outranks Tier 2
             l["priority"] = round(max(0.0, min(float(l["priority"]), 79.0)) * ceiling / 79.0, 1)
     listings.sort(key=lambda l: l["tier"])  # stable: keeps baseline order inside each tier
-    stats_tiers = {"tier1": len(t1), "tier2": len(listings) - len(t1), "tier2_priority_ceiling": ceiling}
+    scrubbed, scrub_toks = scrub_mls_published(listings)
+    stats_tiers = {"mls_scrubbed_listings": scrubbed, "tier1": len(t1), "tier2": len(listings) - len(t1), "tier2_priority_ceiling": ceiling}
     stats = {**stats_tiers, "baseline": len(base["listings"]), "sheet_us_rows": len(rows), "added": len(added),
              "merged": len(merged), "merged_pairs": merged, "added_ids": added}
     return base, listings, stats, notes_text, mls_tokens
+
+
+# ---------------------------------------------------------------- MLS scrub (all published listings, baseline included)
+MLS_TEXT_RE = re.compile(r"(?:\b(?:OneKey|CCAR|Alaska|under)\s+)?\b[A-Za-z]*MLS[A-Za-z]*(?:\s+Now)?\b\s*(?:#|No\.?|number)?\s*:?\s*([A-Z]{0,6}\d[\w-]{3,})", re.I)
+MLS_URL_RES = [re.compile(r"mls[-_/=](?:[a-z]+/)?([A-Za-z]{0,4}\d{5,})", re.I), re.compile(r"/([A-Z]{2}\d{6,})/")]
+
+
+def _strings(o):
+    if isinstance(o, dict):
+        for v in o.values():
+            yield from _strings(v)
+    elif isinstance(o, list):
+        for v in o:
+            yield from _strings(v)
+    elif isinstance(o, str):
+        yield o
+
+
+def scrub_mls_published(listings):
+    """The baseline file is never edited, but nothing with an MLS number is ever PUBLISHED:
+    'MLS 123' text is removed from every string, and URLs/images that carry an MLS number are dropped."""
+    toks = set()
+    for s in _strings(listings):
+        toks.update(m.group(1) for m in MLS_TEXT_RE.finditer(s))
+        if s.startswith("http"):
+            for rx in MLS_URL_RES:
+                toks.update(m.group(1) for m in rx.finditer(s))
+    toks = {t for t in toks if len(t) >= 5}
+    bad_url = lambda u: isinstance(u, str) and u.startswith("http") and (
+        any(t.lower() in u.lower() for t in toks) or (re.search(r"mls", u, re.I) and re.search(r"\d{5,}", u)))
+
+    def clean_text(s):
+        orig = s
+        s = MLS_TEXT_RE.sub("", s)
+        for tk in toks:
+            s = re.sub(r"\b" + re.escape(tk) + r"\b", "that listing", s)
+        if s == orig:
+            return s
+        s = re.sub(r"\s*/\s*(?=[,.;]|$)", "", s)      # "Tarasa / MLS 1." -> "Tarasa."
+        s = re.sub(r"\s+([,.;])", r"\1", s)
+        s = re.sub(r",\s*(?=[.;,])", "", s)
+        s = re.sub(r"(^|\.\s)\s*[,;]\s*", r"\1", s)
+        s = re.sub(r"\(\s*\)", "", s)
+        s = re.sub(r"(?<!\.)\.\.(?!\.)", ".", s)
+        s = re.sub(r"^\s*[.,;]\s*", "", s)
+        s = re.sub(r"\s*·\s*(?=·|$)", "", s).lstrip(" ·")
+        return re.sub(r"\s{2,}", " ", s).strip()
+
+    def clean(o):
+        if isinstance(o, dict):
+            return {k: clean(v) for k, v in o.items()}
+        if isinstance(o, list):
+            return [clean(v) for v in o]
+        if isinstance(o, str):
+            return "" if bad_url(o) else (o if o.startswith("http") else clean_text(o))
+        return o
+
+    n = 0
+    for i, l in enumerate(listings):
+        before = json.dumps(l, ensure_ascii=False)
+        if isinstance(l.get("images"), list):
+            l["images"] = [im for im in l["images"] if not any(bad_url(v) for v in _strings(im))]
+        c = clean(l)
+        if not c.get("url"):
+            alts = [im.get("page") for im in c.get("images", []) if im.get("page")]
+            c["url"] = alts[0] if alts else ""
+        listings[i] = c
+        n += json.dumps(c, ensure_ascii=False) != before
+    return n, toks
 
 
 def validate(base, listings):
@@ -375,6 +445,13 @@ def enforce_exclusions(base, listings, notes_text, mls_tokens, internal_path):
             errs.append(f"MLS number {tok} found in added data")
     if re.search(r"\bMLS\s*(?:#|No\.?|number)?\s*[A-Z]*\d", added_blob):
         errs.append("'MLS <number>' text found in added data")
+    all_blob = json.dumps(listings, ensure_ascii=False)
+    if MLS_TEXT_RE.search(all_blob):
+        errs.append("'MLS <number>' text found in published data: " + MLS_TEXT_RE.search(all_blob).group(0))
+    for rx in MLS_URL_RES:
+        m = rx.search(all_blob)
+        if m and len(m.group(1)) >= 5:
+            errs.append("MLS number in a published URL: " + m.group(0))
     for note in notes_text:
         for frag in re.split(r"[.;\n]", note):
             frag = frag.strip()

@@ -129,3 +129,10 @@ Twisted Deeds now also logs buyable properties with a strong non-Triple-D story.
 Tier 2 `extra` keys (public-safe, from the sheet): `architecturalNotes`, `vacancyYears`, `folkloreType`, `failureReason`, `ownershipChainSummary`, `significanceNote`. The `significance` enum is set only when the sheet text names a National Register number (`register`), a contributing historic district (`district`) or a local landmark (`local`). `lane` is `attraction` or `institution` for Failed Attraction / Closed Institution rows.
 
 **Compatibility.** v1 fields and values are unchanged. A client that does not know a `grade`, `layer` or `storyCategory` value must fall back (`record` layer styling, a neutral badge) and must not crash. A missing `tier` means 1.
+
+## MLS scrub (applies to every published listing, from feed v5 / 2026-10-30)
+No MLS number is ever published, including in the built-in Field Desk baseline text (the baseline file itself is not edited):
+- "MLS 1234567"-style mentions are removed from all text fields. A bare MLS number left in text becomes "that listing".
+- Any URL (`url`, `photo`, image `page`/`url`) that contains an MLS number is dropped. Images whose links are all dropped are removed.
+- When a listing's `url` is dropped it falls back to a clean image page, or else `""`. Clients must handle an empty `url`.
+- `publish_feed.py` fails validation if any "MLS <number>" text or MLS-number URL remains anywhere in the feed.
