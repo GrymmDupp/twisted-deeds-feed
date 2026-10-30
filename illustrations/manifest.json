@@ -9,6 +9,16 @@
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/belden-town-ca.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/belden-town-ca.jpg"
  },
+ "bolem-house": {
+  "caption": "Illustration of Thomas Bolem House (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "bolem-house-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/bolem-house.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/bolem-house.jpg"
+ },
  "brook-forest-inn-evergreen": {
   "caption": "Illustration of Brook Forest Inn (not a photo)",
   "credit": "Illustration by Twisted Deeds (not a photo)",
@@ -38,6 +48,46 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/chancellor-house.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/chancellor-house.jpg"
+ },
+ "emmons-mansion": {
+  "caption": "Illustration of Emmons Mansion (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "emmons-mansion-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/emmons-mansion.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/emmons-mansion.jpg"
+ },
+ "forest-hills-auction": {
+  "caption": "Illustration of Forest Hills Colonial (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "forest-hills-auction-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/forest-hills-auction.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/forest-hills-auction.jpg"
+ },
+ "hermitage": {
+  "caption": "Illustration of The Hermitage (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "hermitage-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hermitage.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hermitage.jpg"
+ },
+ "holliday-house": {
+  "caption": "Illustration of 1895 Holliday House (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "holliday-house-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/holliday-house.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/holliday-house.jpg"
  },
  "hudson-evans": {
   "caption": "Illustration of Hudson-Evans House (not a photo)",
@@ -79,6 +129,26 @@
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/lemp-mansion.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/lemp-mansion.jpg"
  },
+ "philip-knight-house": {
+  "caption": "Illustration of Philip Knight House (Salem Witch Trials accuser's home) (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "philip-knight-house-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/philip-knight-house.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/philip-knight-house.jpg"
+ },
+ "rifkin-house": {
+  "caption": "Illustration of Rifkin House (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "rifkin-house-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/rifkin-house.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/rifkin-house.jpg"
+ },
  "st-mark-evanston": {
   "caption": "Illustration of St. Mark Church (not a photo)",
   "credit": "Illustration by Twisted Deeds (not a photo)",
@@ -88,6 +158,16 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/st-mark-evanston.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/st-mark-evanston.jpg"
+ },
+ "trails-end": {
+  "caption": "Illustration of Trails End (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "trails-end-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/trails-end.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/trails-end.jpg"
  },
  "wareham-trump": {
   "caption": "Illustration of Wareham Place House (not a photo)",

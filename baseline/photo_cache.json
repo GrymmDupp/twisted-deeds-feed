@@ -489,7 +489,18 @@
   },
   "bolem-house": {
    "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Thomas Bolem House (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "bolem-house-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/bolem-house.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/bolem-house.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.exprealty.com/georgetown-sc-real-estate/not-within-a-subdivision/719-prince-st"
   },
@@ -1179,7 +1190,18 @@
   },
   "emmons-mansion": {
    "checked_at": "2026-10-30T20:56:44+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Emmons Mansion (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "emmons-mansion-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/emmons-mansion.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/emmons-mansion.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.lansingstatejournal.com/story/news/local/2026/10/20/historic-st-johns-mansion-for-sale-comes-with-history-ghost-stories/92251369007/"
   },
@@ -1362,7 +1384,18 @@
   },
   "forest-hills-auction": {
    "checked_at": "2026-10-30T20:56:53+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Forest Hills Colonial (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "forest-hills-auction-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/forest-hills-auction.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/forest-hills-auction.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.treasury.gov/auctions/treasury/rp/69foresthills.shtml"
   },
@@ -1692,7 +1725,18 @@
   },
   "hermitage": {
    "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of The Hermitage (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "hermitage-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hermitage.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hermitage.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.redfin.com/SC/Murrells-Inlet/563-Chandler-Ave-29576/home/124135814"
   },
@@ -1704,7 +1748,18 @@
   },
   "holliday-house": {
    "checked_at": "2026-10-30T20:56:43+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of 1895 Holliday House (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "holliday-house-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/holliday-house.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/holliday-house.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.zillow.com/homedetails/619-Willcox-Ave-Marion-SC-29571/462376109_zpid/"
   },
@@ -2665,7 +2720,18 @@
   },
   "philip-knight-house": {
    "checked_at": "2026-10-30T20:57:16+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Philip Knight House (Salem Witch Trials accuser's home) (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "philip-knight-house-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/philip-knight-house.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/philip-knight-house.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.coldwellbanker.com/ma/middleton/20-east-st/lid-P00800000HFaR2hEM1yyzhixgP0XahBeTluswxIt"
   },
@@ -2805,7 +2871,18 @@
   },
   "rifkin-house": {
    "checked_at": "2026-10-30T20:56:51+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Rifkin House (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "rifkin-house-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/rifkin-house.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/rifkin-house.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.newsday.com/real-estate/joel-rifkin-house-sold-yz1msnh7"
   },
@@ -3237,7 +3314,18 @@
   },
   "trails-end": {
    "checked_at": "2026-10-30T20:56:53+00:00",
-   "images": [],
+   "images": [
+    {
+     "caption": "Illustration of Trails End (not a photo)",
+     "credit": "Illustration by Twisted Deeds (not a photo)",
+     "era": "current",
+     "id": "trails-end-i1",
+     "image_type": "illustration",
+     "rights": "illustration",
+     "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/trails-end.jpg",
+     "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/trails-end.jpg"
+    }
+   ],
    "lastChecked": "2026-10-23",
    "url": "https://www.daytondailynews.com/tncms/asset/editorial/710d86e1-c843-5aa4-9f1c-9d861729c561"
   },
