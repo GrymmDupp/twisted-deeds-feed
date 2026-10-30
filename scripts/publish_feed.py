@@ -14,6 +14,12 @@ Exclusions enforced (the script exits non-zero if any is violated):
   * no MLS numbers (from the MLS # column) or "MLS ####" text in anything we add
   * no internal scores (Triple D, Death/Diseased/Stigma, Confidence, Acquisition, Priority Score)
   * nothing from _build/properties_internal.json (used only as a deny-list, never as a source)
+  * no listing URL or source link that contains an MLS number (case-insensitive)
+
+Schema v2 (2026-10-30): every listing carries `tier` (1 = Triple-D, 2 = Strong Story) and
+`storyCategory`. Tier 2 rows use grade "story" and the layers oddity/folklore/attraction/heritage
+(or blight for long-vacant). Tier 1 always outranks Tier 2: Tier 2 priorities are rescaled into
+0..(lowest Tier 1 priority - 1) and validation fails otherwise. Tier 1 priorities are never changed.
 """
 import argparse, csv, glob, hashlib, json, os, re, subprocess, sys, time, urllib.parse, urllib.request
 from datetime import datetime, timezone
@@ -33,18 +39,56 @@ FEED_URL = "https://grymmdupp.github.io/twisted-deeds-feed/feed/listings.json"
 
 US_STATES = set("AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY DC".split())
 LAYER_MAP = {"mortuary/funerary": "mortuary", "paranormal/spectral": "spectral", "prohibition/vice": "vice",
-             "murder/mayhem": "mayhem", "blight/abandonment": "blight"}
+             "murder/mayhem": "mayhem", "blight/abandonment": "blight",
+             # schema v2 Tier 2 layers
+             "architecture/oddity": "oddity", "folklore/legend": "folklore",
+             "failed attraction/closed institution": "attraction", "historic/heritage": "heritage"}
+SCHEMA_VERSION = 2
+# Enum values added in schema v2 (the baseline file is never edited, so they are declared here).
+ENUM_EXT = {
+    "grade": [{"id": "story", "label": "Strong Story (Tier 2)"}],
+    "layer": [{"id": "oddity", "label": "Architecture / Oddity", "color": "#008080"},
+              {"id": "folklore", "label": "Folklore / Legend", "color": "#8A9A5B"},
+              {"id": "attraction", "label": "Failed Attraction / Closed Institution", "color": "#CC5500"},
+              {"id": "heritage", "label": "Historic / Heritage", "color": "#A67C00"}],
+    "tier": [{"id": 1, "label": "Tier 1 - Triple-D"}, {"id": 2, "label": "Tier 2 - Strong Story"}],
+    "storyCategory": [{"id": "triple-d", "label": "Triple-D"},
+                      {"id": "oddity", "label": "Architecture / Oddity"},
+                      {"id": "long-vacant", "label": "Long-Vacant / Lore"},
+                      {"id": "folklore", "label": "Folklore / Legend"},
+                      {"id": "attraction", "label": "Failed Attraction / Closed Institution"},
+                      {"id": "heritage", "label": "Historic / Heritage"},
+                      {"id": "research", "label": "Research Depth"}],
+}
+STORY_CAT_MAP = {"triple-d": "triple-d", "architecture/oddity": "oddity", "long-vacant/lore": "long-vacant",
+                 "folklore/legend": "folklore", "failed attraction/closed institution": "attraction",
+                 "historic/heritage": "heritage", "research depth": "research"}
+EXTRA_FIELDS = [("architectural_notes", "architecturalNotes"), ("vacancy_years", "vacancyYears"),
+                ("folklore_type", "folkloreType"), ("failure_reason", "failureReason"),
+                ("ownership_chain_summary", "ownershipChainSummary"), ("significance", "significanceNote")]
+# story_depth_score is an internal score and is never read into the feed.
 STATUS_MAP = {"verified active": "Active", "active": "Active", "pending": "Pending", "sold": "Sold",
               "stale": "Stale", "watch": "Watch"}
+
+
+def status_of(v):
+    v = (v or "").strip().lower()
+    if v in STATUS_MAP:
+        return STATUS_MAP[v]
+    if v.startswith("verified active"):  # e.g. "Verified Active (2-step) 2026-10-30"
+        return "Active"
+    return STATUS_MAP.get(v.split(" ")[0], "Watch")
 REQUIRED = {"id": str, "name": str, "grade": str, "layer": str, "kind": str, "address": str, "place": str,
             "price": str, "status": str, "url": str, "hook": str, "story": str, "history": str, "citation": str,
             "notes": str, "facts": str, "images": list, "priority": (int, float), "logged": str,
             "lastChecked": str, "dossier": bool, "lore": bool}
 OPTIONAL = {"lat": (int, float), "lon": (int, float), "geo_precision": str, "geo_source": str, "significance": str, "photo": str, "lane": str, "quiet": bool, "soldOn": str, "bargain": bool,
-            "ground": str, "figure": str, "community": bool, "grid": str, "extra": dict}
+            "ground": str, "figure": str, "community": bool, "grid": str, "extra": dict,
+            "tier": int, "storyCategory": str}
 FORBIDDEN_KEYS = {"fieldnotes", "field_notes", "mls", "mlsnumber", "scores", "score", "acqscore", "confidence",
                   "triplediscore", "tripled", "death", "diseased", "stigma", "prioritysscore", "priorityscore",
-                  "ownershipnotes", "pricebrl", "fx", "brazilflag", "sitevisit", "lat", "lon", "country"}
+                  "ownershipnotes", "pricebrl", "fx", "brazilflag", "sitevisit", "lat", "lon", "country",
+                  "storydepth", "storydepthscore", "depth", "acquisitionscore"}
 DEFAULT_PRIORITY = 50  # Field Desk's own default, used only when our Priority Score is blank
 
 
@@ -134,6 +178,8 @@ def read_sheet(path):
             "category": get("Map Category") or "", "verification": get("Verification Status") or "",
             "facts": get("Beds/Baths/SqFt") or "", "logged": get("Date Logged"), "sources": get("Sources") or "",
             "pid": get("Property ID"), "priority": get("Priority Score"),
+            "storyTier": get("Story Tier") or "", "storyCategory": get("Story Category") or "",
+            **{k: get(k) for k, _ in EXTRA_FIELDS},
         })
     return rows, notes_text, mls_tokens
 
@@ -157,23 +203,44 @@ def map_row(row, mls_tokens):
     place = ", ".join(p for p in parts if p)
     ps = row["priceStatus"]
     price = ps.split(" - ")[0].strip() or "Ask"
-    status = STATUS_MAP.get(row["verification"].strip().lower(), "Watch")
+    status = status_of(row["verification"])
+    tier = 2 if str(row.get("storyTier", "")).startswith("Tier 2") else 1
+    has_mls = lambda u: any(t.lower() in u.lower() for t in mls_tokens)
     sources = [s.strip() for s in str(row["sources"]).split("|") if s.strip().startswith("http")]
+    sources = [s for s in sources if not has_mls(s)]
+    url = row["url"] if row["url"] and not has_mls(row["url"]) else (sources[0] if sources else "")
     facts = " · ".join(p.strip() for p in str(row["facts"]).split("/") if p.strip())
     logged = iso_date(row["logged"])
     item = {
         "id": row["pid"] or re.sub(r"[^a-z0-9]+", "-", row["name"].lower()).strip("-")[:40],
-        "name": row["name"], "grade": grade_from_rating(row["rating"]),
+        "name": row["name"], "grade": "story" if tier == 2 else grade_from_rating(row["rating"]),
         "layer": LAYER_MAP.get(row["category"].strip().lower(), "record"),
         "kind": kind_from(row["name"], ps), "address": row["address"], "place": place,
-        "price": price, "status": status, "url": row["url"], "hook": row["hook"], "story": "", "history": "",
+        "price": price, "status": status, "url": url, "hook": row["hook"], "story": "", "history": "",
         "citation": strip_mls(str(row["citation"]), mls_tokens), "notes": "", "facts": facts, "images": [],
         "priority": to_priority(row.get("priority")), "logged": logged, "lastChecked": logged,
         "dossier": bool(row["doc"]), "lore": bool(row["hook"]),
         "extra": {"source": "master-sheet", "priceStatus": strip_mls(ps, mls_tokens),
                   "verification": row["verification"], "mapCategory": row["category"],
-                  "sources": [s for s in sources if not any(t in s for t in mls_tokens)]},
+                  "sources": sources},
+        "tier": tier,
+        "storyCategory": STORY_CAT_MAP.get(str(row.get("storyCategory", "")).strip().lower(),
+                                           "triple-d" if tier == 1 else "research"),
     }
+    if tier == 2:
+        for k, ek in EXTRA_FIELDS:
+            v = row.get(k)
+            if v not in (None, ""):
+                item["extra"][ek] = strip_mls(str(v), mls_tokens)
+        sig = str(row.get("significance") or "")
+        if re.search(r"National Register of Historic Places #|is on the National Register|\bNRHP #", sig):
+            item["significance"] = "register"
+        elif re.search(r"contributing to .*Historic District", sig):
+            item["significance"] = "district"
+        elif re.search(r"landmark", sig, re.I):
+            item["significance"] = "local"
+        if item["storyCategory"] == "attraction":
+            item["lane"] = "institution" if re.search(r"library|school|hospital|asylum|church", row["name"], re.I) else "attraction"
     return item
 
 
@@ -182,7 +249,7 @@ def merge_dup(base, ours, mls_tokens=()):
     out = json.loads(json.dumps(base))
     if not isinstance(out.get("priority"), (int, float)):
         out["priority"] = ours["priority"]  # only fill a missing Field Desk priority
-    clean = lambda u: u if u and not any(t in u for t in mls_tokens) else ""
+    clean = lambda u: u if u and not any(t.lower() in u.lower() for t in mls_tokens) else ""
     sheet = {"name": ours["name"], "price": ours["price"], "status": ours["status"], "url": clean(ours["url"]),
              "lastChecked": ours["lastChecked"], **ours["extra"]}
     if ours["lastChecked"] > base.get("lastChecked", ""):
@@ -214,7 +281,17 @@ def build(sheet_path):
         by_id[ours["id"]] = len(listings)
         listings.append(ours)
         added.append(ours["id"])
-    stats = {"baseline": len(base["listings"]), "sheet_us_rows": len(rows), "added": len(added),
+    for l in listings:  # schema v2: baseline / merged / Tier 1 listings default to Tier 1 Triple-D
+        l.setdefault("tier", 1)
+        l.setdefault("storyCategory", "triple-d")
+    t1 = [l["priority"] for l in listings if l["tier"] == 1]
+    ceiling = (min(t1) - 1) if t1 else 99
+    for l in listings:
+        if l["tier"] == 2:  # sheet priority 0..79 -> 0..ceiling, so Tier 1 always outranks Tier 2
+            l["priority"] = round(max(0.0, min(float(l["priority"]), 79.0)) * ceiling / 79.0, 1)
+    listings.sort(key=lambda l: l["tier"])  # stable: keeps baseline order inside each tier
+    stats_tiers = {"tier1": len(t1), "tier2": len(listings) - len(t1), "tier2_priority_ceiling": ceiling}
+    stats = {**stats_tiers, "baseline": len(base["listings"]), "sheet_us_rows": len(rows), "added": len(added),
              "merged": len(merged), "merged_pairs": merged, "added_ids": added}
     return base, listings, stats, notes_text, mls_tokens
 
@@ -225,6 +302,10 @@ def validate(base, listings):
             "grade": {x["id"] for x in e["grade"]}, "status": set(e["status"]),
             "significance": {x["id"] for x in e["significance"]}, "figure": {x["id"] for x in e["figure"]},
             "lane": {x["id"] for x in e["lane"]}, "ground": set(e["ground"]), "grid": set(e["grid"])}
+    for k in ("grade", "layer"):
+        enum[k] |= {x["id"] for x in ENUM_EXT[k]}
+    enum["tier"] = {x["id"] for x in ENUM_EXT["tier"]}
+    enum["storyCategory"] = {x["id"] for x in ENUM_EXT["storyCategory"]}
     errs, seen = [], set()
     for l in listings:
         lid = l.get("id", "?")
@@ -240,6 +321,10 @@ def validate(base, listings):
         for k, allowed in enum.items():
             if k in l and l[k] not in allowed:
                 errs.append(f"{lid}: {k}={l[k]!r} not in {sorted(allowed)}")
+        if l.get("tier") == 2 and l.get("grade") != "story":
+            errs.append(f"{lid}: Tier 2 listing must use grade 'story'")
+        if l.get("tier") == 1 and l.get("grade") == "story":
+            errs.append(f"{lid}: grade 'story' is Tier 2 only")
         for d in ("logged", "lastChecked", "soldOn"):
             if l.get(d) and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", l[d]):
                 errs.append(f"{lid}: {d} not YYYY-MM-DD")
@@ -251,6 +336,10 @@ def validate(base, listings):
         for im in l.get("images", []):
             if im.get("rights") not in set(e["image_rights"]) or im.get("era") not in set(e["image_era"]):
                 errs.append(f"{lid}: bad image {im.get('id')}")
+    t1 = [l["priority"] for l in listings if l.get("tier") == 1]
+    t2 = [l for l in listings if l.get("tier") == 2]
+    if t1 and t2 and max(l["priority"] for l in t2) >= min(t1):
+        errs.append("tier rule broken: a Tier 2 priority is >= the lowest Tier 1 priority")
     return errs
 
 
@@ -280,8 +369,9 @@ def enforce_exclusions(base, listings, notes_text, mls_tokens, internal_path):
     for k in walk_keys([l.get("extra", {}) for l in listings]):
         if re.sub(r"[^a-z]", "", k.lower()) in FORBIDDEN_KEYS:
             errs.append(f"forbidden key in extra: {k}")
+    low_blob = added_blob.lower()
     for tok in mls_tokens:
-        if tok in added_blob:
+        if tok.lower() in low_blob:
             errs.append(f"MLS number {tok} found in added data")
     if re.search(r"\bMLS\s*(?:#|No\.?|number)?\s*[A-Z]*\d", added_blob):
         errs.append("'MLS <number>' text found in added data")
@@ -448,7 +538,7 @@ def main():
         return
     feed = {
         "version": (old.get("version", 0) + 1) if old else 1,
-        "schema_version": 1,
+        "schema_version": SCHEMA_VERSION,
         "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "count": len(listings),
         "source": ("Twisted Deeds listings feed. Field Desk built-in listings (baseline) merged with US rows "
@@ -456,6 +546,7 @@ def main():
         "feed_url": FEED_URL,
         "geo_attribution": GEO_ATTRIBUTION,
         "content_hash": h,
+        "enums_ext": ENUM_EXT,
         "listings": listings,
     }
     os.makedirs(os.path.dirname(FEED), exist_ok=True)
