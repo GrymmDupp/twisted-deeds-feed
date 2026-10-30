@@ -259,6 +259,16 @@ def map_row(row, mls_tokens):
     url = row["url"] if row["url"] and not has_mls(row["url"]) else (sources[0] if sources else "")
     facts = " · ".join(p.strip() for p in str(row["facts"]).split("/") if p.strip())
     logged = iso_date(row["logged"])
+    # lastChecked = newest date in the Verification Status (e.g. "Verified Active (rechecked) 2026-10-30"), else Date Logged
+    checked = max([logged] + re.findall(r"\d{4}-\d{2}-\d{2}", str(row["verification"] or "")))
+    sold = None
+    if status == "Sold":
+        m = re.search(r"closed ([A-Z][a-z]{2,8}\.? \d{1,2}, \d{4})", ps)
+        if m:
+            try:
+                sold = datetime.strptime(m.group(1).replace(".", "")[:3] + " " + m.group(1).split(" ", 1)[1], "%b %d, %Y").strftime("%Y-%m-%d")
+            except ValueError:
+                sold = None
     item = {
         "id": row["pid"] or re.sub(r"[^a-z0-9]+", "-", row["name"].lower()).strip("-")[:40],
         "name": row["name"], "grade": "story" if tier == 2 else grade_from_rating(row["rating"]),
@@ -266,7 +276,7 @@ def map_row(row, mls_tokens):
         "kind": kind_from(row["name"], ps), "address": row["address"], "place": place,
         "price": price, "status": status, "url": url, "hook": row["hook"], "story": "", "history": "",
         "citation": strip_mls(str(row["citation"]), mls_tokens), "notes": "", "facts": facts, "images": [],
-        "priority": to_priority(row.get("priority")), "logged": logged, "lastChecked": logged,
+        "priority": to_priority(row.get("priority")), "logged": logged, "lastChecked": checked,
         "dossier": bool(row["doc"]), "lore": bool(row["hook"]),
         "extra": {"source": "master-sheet", "priceStatus": strip_mls(ps, mls_tokens),
                   "verification": row["verification"], "mapCategory": row["category"],
@@ -278,6 +288,8 @@ def map_row(row, mls_tokens):
         "_sheet": {"summary": strip_mls(str(row["pvSummary"]), mls_tokens), "teaser": strip_mls(str(row["pvTeaser"]), mls_tokens),
                    "samples": [t.strip() for t in re.split(r"[|;,\n]", str(row["pvSamples"])) if re.fullmatch(r"[\w-]{3,64}", t.strip())]},
     }
+    if sold:
+        item["soldOn"] = sold
     if tier == 2:
         for k, ek in EXTRA_FIELDS:
             v = row.get(k)
@@ -305,6 +317,8 @@ def merge_dup(base, ours, mls_tokens=()):
              "lastChecked": ours["lastChecked"], **ours["extra"]}
     if ours["lastChecked"] > base.get("lastChecked", ""):
         out["price"], out["status"], out["lastChecked"] = ours["price"], ours["status"], ours["lastChecked"]
+        if ours.get("soldOn"):
+            out["soldOn"] = ours["soldOn"]
         sheet["applied"] = True
     else:
         sheet["applied"] = False
