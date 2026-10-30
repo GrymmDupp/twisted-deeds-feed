@@ -7,8 +7,10 @@ Fallback chain per listing (stops at the first step that yields usable photos):
      (broker/listing-site pages already on file as reference images or sources)
   3. Wikipedia / Wikimedia Commons (free licences only)    -> image_type "public-domain" | "cc"  (downloaded into photos/)
   4. Library of Congress HABS/HAER/HALS (public domain)    -> image_type "public-domain"       (downloaded into photos/)
-  5. nothing usable -> images stay empty; the listing goes on the illustration list (image_type "illustration"
-     entries are added later by hand, never by this script).
+  5. hand-picked free photos in photos/curated.json (Commons cc/public-domain, downloaded into photos/<id>/)
+  6. nothing usable -> the listing's illustration from illustrations/manifest.json (image_type "illustration"),
+     re-attached on every run so cache refreshes never wipe it. Illustrations are drawn by hand, never by this script.
+Real photos (listing, alt-listing, cc, public-domain) always win over an illustration.
 
 Rules: listing/broker photos are hotlinked only, never rehosted. News/press photos are never used. Logos, agent
 headshots, map tiles, icons and tracking pixels are skipped. Sites that block bots or forbid it (Zillow, Trulia,
@@ -27,6 +29,10 @@ NOTES = "/workspace/twisted-deeds/_build/photo_notes.json"   # PRIVATE/internal;
 MAX_IMAGES = 8
 REFRESH_DAYS = 7
 CACHE_VERSION = 2
+CURATED = os.path.join(REPO, "photos", "curated.json")                   # {id: [free-licence photo entries]}
+ILLUS_DIR = os.path.join(REPO, "illustrations")
+ILLUS_MANIFEST = os.path.join(ILLUS_DIR, "manifest.json")              # {id: illustration entry}
+REAL_TYPES = ("listing", "alt-listing", "public-domain", "cc")
 BROWSER_UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 BOT_UA = "twisted-deeds-feed/1.0 (+https://github.com/GrymmDupp/twisted-deeds-feed; photo credits)"
 IMAGE_TYPES = ("listing", "alt-listing", "public-domain", "cc", "illustration")
@@ -491,6 +497,43 @@ def load_cache():
     return {"version": CACHE_VERSION, "listings": {}}
 
 
+def _load_json(path):
+    try:
+        with open(path) as f:
+            d = json.load(f)
+        return d if isinstance(d, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
+def _local_ok(url, base, root):
+    """A rehosted file (photos/ or illustrations/) must exist in the repo; other URLs pass."""
+    if not url.startswith(base):
+        return True
+    rel = urllib.parse.unquote(url[len(base):])
+    return ".." not in rel and os.path.isfile(os.path.join(root, rel))
+
+
+ILLUS_BASE_URL = "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/"
+
+
+def attach_images(lid, cached, curated, illus):
+    """Real photos first (cached scrape results, then curated free photos); the illustration only when none exist."""
+    real = [dict(im) for im in cached if im.get("image_type") in REAL_TYPES]
+    seen = {im.get("url") for im in real}
+    for im in curated.get(lid) or []:
+        if im.get("image_type") in ("cc", "public-domain") and im.get("url") not in seen \
+                and _local_ok(im.get("url", ""), PHOTO_BASE_URL, PHOTO_DIR):
+            real.append(dict(im)); seen.add(im.get("url"))
+    if real:
+        return real[:MAX_IMAGES]
+    e = illus.get(lid)
+    if isinstance(e, dict) and e.get("image_type") == "illustration" and e.get("url") \
+            and _local_ok(e["url"], ILLUS_BASE_URL, ILLUS_DIR):
+        return [dict(e)]
+    return []
+
+
 def add_photos(listings, mls_tokens, offline=False, force=False, workers=8):
     """Attach photo entries to each listing under `_photos` (split_access publishes them in `images`)."""
     cache = load_cache()
@@ -513,8 +556,9 @@ def add_photos(listings, mls_tokens, offline=False, force=False, workers=8):
         with open(NOTES, "w") as f:
             json.dump({k: notes[k] for k in sorted(notes)}, f, ensure_ascii=False, indent=1); f.write("\n")
     ids = {l["id"] for l in listings}
+    curated, illus = _load_json(CURATED), _load_json(ILLUS_MANIFEST)
     for l in listings:
-        l["_photos"] = [dict(im) for im in (C.get(l["id"], {}).get("images") or [])]
+        l["_photos"] = attach_images(l["id"], C.get(l["id"], {}).get("images") or [], curated, illus)
     return {"photo_refreshed": 0 if offline else len(todo), "with_photos": sum(1 for l in listings if l["_photos"]),
             "by_type": dict(__import__("collections").Counter(im["image_type"] for l in listings for im in l["_photos"][:1])),
             "stale_cache_ids": sorted(set(C) - ids)}
