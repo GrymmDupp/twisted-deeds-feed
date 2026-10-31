@@ -95,6 +95,13 @@
   "type": "amenity/place_of_worship",
   "display": "Heritage Baptist Church, 163, North Ashland Avenue, Woodlands, Lexington Manor, Lexington, Fayette County, Kentucky, 40508, United States"
  },
+ "q:1699 belmont st, bellaire, oh 43906": {
+  "lat": 40.002878,
+  "lon": -80.744075,
+  "house": true,
+  "type": "place/house",
+  "display": "1699, Belmont Street, Bellaire, Pultney Township, Belmont County, Ohio, 43906, United States"
+ },
  "q:17321 old rome rd, watertown, ny 13601": {
   "lat": 43.9176515,
   "lon": -75.9774586,
