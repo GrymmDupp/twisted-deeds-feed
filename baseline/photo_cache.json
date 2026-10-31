@@ -303,9 +303,9 @@
    "url": "https://www.redfin.com/WA/Port-Townsend/415-Harrison-St-98368/home/40083022"
   },
   "belden-town-ca": {
-   "checked_at": "2026-10-30T21:43:12+00:00",
+   "checked_at": "2026-10-31T13:05:37+00:00",
    "images": [],
-   "lastChecked": "2026-10-30",
+   "lastChecked": "2026-10-31",
    "url": "https://www.beldentownforsale.com/"
   },
   "belton-opera": {
@@ -408,9 +408,9 @@
    "url": ""
   },
   "brook-forest-inn-evergreen": {
-   "checked_at": "2026-10-30T21:43:07+00:00",
+   "checked_at": "2026-10-31T13:05:37+00:00",
    "images": [],
-   "lastChecked": "2026-10-30",
+   "lastChecked": "2026-10-31",
    "url": "https://www.propertyshark.com/cre/commercial-property/us/co/evergreen/brook-forest-inn/"
   },
   "brooklyn-castle": {
@@ -1144,9 +1144,9 @@
    "url": "https://www.redfin.com/MI/Jackson/505-Wildwood-Ave-49201/home/202109763"
   },
   "frisco-bagley-mill": {
-   "checked_at": "2026-10-30T21:43:07+00:00",
+   "checked_at": "2026-10-31T13:05:37+00:00",
    "images": [],
-   "lastChecked": "2026-10-30",
+   "lastChecked": "2026-10-31",
    "url": "https://global.bhhs.com/homes-for-sale/820-County-Road-9-Silverton-CO-81433-440182363"
   },
   "gardendale-churchyard": {
@@ -2071,7 +2071,7 @@
    "url": "https://commonwealthcommercial.com/property/2125-e-main-street/"
   },
   "old-pearce-mercantile": {
-   "checked_at": "2026-10-30T21:43:07+00:00",
+   "checked_at": "2026-10-31T13:05:37+00:00",
    "images": [
     {
      "author": "Marine 69-71",
@@ -2087,7 +2087,7 @@
      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/old-pearce-mercantile/01-a64830d717.jpg"
     }
    ],
-   "lastChecked": "2026-10-30",
+   "lastChecked": "2026-10-31",
    "url": "https://www.coldwellbankerhomes.com/az/pearce/905-s-ghost-town-trail/pid_73174721/"
   },
   "osseo-farm": {
@@ -2118,7 +2118,7 @@
    "url": "https://michiganwhitetailproperties.com/michigan-land-for-sale/country-home-for-sale-in-hillsdale-county-8-03-acres-property-id-23579/"
   },
   "ozark-franklin-county-jail": {
-   "checked_at": "2026-10-31T03:07:04+00:00",
+   "checked_at": "2026-10-31T13:05:39+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (mossyoakproperties.com)",
@@ -2201,7 +2201,7 @@
      "url": "https://images.realstack.com/w1920xh1440/uploads/user/1811/gallery-file/fe2471587634f03c45689e0c5e9b0811/89e6a95e3649c30a.jpg"
     }
    ],
-   "lastChecked": "2026-10-30",
+   "lastChecked": "2026-10-31",
    "url": "https://www.mossyoakproperties.com/property/historic-jailhouse-airbnb-in-downtown-ozark-franklin-arkansas/118999/"
   },
   "pawpaw-farm": {
@@ -2304,7 +2304,7 @@
    "url": "https://www.jromerogroup.com/properties/ga/historic-1920-jail-in-old-pelham-ga-unique-opportunity/1124411/"
   },
   "petes-tavern-nampa": {
-   "checked_at": "2026-10-30T21:43:12+00:00",
+   "checked_at": "2026-10-31T13:05:37+00:00",
    "images": [
     {
      "caption": "Listing photo 1 (pacificcontinentalrealty.com)",
@@ -2314,10 +2314,20 @@
      "image_type": "listing",
      "rights": "hotlink",
      "source": "https://www.pacificcontinentalrealty.com/listing/11-12th-avenue-nampa-id-83651-11-12th-avenue-s/",
-     "url": "https://www.pacificcontinentalrealty.com/wp-content/uploads/2024/12/276181-450x300.jpg"
+     "url": "https://www.pacificcontinentalrealty.com/wp-content/uploads/2025/07/302832-450x300.jpg"
+    },
+    {
+     "caption": "Listing photo 2 (pacificcontinentalrealty.com)",
+     "credit": "pacificcontinentalrealty.com",
+     "era": "current",
+     "id": "petes-tavern-nampa-p2",
+     "image_type": "listing",
+     "rights": "hotlink",
+     "source": "https://www.pacificcontinentalrealty.com/listing/11-12th-avenue-nampa-id-83651-11-12th-avenue-s/",
+     "url": "https://www.pacificcontinentalrealty.com/wp-content/uploads/2025/11/704593-450x300.jpg"
     }
    ],
-   "lastChecked": "2026-10-30",
+   "lastChecked": "2026-10-31",
    "url": "https://www.pacificcontinentalrealty.com/listing/11-12th-avenue-nampa-id-83651-11-12th-avenue-s/"
   },
   "philip-knight-house": {
@@ -2339,9 +2349,9 @@
    "url": "https://www.zillow.com/homedetails/110-Pinckney-St-Chester-SC-29706/70215748_zpid/"
   },
   "pirates-park": {
-   "checked_at": "2026-10-30T21:42:55+00:00",
+   "checked_at": "2026-10-31T13:05:37+00:00",
    "images": [],
-   "lastChecked": "2026-10-30",
+   "lastChecked": "2026-10-31",
    "url": "https://land.us/michigan/genesee-county/flint/4175-miller-rd/"
   },
   "plum-funeral": {
@@ -2642,9 +2652,9 @@
    "url": "https://www.residential.com/l/190-E-Grove-St-Sheldon-IL-60966-f24787a777"
   },
   "skillagalee-gravelly": {
-   "checked_at": "2026-10-30T21:42:55+00:00",
+   "checked_at": "2026-10-31T13:05:37+00:00",
    "images": [],
-   "lastChecked": "2026-10-30",
+   "lastChecked": "2026-10-31",
    "url": "https://a2forsale.remax-michigan.com/realestate/details/140886068/00-gravelly-shoal-lighthouse-saginaw-mi-48703"
   },
   "sloane-house": {
@@ -2811,9 +2821,9 @@
    "url": "https://www.coldwellbanker.com/ny/ithaca/119-3rd-st/lid-P00800000H65eNPX6xMkbgnn1m0WxJOB6vINevUM"
   },
   "verdier-mansion-sf": {
-   "checked_at": "2026-10-30T21:43:07+00:00",
+   "checked_at": "2026-10-31T13:05:37+00:00",
    "images": [],
-   "lastChecked": "2026-10-30",
+   "lastChecked": "2026-10-31",
    "url": "https://robbreport.com/listing/1001-vallejo-st-san-francisco-ca-94133/"
   },
   "walter-funeral": {
