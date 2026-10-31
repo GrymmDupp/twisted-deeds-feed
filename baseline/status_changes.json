@@ -1,0 +1,558 @@
+{
+ "arkport-church": {
+  "status": "Active",
+  "since": null
+ },
+ "asbury-cemetery": {
+  "status": "Active",
+  "since": null
+ },
+ "ashton-bar": {
+  "status": "Active",
+  "since": null
+ },
+ "ashwood-fire": {
+  "status": "Pending",
+  "since": null
+ },
+ "auburn-farm": {
+  "status": "Active",
+  "since": null
+ },
+ "barrington-church": {
+  "status": "Active",
+  "since": null
+ },
+ "bayside-cape": {
+  "status": "Active",
+  "since": null
+ },
+ "bayview-hospital": {
+  "status": "Active",
+  "since": null
+ },
+ "belden-town-ca": {
+  "status": "Active",
+  "since": null
+ },
+ "bellaire-house": {
+  "status": "Active",
+  "since": null
+ },
+ "belton-opera": {
+  "status": "Active",
+  "since": null
+ },
+ "bolem-house": {
+  "status": "Sold",
+  "since": "2026-10-16"
+ },
+ "boxshop-track": {
+  "status": "Active",
+  "since": null
+ },
+ "brook-forest-inn-evergreen": {
+  "status": "Active",
+  "since": null
+ },
+ "brooklyn-castle": {
+  "status": "Active",
+  "since": null
+ },
+ "browns-funeral": {
+  "status": "Stale",
+  "since": null
+ },
+ "brownsville-road-house": {
+  "status": "Active",
+  "since": null
+ },
+ "buffalo-bodega": {
+  "status": "Active",
+  "since": null
+ },
+ "bunny-ranch": {
+  "status": "Active",
+  "since": null
+ },
+ "byron-campus": {
+  "status": "Active",
+  "since": null
+ },
+ "castle-rock": {
+  "status": "Active",
+  "since": null
+ },
+ "cavendish-school": {
+  "status": "Active",
+  "since": null
+ },
+ "cbrown-funeral": {
+  "status": "Active",
+  "since": null
+ },
+ "cedarcroft": {
+  "status": "Active",
+  "since": null
+ },
+ "cedartown-church": {
+  "status": "Active",
+  "since": null
+ },
+ "central-virginia": {
+  "status": "Active",
+  "since": null
+ },
+ "chancellor-house": {
+  "status": "Sold",
+  "since": "2026-10-16"
+ },
+ "chesterfield-crematory": {
+  "status": "Active",
+  "since": null
+ },
+ "cielo-drive-estate": {
+  "status": "Active",
+  "since": null
+ },
+ "claycity-church": {
+  "status": "Active",
+  "since": null
+ },
+ "clearfield-church": {
+  "status": "Active",
+  "since": null
+ },
+ "corunna-funeral": {
+  "status": "Active",
+  "since": null
+ },
+ "creel-house": {
+  "status": "Active",
+  "since": null
+ },
+ "decatur-funeral": {
+  "status": "Active",
+  "since": null
+ },
+ "deercreek-homestead": {
+  "status": "Active",
+  "since": null
+ },
+ "deerwood-golf": {
+  "status": "Active",
+  "since": null
+ },
+ "deshler-foursquare": {
+  "status": "Active",
+  "since": null
+ },
+ "duncan-church": {
+  "status": "Active",
+  "since": null
+ },
+ "dundalk-funeral": {
+  "status": "Active",
+  "since": null
+ },
+ "edwardsburg-farm": {
+  "status": "Active",
+  "since": null
+ },
+ "eight-mile-club": {
+  "status": "Active",
+  "since": null
+ },
+ "ellis-funeral": {
+  "status": "Pending",
+  "since": null
+ },
+ "eloise-complex": {
+  "status": "Active",
+  "since": null
+ },
+ "emmons-mansion": {
+  "status": "Sold",
+  "since": "2026-10-29"
+ },
+ "eppstein-house": {
+  "status": "Active",
+  "since": null
+ },
+ "fairfield-funeral": {
+  "status": "Active",
+  "since": null
+ },
+ "fairport-funeral": {
+  "status": "Sold",
+  "since": "2026-06-17"
+ },
+ "fantasy-island-grand-island": {
+  "status": "Active",
+  "since": null
+ },
+ "farallones-fire": {
+  "status": "Sold",
+  "since": "2026-10-22"
+ },
+ "farrand-hall": {
+  "status": "Active",
+  "since": null
+ },
+ "fobes-ranch": {
+  "status": "Active",
+  "since": null
+ },
+ "forest-hills-auction": {
+  "status": "Pending",
+  "since": null
+ },
+ "former-funeral-home-new": {
+  "status": "Active",
+  "since": null
+ },
+ "fossores-chapter-house": {
+  "status": "Active",
+  "since": null
+ },
+ "frisco-bagley-mill": {
+  "status": "Active",
+  "since": null
+ },
+ "gardendale-churchyard": {
+  "status": "Active",
+  "since": null
+ },
+ "gering-umc": {
+  "status": "Active",
+  "since": null
+ },
+ "gratiot-funeral": {
+  "status": "Active",
+  "since": null
+ },
+ "guntown-mountain": {
+  "status": "Active",
+  "since": null
+ },
+ "hallsferry-funeral-church": {
+  "status": "Active",
+  "since": null
+ },
+ "halltown-funeral": {
+  "status": "Active",
+  "since": null
+ },
+ "hangten-golf": {
+  "status": "Active",
+  "since": null
+ },
+ "hatch-adobe": {
+  "status": "Active",
+  "since": null
+ },
+ "haunted-hotel-new-orleans": {
+  "status": "Active",
+  "since": null
+ },
+ "hawkins-church": {
+  "status": "Active",
+  "since": null
+ },
+ "heritage-baptist": {
+  "status": "Active",
+  "since": null
+ },
+ "hermitage": {
+  "status": "Pending",
+  "since": null
+ },
+ "hilo-sanctuary": {
+  "status": "Active",
+  "since": null
+ },
+ "holliday-house": {
+  "status": "Active",
+  "since": null
+ },
+ "houston-funeral": {
+  "status": "Active",
+  "since": null
+ },
+ "hudson-evans": {
+  "status": "Active",
+  "since": null
+ },
+ "hyde-house": {
+  "status": "Active",
+  "since": null
+ },
+ "ionia-prohibition": {
+  "status": "Active",
+  "since": null
+ },
+ "jackson-county-old-jail-kc": {
+  "status": "Active",
+  "since": null
+ },
+ "jacob-ten-broeck-house": {
+  "status": "Active",
+  "since": null
+ },
+ "judge-oliver-house": {
+  "status": "Active",
+  "since": null
+ },
+ "junction-funeral": {
+  "status": "Active",
+  "since": null
+ },
+ "kck-parsonage": {
+  "status": "Active",
+  "since": null
+ },
+ "kendallville-carnegie": {
+  "status": "Active",
+  "since": null
+ },
+ "labelle-camp": {
+  "status": "Active",
+  "since": null
+ },
+ "lagrange-church": {
+  "status": "Active",
+  "since": null
+ },
+ "lawrence-farm": {
+  "status": "Active",
+  "since": null
+ },
+ "lemp-mansion": {
+  "status": "Active",
+  "since": null
+ },
+ "lumber-baron-inn-denver": {
+  "status": "Active",
+  "since": null
+ },
+ "lutcher-funeral": {
+  "status": "Active",
+  "since": null
+ },
+ "macabre-mansion": {
+  "status": "Active",
+  "since": null
+ },
+ "mandan-michael": {
+  "status": "Active",
+  "since": null
+ },
+ "marbleton-chapel": {
+  "status": "Active",
+  "since": null
+ },
+ "marcola-school": {
+  "status": "Active",
+  "since": null
+ },
+ "merced-funeral": {
+  "status": "Active",
+  "since": null
+ },
+ "middle-island-light": {
+  "status": "Active",
+  "since": null
+ },
+ "moline-carnegie": {
+  "status": "Active",
+  "since": null
+ },
+ "mulberry-cemetery": {
+  "status": "Active",
+  "since": null
+ },
+ "newmilford-church": {
+  "status": "Active",
+  "since": null
+ },
+ "newsmyrna-funeral": {
+  "status": "Active",
+  "since": null
+ },
+ "notre-dame-mission": {
+  "status": "Active",
+  "since": null
+ },
+ "oakhill": {
+  "status": "Active",
+  "since": null
+ },
+ "octagon-mansion": {
+  "status": "Pending",
+  "since": null
+ },
+ "old-henrico-county": {
+  "status": "Active",
+  "since": null
+ },
+ "old-pearce-mercantile": {
+  "status": "Active",
+  "since": null
+ },
+ "osseo-farm": {
+  "status": "Active",
+  "since": null
+ },
+ "ozark-franklin-county-jail": {
+  "status": "Active",
+  "since": null
+ },
+ "pawpaw-farm": {
+  "status": "Active",
+  "since": null
+ },
+ "peanut-farm": {
+  "status": "Active",
+  "since": null
+ },
+ "pelham-jail": {
+  "status": "Active",
+  "since": null
+ },
+ "petes-tavern-nampa": {
+  "status": "Active",
+  "since": null
+ },
+ "philip-knight-house": {
+  "status": "Active",
+  "since": null
+ },
+ "phoenix-funeral": {
+  "status": "Active",
+  "since": null
+ },
+ "pinckney-inn": {
+  "status": "Active",
+  "since": null
+ },
+ "pirates-park": {
+  "status": "Active",
+  "since": null
+ },
+ "plum-funeral": {
+  "status": "Active",
+  "since": null
+ },
+ "poteau-church": {
+  "status": "Active",
+  "since": null
+ },
+ "pruden-house": {
+  "status": "Active",
+  "since": null
+ },
+ "ridge-italianate": {
+  "status": "Active",
+  "since": null
+ },
+ "rifkin-house": {
+  "status": "Sold",
+  "since": "2026-10-21"
+ },
+ "rubio-friends": {
+  "status": "Sold",
+  "since": "2026-09-08"
+ },
+ "sansimon-retreat": {
+  "status": "Active",
+  "since": null
+ },
+ "seymour-funeral": {
+  "status": "Active",
+  "since": null
+ },
+ "sheldon-brick": {
+  "status": "Active",
+  "since": null
+ },
+ "skillagalee-gravelly": {
+  "status": "Active",
+  "since": null
+ },
+ "sloane-house": {
+  "status": "Active",
+  "since": null
+ },
+ "southmain-school": {
+  "status": "Active",
+  "since": null
+ },
+ "st-johns-church-fredonia": {
+  "status": "Active",
+  "since": null
+ },
+ "st-mark-evanston": {
+  "status": "Active",
+  "since": null
+ },
+ "state-theatre": {
+  "status": "Pending",
+  "since": null
+ },
+ "stover-cabin": {
+  "status": "Active",
+  "since": null
+ },
+ "thatch-house": {
+  "status": "Active",
+  "since": null
+ },
+ "trails-end": {
+  "status": "Active",
+  "since": null
+ },
+ "trilby-baptist": {
+  "status": "Active",
+  "since": null
+ },
+ "twelve-tribes-ithaca": {
+  "status": "Active",
+  "since": null
+ },
+ "verdier-mansion-sf": {
+  "status": "Active",
+  "since": null
+ },
+ "walter-funeral": {
+  "status": "Active",
+  "since": null
+ },
+ "wareham-trump": {
+  "status": "Sold",
+  "since": "2026-09-10"
+ },
+ "watertown-funeral": {
+  "status": "Active",
+  "since": null
+ },
+ "wheeler-mansion-orange": {
+  "status": "Active",
+  "since": null
+ },
+ "willspoint-church": {
+  "status": "Active",
+  "since": null
+ },
+ "woodville-chapel": {
+  "status": "Active",
+  "since": null
+ },
+ "woonsocket-funeral": {
+  "status": "Active",
+  "since": null
+ },
+ "zinc-collar-pad": {
+  "status": "Active",
+  "since": null
+ }
+}
