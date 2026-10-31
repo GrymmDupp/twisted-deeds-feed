@@ -52,7 +52,8 @@ SKIP_IMG = re.compile(r"logo|headshot|head[-_]?shot|agent|avatar|profile|broker[
                       r"placeholder|blank|spacer|pixel|tracking|beacon|1x1|staticmap|maps\.googleapis|tile|mapbox|"
                       r"/map[s]?/|openstreetmap|arcgis|banner|brand|equal[-_]?housing|realtor[-_]?logo|mls[-_]?logo|"
                       r"social|share[-_]|facebook|twitter|instagram|youtube|linkedin|pinterest|qr[-_]?code|signature|"
-                      r"default[-_]|no[-_]?image|noimage|coming[-_]?soon|loading|captcha|gravatar", re.I)
+                      r"default[-_]|no[-_]?image|noimage|coming[-_]?soon|loading|captcha|gravatar|"
+                      r"/assets/[^/?]+-[A-Za-z0-9_-]{8}\.(?:png|svg|webp)", re.I)  # hashed site-bundle assets (brand art)
 IMG_EXT = re.compile(r"\.(jpe?g|png|webp)(\?|#|$)", re.I)
 
 # ---------------------------------------------------------------- MLS-style image URLs (owner rule: no MLS numbers anywhere)
