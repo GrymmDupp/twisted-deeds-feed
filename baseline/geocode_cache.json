@@ -132,6 +132,13 @@
  },
  "q:2071 deer creek rd, linden, tn 37096": null,
  "q:20771 eight mile rd, detroit, mi 48219": null,
+ "q:209 w river st, ozark, ar 72949": {
+  "lat": 35.485338,
+  "lon": -93.8276388,
+  "house": true,
+  "type": "place/house",
+  "display": "209, West River Street, Ozark, Franklin County, Arkansas, 72949, United States"
+ },
  "q:210 5th ave nw, mandan, nd 58554": {
   "lat": 46.8271526,
   "lon": -100.8975054,
