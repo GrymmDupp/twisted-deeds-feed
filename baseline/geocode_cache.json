@@ -154,6 +154,7 @@
   "type": "place/house",
   "display": "2134, Willow Spring Road, Dundalk, Baltimore County, Maryland, 21222, United States"
  },
+ "q:2158 mercer rd, fredonia, pa 16124": null,
  "q:21920 branson rd, poteau, ok 74953": {
   "lat": 35.1089734,
   "lon": -94.6449986,
@@ -593,6 +594,13 @@
   "house": false,
   "type": "boundary/administrative",
   "display": "Felicity, Franklin Township, Clermont County, Ohio, United States"
+ },
+ "q:fredonia, pa": {
+  "lat": 41.3217232,
+  "lon": -80.2586747,
+  "house": false,
+  "type": "boundary/administrative",
+  "display": "Fredonia, Mercer County, Pennsylvania, United States"
  },
  "q:harpers ferry, wv": {
   "lat": 39.323418,
