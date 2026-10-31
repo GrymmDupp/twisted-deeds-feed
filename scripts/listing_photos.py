@@ -55,6 +55,35 @@ SKIP_IMG = re.compile(r"logo|headshot|head[-_]?shot|agent|avatar|profile|broker[
                       r"default[-_]|no[-_]?image|noimage|coming[-_]?soon|loading|captcha|gravatar", re.I)
 IMG_EXT = re.compile(r"\.(jpe?g|png|webp)(\?|#|$)", re.I)
 
+# ---------------------------------------------------------------- MLS-style image URLs (owner rule: no MLS numbers anywhere)
+MLS_WORD_RE = re.compile(r"[a-z]*mls[a-z]*", re.I)          # MLS, NORMLS, FMLS, crmls, brightmls, primemlsre ...
+MLS_BOARD_RE = re.compile(r"/[A-Z]{2}_[A-Z0-9]{2,12}/(?:\d+/){2,}")            # MLS-board photo folders: /OH_CBR/22/60/36/...
+MLS_ID_TOKEN_RE = re.compile(r"[A-Z]{0,3}\d{7,}")                               # long numeric listing ids: 108483781, REN036025650
+WP_DATE_DIR_RE = re.compile(r"/uploads/\d{4}/\d{2}/(?:\d{6,8}/)?")                # WordPress upload dirs are dates, not ids
+OWN_URL_BASES = ("https://grymmdupp.github.io/twisted-deeds-feed/",)
+
+
+def mls_url_hit(u):
+    """The MLS-style fragment in a URL (host + path; query strings ignored), or None if the URL is clean."""
+    if not isinstance(u, str) or not u.startswith("http"):
+        return None
+    p = urllib.parse.urlparse(u)
+    m = MLS_WORD_RE.search(p.netloc + p.path) or MLS_BOARD_RE.search(p.path)
+    if m:
+        return m.group(0)
+    if u.startswith(OWN_URL_BASES):          # our own photos/illustrations use hash file names
+        return None
+    for tok in re.split(r"[/_.\-]+", WP_DATE_DIR_RE.sub("/uploads/", urllib.parse.unquote(p.path))):
+        if MLS_ID_TOKEN_RE.fullmatch(tok):
+            return tok
+    return None
+
+
+def image_mls_hits(im):
+    """MLS-style URLs in a photo entry's url / source / page, plus any URL inside its credit text."""
+    urls = [im.get(k) for k in ("url", "source", "page")] + re.findall(r"https?://\S+", str(im.get("credit") or ""))
+    return [h for h in (mls_url_hit(u) for u in urls) if h]
+
 
 def now():
     return datetime.now(timezone.utc).replace(microsecond=0)
@@ -224,6 +253,9 @@ def from_page(lid, page, image_type, mls_tokens, note):
     h = host(page)
     if not page.startswith("http"):
         return []
+    if mls_url_hit(page):
+        note.append(f"{image_type} {page}: page URL carries an MLS-style id, its photos are not used")
+        return []
     b = on(h, BLOCKED)
     if b:
         note.append(f"{image_type} {page}: skipped, {BLOCKED[b]}")
@@ -248,7 +280,7 @@ def from_page(lid, page, image_type, mls_tokens, note):
         note.append(f"{image_type} {page}: {kind}, not a property listing page; its photos are not used")
         return []
     cands = [u for u in extract(final, text) if not any(t.lower() in u.lower() for t in mls_tokens if len(t) >= 5)]
-    cands = [u for u in cands if not re.search(r"\bMLS\W*\d{5,}", u, re.I)]
+    cands = [u for u in cands if not re.search(r"\bMLS\W*\d{5,}", u, re.I) and not mls_url_hit(u)]
     good = []
     for u in cands[:24]:
         if image_ok(u, page):
@@ -519,10 +551,10 @@ ILLUS_BASE_URL = "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/"
 
 def attach_images(lid, cached, curated, illus):
     """Real photos first (cached scrape results, then curated free photos); the illustration only when none exist."""
-    real = [dict(im) for im in cached if im.get("image_type") in REAL_TYPES]
+    real = [dict(im) for im in cached if im.get("image_type") in REAL_TYPES and not image_mls_hits(im)]
     seen = {im.get("url") for im in real}
     for im in curated.get(lid) or []:
-        if im.get("image_type") in ("cc", "public-domain") and im.get("url") not in seen \
+        if im.get("image_type") in ("cc", "public-domain") and im.get("url") not in seen and not image_mls_hits(im) \
                 and _local_ok(im.get("url", ""), PHOTO_BASE_URL, PHOTO_DIR):
             real.append(dict(im)); seen.add(im.get("url"))
     if real:

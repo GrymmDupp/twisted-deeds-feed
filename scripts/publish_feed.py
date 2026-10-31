@@ -124,6 +124,11 @@ def photo_errors(lid, im):
         errs.append(f"{lid}: free-licence photo {im.get('id')} needs license, author and a copy in photos/")
     if t in ("listing", "alt-listing") and str(im.get("url", "")).startswith(PHOTO_BASE_URL):
         errs.append(f"{lid}: listing photo {im.get('id')} must be hotlinked, not rehosted")
+    from listing_photos import image_mls_hits      # MLS-style image / source / credit URLs fail the publish
+    for h in image_mls_hits(im):
+        errs.append(f"{lid}: photo {im.get('id')} has an MLS-style URL ({h})")
+    if re.search(r"\bMLS\b\s*(?:#|No\.?|number)?\s*:?\s*[A-Z]*\d", str(im.get("credit", "")) + " " + str(im.get("caption", "")), re.I):
+        errs.append(f"{lid}: photo {im.get('id')} credit/caption mentions an MLS number")
     return errs
 # Locked (full-file) fields. check_locked() fails the publish if any of these keys appears anywhere in the feed.
 LOCKED_KEYS = {"hook", "story", "history", "citation", "citations", "notes", "photo", "extra", "sources", "links",
@@ -892,11 +897,12 @@ def main():
     stats["geo_new_requests"] = geo.calls
     if geo.failures:
         stats["geo_failures"] = geo.failures
-    from listing_photos import add_photos
+    from listing_photos import add_photos, image_mls_hits
     stats["photos"] = add_photos(listings, mls_tokens, offline=a.offline_photos, force=a.refresh_photos)
     def _mls_free(im):
         blob = " ".join(str(v) for v in im.values())
-        return not any(rx.search(blob) for rx in MLS_URL_RES) and not any(len(t) >= 5 and t.lower() in blob.lower() for t in mls_tokens)
+        return not any(rx.search(blob) for rx in MLS_URL_RES) and not any(len(t) >= 5 and t.lower() in blob.lower() for t in mls_tokens) \
+            and not image_mls_hits(im)
     for l in listings:  # photos whose URL or page link carries an MLS number are dropped (same rule as listing URLs)
         l["_photos"] = [im for im in l.get("_photos", []) if _mls_free(im)]
     stats["photos"]["with_photos_after_mls_scrub"] = sum(1 for l in listings if l["_photos"])
