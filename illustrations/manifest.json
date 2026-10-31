@@ -1,4 +1,14 @@
 {
+ "barrington-church": {
+  "caption": "Illustration of Barrington Church and Daycare (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "barrington-church-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/barrington-church.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/barrington-church.jpg"
+ },
  "bayview-hospital": {
   "caption": "Illustration of Bay View General Hospital (not a photo)",
   "credit": "Illustration by Twisted Deeds (not a photo)",
@@ -69,6 +79,16 @@
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/buffalo-bodega.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/buffalo-bodega.jpg"
  },
+ "castle-rock": {
+  "caption": "Illustration of Castle Rock (roadside lookout & Paul Bunyan statues) (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "castle-rock-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/castle-rock.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/castle-rock.jpg"
+ },
  "cavendish-school": {
   "caption": "Illustration of Duttonsville Schoolhouse (not a photo)",
   "credit": "Illustration by Twisted Deeds (not a photo)",
@@ -98,6 +118,26 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/creel-house.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/creel-house.jpg"
+ },
+ "decatur-funeral": {
+  "caption": "Illustration of Decatur Street Funeral Home (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "decatur-funeral-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/decatur-funeral.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/decatur-funeral.jpg"
+ },
+ "deshler-foursquare": {
+  "caption": "Illustration of Deshler Avenue Foursquare (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "deshler-foursquare-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/deshler-foursquare.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/deshler-foursquare.jpg"
  },
  "eloise-complex": {
   "caption": "Illustration of Eloise Complex (not a photo)",
@@ -129,6 +169,16 @@
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/eppstein-house.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/eppstein-house.jpg"
  },
+ "fobes-ranch": {
+  "caption": "Illustration of Fobes Ranch ('LSD Ranch') (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "fobes-ranch-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/fobes-ranch.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/fobes-ranch.jpg"
+ },
  "forest-hills-auction": {
   "caption": "Illustration of Forest Hills Colonial (not a photo)",
   "credit": "Illustration by Twisted Deeds (not a photo)",
@@ -158,6 +208,26 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/frisco-bagley-mill.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/frisco-bagley-mill.jpg"
+ },
+ "halltown-funeral": {
+  "caption": "Illustration of Eackles-Spencer Funeral Home (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "halltown-funeral-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/halltown-funeral.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/halltown-funeral.jpg"
+ },
+ "hatch-adobe": {
+  "caption": "Illustration of Hatch Adobe Church (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "hatch-adobe-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hatch-adobe.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hatch-adobe.jpg"
  },
  "hermitage": {
   "caption": "Illustration of The Hermitage (not a photo)",
@@ -198,6 +268,16 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hudson-evans.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hudson-evans.jpg"
+ },
+ "hyde-house": {
+  "caption": "Illustration of Hyde House (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "hyde-house-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hyde-house.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/hyde-house.jpg"
  },
  "ionia-prohibition": {
   "caption": "Illustration of Ionia Prohibition 'Speakeasy & Brothel' House (not a photo)",
@@ -269,6 +349,26 @@
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/lumber-baron-inn-denver.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/lumber-baron-inn-denver.jpg"
  },
+ "marbleton-chapel": {
+  "caption": "Illustration of Marbleton Chapel (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "marbleton-chapel-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/marbleton-chapel.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/marbleton-chapel.jpg"
+ },
+ "merced-funeral": {
+  "caption": "Illustration of Ivers and Alcorn Funeral Home (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "merced-funeral-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/merced-funeral.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/merced-funeral.jpg"
+ },
  "moline-carnegie": {
   "caption": "Illustration of Former Moline Public Library (1904 Carnegie) (not a photo)",
   "credit": "Illustration by Twisted Deeds (not a photo)",
@@ -278,6 +378,16 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/moline-carnegie.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/moline-carnegie.jpg"
+ },
+ "octagon-mansion": {
+  "caption": "Illustration of Octagon Mansion (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "octagon-mansion-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/octagon-mansion.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/octagon-mansion.jpg"
  },
  "philip-knight-house": {
   "caption": "Illustration of Philip Knight House (Salem Witch Trials accuser's home) (not a photo)",
@@ -319,6 +429,16 @@
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/pruden-house.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/pruden-house.jpg"
  },
+ "ridge-italianate": {
+  "caption": "Illustration of Ridge Avenue Italianate (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "ridge-italianate-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/ridge-italianate.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/ridge-italianate.jpg"
+ },
  "rifkin-house": {
   "caption": "Illustration of Rifkin House (not a photo)",
   "credit": "Illustration by Twisted Deeds (not a photo)",
@@ -328,6 +448,16 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/rifkin-house.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/rifkin-house.jpg"
+ },
+ "seymour-funeral": {
+  "caption": "Illustration of Seymour Funeral Home (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "seymour-funeral-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/seymour-funeral.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/seymour-funeral.jpg"
  },
  "southmain-school": {
   "caption": "Illustration of South Main School (not a photo)",
@@ -408,5 +538,15 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/wheeler-mansion-orange.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/wheeler-mansion-orange.jpg"
+ },
+ "willspoint-church": {
+  "caption": "Illustration of Wills Point Church (not a photo)",
+  "credit": "Illustration by Twisted Deeds (not a photo)",
+  "era": "current",
+  "id": "willspoint-church-i1",
+  "image_type": "illustration",
+  "rights": "illustration",
+  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/willspoint-church.jpg",
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/willspoint-church.jpg"
  }
 }

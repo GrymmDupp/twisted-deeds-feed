@@ -372,6 +372,8 @@ def build(sheet_path):
 
 # ---------------------------------------------------------------- MLS scrub (all published listings, baseline included)
 MLS_TEXT_RE = re.compile(r"(?:\b(?:OneKey|CCAR|Alaska|under)\s+)?\b[A-Za-z]*MLS[A-Za-z]*(?:\s+Now)?\b\s*(?:#|No\.?|number)?\s*:?\s*([A-Z]{0,6}\d[\w-]{3,})", re.I)
+MLS_SERVICE_RE = re.compile(r"(\b[Tt]he\s+|\b[Aa]n?\s+)?\b(?:(?:Northern Great Lakes|OneKey|Bright|Canopy|Stellar)\s+)?"
+                            r"(?:[A-Z]{0,6}|[A-Z][a-z]+)MLS\b(?:\s+(?:copy|listing|record|data|sheet))?")
 MLS_URL_RES = [re.compile(r"mls[-_/=](?:[a-z]+/)?([A-Za-z]{0,4}\d{5,})", re.I), re.compile(r"/([A-Z]{2}\d{6,})/")]
 
 
@@ -402,6 +404,9 @@ def scrub_mls_published(listings):
     def clean_text(s):
         orig = s
         s = MLS_TEXT_RE.sub("", s)
+        # MLS service names ("PrimeMLS calls it", "Northern Great Lakes MLS copy") read neutrally: "the listing"
+        s = MLS_SERVICE_RE.sub(lambda m: "the listing" if m.group(1) or m.start() else "The listing", s)
+        s = re.sub(r"(^|[.!?]\s+)the listing", lambda m: m.group(1) + "The listing", s)
         for tk in toks:
             s = re.sub(r"\b" + re.escape(tk) + r"\b", "that listing", s)
         if s == orig:
