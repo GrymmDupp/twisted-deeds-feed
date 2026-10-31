@@ -24,9 +24,10 @@ Every property has a free preview and a locked full file (unlocked per account o
 | `count` | int | `listings.length` |
 | `source` | string | plain-language provenance note |
 | `feed_url` | string | canonical URL of this file |
-| `content_hash` | string | sha256 of the listings, used to skip no-op publishes |
+| `content_hash` | string | sha256 of the listings (plus `scouting` when present), used to skip no-op publishes |
 | `geo_attribution` | string | OSM/ODbL credit |
 | `enums_ext` | object | v2: enum values added since the baseline (`grade`, `layer` with colors, `tier`, `storyCategory`) |
+| `scouting` | object, optional | current scouting focus, from `scouting_focus.json`: `{focus: ['MI','OH'], label: 'Michigan & Ohio', since: 'YYYY-MM-DD'}`. Absent when the file is missing or `focus` is empty. Clients show it as a light note only |
 | `listings` | array | listing objects, described below |
 
 ## Listing object (v3, public preview)
@@ -54,6 +55,7 @@ Required on every listing:
 | `priority` | number | sort order (high first) |
 | `logged` | `YYYY-MM-DD` | date first logged |
 | `lastChecked` | `YYYY-MM-DD` | date last verified |
+| `addedAt` | `YYYY-MM-DD`, optional | date the id first appeared in the published feed (local date, America/Detroit). Stable: kept in `baseline/added_at.json`, seeded from this repo's git history, never rewritten. Drives "New this week" (last 7 days) |
 | `dossier` | bool | a written file exists (the file itself is locked) |
 | `lore` | bool | sourced dark history at that exact address (the lore itself is locked) |
 
@@ -150,3 +152,8 @@ No MLS number is ever published, including in the built-in Field Desk baseline t
 - Any URL (`url`, `photo`, image `page`/`url`) that contains an MLS number is dropped. Images whose links are all dropped are removed.
 - When a listing's `url` is dropped it falls back to a clean image page, or else `""`. Clients must handle an empty `url`.
 - `publish_feed.py` fails validation if any "MLS <number>" text or MLS-number URL remains anywhere in the feed.
+
+## Retention fields (2026-10-31)
+- `addedAt` on every listing: first-seen date in the feed. `baseline/added_at.json` is the source of truth (one `id: date` pair per listing ever published; entries are never removed or changed). It was seeded from the first feed version each id appeared in. New ids get the publish date.
+- `scouting` in the envelope: written from `scouting_focus.json` at the repo root. Edit that file when the scouting focus rotates (state codes must be US states; delete the file or empty `focus` to hide the note). Only `focus`, `label` and `since` are published.
+- Neither carries user, submission, unlock or membership data. "Recently updated" (approved community submissions) is computed by the community site from its own backend and is never in this feed.

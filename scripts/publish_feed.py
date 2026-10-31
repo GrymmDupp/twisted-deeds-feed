@@ -45,6 +45,8 @@ GEO_ATTRIBUTION = "Geocoding: OpenStreetMap Nominatim, (c) OpenStreetMap contrib
 US_BBOX = (17.0, 72.0, -180.0, -60.0)  # lat min/max, lon min/max (US incl. AK/HI/PR)
 FEED_URL = "https://grymmdupp.github.io/twisted-deeds-feed/feed/listings.json"
 FULL_OUT = "/workspace/twisted-deeds/_build/listings_full.json"   # PRIVATE; never inside the repo, never committed
+ADDED_AT = os.path.join(REPO, "baseline", "added_at.json")     # first-seen date per listing id (stable, tracked)
+SCOUTING = os.path.join(REPO, "scouting_focus.json")              # optional current scouting focus (edit when it rotates)
 DOSSIER_DIR = "/workspace/twisted-deeds/dossiers"                 # not exported yet (internal scores inside); see SCHEMA.md
 
 US_STATES = set("AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY DC".split())
@@ -95,7 +97,7 @@ REQUIRED = {"id": str, "name": str, "grade": str, "layer": str, "kind": str, "ti
             "dossier": bool, "lore": bool}
 OPTIONAL = {"lat": (int, float), "lon": (int, float), "geo_precision": str, "geo_source": str, "significance": str,
             "lane": str, "quiet": bool, "soldOn": str, "bargain": bool, "ground": str, "figure": str,
-            "community": bool, "grid": str}
+            "community": bool, "grid": str, "addedAt": str}
 PUBLIC_KEYS = set(REQUIRED) | set(OPTIONAL)
 PUBLIC_IMAGE_KEYS = {"id", "era", "caption", "source", "page", "rights"}
 SAMPLE_RIGHTS = {"permission", "cleared"}          # broker/press "reference" images are never samples
@@ -473,7 +475,7 @@ def validate(base, listings):
             errs.append(f"{lid}: Tier 2 listing must use grade 'story'")
         if l.get("tier") == 1 and l.get("grade") == "story":
             errs.append(f"{lid}: grade 'story' is Tier 2 only")
-        for d in ("logged", "lastChecked", "soldOn"):
+        for d in ("logged", "lastChecked", "soldOn", "addedAt"):
             if l.get(d) and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", l[d]):
                 errs.append(f"{lid}: {d} not YYYY-MM-DD")
         if "lat" in l or "lon" in l:
@@ -872,8 +874,90 @@ def write_sheet_photos(sheet, row_map):
     print(f"wrote {SHEET_PHOTO_HEADER} for {len(row_map)} sheet rows (backup in {BACKUP_DIR})")
 
 
-def listings_hash(listings):
-    return hashlib.sha256(json.dumps(listings, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+def listings_hash(listings, scouting=None):
+    obj = listings if scouting is None else {"listings": listings, "scouting": scouting}
+    return hashlib.sha256(json.dumps(obj, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+
+
+# ---------------------------------------------------------------- addedAt (first-seen date) + scouting focus
+def local_today():
+    try:
+        from zoneinfo import ZoneInfo
+        return datetime.now(ZoneInfo("America/Detroit")).date().isoformat()
+    except Exception:
+        return datetime.now().date().isoformat()
+
+
+def seed_added_at_from_history():
+    """First feed version each id appeared in (git history of feed/listings.json), as the commit's local date."""
+    first = {}
+    try:
+        revs = subprocess.run(["git", "-C", REPO, "log", "--reverse", "--format=%H %cI", "--", "feed/listings.json"],
+                              check=True, capture_output=True, text=True).stdout.split("\n")
+    except Exception:
+        return first
+    for line in filter(None, revs):
+        h, t = line.split()
+        try:
+            d = json.loads(subprocess.run(["git", "-C", REPO, "show", f"{h}:feed/listings.json"],
+                                          check=True, capture_output=True, text=True).stdout)
+        except Exception:
+            continue
+        for l in d.get("listings", []):
+            if l.get("id"):
+                first.setdefault(l["id"], t[:10])
+    return first
+
+
+def apply_added_at(listings, today=None):
+    """addedAt = the date a listing id first appeared in the published feed. Stable: once recorded in
+    baseline/added_at.json it never changes (ids are never removed from the map, so a re-listed id keeps
+    its date). New ids get today's date. Returns (map, newly_added_ids)."""
+    today = today or local_today()
+    try:
+        amap = json.load(open(ADDED_AT))
+    except (OSError, ValueError):
+        amap = seed_added_at_from_history()
+    new = []
+    for l in listings:
+        if l["id"] not in amap:
+            amap[l["id"]] = today
+            new.append(l["id"])
+        l["addedAt"] = amap[l["id"]]
+    return amap, new
+
+
+def write_added_at(amap):
+    with open(ADDED_AT, "w") as f:
+        json.dump(dict(sorted(amap.items())), f, indent=1)
+        f.write("\n")
+
+
+def load_scouting(path=SCOUTING):
+    """Optional {focus: ['MI','OH'], label: 'Michigan & Ohio', since: 'YYYY-MM-DD'} -> feed envelope 'scouting'.
+    Missing file or empty focus -> no block. Only these three keys are ever published."""
+    if not os.path.exists(path):
+        return None, []
+    try:
+        raw = json.load(open(path))
+    except ValueError as e:
+        return None, [f"scouting_focus.json is not valid JSON: {e}"]
+    focus = [str(x).strip().upper() for x in (raw.get("focus") or []) if str(x).strip()]
+    if not focus:
+        return None, []
+    errs = [f"scouting focus {x!r} is not a US state code" for x in focus if x not in US_STATES]
+    label = str(raw.get("label") or "").strip()
+    since = str(raw.get("since") or "").strip()
+    if not label:
+        errs.append("scouting label missing")
+    if re.search(r"triple[\s-]?d|mls|brazil|brasil", label, re.I):
+        errs.append("scouting label contains forbidden text")
+    if since and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", since):
+        errs.append("scouting since not YYYY-MM-DD")
+    out = {"focus": focus, "label": label}
+    if since:
+        out["since"] = since
+    return out, errs
 
 
 def main():
@@ -915,10 +999,14 @@ def main():
     pairs = [split_access(l) for l in listings]
     listings, full = [p for p, _ in pairs], [f for _, f in pairs]
     full_by_id = {f["listing_id"]: f for f in full}
+    added_map, newly = apply_added_at(listings)
+    stats["added_at_new_ids"] = newly
+    scouting, scout_errs = load_scouting()
+    stats["scouting"] = scouting
     stats["schema_version"] = SCHEMA_VERSION
     stats["private_full_records"] = len(full)
     errs = (validate(base, listings) + enforce_exclusions(base, listings, notes_text, mls_tokens, a.internal)
-            + check_locked(listings, full_by_id) + check_full_private(full, notes_text, mls_tokens, a.internal))
+            + check_locked(listings, full_by_id) + check_full_private(full, notes_text, mls_tokens, a.internal) + scout_errs)
     print(json.dumps({k: v for k, v in stats.items()}, indent=1))
     if errs:
         print("VALIDATION FAILED:\n  " + "\n  ".join(errs))
@@ -931,7 +1019,8 @@ def main():
         return
     if not a.no_sheet_photos:
         write_sheet_photos(sheet, sheet_photo_map)
-    h = listings_hash(listings)
+    write_added_at(added_map)
+    h = listings_hash(listings, scouting)
     old = json.load(open(FEED)) if os.path.exists(FEED) else None
     if old and old.get("content_hash") == h:
         print("feed unchanged; nothing to publish")
@@ -948,6 +1037,7 @@ def main():
         "geo_attribution": GEO_ATTRIBUTION,
         "content_hash": h,
         "enums_ext": ENUM_EXT,
+        **({"scouting": scouting} if scouting else {}),
         "listings": listings,
     }
     bad = check_locked(listings, full_by_id, feed.keys())
@@ -959,7 +1049,7 @@ def main():
         f.write("\n")
     print(f"wrote feed v{feed['version']} ({len(listings)} listings)")
     git = lambda *c: subprocess.run(["git", "-C", REPO, *c], check=True, capture_output=True, text=True).stdout
-    tracked = ["feed/listings.json", "baseline/geocode_cache.json", "baseline/photo_cache.json", "photos"]
+    tracked = ["feed/listings.json", "baseline/geocode_cache.json", "baseline/photo_cache.json", "baseline/added_at.json", "photos"]
     os.makedirs(os.path.join(REPO, "photos"), exist_ok=True)
     git("add", "-A", *tracked)
     if not git("status", "--porcelain", *tracked).strip():
