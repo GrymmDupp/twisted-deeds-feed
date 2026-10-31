@@ -46,6 +46,8 @@ US_BBOX = (17.0, 72.0, -180.0, -60.0)  # lat min/max, lon min/max (US incl. AK/H
 FEED_URL = "https://grymmdupp.github.io/twisted-deeds-feed/feed/listings.json"
 FULL_OUT = "/workspace/twisted-deeds/_build/listings_full.json"   # PRIVATE; never inside the repo, never committed
 ADDED_AT = os.path.join(REPO, "baseline", "added_at.json")     # first-seen date per listing id (stable, tracked)
+STATUS_CHANGES = os.path.join(REPO, "baseline", "status_changes.json")  # {id: {status, since}} last status + when it changed (tracked)
+STATUS_TRACKING = "/workspace/twisted-deeds/_build/status_tracking.json"  # PRIVATE; written by _build/status_rules.py
 SCOUTING = os.path.join(REPO, "scouting_focus.json")              # optional current scouting focus (edit when it rotates)
 DOSSIER_DIR = "/workspace/twisted-deeds/dossiers"                 # not exported yet (internal scores inside); see SCHEMA.md
 
@@ -63,6 +65,8 @@ ENUM_EXT = {
               {"id": "folklore", "label": "Folklore / Legend", "color": "#8A9A5B"},
               {"id": "attraction", "label": "Failed Attraction / Closed Institution", "color": "#CC5500"},
               {"id": "heritage", "label": "Historic / Heritage", "color": "#A67C00"}],
+    # 2026-10-31: listing page unreachable/delisted 7+ days (see _build/status_rules.py)
+    "status": ["Off market"],
     "tier": [{"id": 1, "label": "Tier 1 - Twisted Deed"}, {"id": 2, "label": "Tier 2 - Strong Story"}],
     "storyCategory": [{"id": "triple-d", "label": "Twisted Deed"},
                       {"id": "oddity", "label": "Architecture / Oddity"},
@@ -80,7 +84,7 @@ EXTRA_FIELDS = [("architectural_notes", "architecturalNotes"), ("vacancy_years",
                 ("ownership_chain_summary", "ownershipChainSummary"), ("significance", "significanceNote")]
 # story_depth_score is an internal score and is never read into the feed.
 STATUS_MAP = {"verified active": "Active", "active": "Active", "pending": "Pending", "sold": "Sold",
-              "stale": "Stale", "watch": "Watch"}
+              "stale": "Stale", "watch": "Watch", "off market": "Off market"}
 
 
 def status_of(v):
@@ -89,6 +93,8 @@ def status_of(v):
         return STATUS_MAP[v]
     if v.startswith("verified active"):  # e.g. "Verified Active (2-step) 2026-10-30"
         return "Active"
+    if v.startswith("off market"):       # e.g. "Off market 2026-11-07 (unreachable/delisted since 2026-10-31)"
+        return "Off market"
     return STATUS_MAP.get(v.split(" ")[0], "Watch")
 # Schema v3: the PUBLIC listing object. Anything not listed here is never published (allow-list).
 REQUIRED = {"id": str, "name": str, "grade": str, "layer": str, "kind": str, "tier": int, "storyCategory": str,
@@ -97,7 +103,7 @@ REQUIRED = {"id": str, "name": str, "grade": str, "layer": str, "kind": str, "ti
             "dossier": bool, "lore": bool}
 OPTIONAL = {"lat": (int, float), "lon": (int, float), "geo_precision": str, "geo_source": str, "significance": str,
             "lane": str, "quiet": bool, "soldOn": str, "bargain": bool, "ground": str, "figure": str,
-            "community": bool, "grid": str, "addedAt": str}
+            "community": bool, "grid": str, "addedAt": str, "statusChangedAt": str}
 PUBLIC_KEYS = set(REQUIRED) | set(OPTIONAL)
 PUBLIC_IMAGE_KEYS = {"id", "era", "caption", "source", "page", "rights"}
 SAMPLE_RIGHTS = {"permission", "cleared"}          # broker/press "reference" images are never samples
@@ -449,7 +455,7 @@ def scrub_mls_published(listings):
 def validate(base, listings):
     e = base["enums"]
     enum = {"kind": {x["id"] for x in e["kind"]}, "layer": {x["id"] for x in e["layer"]},
-            "grade": {x["id"] for x in e["grade"]}, "status": set(e["status"]),
+            "grade": {x["id"] for x in e["grade"]}, "status": set(e["status"]) | set(ENUM_EXT["status"]),
             "significance": {x["id"] for x in e["significance"]}, "figure": {x["id"] for x in e["figure"]},
             "lane": {x["id"] for x in e["lane"]}, "ground": set(e["ground"]), "grid": set(e["grid"])}
     for k in ("grade", "layer"):
@@ -475,7 +481,7 @@ def validate(base, listings):
             errs.append(f"{lid}: Tier 2 listing must use grade 'story'")
         if l.get("tier") == 1 and l.get("grade") == "story":
             errs.append(f"{lid}: grade 'story' is Tier 2 only")
-        for d in ("logged", "lastChecked", "soldOn", "addedAt"):
+        for d in ("logged", "lastChecked", "soldOn", "addedAt", "statusChangedAt"):
             if l.get(d) and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", l[d]):
                 errs.append(f"{lid}: {d} not YYYY-MM-DD")
         if "lat" in l or "lon" in l:
@@ -933,6 +939,59 @@ def write_added_at(amap):
         f.write("\n")
 
 
+def apply_status_tracking(listings, path=STATUS_TRACKING):
+    """Results of _build/status_rules.py (unreachable/delisted streaks, Off market, page-shows-Sold/Pending).
+    A tracked status wins only when its check is at least as recent as the listing's own lastChecked,
+    so a newer sheet re-verification is never overridden. Returns the ids changed."""
+    try:
+        track = json.load(open(path))
+    except (OSError, ValueError):
+        return []
+    changed = []
+    for l in listings:
+        rec = track.get(l["id"]) or {}
+        st, chk = rec.get("status"), rec.get("lastCheck") or ""
+        if not st or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", chk) or chk < (l.get("lastChecked") or ""):
+            continue
+        if st != l["status"]:
+            changed.append(f'{l["id"]}: {l["status"]} -> {st}')
+            l["status"] = st
+        l["lastChecked"] = max(chk, l.get("lastChecked") or "")
+        if rec.get("statusChangedAt"):
+            l["_trackedSince"] = rec["statusChangedAt"]
+    return changed
+
+
+def apply_status_changes(listings, today=None):
+    """statusChangedAt = date the published status last changed (baseline/status_changes.json).
+    First run seeds every id with its current status and no date (unknown), except Sold with soldOn.
+    Returns (map, changed ids)."""
+    today = today or local_today()
+    try:
+        smap = json.load(open(STATUS_CHANGES))
+    except (OSError, ValueError):
+        smap = None
+    seeding, smap = smap is None, smap or {}
+    changed = []
+    for l in listings:
+        since = l.pop("_trackedSince", None)
+        prev = smap.get(l["id"])
+        if prev is None or seeding:
+            smap[l["id"]] = {"status": l["status"], "since": since or (l.get("soldOn") if l["status"] == "Sold" else None)}
+        elif prev.get("status") != l["status"]:
+            smap[l["id"]] = {"status": l["status"], "since": since or today}
+            changed.append(l["id"])
+        if smap[l["id"]].get("since"):
+            l["statusChangedAt"] = smap[l["id"]]["since"]
+    return smap, changed
+
+
+def write_status_changes(smap):
+    with open(STATUS_CHANGES, "w") as f:
+        json.dump(dict(sorted(smap.items())), f, indent=1)
+        f.write("\n")
+
+
 def load_scouting(path=SCOUTING):
     """Optional {focus: ['MI','OH'], label: 'Michigan & Ohio', since: 'YYYY-MM-DD'} -> feed envelope 'scouting'.
     Missing file or empty focus -> no block. Only these three keys are ever published."""
@@ -1001,6 +1060,11 @@ def main():
     full_by_id = {f["listing_id"]: f for f in full}
     added_map, newly = apply_added_at(listings)
     stats["added_at_new_ids"] = newly
+    stats["status_tracking_applied"] = apply_status_tracking(listings)
+    status_map, status_changed = apply_status_changes(listings)
+    stats["status_changed_ids"] = status_changed
+    from collections import Counter as _C
+    stats["status_counts"] = dict(_C(l["status"] for l in listings))
     scouting, scout_errs = load_scouting()
     stats["scouting"] = scouting
     stats["schema_version"] = SCHEMA_VERSION
@@ -1020,6 +1084,7 @@ def main():
     if not a.no_sheet_photos:
         write_sheet_photos(sheet, sheet_photo_map)
     write_added_at(added_map)
+    write_status_changes(status_map)
     h = listings_hash(listings, scouting)
     old = json.load(open(FEED)) if os.path.exists(FEED) else None
     if old and old.get("content_hash") == h:
@@ -1049,7 +1114,8 @@ def main():
         f.write("\n")
     print(f"wrote feed v{feed['version']} ({len(listings)} listings)")
     git = lambda *c: subprocess.run(["git", "-C", REPO, *c], check=True, capture_output=True, text=True).stdout
-    tracked = ["feed/listings.json", "baseline/geocode_cache.json", "baseline/photo_cache.json", "baseline/added_at.json", "photos"]
+    tracked = ["feed/listings.json", "baseline/geocode_cache.json", "baseline/photo_cache.json", "baseline/added_at.json",
+               "baseline/status_changes.json", "photos"]
     os.makedirs(os.path.join(REPO, "photos"), exist_ok=True)
     git("add", "-A", *tracked)
     if not git("status", "--porcelain", *tracked).strip():

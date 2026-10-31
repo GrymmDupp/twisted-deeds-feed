@@ -46,7 +46,7 @@ Required on every listing:
 | `address` | string | street address |
 | `place` | string | `City, County, ST`. Must end in `, XX` (2-letter US state) |
 | `price` | string | display text, e.g. `$245,000`, `Minimum bid $8,000,000`, `Ask` |
-| `status` | enum | `Active` · `Pending` · `Sold` · `Stale` · `Watch` (Watch shows as "To watch") |
+| `status` | enum | `Active` · `Pending` · `Sold` · `Stale` · `Watch` (Watch shows as "To watch") · `Off market` (added 2026-10-31, declared in `enums_ext.status`: the listing page was unreachable or delisted for 7+ days in a row). Default for-sale catalog = `Active` + `Pending`; `Sold`, `Off market` and `Stale` are archive-only (never shown as for sale) |
 | `url` | string | primary public listing link (may be `""`) |
 | `summary` | string | v3. One-sentence preview (sheet "Preview Summary" if set, else the first sentence of the hook/story), max 240 chars |
 | `facts` | string | basic facts, ` · `-separated |
@@ -55,7 +55,8 @@ Required on every listing:
 | `priority` | number | sort order (high first) |
 | `logged` | `YYYY-MM-DD` | date first logged |
 | `lastChecked` | `YYYY-MM-DD` | date last verified |
-| `addedAt` | `YYYY-MM-DD`, optional | date the id first appeared in the published feed (local date, America/Detroit). Stable: kept in `baseline/added_at.json`, seeded from this repo's git history, never rewritten. Drives "New this week" (last 7 days) |
+| `addedAt` | `YYYY-MM-DD`, optional | date the id first appeared in the published feed (local date, America/Detroit). Stable: kept in `baseline/added_at.json`, seeded from this repo's git history, never rewritten. Drives "New this week" (last 7 days, `Active` listings only) |
+| `statusChangedAt` | `YYYY-MM-DD`, optional | date `status` last changed to its current value (`baseline/status_changes.json`). Absent when unknown (statuses that predate tracking); Sold listings seed from `soldOn` |
 | `dossier` | bool | a written file exists (the file itself is locked) |
 | `lore` | bool | sourced dark history at that exact address (the lore itself is locked) |
 
@@ -157,3 +158,15 @@ No MLS number is ever published, including in the built-in Field Desk baseline t
 - `addedAt` on every listing: first-seen date in the feed. `baseline/added_at.json` is the source of truth (one `id: date` pair per listing ever published; entries are never removed or changed). It was seeded from the first feed version each id appeared in. New ids get the publish date.
 - `scouting` in the envelope: written from `scouting_focus.json` at the repo root. Edit that file when the scouting focus rotates (state codes must be US states; delete the file or empty `focus` to hide the note). Only `focus`, `label` and `since` are published.
 - Neither carries user, submission, unlock or membership data. "Recently updated" (approved community submissions) is computed by the community site from its own backend and is never in this feed.
+
+## Status rules (2026-10-31)
+
+- `Off market`: set by `_build/status_rules.py` (private tooling, outside this repo) when a listing page check fails
+  (`unreachable` = dead/erroring page, `delisted` = page live but the property is no longer offered) and the first
+  failure of the unbroken streak is 7+ days old. The Master Sheet records the streak in
+  "First Unreachable/Delisted Date" and "Unreachable/Delisted Streak Notes"; a successful Active check clears both.
+- A page that clearly shows Sold or Pending sets that status immediately.
+- Statuses only change on a check result; a tracked status applies only when its check date is at least as recent
+  as the listing's `lastChecked`.
+- `baseline/status_changes.json` (`{id: {status, since}}`) is the tracked source for `statusChangedAt`; it is
+  rewritten on each publish.
