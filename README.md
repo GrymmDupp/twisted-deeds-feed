@@ -24,6 +24,12 @@ The feed now carries **only the free preview** of each listing: id, name, grade,
 
 US listings only. Brazil research, field notes, MLS numbers (including inside URLs) and internal scores (including story_depth_score) are never published, and the script refuses to publish if any appear.
 
+### Heritage Homes (2026-11-01): separate collection
+Houses held by one family for 100+ continuous years: Century (100+), Sesquicentennial (150+) and Bicentennial (200+).
+Heritage-only listings are published to `feed/heritage.json`, never to `feed/listings.json`. That file exists once
+the first verified listing is published. Core listings that also qualify carry an optional `heritage` object.
+See SCHEMA.md › Heritage Homes.
+
 ## Publishing
 ```
 python3 scripts/publish_feed.py            # newest Master Sheet -> validate -> commit + push if changed

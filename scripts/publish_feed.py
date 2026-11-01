@@ -28,6 +28,12 @@ Schema v2 (2026-10-30): every listing carries `tier` (1 = Triple-D, 2 = Strong S
 `storyCategory`. Tier 2 rows use grade "story" and the layers oddity/folklore/attraction/heritage
 (or blight for long-vacant). Tier 1 always outranks Tier 2: Tier 2 priorities are rescaled into
 0..(lowest Tier 1 priority - 1) and validation fails otherwise. Tier 1 priorities are never changed.
+
+Heritage Homes (2026-11-01): a fully SEPARATE collection (100+ years continuous ownership by one family,
+substantially original structure, documented chain). Sheet columns BI-BQ. Heritage-only rows (Heritage Cross-link
+= "Heritage only") become tier 3 / grade "heritage" / storyCategory "heritage-home" / collection "heritage" and are
+written to feed/heritage.json, NEVER to feed/listings.json, so no core count, list, map, pack or rank changes.
+Core rows that also qualify keep their tier and gain the optional `heritage` object (cross-link only).
 """
 import argparse, csv, glob, hashlib, json, os, re, subprocess, sys, time, urllib.parse, urllib.request
 from datetime import datetime, timezone
@@ -44,6 +50,8 @@ USER_AGENT = "twisted-deeds-feed/1.0 (+https://github.com/GrymmDupp/twisted-deed
 GEO_ATTRIBUTION = "Geocoding: OpenStreetMap Nominatim, (c) OpenStreetMap contributors, ODbL"
 US_BBOX = (17.0, 72.0, -180.0, -60.0)  # lat min/max, lon min/max (US incl. AK/HI/PR)
 FEED_URL = "https://grymmdupp.github.io/twisted-deeds-feed/feed/listings.json"
+HERITAGE_FEED = os.path.join(REPO, "feed", "heritage.json")      # separate Heritage Homes collection (only when non-empty)
+HERITAGE_URL = "https://grymmdupp.github.io/twisted-deeds-feed/feed/heritage.json"
 FULL_OUT = "/workspace/twisted-deeds/_build/listings_full.json"   # PRIVATE; never inside the repo, never committed
 ADDED_AT = os.path.join(REPO, "baseline", "added_at.json")     # first-seen date per listing id (stable, tracked)
 STATUS_CHANGES = os.path.join(REPO, "baseline", "status_changes.json")  # {id: {status, since}} last status + when it changed (tracked)
@@ -60,22 +68,80 @@ LAYER_MAP = {"mortuary/funerary": "mortuary", "paranormal/spectral": "spectral",
 SCHEMA_VERSION = 3
 # Enum values added in schema v2 (the baseline file is never edited, so they are declared here).
 ENUM_EXT = {
-    "grade": [{"id": "story", "label": "Strong Story (Tier 2)"}],
+    "grade": [{"id": "story", "label": "Strong Story (Tier 2)"},
+              {"id": "heritage", "label": "Heritage Home (separate collection, 2026-11-01)"}],
     "layer": [{"id": "oddity", "label": "Architecture / Oddity", "color": "#008080"},
               {"id": "folklore", "label": "Folklore / Legend", "color": "#8A9A5B"},
               {"id": "attraction", "label": "Failed Attraction / Closed Institution", "color": "#CC5500"},
               {"id": "heritage", "label": "Historic / Heritage", "color": "#A67C00"}],
     # 2026-10-31: listing page unreachable/delisted 7+ days (see _build/status_rules.py)
     "status": ["Off market"],
-    "tier": [{"id": 1, "label": "Tier 1 - Twisted Deed"}, {"id": 2, "label": "Tier 2 - Strong Story"}],
+    "tier": [{"id": 1, "label": "Tier 1 - Twisted Deed"}, {"id": 2, "label": "Tier 2 - Strong Story"},
+             {"id": 3, "label": "Heritage Homes - separate collection (never ranked with or counted in Tier 1/2)"}],
     "storyCategory": [{"id": "triple-d", "label": "Twisted Deed"},
                       {"id": "oddity", "label": "Architecture / Oddity"},
                       {"id": "long-vacant", "label": "Long-Vacant / Lore"},
                       {"id": "folklore", "label": "Folklore / Legend"},
                       {"id": "attraction", "label": "Failed Attraction / Closed Institution"},
                       {"id": "heritage", "label": "Historic / Heritage"},
-                      {"id": "research", "label": "Research Depth"}],
+                      {"id": "research", "label": "Research Depth"},
+                      {"id": "heritage-home", "label": "Heritage Home (separate collection)"}],
+    # 2026-11-01 Heritage Homes: separate collection + optional `heritage` object
+    "collection": [{"id": "core", "label": "Core (default when absent)"}, {"id": "heritage", "label": "Heritage Homes only"}],
+    "heritageTier": [{"id": "century", "label": "Century (100+ years)", "min": 100},
+                     {"id": "sesquicentennial", "label": "Sesquicentennial (150+ years)", "min": 150},
+                     {"id": "bicentennial", "label": "Bicentennial (200+ years)", "min": 200}],
+    "structureType": [{"id": "residence", "label": "Residence"}, {"id": "farm", "label": "Farm (reserved)"},
+                      {"id": "commercial", "label": "Commercial (reserved)"}],
 }
+HERITAGE_KEYS = {"tier": str, "since": int, "years": int, "family": str, "structureType": str, "sourceCount": int}
+HERITAGE_ERRS = []   # filled by map_row; any entry fails the publish
+
+
+def heritage_tier(years):
+    return "bicentennial" if years >= 200 else "sesquicentennial" if years >= 150 else "century" if years >= 100 else None
+
+
+def heritage_from_row(row, mls_tokens):
+    """Sheet BI-BQ -> (public heritage object, heritage_only flag, private extras). Only for Heritage Category = Yes."""
+    name = row.get("name") or "?"
+    xl = str(row.get("hXlink") or "").strip().lower()
+    only = xl in ("", "heritage only") or str(row.get("storyTier") or "").strip().lower().startswith("heritage")
+    if str(row.get("hCat") or "").strip().lower() != "yes":
+        if xl == "heritage only" or str(row.get("storyTier") or "").strip().lower().startswith("heritage"):
+            HERITAGE_ERRS.append(f"{name}: marked Heritage only but Heritage Category is not 'Yes' (unverified rows are not allowed)")
+        return None, False, {}
+    try:
+        since = int(str(row.get("hSince") or "").strip()[:4])
+    except ValueError:
+        HERITAGE_ERRS.append(f"{name}: Heritage row needs Ownership Since (YYYY)"); return None, False, {}
+    years = int(local_today()[:4]) - since
+    tier = heritage_tier(years)
+    if not tier:
+        HERITAGE_ERRS.append(f"{name}: only {years} continuous years (100+ required)")
+    try:
+        sy = int(row.get("hYears")) if row.get("hYears") not in (None, "") else years
+        if abs(sy - years) > 1:
+            HERITAGE_ERRS.append(f"{name}: Continuous Years {sy} does not match Ownership Since {since} ({years})")
+    except (TypeError, ValueError):
+        HERITAGE_ERRS.append(f"{name}: Continuous Years is not a number")
+    srcs = [x.strip() for x in str(row.get("hSources") or "").split("|") if x.strip()]
+    if len(srcs) < 2:
+        HERITAGE_ERRS.append(f"{name}: Heritage rows need 2+ ownership-chain sources (has {len(srcs)})")
+    st = {"residence": "residence", "farm": "farm", "commercial": "commercial"}.get(str(row.get("hType") or "Residence").strip().lower())
+    if not st:
+        HERITAGE_ERRS.append(f"{name}: Structure Type must be Residence, Farm or Commercial")
+    if not str(row.get("hNotes") or "").strip():
+        HERITAGE_ERRS.append(f"{name}: Structure Originality Notes are required")
+    h = {"tier": tier or "century", "since": since, "years": years, "structureType": st or "residence", "sourceCount": len(srcs)}
+    fam = re.sub(r"\s+", " ", str(row.get("hFamily") or "")).strip()
+    if fam:
+        if re.search(r"\d|@", fam) or len(fam) > 60:
+            HERITAGE_ERRS.append(f"{name}: Family Name must be a plain family surname")
+        h["family"] = fam
+    extra = {"heritageSources": [strip_mls(x, mls_tokens) for x in srcs],
+             "structureOriginality": strip_mls(str(row.get("hNotes") or ""), mls_tokens)}
+    return h, only, extra
 STORY_CAT_MAP = {"triple-d": "triple-d", "architecture/oddity": "oddity", "long-vacant/lore": "long-vacant",
                  "folklore/legend": "folklore", "failed attraction/closed institution": "attraction",
                  "historic/heritage": "heritage", "research depth": "research"}
@@ -103,7 +169,8 @@ REQUIRED = {"id": str, "name": str, "grade": str, "layer": str, "kind": str, "ti
             "dossier": bool, "lore": bool}
 OPTIONAL = {"lat": (int, float), "lon": (int, float), "geo_precision": str, "geo_source": str, "significance": str,
             "lane": str, "quiet": bool, "soldOn": str, "bargain": bool, "ground": str, "figure": str,
-            "community": bool, "grid": str, "addedAt": str, "statusChangedAt": str}
+            "community": bool, "grid": str, "addedAt": str, "statusChangedAt": str,
+            "collection": str, "heritage": dict}
 PUBLIC_KEYS = set(REQUIRED) | set(OPTIONAL)
 PUBLIC_IMAGE_KEYS = {"id", "era", "caption", "source", "page", "rights"}
 SAMPLE_RIGHTS = {"permission", "cleared"}          # broker/press "reference" images are never samples
@@ -240,6 +307,10 @@ def read_sheet(path):
             "storyTier": get("Story Tier") or "", "storyCategory": get("Story Category") or "",
             "pvSummary": get("Preview Summary") or "", "pvTeaser": get("Lore Teaser") or "",
             "pvSamples": get("Sample Photo Refs") or "",
+            # Heritage Homes (BI-BQ, 2026-11-01)
+            "hCat": get("Heritage Category"), "hTier": get("Heritage Tier"), "hFamily": get("Family Name"),
+            "hSince": get("Ownership Since"), "hYears": get("Continuous Years"), "hSources": get("Ownership Chain Sources"),
+            "hNotes": get("Structure Originality Notes"), "hType": get("Structure Type"), "hXlink": get("Heritage Cross-link"),
             **{k: get(k) for k, _ in EXTRA_FIELDS},
         })
     return rows, notes_text, mls_tokens
@@ -303,6 +374,13 @@ def map_row(row, mls_tokens):
     }
     if sold:
         item["soldOn"] = sold
+    h, h_only, h_extra = heritage_from_row(row, mls_tokens)
+    if h:
+        item["heritage"] = h
+        item["extra"].update(h_extra)
+        if h_only:   # separate collection: never ranked with, counted in or listed among core listings
+            item.update(tier=3, grade="heritage", storyCategory="heritage-home", layer="heritage", collection="heritage")
+            return item
     if tier == 2:
         for k, ek in EXTRA_FIELDS:
             v = row.get(k)
@@ -339,6 +417,9 @@ def merge_dup(base, ours, mls_tokens=()):
     links = [u for u in links if u and u != base.get("url")]
     out["extra"] = {**base.get("extra", {}), "masterSheet": sheet, "links": list(dict.fromkeys(links))}
     out["_sheet"] = ours["_sheet"]
+    if ours.get("heritage"):   # a built-in (core) listing that also qualifies: cross-link only, stays core
+        out["heritage"] = ours["heritage"]
+        out["extra"].update({k: ours["extra"][k] for k in ("heritageSources", "structureOriginality") if k in ours["extra"]})
     return out
 
 
@@ -372,7 +453,7 @@ def build(sheet_path):
             l["priority"] = round(max(0.0, min(float(l["priority"]), 79.0)) * ceiling / 79.0, 1)
     listings.sort(key=lambda l: l["tier"])  # stable: keeps baseline order inside each tier
     scrubbed, scrub_toks = scrub_mls_published(listings)
-    stats_tiers = {"mls_scrubbed_listings": scrubbed, "tier1": len(t1), "tier2": len(listings) - len(t1), "tier2_priority_ceiling": ceiling}
+    stats_tiers = {"mls_scrubbed_listings": scrubbed, "tier1": len(t1), "tier2": sum(1 for l in listings if l["tier"] == 2), "heritage_only": sum(1 for l in listings if l["tier"] == 3), "tier2_priority_ceiling": ceiling}
     stats = {**stats_tiers, "baseline": len(base["listings"]), "sheet_us_rows": len(rows), "added": len(added),
              "merged": len(merged), "merged_pairs": merged, "added_ids": added}
     return base, listings, stats, notes_text, mls_tokens
@@ -481,6 +562,27 @@ def validate(base, listings):
             errs.append(f"{lid}: Tier 2 listing must use grade 'story'")
         if l.get("tier") == 1 and l.get("grade") == "story":
             errs.append(f"{lid}: grade 'story' is Tier 2 only")
+        # Heritage Homes: tier 3 <=> grade heritage <=> collection heritage (separate collection)
+        h_only = l.get("collection") == "heritage"
+        if h_only != (l.get("tier") == 3) or h_only != (l.get("grade") == "heritage") or h_only != (l.get("storyCategory") == "heritage-home"):
+            errs.append(f"{lid}: Heritage-only listings need tier 3 + grade 'heritage' + storyCategory 'heritage-home' + collection 'heritage' (and only they)")
+        if "collection" in l and l["collection"] not in {x["id"] for x in ENUM_EXT["collection"]}:
+            errs.append(f"{lid}: collection={l['collection']!r} unknown")
+        if h_only and not isinstance(l.get("heritage"), dict):
+            errs.append(f"{lid}: Heritage-only listing without a heritage object")
+        if isinstance(l.get("heritage"), dict):
+            h = l["heritage"]
+            for k in h:
+                if k not in HERITAGE_KEYS or not isinstance(h[k], HERITAGE_KEYS[k]):
+                    errs.append(f"{lid}: heritage.{k} not allowed or wrong type")
+            if not isinstance(h.get("years"), int) or h["years"] < 100 or h.get("tier") != heritage_tier(h["years"]):
+                errs.append(f"{lid}: heritage years/tier invalid (100+ years required; tier must match years)")
+            if h.get("structureType") not in {x["id"] for x in ENUM_EXT["structureType"]}:
+                errs.append(f"{lid}: heritage.structureType invalid")
+            if not isinstance(h.get("sourceCount"), int) or h["sourceCount"] < 2:
+                errs.append(f"{lid}: heritage needs 2+ ownership-chain sources")
+        if h_only and re.search(r"triple[\s-]?d", json.dumps(l, ensure_ascii=False), re.I):
+            errs.append(f"{lid}: public Heritage text must never say 'Triple-D'")
         for d in ("logged", "lastChecked", "soldOn", "addedAt", "statusChangedAt"):
             if l.get(d) and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", l[d]):
                 errs.append(f"{lid}: {d} not YYYY-MM-DD")
@@ -610,6 +712,10 @@ def split_access(l):
     for u in list(ex.get("sources") or []) + list(ex.get("links") or []) + ([ex["masterSheet"]["url"]] if ex.get("masterSheet", {}).get("url") else []):
         if isinstance(u, str) and u.startswith("http") and u not in seen and u != l.get("url"):
             seen.add(u); src.append({"url": u, "label": host_label(u)})
+    for u in ex.get("heritageSources") or []:   # Heritage Homes ownership-chain sources: full file only
+        m = re.search(r"https?://\S+", u)
+        if m and m.group(0) not in seen:
+            seen.add(m.group(0)); src.append({"url": m.group(0), "label": "Ownership chain: " + (u.replace(m.group(0), "").strip(" -:|") or host_label(m.group(0)))})
     for im in images:
         u = im.get("page") or ""
         if im.get("rights") == "reference" and u.startswith("http") and u not in seen:
@@ -637,7 +743,8 @@ def split_access(l):
         "ownership_chain": own,
         "story_fields": {k: v for k, v in {"architectural_notes": ex.get("architecturalNotes"), "vacancy_years": ex.get("vacancyYears"),
                                            "folklore_type": ex.get("folkloreType"), "failure_reason": ex.get("failureReason"),
-                                           "significance": ex.get("significanceNote")}.items() if v},
+                                           "significance": ex.get("significanceNote"),
+                                           "structure_originality": ex.get("structureOriginality")}.items() if v},
         "dossier_md": "",   # dossiers/*.md still carry internal scores and listing numbers; not exported yet
         # not listing_full columns (the import script ignores them):
         "images": [im for im in images if im not in samples],
@@ -1070,8 +1177,15 @@ def main():
     stats["schema_version"] = SCHEMA_VERSION
     stats["private_full_records"] = len(full)
     errs = (validate(base, listings) + enforce_exclusions(base, listings, notes_text, mls_tokens, a.internal)
-            + check_locked(listings, full_by_id) + check_full_private(full, notes_text, mls_tokens, a.internal) + scout_errs)
+            + check_locked(listings, full_by_id) + check_full_private(full, notes_text, mls_tokens, a.internal) + scout_errs
+            + HERITAGE_ERRS)
+    # Heritage Homes: heritage-only listings go to feed/heritage.json, never into the core feed/listings.json
+    heritage_only = [l for l in listings if l.get("collection") == "heritage"]
+    listings = [l for l in listings if l.get("collection") != "heritage"]
+    stats["heritage"] = {"heritage_only": len(heritage_only), "core_cross_listed": sum(1 for l in listings if l.get("heritage"))}
     print(json.dumps({k: v for k, v in stats.items()}, indent=1))
+    if HERITAGE_ERRS:
+        print("heritage rows: " + str(len(HERITAGE_ERRS)) + " problem(s)")
     if errs:
         print("VALIDATION FAILED:\n  " + "\n  ".join(errs))
         sys.exit(1)
@@ -1086,6 +1200,8 @@ def main():
     write_added_at(added_map)
     write_status_changes(status_map)
     h = listings_hash(listings, scouting)
+    if heritage_only:   # empty collection -> core hash unchanged, so no republish just for the new schema
+        h = hashlib.sha256((h + listings_hash(heritage_only)).encode()).hexdigest()
     old = json.load(open(FEED)) if os.path.exists(FEED) else None
     if old and old.get("content_hash") == h:
         print("feed unchanged; nothing to publish")
@@ -1103,6 +1219,7 @@ def main():
         "content_hash": h,
         "enums_ext": ENUM_EXT,
         **({"scouting": scouting} if scouting else {}),
+        **({"heritage": {"count": len(heritage_only), "url": HERITAGE_URL}} if heritage_only else {}),
         "listings": listings,
     }
     bad = check_locked(listings, full_by_id, feed.keys())
@@ -1113,8 +1230,21 @@ def main():
         json.dump(feed, f, ensure_ascii=False, indent=1)
         f.write("\n")
     print(f"wrote feed v{feed['version']} ({len(listings)} listings)")
+    if heritage_only or os.path.exists(HERITAGE_FEED):
+        hfeed = {k: feed[k] for k in ("version", "schema_version", "generated_at", "geo_attribution", "enums_ext")}
+        hfeed.update(count=len(heritage_only), collection="heritage", feed_url=HERITAGE_URL, core_feed_url=FEED_URL,
+                     source=("Twisted Deeds HERITAGE HOMES collection, FREE PREVIEW LAYER ONLY. Separate from the core feed: "
+                             "houses held by one family for 100+ continuous years. Auto-generated by scripts/publish_feed.py."),
+                     content_hash=listings_hash(heritage_only), listings=heritage_only)
+        bad = check_locked(heritage_only, full_by_id, hfeed.keys())
+        if bad:
+            sys.exit("VALIDATION FAILED (heritage envelope):\n  " + "\n  ".join(bad))
+        with open(HERITAGE_FEED, "w") as f:
+            json.dump(hfeed, f, ensure_ascii=False, indent=1)
+            f.write("\n")
+        print(f"wrote heritage collection ({len(heritage_only)} listings)")
     git = lambda *c: subprocess.run(["git", "-C", REPO, *c], check=True, capture_output=True, text=True).stdout
-    tracked = ["feed/listings.json", "baseline/geocode_cache.json", "baseline/photo_cache.json", "baseline/added_at.json",
+    tracked = ["feed/listings.json", *(["feed/heritage.json"] if os.path.exists(HERITAGE_FEED) else []), "baseline/geocode_cache.json", "baseline/photo_cache.json", "baseline/added_at.json",
                "baseline/status_changes.json", "photos"]
     os.makedirs(os.path.join(REPO, "photos"), exist_ok=True)
     git("add", "-A", *tracked)

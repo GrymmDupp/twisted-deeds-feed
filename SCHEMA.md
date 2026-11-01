@@ -170,3 +170,48 @@ No MLS number is ever published, including in the built-in Field Desk baseline t
   as the listing's `lastChecked`.
 - `baseline/status_changes.json` (`{id: {status, since}}`) is the tracked source for `statusChangedAt`; it is
   rewritten on each publish.
+
+## Heritage Homes (2026-11-01): a separate collection
+
+Heritage Homes are houses held by one family (blood, marriage or direct legal succession) for 100+ continuous
+years. The principal structure must be substantially original and still usable as a home (or a compatible use).
+The chain of ownership must be documented in 2+ public sources. The listing must be Active. This collection is
+**fully separate** from the core Twisted Deed (Tier 1) and Strong Story (Tier 2) lists. The change is
+backward compatible: every new key is optional, and while the collection is empty the published files are
+byte-for-byte unchanged.
+
+- **Heritage-only listings** never appear in `feed/listings.json`. They are written to `feed/heritage.json`. That
+  file has the same envelope and listing shape, with `collection: "heritage"`, `count`, `feed_url` and
+  `core_feed_url`. The file is written only once the first heritage listing exists. Each listing carries:
+  - `tier: 3`, `grade: "heritage"`, `storyCategory: "heritage-home"`, `layer: "heritage"` and `collection: "heritage"`.
+    These five values always go together, and validation enforces it.
+  - `heritage` (the object below).
+  - The `priority` is neutral (50) and is never rescaled with Tier 1/2. Core counts, "new this week", the core
+    browse default, the map and packs never include these listings.
+- **Envelope pointer**: `feed/listings.json` gains `heritage: {count, url}` only when `count > 0`. Clients that do
+  not know about Heritage Homes simply never fetch it.
+- **Cross-listed core listings** (a Twisted Deed or Strong Story that also qualifies) stay in `feed/listings.json`
+  with their normal tier. They gain only the optional `heritage` object, which clients may show as
+  "Also a Heritage Home".
+- **`heritage` object** (optional on any listing; required on heritage-only listings). Only these keys are allowed:
+
+  | key | type | notes |
+  |---|---|---|
+  | `tier` | `century` \| `sesquicentennial` \| `bicentennial` | Derived from `years`: 100+ / 150+ / 200+ |
+  | `since` | int | Year the family's continuous ownership began |
+  | `years` | int | Current year minus `since`. Must be >= 100 and match the sheet within 1 year |
+  | `family` | string, optional | Public family surname only, never a living individual's full name |
+  | `structureType` | `residence` \| `farm` \| `commercial` | `residence` is the default. `farm` and `commercial` are reserved for later |
+  | `sourceCount` | int >= 2 | The number of ownership-chain sources. The source URLs stay in the private full file (`sources`, labelled "Ownership chain: …"). This key is called `sourceCount` because `sources` is a locked key name in the preview feed |
+
+- `enums_ext` adds `grade: heritage`, `tier: 3`, `storyCategory: heritage-home`, `collection`, `heritageTier` and
+  `structureType`.
+- **Sheet mapping** (columns BI–BQ): Heritage Category (`Yes`), Heritage Tier, Family Name, Ownership Since,
+  Continuous Years, Ownership Chain Sources (`|`-separated), Structure Originality Notes, Structure Type and
+  Heritage Cross-link.
+  - A row is heritage-only when Heritage Cross-link is `Heritage only` (or blank) or Story Tier is `Heritage Home`.
+  - With `Also a Twisted Deed` or `Also a Strong Story`, the row stays core and gains the cross-link.
+  - Structure Originality Notes go to the private full file's `story_fields.structure_originality`.
+- **Validation**: the whole publish fails on any of these: a heritage row without `Heritage Category = Yes`; under
+  100 years; Continuous Years not matching Ownership Since; fewer than 2 chain sources; missing originality
+  notes; an unknown structure type; any "Triple-D" text in a heritage-only listing.
