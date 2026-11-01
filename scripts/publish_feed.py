@@ -1126,6 +1126,44 @@ def load_scouting(path=SCOUTING):
     return out, errs
 
 
+# --- Paid Research isolation guard (self-contained; mirrors _build/isolation_guard.py) ---------------
+# The paid research service keeps its jobs in a private archive. Nothing from it may ever reach the feed.
+PAID_RESEARCH_ARCHIVE = os.path.realpath("/workspace/paid-research-archive")
+_PR_JOB_RE = re.compile(r"\bPR-\d{8}-[A-Z0-9]{4}\b")
+_PR_MARK_RE = re.compile(r"paid[-_ ]?research", re.I)
+_PR_ORIGIN_KEY = re.compile(r"source|origin|provenance|ref", re.I)
+
+
+def _in_research_archive(path):
+    if not path:
+        return False
+    rp = os.path.realpath(os.path.expanduser(str(path)))
+    return rp == PAID_RESEARCH_ARCHIVE or rp.startswith(PAID_RESEARCH_ARCHIVE + os.sep)
+
+
+def _pr_walk(obj, key=""):
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            yield from _pr_walk(v, str(k))
+    elif isinstance(obj, (list, tuple)):
+        for v in obj:
+            yield from _pr_walk(v, key)
+    elif isinstance(obj, str):
+        yield key, obj
+
+
+def paid_research_errs(*groups):
+    errs = []
+    for rows in groups:
+        for r in rows or []:
+            for k, v in _pr_walk(r):
+                if _PR_JOB_RE.search(v) or (_PR_ORIGIN_KEY.search(k or "") and _PR_MARK_RE.search(v)):
+                    rid = r.get("listing_id") or r.get("id") if isinstance(r, dict) else "?"
+                    errs.append(f"{rid}: paid-research data refused (field {k!r}); research jobs never enter the feed")
+                    break
+    return errs
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--sheet", help="Master Sheet .xlsx (default: newest match of %s)" % DEFAULT_SHEET_GLOB)
@@ -1141,6 +1179,9 @@ def main():
     ap.add_argument("--no-sheet-photos", action="store_true", help="do not write the Listing Photos column")
     a = ap.parse_args()
     sheet = a.sheet or newest_sheet(DEFAULT_SHEET_GLOB)
+    _bad = [p for p in (sheet, a.internal, a.map_layers, a.full_out) if _in_research_archive(p)]
+    if _bad:
+        sys.exit("refusing input/output path(s) inside the Paid Research Archive: %s" % _bad)
     base, listings, stats, notes_text, mls_tokens = build(sheet)
     us_addrs = [l["address"] for l in listings if l.get("extra", {}).get("source") == "master-sheet"]
     us_addrs += [l["extra"]["masterSheet"].get("address", "") for l in listings if "masterSheet" in l.get("extra", {})]
@@ -1178,7 +1219,7 @@ def main():
     stats["private_full_records"] = len(full)
     errs = (validate(base, listings) + enforce_exclusions(base, listings, notes_text, mls_tokens, a.internal)
             + check_locked(listings, full_by_id) + check_full_private(full, notes_text, mls_tokens, a.internal) + scout_errs
-            + HERITAGE_ERRS)
+            + HERITAGE_ERRS + paid_research_errs(listings, full, [scouting] if scouting else []))
     # Heritage Homes: heritage-only listings go to feed/heritage.json, never into the core feed/listings.json
     heritage_only = [l for l in listings if l.get("collection") == "heritage"]
     listings = [l for l in listings if l.get("collection") != "heritage"]
