@@ -1,0 +1,7 @@
+{
+ "_about": "Verified price/url corrections applied by scripts/publish_feed.py after the merge (works for baseline listings). Keys: price, url, verified (YYYY-MM-DD, required), source, note.",
+ "deshler-foursquare": {"price": "$2,495,000", "verified": "2026-11-01", "source": "https://www.coldwellbanker.com/oh/columbus/123-e-deshler-ave/lid-P00800000HHoiPYpky2vR9wk8vE3aLwZUF2N3Dja", "note": "price cut from $2,695,000"},
+ "walter-funeral": {"url": "https://brevitas.com/p/cI2elBR/walter-funeral-home", "verified": "2026-11-01", "note": "CommercialCafe page dead; Brevitas shows $1,295,000 Active"},
+ "corunna-funeral": {"url": "https://www.crexi.com/properties/935804/michigan-former-funeral-home-available", "verified": "2026-11-01", "note": "Showcase page dead; Crexi shows $359,900"},
+ "bellaire-house": {"price": "Price on request", "verified": "2026-11-01", "source": "https://www.zillow.com/homedetails/1699-Belmont-St-Bellaire-OH-43906/50572983_zpid/", "note": "Owner listing shows no asking price"}
+}

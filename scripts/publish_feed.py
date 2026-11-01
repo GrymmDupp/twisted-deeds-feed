@@ -56,6 +56,7 @@ FULL_OUT = "/workspace/twisted-deeds/_build/listings_full.json"   # PRIVATE; nev
 ADDED_AT = os.path.join(REPO, "baseline", "added_at.json")     # first-seen date per listing id (stable, tracked)
 STATUS_CHANGES = os.path.join(REPO, "baseline", "status_changes.json")  # {id: {status, since}} last status + when it changed (tracked)
 STATUS_TRACKING = "/workspace/twisted-deeds/_build/status_tracking.json"  # PRIVATE; written by _build/status_rules.py
+OVERRIDES = os.path.join(REPO, "baseline", "overrides.json")      # verified price/url corrections (any listing)
 SCOUTING = os.path.join(REPO, "scouting_focus.json")              # optional current scouting focus (edit when it rotates)
 DOSSIER_DIR = "/workspace/twisted-deeds/dossiers"                 # not exported yet (internal scores inside); see SCHEMA.md
 
@@ -1099,6 +1100,40 @@ def write_status_changes(smap):
         f.write("\n")
 
 
+OVERRIDE_KEYS = ("price", "url")
+
+
+def apply_overrides(listings, path=OVERRIDES):
+    """Small, explicit corrections for any listing (baseline included), e.g. a verified price cut.
+    baseline/overrides.json: {id: {"price": str, "url": str, "verified": "YYYY-MM-DD", "source": url}}.
+    Only price and url are overridable; unknown ids or keys fail the publish."""
+    if not os.path.exists(path):
+        return [], []
+    data = json.load(open(path))
+    by_id = {l["id"]: l for l in listings}
+    errs, applied = [], []
+    for lid, o in data.items():
+        if lid.startswith("_"):
+            continue
+        if lid not in by_id:
+            errs.append(f"override for unknown id {lid}")
+            continue
+        bad = [k for k in o if k not in OVERRIDE_KEYS + ("verified", "source", "note")]
+        if bad or not o.get("verified"):
+            errs.append(f"override {lid}: bad keys {bad} or missing 'verified' date")
+            continue
+        for k in OVERRIDE_KEYS:
+            v = o.get(k)
+            if isinstance(v, str) and v.strip():
+                if k == "url" and not v.startswith("https://"):
+                    errs.append(f"override {lid}: url must be https")
+                    continue
+                by_id[lid][k] = v.strip()
+        by_id[lid]["lastChecked"] = max(by_id[lid].get("lastChecked", ""), o["verified"])
+        applied.append(lid)
+    return applied, errs
+
+
 def load_scouting(path=SCOUTING):
     """Optional {focus: ['MI','OH'], label: 'Michigan & Ohio', since: 'YYYY-MM-DD'} -> feed envelope 'scouting'.
     Missing file or empty focus -> no block. Only these three keys are ever published."""
@@ -1183,6 +1218,7 @@ def main():
     if _bad:
         sys.exit("refusing input/output path(s) inside the Paid Research Archive: %s" % _bad)
     base, listings, stats, notes_text, mls_tokens = build(sheet)
+    stats["overrides_applied"], OVERRIDE_ERRS = apply_overrides(listings)
     us_addrs = [l["address"] for l in listings if l.get("extra", {}).get("source") == "master-sheet"]
     us_addrs += [l["extra"]["masterSheet"].get("address", "") for l in listings if "masterSheet" in l.get("extra", {})]
     seeds = load_seeds(a.map_layers, us_addrs + [l["address"] for l in listings])
@@ -1219,7 +1255,7 @@ def main():
     stats["private_full_records"] = len(full)
     errs = (validate(base, listings) + enforce_exclusions(base, listings, notes_text, mls_tokens, a.internal)
             + check_locked(listings, full_by_id) + check_full_private(full, notes_text, mls_tokens, a.internal) + scout_errs
-            + HERITAGE_ERRS + paid_research_errs(listings, full, [scouting] if scouting else []))
+            + HERITAGE_ERRS + OVERRIDE_ERRS + paid_research_errs(listings, full, [scouting] if scouting else []))
     # Heritage Homes: heritage-only listings go to feed/heritage.json, never into the core feed/listings.json
     heritage_only = [l for l in listings if l.get("collection") == "heritage"]
     listings = [l for l in listings if l.get("collection") != "heritage"]
@@ -1286,7 +1322,8 @@ def main():
         print(f"wrote heritage collection ({len(heritage_only)} listings)")
     git = lambda *c: subprocess.run(["git", "-C", REPO, *c], check=True, capture_output=True, text=True).stdout
     tracked = ["feed/listings.json", *(["feed/heritage.json"] if os.path.exists(HERITAGE_FEED) else []), "baseline/geocode_cache.json", "baseline/photo_cache.json", "baseline/added_at.json",
-               "baseline/status_changes.json", "photos"]
+               "baseline/status_changes.json", "photos",
+               *(["baseline/overrides.json"] if os.path.exists(OVERRIDES) else [])]
     os.makedirs(os.path.join(REPO, "photos"), exist_ok=True)
     git("add", "-A", *tracked)
     if not git("status", "--porcelain", *tracked).strip():
