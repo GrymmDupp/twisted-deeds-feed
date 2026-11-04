@@ -9,9 +9,14 @@ chain, the Strong Story long-text fields, every non-sample image, the dossier) i
 /workspace/twisted-deeds/_build/listings_full.json, outside this repo and never committed.
 check_locked() fails the publish if any locked field or locked text reaches the public feed.
 
-Inputs
+Inputs (since 2026-11-04 the Google Sheet is the only sheet source; the archived xlsx is never read or written)
   * baseline/fielddesk_listings.json  - Field Desk's built-in listings (never edited here)
-  * the newest Twisted_Deeds_Master_Sheet_*.xlsx (US rows only)
+  * the Google Sheet 'Twisted History Master Sheet', via the validated local cache
+    /workspace/twisted-deeds/_build/sheet_cache/master.csv (refreshed by the agent; see _build/sheet_cache_check.py)
+  * the private sidecar /workspace/twisted-deeds/_data/sidecar.json (priority, Story Tier, MLS numbers, internal notes)
+  The sheet WINS for every public field it carries (name, address, place, price, url, status, lastChecked, grade,
+  layer/kind/storyCategory, facts, loreTeaser, summary, lat/lon, geo); differences from the derived value are reported.
+  Script write-backs (Listing Photos) go to _build/sheet_outbox.json, which the agent applies through the connector.
 
 Steps: build -> validate schema -> enforce exclusions -> write only if the
 listings changed -> git commit + push (unless --no-push).
@@ -41,7 +46,9 @@ from datetime import datetime, timezone
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASELINE = os.path.join(REPO, "baseline", "fielddesk_listings.json")
 FEED = os.path.join(REPO, "feed", "listings.json")
-DEFAULT_SHEET_GLOB = "/workspace/twisted-deeds/Twisted_Deeds_Master_Sheet_*.xlsx"
+DEFAULT_SHEET_CACHE = "/workspace/twisted-deeds/_build/sheet_cache/master.csv"   # Google Sheet cache (agent-refreshed)
+TD_BUILD = "/workspace/twisted-deeds/_build"
+ARCHIVED_XLSX_RE = re.compile(r"\.xls[xm]?$", re.I)
 DEFAULT_INTERNAL = "/workspace/twisted-deeds/_build/properties_internal.json"
 DEFAULT_MAP_LAYERS = "/workspace/twisted-deeds/map_layers.csv"
 GEOCACHE = os.path.join(REPO, "baseline", "geocode_cache.json")
@@ -242,6 +249,8 @@ def hyperlink_target(v):
 
 def grade_from_rating(b):
     b = b or ""
+    if b.strip().lower() in ("sovereign", "death", "diseased", "split"):   # Google Sheet O holds the grade code
+        return b.strip().lower()
     if "SOVEREIGN" in b.upper():
         return "sovereign"
     counts = {"death": b.count("\U0001F480"), "diseased": b.count("\u2623"), "split": b.count("\U0001F494")}
@@ -268,14 +277,24 @@ def strip_mls(text, mls_tokens):
     return re.sub(r"\s{2,}", " ", re.sub(r"\s+,", ",", text)).strip()
 
 
-def newest_sheet(pattern):
-    files = sorted(glob.glob(pattern), key=lambda p: (os.path.basename(p), os.path.getmtime(p)))
-    if not files:
-        sys.exit(f"No Master Sheet matches {pattern}")
-    return files[-1]
+def _sheet_source():
+    if TD_BUILD not in sys.path:
+        sys.path.insert(0, TD_BUILD)
+    import sheet_source
+    return sheet_source
 
 
 def read_sheet(path):
+    """Google Sheet cache + private sidecar -> (rows shaped like the old xlsx reader, notes deny-list, MLS tokens)."""
+    if ARCHIVED_XLSX_RE.search(str(path)):
+        sys.exit("refusing to read an .xlsx: the archived Master Sheet is retired; the Google Sheet cache is the source")
+    ss = _sheet_source()
+    ss.load_sites(path=path)
+    return ss.legacy_rows(path=path), ss.notes_denylist(path=path), ss.mls_tokens()
+
+
+def read_sheet_xlsx_RETIRED(path):
+    raise SystemExit("the xlsx reader is retired (2026-11-04)")
     import openpyxl
     wb_f = openpyxl.load_workbook(path)              # formulas (for HYPERLINK targets)
     wb_v = openpyxl.load_workbook(path, data_only=True)  # values; never saved
@@ -432,7 +451,9 @@ def build(sheet_path):
     added, merged = [], []
     for row in rows:
         ours = map_row(row, mls_tokens)
-        hit = next((i for i, l in enumerate(listings) if same_place(l["address"], ours["address"])), None)
+        # Site ID is the join key (replaces same_place() address matching)
+        hit = by_id.get(row.get("site_id")) if row.get("site_id") else next(
+            (i for i, l in enumerate(listings) if same_place(l["address"], ours["address"])), None)
         if hit is not None and hit < len(base["listings"]):
             merged.append((listings[hit]["id"], ours["id"]))
             listings[hit] = merge_dup(listings[hit], ours, mls_tokens)
@@ -942,11 +963,78 @@ def add_coordinates(listings, seeds, geocoder):
     geocoder.save()
 
 
+def sheet_coordinates(listings, sites, geocoder, save=True):
+    """lat/lon/geo_precision/geo_source come from sheet E/F/AI/AJ. Rows without coordinates fall back to the geocoder
+    (cache only with --offline-geo) and the found pin is proposed for the sheet through the outbox."""
+    proposals = []
+    for l in listings:
+        for k in ("lat", "lon", "geo_precision", "geo_source"):
+            l.pop(k, None)
+        d = sites.get(l["id"])
+        if d and d["lat"] is not None:
+            l.update(lat=d["lat"], lon=d["lon"], geo_precision=d["geo_precision"], geo_source=d["geo_source"])
+            continue
+        g = geocoder.locate(l, {})
+        if g:
+            l.update(g)
+            proposals += [{"site_id": l["id"], "column": c, "new": str(g[k]), "reason": "geocoded (row had no pin)"}
+                          for c, k in (("Latitude", "lat"), ("Longitude", "lon"), ("Geo Precision", "geo_precision"), ("Geo Source", "geo_source"))]
+    if save:
+        geocoder.save()
+    return proposals
+
+
+SHEET_WINS = [("name", "name"), ("address", "full_address"), ("place", "city_county_state"), ("price", "price"),
+              ("url", "listing_link"), ("status", "status"), ("lastChecked", "updated_at"), ("grade", "triple_d_status_rating"),
+              ("layer", "tags_layer"), ("kind", "tags_kind"), ("storyCategory", "tags_story"), ("facts", "facts"),
+              ("loreTeaser", "lore_teaser"), ("summary", "preview_summary")]
+SHEET_BLANK_KEEPS = {"url", "loreTeaser", "summary", "facts"}   # blank cell = not written yet: keep the derived value
+
+
+def apply_sheet_wins(listings, sites):
+    """The Google Sheet is the source of truth for the public fields it carries. Returns (drift, errors)."""
+    drift, errs = [], []
+    for l in listings:
+        d = sites.get(l["id"])
+        if not d:
+            errs.append(f"{l['id']}: not in the Google Sheet (add the row first; Site ID is the key)")
+            continue
+        for fk, sk in SHEET_WINS:
+            v = d[sk]
+            if v == "" and fk in SHEET_BLANK_KEEPS:
+                continue
+            if fk == "url" and v and any(rx.search(v) for rx in MLS_URL_RES):
+                errs.append(f"{l['id']}: sheet Listing Link carries an MLS number"); continue
+            if l.get(fk) != v:
+                drift.append({"id": l["id"], "field": fk, "derived": l.get(fk), "sheet": v})
+                l[fk] = v
+        if l.get("tier") != d["tier"] and l.get("collection") != "heritage":
+            drift.append({"id": l["id"], "field": "tier", "derived": l.get("tier"), "sheet": d["tier"]})
+            l["tier"] = d["tier"]
+    ids = {l["id"] for l in listings}
+    errs += [f"{sid}: sheet row has no listing (new rows need a baseline/Master Sheet origin in the sidecar)" for sid in sites if sid not in ids]
+    return drift, errs
+
+
 SHEET_PHOTO_HEADER = "Listing Photos"
 BACKUP_DIR = "/workspace/twisted-deeds/_backups"
 
 
-def write_sheet_photos(sheet, row_map):
+def outbox_sheet_photos(listings, sites):
+    """Listing Photos (AN) write-back -> _build/sheet_outbox.json (never written to the sheet or any xlsx by a script)."""
+    entries = []
+    for l in listings:
+        imgs = l.get("_photos") or []
+        v = "\n".join(f"{i['image_type']} | {i['url']} | {i['credit']} | {i['source']}" for i in imgs)
+        d = sites.get(l["id"])
+        if d is not None and d["listing_photos"].strip() != v:
+            entries.append({"site_id": l["id"], "column": SHEET_PHOTO_HEADER, "old": d["listing_photos"], "new": v,
+                            "reason": "listing photo refresh (scripts/listing_photos.py)"})
+    return entries
+
+
+def write_sheet_photos_RETIRED(sheet, row_map):
+    raise SystemExit("write_sheet_photos is retired (2026-11-04): photo write-backs go to the sheet outbox")
     """Store each US row's photo URLs in the Master Sheet's "Listing Photos" column (openpyxl keeps formatting).
     One line per photo: '<image_type> | <url> | <credit> | <source>'. Backs the sheet up first, only when it changes."""
     import shutil
@@ -1199,92 +1287,9 @@ def paid_research_errs(*groups):
     return errs
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--sheet", help="Master Sheet .xlsx (default: newest match of %s)" % DEFAULT_SHEET_GLOB)
-    ap.add_argument("--internal", default=DEFAULT_INTERNAL, help="deny-list file (read only for checks)")
-    ap.add_argument("--map-layers", default=DEFAULT_MAP_LAYERS, help="our geocodes (US rows only are used)")
-    ap.add_argument("--offline-geo", action="store_true", help="use the geocode cache only")
-    ap.add_argument("--no-push", action="store_true")
-    ap.add_argument("--check", action="store_true", help="build + validate only; write nothing")
-    ap.add_argument("--full-out", default=FULL_OUT, help="PRIVATE full-file export (outside the repo)")
-    ap.add_argument("--full-only", action="store_true", help="write only the private full file; no feed, no git")
-    ap.add_argument("--offline-photos", action="store_true", help="use the photo cache only (no page fetches)")
-    ap.add_argument("--refresh-photos", action="store_true", help="re-pull photos for every listing")
-    ap.add_argument("--no-sheet-photos", action="store_true", help="do not write the Listing Photos column")
-    a = ap.parse_args()
-    sheet = a.sheet or newest_sheet(DEFAULT_SHEET_GLOB)
-    _bad = [p for p in (sheet, a.internal, a.map_layers, a.full_out) if _in_research_archive(p)]
-    if _bad:
-        sys.exit("refusing input/output path(s) inside the Paid Research Archive: %s" % _bad)
-    base, listings, stats, notes_text, mls_tokens = build(sheet)
-    stats["overrides_applied"], OVERRIDE_ERRS = apply_overrides(listings)
-    us_addrs = [l["address"] for l in listings if l.get("extra", {}).get("source") == "master-sheet"]
-    us_addrs += [l["extra"]["masterSheet"].get("address", "") for l in listings if "masterSheet" in l.get("extra", {})]
-    seeds = load_seeds(a.map_layers, us_addrs + [l["address"] for l in listings])
-    geo = Geocoder(offline=a.offline_geo)
-    add_coordinates(listings, seeds, geo)
-    from collections import Counter
-    stats["geo"] = dict(Counter(l.get("geo_precision", "none") for l in listings))
-    stats["geo_new_requests"] = geo.calls
-    if geo.failures:
-        stats["geo_failures"] = geo.failures
-    from listing_photos import add_photos, image_mls_hits
-    stats["photos"] = add_photos(listings, mls_tokens, offline=a.offline_photos, force=a.refresh_photos)
-    def _mls_free(im):
-        blob = " ".join(str(v) for v in im.values())
-        return not any(rx.search(blob) for rx in MLS_URL_RES) and not any(len(t) >= 5 and t.lower() in blob.lower() for t in mls_tokens) \
-            and not image_mls_hits(im)
-    for l in listings:  # photos whose URL or page link carries an MLS number are dropped (same rule as listing URLs)
-        l["_photos"] = [im for im in l.get("_photos", []) if _mls_free(im)]
-    stats["photos"]["with_photos_after_mls_scrub"] = sum(1 for l in listings if l["_photos"])
-    sheet_photo_map = {r: l.get("_photos") or [] for l in listings for r in l.get("_sheetRows", [])}
-    pairs = [split_access(l) for l in listings]
-    listings, full = [p for p, _ in pairs], [f for _, f in pairs]
-    full_by_id = {f["listing_id"]: f for f in full}
-    added_map, newly = apply_added_at(listings)
-    stats["added_at_new_ids"] = newly
-    stats["status_tracking_applied"] = apply_status_tracking(listings)
-    status_map, status_changed = apply_status_changes(listings)
-    stats["status_changed_ids"] = status_changed
-    from collections import Counter as _C
-    stats["status_counts"] = dict(_C(l["status"] for l in listings))
-    scouting, scout_errs = load_scouting()
-    stats["scouting"] = scouting
-    stats["schema_version"] = SCHEMA_VERSION
-    stats["private_full_records"] = len(full)
-    errs = (validate(base, listings) + enforce_exclusions(base, listings, notes_text, mls_tokens, a.internal)
-            + check_locked(listings, full_by_id) + check_full_private(full, notes_text, mls_tokens, a.internal) + scout_errs
-            + HERITAGE_ERRS + OVERRIDE_ERRS + paid_research_errs(listings, full, [scouting] if scouting else []))
-    # Heritage Homes: heritage-only listings go to feed/heritage.json, never into the core feed/listings.json
-    heritage_only = [l for l in listings if l.get("collection") == "heritage"]
-    listings = [l for l in listings if l.get("collection") != "heritage"]
-    stats["heritage"] = {"heritage_only": len(heritage_only), "core_cross_listed": sum(1 for l in listings if l.get("heritage"))}
-    print(json.dumps({k: v for k, v in stats.items()}, indent=1))
-    if HERITAGE_ERRS:
-        print("heritage rows: " + str(len(HERITAGE_ERRS)) + " problem(s)")
-    if errs:
-        print("VALIDATION FAILED:\n  " + "\n  ".join(errs))
-        sys.exit(1)
-    print(f"valid: {len(listings)} preview-only listings from {os.path.basename(sheet)}; locked-field check passed")
-    if a.check:
-        return
-    write_full(a.full_out, full, sheet)
-    if a.full_only:
-        return
-    if not a.no_sheet_photos:
-        write_sheet_photos(sheet, sheet_photo_map)
-    write_added_at(added_map)
-    write_status_changes(status_map)
-    h = listings_hash(listings, scouting)
-    if heritage_only:   # empty collection -> core hash unchanged, so no republish just for the new schema
-        h = hashlib.sha256((h + listings_hash(heritage_only)).encode()).hexdigest()
-    old = json.load(open(FEED)) if os.path.exists(FEED) else None
-    if old and old.get("content_hash") == h:
-        print("feed unchanged; nothing to publish")
-        return
-    feed = {
-        "version": (old.get("version", 0) + 1) if old else 1,
+def build_feed_doc(old, h, listings, scouting, heritage_only, keep_version):
+    return {
+        "version": (old.get("version", 0) if keep_version else old.get("version", 0) + 1) if old else 1,
         "schema_version": SCHEMA_VERSION,
         "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "count": len(listings),
@@ -1299,6 +1304,124 @@ def main():
         **({"heritage": {"count": len(heritage_only), "url": HERITAGE_URL}} if heritage_only else {}),
         "listings": listings,
     }
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--sheet-cache", "--sheet", dest="sheet", default=DEFAULT_SHEET_CACHE,
+                    help="validated Google Sheet cache CSV (default %(default)s); .xlsx files are refused")
+    ap.add_argument("--max-cache-age-hours", type=float, default=24.0,
+                    help="refuse a stale sheet cache (default 24 h; --check/--out runs skip the age check)")
+    ap.add_argument("--out", help="SCRATCH output dir: write listings.json + listings_full.json there only "
+                                  "(no repo/baseline writes, no git, no outbox); version kept when the content hash is unchanged")
+    ap.add_argument("--internal", default=DEFAULT_INTERNAL, help="deny-list file (read only for checks)")
+    ap.add_argument("--map-layers", default=DEFAULT_MAP_LAYERS, help="our geocodes (US rows only are used)")
+    ap.add_argument("--offline-geo", action="store_true", help="use the geocode cache only")
+    ap.add_argument("--no-push", action="store_true")
+    ap.add_argument("--check", action="store_true", help="build + validate only; write nothing")
+    ap.add_argument("--full-out", default=FULL_OUT, help="PRIVATE full-file export (outside the repo)")
+    ap.add_argument("--full-only", action="store_true", help="write only the private full file; no feed, no git")
+    ap.add_argument("--offline-photos", action="store_true", help="use the photo cache only (no page fetches)")
+    ap.add_argument("--refresh-photos", action="store_true", help="re-pull photos for every listing")
+    ap.add_argument("--no-sheet-photos", action="store_true", help="do not queue Listing Photos write-backs in the outbox")
+    a = ap.parse_args()
+    sheet = a.sheet
+    if ARCHIVED_XLSX_RE.search(sheet):
+        sys.exit("refusing an .xlsx sheet: the archived Master Sheet is retired; use the Google Sheet cache")
+    if a.out and os.path.commonpath([os.path.abspath(a.out), REPO]) == REPO:
+        sys.exit("--out must be a scratch directory outside the repo")
+    _bad = [p for p in (sheet, a.internal, a.map_layers, a.full_out, a.out) if _in_research_archive(p)]
+    if _bad:
+        sys.exit("refusing input/output path(s) inside the Paid Research Archive: %s" % _bad)
+    ss = _sheet_source()
+    cache_errs = ss.scc.validate(sheet, None if (a.check or a.out) else a.max_cache_age_hours)
+    if cache_errs:
+        sys.exit("sheet cache invalid:\n  " + "\n  ".join(cache_errs[:30]))
+    sites = ss.sites_by_id(path=sheet)
+    sheet_meta = json.load(open(os.path.join(os.path.dirname(os.path.abspath(sheet)), "meta.json")))
+    sheet_label = f"Google Sheet {sheet_meta['spreadsheet_id']} (cache {sheet_meta['fetched_at']})"
+    base, listings, stats, notes_text, mls_tokens = build(sheet)
+    stats["overrides_applied"], OVERRIDE_ERRS = apply_overrides(listings)
+    geo = Geocoder(offline=a.offline_geo or bool(a.out))
+    outbox = sheet_coordinates(listings, sites, geo, save=not a.out)
+    from collections import Counter
+    stats["geo"] = dict(Counter(l.get("geo_precision", "none") for l in listings))
+    stats["geo_new_requests"] = geo.calls
+    if geo.failures:
+        stats["geo_failures"] = geo.failures
+    from listing_photos import add_photos, image_mls_hits
+    stats["photos"] = add_photos(listings, mls_tokens, offline=a.offline_photos, force=a.refresh_photos)
+    def _mls_free(im):
+        blob = " ".join(str(v) for v in im.values())
+        return not any(rx.search(blob) for rx in MLS_URL_RES) and not any(len(t) >= 5 and t.lower() in blob.lower() for t in mls_tokens) \
+            and not image_mls_hits(im)
+    for l in listings:  # photos whose URL or page link carries an MLS number are dropped (same rule as listing URLs)
+        l["_photos"] = [im for im in l.get("_photos", []) if _mls_free(im)]
+    stats["photos"]["with_photos_after_mls_scrub"] = sum(1 for l in listings if l["_photos"])
+    if not a.no_sheet_photos:
+        outbox += outbox_sheet_photos(listings, sites)
+    pairs = [split_access(l) for l in listings]
+    listings, full = [p for p, _ in pairs], [f for _, f in pairs]
+    full_by_id = {f["listing_id"]: f for f in full}
+    sheet_drift, SHEET_ERRS = apply_sheet_wins(listings, sites)
+    stats["sheet_wins_drift"] = sheet_drift
+    stats["sheet_outbox_proposals"] = len(outbox)
+    added_map, newly = apply_added_at(listings)
+    stats["added_at_new_ids"] = newly
+    stats["status_tracking_applied"] = apply_status_tracking(listings)
+    status_map, status_changed = apply_status_changes(listings)
+    stats["status_changed_ids"] = status_changed
+    from collections import Counter as _C
+    stats["status_counts"] = dict(_C(l["status"] for l in listings))
+    scouting, scout_errs = load_scouting()
+    stats["scouting"] = scouting
+    stats["schema_version"] = SCHEMA_VERSION
+    stats["private_full_records"] = len(full)
+    errs = (validate(base, listings) + enforce_exclusions(base, listings, notes_text, mls_tokens, a.internal)
+            + check_locked(listings, full_by_id) + check_full_private(full, notes_text, mls_tokens, a.internal) + scout_errs
+            + HERITAGE_ERRS + OVERRIDE_ERRS + SHEET_ERRS + paid_research_errs(listings, full, [scouting] if scouting else []))
+    # Heritage Homes: heritage-only listings go to feed/heritage.json, never into the core feed/listings.json
+    heritage_only = [l for l in listings if l.get("collection") == "heritage"]
+    listings = [l for l in listings if l.get("collection") != "heritage"]
+    stats["heritage"] = {"heritage_only": len(heritage_only), "core_cross_listed": sum(1 for l in listings if l.get("heritage"))}
+    print(json.dumps({k: v for k, v in stats.items()}, indent=1))
+    if HERITAGE_ERRS:
+        print("heritage rows: " + str(len(HERITAGE_ERRS)) + " problem(s)")
+    if errs:
+        print("VALIDATION FAILED:\n  " + "\n  ".join(errs))
+        sys.exit(1)
+    print(f"valid: {len(listings)} preview-only listings from {sheet_label}; locked-field check passed")
+    if a.check:
+        return
+    if a.out:   # scratch build (acceptance tests): nothing in the repo, baseline, sheet outbox or git is touched
+        os.makedirs(a.out, exist_ok=True)
+        write_full(os.path.join(a.out, "listings_full.json"), full, sheet_label)
+        h = listings_hash(listings, scouting)
+        if heritage_only:
+            h = hashlib.sha256((h + listings_hash(heritage_only)).encode()).hexdigest()
+        old = json.load(open(FEED)) if os.path.exists(FEED) else None
+        same = bool(old and old.get("content_hash") == h)
+        feed = build_feed_doc(old, h, listings, scouting, heritage_only, same)
+        with open(os.path.join(a.out, "listings.json"), "w") as f:
+            json.dump(feed, f, ensure_ascii=False, indent=1)
+            f.write("\n")
+        print(f"scratch feed v{feed['version']} written to {a.out} (content hash {'UNCHANGED' if same else 'CHANGED'} vs {FEED})")
+        return
+    write_full(a.full_out, full, sheet_label)
+    if a.full_only:
+        return
+    if outbox:
+        print(f"sheet outbox: {ss.outbox_add(outbox, 'publish_feed.py')} new proposal(s) in {ss.OUTBOX} (agent applies them)")
+    write_added_at(added_map)
+    write_status_changes(status_map)
+    h = listings_hash(listings, scouting)
+    if heritage_only:   # empty collection -> core hash unchanged, so no republish just for the new schema
+        h = hashlib.sha256((h + listings_hash(heritage_only)).encode()).hexdigest()
+    old = json.load(open(FEED)) if os.path.exists(FEED) else None
+    if old and old.get("content_hash") == h:
+        print("feed unchanged; nothing to publish")
+        return
+    feed = build_feed_doc(old, h, listings, scouting, heritage_only, False)
     bad = check_locked(listings, full_by_id, feed.keys())
     if bad:
         sys.exit("VALIDATION FAILED (envelope):\n  " + "\n  ".join(bad))
@@ -1329,7 +1452,7 @@ def main():
     if not git("status", "--porcelain", *tracked).strip():
         print("no git changes")
         return
-    git("commit", "-m", f"Feed v{feed['version']}: {len(listings)} listings ({os.path.basename(sheet)})")
+    git("commit", "-m", f"Feed v{feed['version']}: {len(listings)} listings (Google Sheet, cache {sheet_meta['fetched_at']})")
     if not a.no_push:
         git("push", "origin", "HEAD:main")
         print("pushed to origin/main")
