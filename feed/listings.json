@@ -141,6 +141,10 @@
   "label": "Michigan & Ohio",
   "since": "2026-10-31"
  },
+ "archive": {
+  "count": 20,
+  "url": "https://grymmdupp.github.io/twisted-deeds-feed/feed/archive.json"
+ },
  "listings": [
   {
    "id": "holliday-house",

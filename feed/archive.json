@@ -1,0 +1,976 @@
+{
+ "version": 1,
+ "schema_version": 3,
+ "generated_at": "2026-11-17T02:19:12Z",
+ "geo_attribution": "Geocoding: OpenStreetMap Nominatim, (c) OpenStreetMap contributors, ODbL",
+ "enums_ext": {
+  "grade": [
+   {
+    "id": "story",
+    "label": "Strong Story (Tier 2)"
+   },
+   {
+    "id": "heritage",
+    "label": "Heritage Home (separate collection, 2026-11-01)"
+   }
+  ],
+  "layer": [
+   {
+    "id": "oddity",
+    "label": "Architecture / Oddity",
+    "color": "#008080"
+   },
+   {
+    "id": "folklore",
+    "label": "Folklore / Legend",
+    "color": "#8A9A5B"
+   },
+   {
+    "id": "attraction",
+    "label": "Failed Attraction / Closed Institution",
+    "color": "#CC5500"
+   },
+   {
+    "id": "heritage",
+    "label": "Historic / Heritage",
+    "color": "#A67C00"
+   }
+  ],
+  "status": [
+   "Off market",
+   "Archive"
+  ],
+  "tier": [
+   {
+    "id": 1,
+    "label": "Tier 1 - Twisted Deed"
+   },
+   {
+    "id": 2,
+    "label": "Tier 2 - Strong Story"
+   },
+   {
+    "id": 3,
+    "label": "Heritage Homes - separate collection (never ranked with or counted in Tier 1/2)"
+   }
+  ],
+  "storyCategory": [
+   {
+    "id": "triple-d",
+    "label": "Twisted Deed"
+   },
+   {
+    "id": "oddity",
+    "label": "Architecture / Oddity"
+   },
+   {
+    "id": "long-vacant",
+    "label": "Long-Vacant / Lore"
+   },
+   {
+    "id": "folklore",
+    "label": "Folklore / Legend"
+   },
+   {
+    "id": "attraction",
+    "label": "Failed Attraction / Closed Institution"
+   },
+   {
+    "id": "heritage",
+    "label": "Historic / Heritage"
+   },
+   {
+    "id": "research",
+    "label": "Research Depth"
+   },
+   {
+    "id": "heritage-home",
+    "label": "Heritage Home (separate collection)"
+   }
+  ],
+  "collection": [
+   {
+    "id": "core",
+    "label": "Core (default when absent)"
+   },
+   {
+    "id": "heritage",
+    "label": "Heritage Homes only"
+   },
+   {
+    "id": "archive",
+    "label": "The Archive (2026-11-16): verified places NOT for sale; feed/archive.json"
+   }
+  ],
+  "shelf": [
+   {
+    "id": "for-sale",
+    "label": "For sale now (default when absent)"
+   },
+   {
+    "id": "archive",
+    "label": "The Archive: not for sale"
+   }
+  ],
+  "heritageTier": [
+   {
+    "id": "century",
+    "label": "Century (100+ years)",
+    "min": 100
+   },
+   {
+    "id": "sesquicentennial",
+    "label": "Sesquicentennial (150+ years)",
+    "min": 150
+   },
+   {
+    "id": "bicentennial",
+    "label": "Bicentennial (200+ years)",
+    "min": 200
+   }
+  ],
+  "structureType": [
+   {
+    "id": "residence",
+    "label": "Residence"
+   },
+   {
+    "id": "farm",
+    "label": "Farm (reserved)"
+   },
+   {
+    "id": "commercial",
+    "label": "Commercial (reserved)"
+   }
+  ]
+ },
+ "count": 20,
+ "collection": "archive",
+ "feed_url": "https://grymmdupp.github.io/twisted-deeds-feed/feed/archive.json",
+ "core_feed_url": "https://grymmdupp.github.io/twisted-deeds-feed/feed/listings.json",
+ "source": "Twisted Deeds ARCHIVE shelf, FREE PREVIEW LAYER ONLY. Verified dark-history places that are NOT for sale. Town-precision rows carry no street address or exact pin. Published by scripts/publish_archive.py.",
+ "content_hash": "e213eca4d3312c367bb6d03f8545665dfdc3ebf5aeee07146cbf7c753285165e",
+ "listings": [
+  {
+   "id": "moon-river-brewing-company",
+   "name": "Moon River Brewing Company (former City Hotel)",
+   "grade": "story",
+   "layer": "spectral",
+   "kind": "commercial",
+   "tier": 2,
+   "storyCategory": "heritage",
+   "address": "21 West Bay Street, Savannah, GA",
+   "place": "Savannah, Chatham County, GA",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "A legislator was shot in the bar of Savannah's City Hotel in 1832, which is documented; tying that to the hauntings is local lore. The 1821 hotel, the city's first, became a brewpub that closed in June 2024.",
+   "facts": "",
+   "loreTeaser": "The first hotel in Savannah, a bar-room shooting in 1832, a brewery that closed in 2024, and a basement the Ghost Brothers called a portal.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 32.081004,
+   "lon": -81.09202,
+   "geo_precision": "address",
+   "geo_source": "Archive scout (public record)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Ghost Brothers: Lights Out",
+     "network": "discovery+",
+     "season": 2,
+     "episode": 4,
+     "title": "Trouble A-Brewin'",
+     "year": 2022,
+     "url": "https://www.tvmaze.com/episodes/2411466/ghost-brothers-lights-out-2x04-trouble-a-brewin"
+    }
+   ],
+   "crew_featured": true,
+   "roadOnly": true
+  },
+  {
+   "id": "allen-house-monticello",
+   "name": "The Allen House (Monticello)",
+   "grade": "story",
+   "layer": "spectral",
+   "kind": "house",
+   "tier": 2,
+   "storyCategory": "folklore",
+   "address": "Monticello, Drew County, AR",
+   "place": "Monticello, Drew County, AR",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "A daughter's cyanide poisoning in the late 1940s is the root of a long-running Arkansas ghost legend about this mansion. Built c.1905-06 in Queen Anne and Gothic style for a local businessman.",
+   "facts": "",
+   "loreTeaser": "A bedroom sealed for decades, a bottle of cyanide on a closet shelf, and a famous Arkansas haunted house.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 33.63,
+   "lon": -91.79,
+   "geo_precision": "town",
+   "geo_source": "Town area (rounded; Archive privacy rule)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Ghost Brothers",
+     "network": "Destination America",
+     "season": 1,
+     "episode": 2,
+     "title": "The Allen House",
+     "year": 2016,
+     "url": "https://www.tvmaze.com/episodes/707806/ghost-brothers-1x02-the-allen-house"
+    }
+   ]
+  },
+  {
+   "id": "magnolia-hotel-seguin",
+   "name": "Magnolia Hotel (Seguin)",
+   "grade": "story",
+   "layer": "spectral",
+   "kind": "commercial",
+   "tier": 2,
+   "storyCategory": "folklore",
+   "address": "203 S Crockett St, Seguin, TX 78155",
+   "place": "Seguin, Guadalupe County, TX",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "Local accounts tie this Seguin hotel's haunting to the 1874 ax murder of 12-year-old Emma Voelcker in New Braunfels, whose accused killer reportedly lodged here. It began as an 1840 log cabin and was taking guests by 1844; now a B&B.",
+   "facts": "",
+   "loreTeaser": "One of Texas's oldest hostelries, once on a most-endangered list, and the inn tied to an 1874 murder case.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 29.568,
+   "lon": -97.9627,
+   "geo_precision": "address",
+   "geo_source": "Archive scout (public record)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Ghost Brothers",
+     "network": "Destination America",
+     "season": 1,
+     "episode": 5,
+     "title": "Magnolia Hotel",
+     "year": 2016,
+     "url": "https://www.tvmaze.com/episodes/707809/ghost-brothers-1x05-magnolia-hotel"
+    }
+   ]
+  },
+  {
+   "id": "old-charleston-jail",
+   "name": "Old Charleston Jail (Old City Jail)",
+   "grade": "story",
+   "layer": "mayhem",
+   "kind": "commercial",
+   "tier": 2,
+   "storyCategory": "heritage",
+   "address": "21 Magazine Street, Charleston, SC 29403",
+   "place": "Charleston, Charleston County, SC",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "County jail 1802-1939 that held Denmark Vesey, Union prisoners, pirates, and John and Lavinia Fisher, convicted of robbery and murder and hanged in 1820. The later 'serial killer' legend is disputed.",
+   "facts": "",
+   "loreTeaser": "A four-story jail with an octagonal tower, a hanging-era roster, and the Fishers, whose legend outgrew the record.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 32.77833333,
+   "lon": -79.93694444,
+   "geo_precision": "address",
+   "geo_source": "Archive scout (public record)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Ghost Brothers",
+     "network": "TLC",
+     "season": 2,
+     "episode": 3,
+     "title": "Old City Jail",
+     "year": 2017,
+     "url": "https://www.tvmaze.com/episodes/1099610/ghost-brothers-2x03-old-city-jail"
+    },
+    {
+     "show": "Ghost Brothers",
+     "network": "TLC",
+     "season": 2,
+     "episode": 11,
+     "title": "Charleston County Jail",
+     "year": 2017,
+     "url": "https://www.tvmaze.com/episodes/1185405/ghost-brothers-2x11-charleston-county-jail"
+    }
+   ]
+  },
+  {
+   "id": "cocke-county-memorial-building",
+   "name": "Cocke County Memorial Building",
+   "grade": "story",
+   "layer": "mortuary",
+   "kind": "commercial",
+   "tier": 2,
+   "storyCategory": "heritage",
+   "address": "103 N. Cosby Highway, Newport, TN",
+   "place": "Newport, Cocke County, TN",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "After the July 1964 airliner crash near Parrottsville killed 39, this Newport armory served as a temporary morgue, the basis of its haunted reputation. A 1930s armory and American Legion hall, NRHP-listed.",
+   "facts": "",
+   "loreTeaser": "A 1931 Colonial Revival hall that became a morgue for a night no one in Cocke County forgot.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 35.9675,
+   "lon": -83.1933,
+   "geo_precision": "address",
+   "geo_source": "Archive scout (public record)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Ghost Brothers",
+     "network": "TLC",
+     "season": 2,
+     "episode": 5,
+     "title": "Cocke Country Memorial Building",
+     "year": 2017,
+     "url": "https://www.tvmaze.com/episodes/1099612/ghost-brothers-2x05-cocke-country-memorial-building"
+    }
+   ]
+  },
+  {
+   "id": "beauregard-parish-hanging-jail",
+   "name": "Beauregard Parish Jail (the Gothic or Hanging Jail)",
+   "grade": "story",
+   "layer": "mayhem",
+   "kind": "commercial",
+   "tier": 2,
+   "storyCategory": "heritage",
+   "address": "Courthouse Square, DeRidder, LA 70634",
+   "place": "DeRidder, Beauregard Parish, LA",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "Joe Genna and Molton Brasseaux were hanged in this DeRidder jail on March 9, 1928, for a 1926 taxi-driver murder, the only hanging in the jail. A 1914 Gothic Revival parish jail, NRHP-listed; tours run.",
+   "facts": "",
+   "loreTeaser": "A gothic concrete jail with a gallows still on the third floor and one hanging in its history.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 30.84625,
+   "lon": -93.28821,
+   "geo_precision": "address",
+   "geo_source": "Archive scout (public record)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Ghost Brothers: Lights Out",
+     "network": "discovery+",
+     "season": 1,
+     "episode": 3,
+     "title": "Death Sentence",
+     "year": 2021,
+     "url": "https://www.tvmaze.com/episodes/2073322/ghost-brothers-lights-out-1x03-death-sentence"
+    }
+   ]
+  },
+  {
+   "id": "yuma-territorial-prison",
+   "name": "Yuma Territorial Prison State Historic Park",
+   "grade": "story",
+   "layer": "mayhem",
+   "kind": "commercial",
+   "tier": 2,
+   "storyCategory": "heritage",
+   "address": "220 N Prison Hill Rd, Yuma, AZ 85364",
+   "place": "Yuma, Yuma County, AZ",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "A university study of burial records counts 3,069 inmates, 111 deaths and 104 graves at Arizona Territory's prison, which ran 1876-1909. Now an Arizona State Parks museum.",
+   "facts": "",
+   "loreTeaser": "Thirty-three years of a desert prison on the Colorado River, and the 'Hell Hole' reputation that still draws visitors.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 32.72694444,
+   "lon": -114.615,
+   "geo_precision": "address",
+   "geo_source": "Archive scout (public record)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Ghost Brothers: Lights Out",
+     "network": "discovery+",
+     "season": 1,
+     "episode": 4,
+     "title": "Cross My Heart",
+     "year": 2021,
+     "url": "https://www.tvmaze.com/episodes/2073323/ghost-brothers-lights-out-1x04-cross-my-heart"
+    }
+   ]
+  },
+  {
+   "id": "watseka-wonder-roff-home",
+   "name": "Roff family home (Watseka Wonder)",
+   "grade": "story",
+   "layer": "spectral",
+   "kind": "house",
+   "tier": 2,
+   "storyCategory": "folklore",
+   "address": "Watseka, Iroquois County, IL",
+   "place": "Watseka, Iroquois County, IL",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "1868 Italianate house tied to the 1877-78 'Watseka Wonder' case, in which a teenager was reported to be possessed by a neighbor's daughter who died in 1865. Covered in newspapers of the time.",
+   "facts": "",
+   "loreTeaser": "One of America's best-documented 19th-century possession cases, played out in two homes in a small Illinois town.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 40.78,
+   "lon": -87.74,
+   "geo_precision": "town",
+   "geo_source": "Town area (rounded; Archive privacy rule)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Ghost Brothers: Lights Out",
+     "network": "discovery+",
+     "season": 1,
+     "episode": 1,
+     "title": "Roff Family Rituals",
+     "year": 2021,
+     "url": "https://www.tvmaze.com/episodes/2073320/ghost-brothers-lights-out-1x01-roff-family-rituals"
+    }
+   ]
+  },
+  {
+   "id": "ohio-state-reformatory",
+   "name": "Ohio State Reformatory (Mansfield Reformatory)",
+   "grade": "story",
+   "layer": "mayhem",
+   "kind": "commercial",
+   "tier": 2,
+   "storyCategory": "heritage",
+   "address": "100 Reformatory Rd, Mansfield, OH 44905",
+   "place": "Mansfield, Richland County, OH",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "Documented deaths at this prison include the warden's wife in a 1950 accidental shooting in the family quarters and an officer killed by inmates in 1932. Begun in 1886 and now a tour site; the Shawshank Redemption location.",
+   "facts": "",
+   "loreTeaser": "A Romanesque prison castle, a cemetery on the grounds, and a long record of tragedy at the warden's quarters.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 40.78527778,
+   "lon": -82.505,
+   "geo_precision": "address",
+   "geo_source": "Archive scout (public record)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Ghost Brothers: Lights Out",
+     "network": "discovery+",
+     "season": 2,
+     "episode": 1,
+     "title": "The Shank",
+     "year": 2022,
+     "url": "https://www.tvmaze.com/episodes/2380901/ghost-brothers-lights-out-2x01-the-shank"
+    }
+   ]
+  },
+  {
+   "id": "trans-allegheny-lunatic-asylum",
+   "name": "Trans-Allegheny Lunatic Asylum (Weston State Hospital)",
+   "grade": "story",
+   "layer": "attraction",
+   "kind": "commercial",
+   "tier": 2,
+   "storyCategory": "attraction",
+   "address": "50 S River Ave, Weston, WV 26452",
+   "place": "Weston, Lewis County, WV",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "A 1935 patient-set fire and numerous patient lobotomies in 1952-55 are part of this Kirkbride asylum's record. Open 1864-1994, built for 250 patients and holding over 2,300 by the 1950s; National Historic Landmark, now a privately owned…",
+   "facts": "",
+   "loreTeaser": "One of the largest hand-cut stone buildings in North America, built for 250 patients and later packed with thousands.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 39.03861111,
+   "lon": -80.47138889,
+   "geo_precision": "address",
+   "geo_source": "Archive scout (public record)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Ghost Brothers: Lights Out",
+     "network": "discovery+",
+     "season": 2,
+     "episode": 5,
+     "title": "Alone in the Asylum",
+     "year": 2022,
+     "url": "https://www.tvmaze.com/episodes/2411467/ghost-brothers-lights-out-2x05-alone-in-the-asylum"
+    }
+   ]
+  },
+  {
+   "id": "waverly-hills-sanatorium",
+   "name": "Waverly Hills Sanatorium",
+   "grade": "story",
+   "layer": "mortuary",
+   "kind": "commercial",
+   "tier": 2,
+   "storyCategory": "attraction",
+   "address": "8101 Dixie Highway, Louisville, KY",
+   "place": "Louisville, Jefferson County, KY",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "Louisville had one of the nation's highest TB death rates when this tuberculosis sanatorium opened in 1910. A 5-story building replaced it in 1926 and the hospital closed in June 1961 as antibiotics cut demand. Tours today.",
+   "facts": "",
+   "loreTeaser": "A hilltop TB hospital in a city with one of the nation's highest TB death rates, now a tour site that markets its ghosts.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 38.13014722,
+   "lon": -85.84172778,
+   "geo_precision": "address",
+   "geo_source": "Archive scout (public record)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Ghost Brothers: Lights Out",
+     "network": "discovery+",
+     "season": 2,
+     "episode": 8,
+     "title": "The Haunting Of Waverly Hills",
+     "year": 2022,
+     "url": "https://www.tvmaze.com/episodes/2411470/ghost-brothers-lights-out-2x08-the-haunting-of-waverly-hills"
+    }
+   ]
+  },
+  {
+   "id": "winchester-mystery-house",
+   "name": "Winchester Mystery House",
+   "grade": "story",
+   "layer": "oddity",
+   "kind": "commercial",
+   "tier": 2,
+   "storyCategory": "oddity",
+   "address": "525 S Winchester Blvd, San Jose, CA 95128",
+   "place": "San Jose, Santa Clara County, CA",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "160-room Victorian mansion built nonstop 1884-1922 by Sarah Winchester after the deaths of her infant daughter (1866) and husband (1881). The story that spirits drove the building is legend.",
+   "facts": "",
+   "loreTeaser": "Stairs to nowhere, 160 rooms, and a widow whose reasons are still argued about.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 37.31836111,
+   "lon": -121.95076111,
+   "geo_precision": "address",
+   "geo_source": "Archive scout (public record)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Ghost Brothers",
+     "network": "TLC",
+     "season": 2,
+     "episode": 2,
+     "title": "Winchester Mystery House",
+     "year": 2017,
+     "url": "https://www.tvmaze.com/episodes/1097790/ghost-brothers-2x02-winchester-mystery-house"
+    },
+    {
+     "show": "Ghost Brothers",
+     "network": "TLC",
+     "season": 2,
+     "episode": 10,
+     "title": "Blood Money Mansion",
+     "year": 2017,
+     "url": "https://www.tvmaze.com/episodes/1185404/ghost-brothers-2x10-blood-money-mansion"
+    }
+   ]
+  },
+  {
+   "id": "uss-lexington-museum-ship",
+   "name": "USS Lexington (CV-16) museum ship",
+   "grade": "story",
+   "layer": "heritage",
+   "kind": "commercial",
+   "tier": 2,
+   "storyCategory": "heritage",
+   "address": "2914 N Shoreline Blvd, Corpus Christi, TX 78402",
+   "place": "Corpus Christi, Nueces County, TX",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "A Japanese torpedo hit on 4 Dec 1943 killed nine crew aboard this Essex-class carrier, and a kamikaze crash in Nov 1944 wrecked her island. Commissioned 1943; now a National Historic Landmark museum ship at Corpus Christi.",
+   "facts": "",
+   "loreTeaser": "'The Blue Ghost', the oldest fleet carrier still afloat, with a combat record the ghost stories grow from.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 27.815,
+   "lon": -97.38861111,
+   "geo_precision": "address",
+   "geo_source": "Archive scout (public record)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Ghost Brothers: Lights Out",
+     "network": "discovery+",
+     "season": 1,
+     "episode": 8,
+     "title": "Flight or Fright",
+     "year": 2021,
+     "url": "https://www.tvmaze.com/episodes/2073327/ghost-brothers-lights-out-1x08-flight-or-fright"
+    }
+   ]
+  },
+  {
+   "id": "palace-hotel-port-townsend",
+   "name": "Palace Hotel",
+   "grade": "story",
+   "layer": "vice",
+   "kind": "commercial",
+   "tier": 2,
+   "storyCategory": "heritage",
+   "address": "1004 Water Street, Port Townsend, WA 98368",
+   "place": "Port Townsend, Jefferson County, WA",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "The 1889 Tibbals Building in Port Townsend ran as a brothel nicknamed the 'Palace of Sweets' from 1925 to 1933, until a sheriff's raid. Restored 1976-88 and run as a hotel; guests report ghosts.",
+   "facts": "",
+   "loreTeaser": "An 1889 waterfront building with a Prohibition-era brothel past, a sheriff's raid, and guests who report a woman in blue.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 48.1140171,
+   "lon": -122.7578121,
+   "geo_precision": "address",
+   "geo_source": "Archive scout (public record)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Haunted Towns",
+     "network": "Travel Channel",
+     "season": 2,
+     "episode": 6,
+     "title": "Five Miles From Hell",
+     "year": 2019,
+     "url": "https://www.tvmaze.com/episodes/1671368/haunted-towns-2x06-five-miles-from-hell"
+    }
+   ],
+   "crew_featured": true
+  },
+  {
+   "id": "mcraven-house-vicksburg",
+   "name": "McRaven House (Bobb House)",
+   "grade": "story",
+   "layer": "mayhem",
+   "kind": "commercial",
+   "tier": 2,
+   "storyCategory": "heritage",
+   "address": "1445 Harrison Street, Vicksburg, MS 39180",
+   "place": "Vicksburg, Warren County, MS",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "Owner John Bobb was shot dead by Union soldiers at what became McRaven, the Bobb House, on 18 May 1864; the National Register record calls him the first Vicksburg civilian killed amid tensions with the occupying Union forces. Now a…",
+   "facts": "",
+   "loreTeaser": "A siege-battered Vicksburg house where the owner's last quarrel with occupying soldiers ended in gunfire in 1864.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 32.34583333,
+   "lon": -90.8725,
+   "geo_precision": "address",
+   "geo_source": "Archive scout (public record)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Haunted Towns",
+     "network": "Destination America",
+     "season": 1,
+     "episode": 4,
+     "title": "Vicksburg, MS",
+     "year": 2017,
+     "url": "https://www.tvmaze.com/episodes/1253613/haunted-towns-1x04-vicksburg-ms"
+    }
+   ]
+  },
+  {
+   "id": "lizzie-borden-house-fall-river",
+   "name": "Lizzie Borden House",
+   "grade": "story",
+   "layer": "mayhem",
+   "kind": "commercial",
+   "tier": 2,
+   "storyCategory": "attraction",
+   "address": "230 Second Street, Fall River, MA 02721",
+   "place": "Fall River, Bristol County, MA",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "1845 Greek Revival house where Andrew and Abby Borden were killed on 4 August 1892. Lizzie Borden was tried and acquitted in 1893 and no one else was charged. Now a bed and breakfast and museum.",
+   "facts": "",
+   "loreTeaser": "The 1892 hatchet murders, a trial of the century, and an acquittal that left the case unsolved. Rooms and tours today.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 41.69894,
+   "lon": -71.1562,
+   "geo_precision": "address",
+   "geo_source": "Archive scout (public record)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Haunted Towns",
+     "network": "Destination America",
+     "season": 1,
+     "episode": 6,
+     "title": "Fall River, MA",
+     "year": 2017,
+     "url": "https://www.tvmaze.com/episodes/1253615/haunted-towns-1x06-fall-river-ma"
+    }
+   ]
+  },
+  {
+   "id": "camp-creek-train-wreck-memorial-mcdonough",
+   "name": "Camp Creek Train Wreck Memorial",
+   "grade": "story",
+   "layer": "mayhem",
+   "kind": "commercial",
+   "tier": 2,
+   "storyCategory": "heritage",
+   "address": "478 Atlanta Street, McDonough, GA",
+   "place": "McDonough, Henry County, GA",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "Public memorial marker in McDonough for the 23 June 1900 Camp Creek train wreck, where a Southern Railway train plunged off a washed-out trestle in a storm and burned. The city's marker counts 39 dead; other accounts say 35.",
+   "facts": "",
+   "loreTeaser": "Georgia's worst train wreck: a storm, a washed-out trestle, a burning train, and a memorial on Atlanta Street.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 33.464057,
+   "lon": -84.156131,
+   "geo_precision": "address",
+   "geo_source": "Archive scout (public record)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Haunted Towns",
+     "network": "Destination America",
+     "season": 1,
+     "episode": 7,
+     "title": "McDonough, GA",
+     "year": 2017,
+     "url": "https://www.tvmaze.com/episodes/1253616/haunted-towns-1x07-mcdonough-ga"
+    }
+   ]
+  },
+  {
+   "id": "old-idaho-penitentiary-boise",
+   "name": "Old Idaho Penitentiary",
+   "grade": "story",
+   "layer": "mortuary",
+   "kind": "commercial",
+   "tier": 2,
+   "storyCategory": "heritage",
+   "address": "2445 Old Penitentiary Road, Boise, ID 83712",
+   "place": "Boise, Ada County, ID",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "The Idaho State Historical Society counts ten executions and about 129 recorded deaths at this Boise prison, which held inmates from 1872 to 1973 and is now a state historic site.",
+   "facts": "",
+   "loreTeaser": "A sandstone prison with a Rose Garden execution ground, an indoor gallows used once, and about 129 recorded deaths.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 43.6027,
+   "lon": -116.162,
+   "geo_precision": "address",
+   "geo_source": "Archive scout (public record)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Haunted Towns",
+     "network": "Travel Channel",
+     "season": 2,
+     "episode": 2,
+     "title": "Ghosts of the Gallows",
+     "year": 2019,
+     "url": "https://www.tvmaze.com/episodes/1671364/haunted-towns-2x02-ghosts-of-the-gallows"
+    }
+   ]
+  },
+  {
+   "id": "wyoming-frontier-prison-rawlins",
+   "name": "Wyoming Frontier Prison (old Wyoming State Penitentiary)",
+   "grade": "story",
+   "layer": "mortuary",
+   "kind": "commercial",
+   "tier": 2,
+   "storyCategory": "heritage",
+   "address": "500 W Walnut Street, Rawlins, WY 82301",
+   "place": "Rawlins, Carbon County, WY",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "WyoHistory.org says 250 people died at this Rawlins penitentiary and 14 men were executed there, nine by hanging and five in the gas chamber. Opened 1901 and closed 1981; now the Wyoming Frontier Prison museum.",
+   "facts": "",
+   "loreTeaser": "An 80-year prison on the high plains: 14 executions, a gas chamber added in 1936, and a 1912 uprising.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 41.7929257,
+   "lon": -107.2423356,
+   "geo_precision": "address",
+   "geo_source": "Archive scout (public record)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Haunted Towns",
+     "network": "Travel Channel",
+     "season": 2,
+     "episode": 4,
+     "title": "Wraith Revenge",
+     "year": 2019,
+     "url": "https://www.tvmaze.com/episodes/1671366/haunted-towns-2x04-wraith-revenge"
+    }
+   ]
+  },
+  {
+   "id": "hangmans-building-virginia-city-montana",
+   "name": "Hangman's Building, Virginia City",
+   "grade": "story",
+   "layer": "mayhem",
+   "kind": "commercial",
+   "tier": 2,
+   "storyCategory": "heritage",
+   "address": "West Wallace Street, Virginia City, MT",
+   "place": "Virginia City, Madison County, MT",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "On 14 January 1864 Alder Gulch vigilantes hanged five accused road agents from the center roof truss of this Virginia City building while it was under construction. Now a museum run by the Virginia City Preservation Alliance.",
+   "facts": "",
+   "loreTeaser": "A frontier gold town, a half-built shop, and a beam where vigilantes hanged five men in one day.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-16",
+   "lastChecked": "2026-11-16",
+   "dossier": false,
+   "lore": true,
+   "lat": 45.293626,
+   "lon": -111.945473,
+   "geo_precision": "address",
+   "geo_source": "Archive scout (public record)",
+   "collection": "archive",
+   "shelf": "archive",
+   "media": [
+    {
+     "show": "Haunted Towns",
+     "network": "Travel Channel",
+     "season": 2,
+     "episode": 5,
+     "title": "Vigilante Vengeance",
+     "year": 2019,
+     "url": "https://www.tvmaze.com/episodes/1671367/haunted-towns-2x05-vigilante-vengeance"
+    }
+   ]
+  }
+ ]
+}
