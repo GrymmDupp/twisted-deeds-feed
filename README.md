@@ -22,7 +22,7 @@ The feed now carries **only the free preview** of each listing: id, name, grade,
 - **Tier 2, Strong Story** (`tier: 2`, `grade: "story"`): buyable properties with a strong non-Triple-D story (architecture/oddity, folklore, failed attraction or closed institution, heritage, long-vacant). Their priorities are rescaled so they always sit below the lowest Tier 1 priority.
 - New layers: `oddity` #008080, `folklore` #8A9A5B, `attraction` #CC5500, `heritage` #A67C00. Long-vacant listings use `blight` #708090. The envelope `enums_ext` lists every added value. Clients must ignore unknown values. See `SCHEMA.md`.
 
-US listings only. Brazil research, field notes, MLS numbers (including inside URLs) and internal scores (including story_depth_score) are never published, and the script refuses to publish if any appear.
+US listings only. Field notes, MLS numbers (including inside URLs) and internal scores (including story_depth_score) are never published, and the script refuses to publish if any appear.
 
 ### Heritage Homes (2026-11-01): separate collection
 Houses held by one family for 100+ continuous years: Century (100+), Sesquicentennial (150+) and Bicentennial (200+).

@@ -78,7 +78,7 @@ Optional:
 No other keys are published. Clients must still ignore unknown keys.
 
 ## Private full-file export (not published)
-`_build/listings_full.json` = `{PRIVATE, generated_at, sheet, count, files: [...]}`. Each record matches the site's `listing_full` table: `listing_id`, `story` (full hook + story), `history`, `timeline` `[{year, text}]`, `lore` (newline-separated), `citations`, `sources` `[{url, label}]` (source links and broker photo pages), `ownership_chain`, `story_fields` `{architectural_notes, vacancy_years, folklore_type, failure_reason, significance}`, `dossier_md` (empty for now: `dossiers/*.md` still carry internal scores and listing numbers). Two extra keys the import ignores: `images` (non-sample images) and `photo`. Field Desk desk `notes` are not exported. The same MLS / Brazil / Field Notes checks run on this file.
+`_build/listings_full.json` = `{PRIVATE, generated_at, sheet, count, files: [...]}`. Each record matches the site's `listing_full` table: `listing_id`, `story` (full hook + story), `history`, `timeline` `[{year, text}]`, `lore` (newline-separated), `citations`, `sources` `[{url, label}]` (source links and broker photo pages), `ownership_chain`, `story_fields` `{architectural_notes, vacancy_years, folklore_type, failure_reason, significance}`, `dossier_md` (empty for now: `dossiers/*.md` still carry internal scores and listing numbers). Two extra keys the import ignores: `images` (non-sample images) and `photo`. Field Desk desk `notes` are not exported. The same MLS / Field Notes checks run on this file.
 
 Derived in the app, not stored: the category chip (`crime`, `paranormal`, `abandoned`, `vice`, `funeral`) comes from `layer`, the text, `lore` and `bargain` (function `T`).
 
@@ -113,7 +113,7 @@ Up to v2 the feed carried an `extra` object (sheet price/status text, verificati
 | tier / storyCategory | Story Tier (AM) / Story Category (AN). Blank Story Tier on a US row = Tier 1 |
 | (private) story_fields, ownership_chain | AO–AT (Tier 2 rows only) — full file only |
 
-**Never published:** Brazil or any non-US row, Field Notes, MLS # (including inside URLs, case-insensitive), story_depth_score (AU), Triple D/Death/Diseased/Stigma scores, Confidence, all Brazil columns, and anything from the internal build file. `scripts/publish_feed.py` fails the publish if any of these show up. From v3 no built-in long text is published at all.
+**Never published:** non-US rows, Field Notes, MLS # (including inside URLs, case-insensitive), story_depth_score (AU), Triple D/Death/Diseased/Stigma scores, Confidence, and anything from the internal build file. `scripts/publish_feed.py` fails the publish if any of these show up. From v3 no built-in long text is published at all.
 
 ## Coordinates (added in v3)
 
@@ -215,3 +215,16 @@ byte-for-byte unchanged.
 - **Validation**: the whole publish fails on any of these: a heritage row without `Heritage Category = Yes`; under
   100 years; Continuous Years not matching Ownership Since; fewer than 2 chain sources; missing originality
   notes; an unknown structure type; any "Triple-D" text in a heritage-only listing.
+
+## The Archive (2026-11-16)
+Optional separate collection `feed/archive.json` (same envelope as the core feed, `collection: "archive"`), advertised by the core feed as `archive: {count, url}` only when it has rows. Rows are never in `listings.json` and never counted in core totals. See `ARCHIVE_PUBLISH.md`.
+
+| field | type | notes |
+|---|---|---|
+| `status` | `Archive` or `Sold` | not for sale |
+| `collection` / `shelf` | `archive` | both required together |
+| `price` | string | `Not for sale` / `Sold` (never an asking price) |
+| `media` | list of `{show, network, season, episode, title, year, url}` | credit + link to where to watch; never footage; https, no portal/MLS |
+| `crew_featured` | bool | Ghost Brothers / Haunted Towns episodes with Grymm and Gussy |
+| `roadOnly` | bool | show "View from the public road only" |
+| `geo_precision: town` | | public address = town only; lat/lon rounded to 2 decimals; no photos; the app draws a town-area circle, no pin |

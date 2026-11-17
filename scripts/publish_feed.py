@@ -22,7 +22,7 @@ Steps: build -> validate schema -> enforce exclusions -> write only if the
 listings changed -> git commit + push (unless --no-push).
 
 Exclusions enforced (the script exits non-zero if any is violated):
-  * no Brazil / non-US rows (Country column must be USA; place must end in a US state code)
+  * US only (place must end in a US state code)
   * no Field Notes column content
   * no MLS numbers (from the MLS # column) or "MLS ####" text in anything we add
   * no internal scores (Triple D, Death/Diseased/Stigma, Confidence, Acquisition, Priority Score)
@@ -59,6 +59,8 @@ US_BBOX = (17.0, 72.0, -180.0, -60.0)  # lat min/max, lon min/max (US incl. AK/H
 FEED_URL = "https://grymmdupp.github.io/twisted-deeds-feed/feed/listings.json"
 HERITAGE_FEED = os.path.join(REPO, "feed", "heritage.json")      # separate Heritage Homes collection (only when non-empty)
 HERITAGE_URL = "https://grymmdupp.github.io/twisted-deeds-feed/feed/heritage.json"
+ARCHIVE_FEED = os.path.join(REPO, "feed", "archive.json")        # The Archive shelf (places NOT for sale; only when non-empty)
+ARCHIVE_URL = "https://grymmdupp.github.io/twisted-deeds-feed/feed/archive.json"
 FULL_OUT = "/workspace/twisted-deeds/_build/listings_full.json"   # PRIVATE; never inside the repo, never committed
 ADDED_AT = os.path.join(REPO, "baseline", "added_at.json")     # first-seen date per listing id (stable, tracked)
 STATUS_CHANGES = os.path.join(REPO, "baseline", "status_changes.json")  # {id: {status, since}} last status + when it changed (tracked)
@@ -83,7 +85,7 @@ ENUM_EXT = {
               {"id": "attraction", "label": "Failed Attraction / Closed Institution", "color": "#CC5500"},
               {"id": "heritage", "label": "Historic / Heritage", "color": "#A67C00"}],
     # 2026-10-31: listing page unreachable/delisted 7+ days (see _build/status_rules.py)
-    "status": ["Off market"],
+    "status": ["Off market", "Archive"],
     "tier": [{"id": 1, "label": "Tier 1 - Twisted Deed"}, {"id": 2, "label": "Tier 2 - Strong Story"},
              {"id": 3, "label": "Heritage Homes - separate collection (never ranked with or counted in Tier 1/2)"}],
     "storyCategory": [{"id": "triple-d", "label": "Twisted Deed"},
@@ -95,7 +97,9 @@ ENUM_EXT = {
                       {"id": "research", "label": "Research Depth"},
                       {"id": "heritage-home", "label": "Heritage Home (separate collection)"}],
     # 2026-11-01 Heritage Homes: separate collection + optional `heritage` object
-    "collection": [{"id": "core", "label": "Core (default when absent)"}, {"id": "heritage", "label": "Heritage Homes only"}],
+    "collection": [{"id": "core", "label": "Core (default when absent)"}, {"id": "heritage", "label": "Heritage Homes only"},
+                   {"id": "archive", "label": "The Archive (2026-11-16): verified places NOT for sale; feed/archive.json"}],
+    "shelf": [{"id": "for-sale", "label": "For sale now (default when absent)"}, {"id": "archive", "label": "The Archive: not for sale"}],
     "heritageTier": [{"id": "century", "label": "Century (100+ years)", "min": 100},
                      {"id": "sesquicentennial", "label": "Sesquicentennial (150+ years)", "min": 150},
                      {"id": "bicentennial", "label": "Bicentennial (200+ years)", "min": 200}],
@@ -104,6 +108,12 @@ ENUM_EXT = {
 }
 HERITAGE_KEYS = {"tier": str, "since": int, "years": int, "family": str, "structureType": str, "sourceCount": int}
 HERITAGE_ERRS = []   # filled by map_row; any entry fails the publish
+ARCHIVE_ERRS = []    # The Archive (2026-11-16): privacy / shape problems; any entry fails the publish
+PRIVATE_HOME_IDS = set()   # Archive rows flagged private_home in the sidecar: must be town precision, never an exact pin
+MEDIA_KEYS = {"show": str, "network": str, "season": int, "episode": int, "title": str, "year": int, "url": str}
+PORTAL_HOST_RE = re.compile(r"zillow|redfin|realtor\.com|trulia|homes\.com|movoto|mls", re.I)
+# a street address inside public text (house number + street word): never allowed on a town-precision Archive row
+STREET_RE = re.compile(r"\b\d{1,6}\s+(?:[NSEW]\.?\s+)?(?:[A-Z][\w.'-]*\s+){0,3}(?:St|Street|Ave|Avenue|Rd|Road|Dr|Drive|Ln|Lane|Blvd|Boulevard|Ct|Court|Way|Pl|Place|Hwy|Highway|Trl|Trail|Cir|Circle)\b\.?")
 
 
 def heritage_tier(years):
@@ -158,7 +168,7 @@ EXTRA_FIELDS = [("architectural_notes", "architecturalNotes"), ("vacancy_years",
                 ("ownership_chain_summary", "ownershipChainSummary"), ("significance", "significanceNote")]
 # story_depth_score is an internal score and is never read into the feed.
 STATUS_MAP = {"verified active": "Active", "active": "Active", "pending": "Pending", "sold": "Sold",
-              "stale": "Stale", "watch": "Watch", "off market": "Off market"}
+              "stale": "Stale", "watch": "Watch", "off market": "Off market", "archive": "Archive"}
 
 
 def status_of(v):
@@ -167,6 +177,8 @@ def status_of(v):
         return STATUS_MAP[v]
     if v.startswith("verified active"):  # e.g. "Verified Active (2-step) 2026-10-30"
         return "Active"
+    if v.startswith("archive"):          # e.g. "Archive 2026-12-01: written source + location confirmed"
+        return "Archive"
     if v.startswith("off market"):       # e.g. "Off market 2026-11-07 (unreachable/delisted since 2026-10-31)"
         return "Off market"
     return STATUS_MAP.get(v.split(" ")[0], "Watch")
@@ -178,7 +190,8 @@ REQUIRED = {"id": str, "name": str, "grade": str, "layer": str, "kind": str, "ti
 OPTIONAL = {"lat": (int, float), "lon": (int, float), "geo_precision": str, "geo_source": str, "significance": str,
             "lane": str, "quiet": bool, "soldOn": str, "bargain": bool, "ground": str, "figure": str,
             "community": bool, "grid": str, "addedAt": str, "statusChangedAt": str,
-            "collection": str, "heritage": dict}
+            "collection": str, "heritage": dict,
+            "shelf": str, "media": list, "crew_featured": bool, "roadOnly": bool}
 PUBLIC_KEYS = set(REQUIRED) | set(OPTIONAL)
 PUBLIC_IMAGE_KEYS = {"id", "era", "caption", "source", "page", "rights"}
 SAMPLE_RIGHTS = {"permission", "cleared"}          # broker/press "reference" images are never samples
@@ -221,7 +234,7 @@ LOCKED_KEYS = {"hook", "story", "history", "citation", "citations", "notes", "ph
 SUMMARY_MAX, TEASER_MAX = 240, 160
 FORBIDDEN_KEYS = {"fieldnotes", "field_notes", "mls", "mlsnumber", "scores", "score", "acqscore", "confidence",
                   "triplediscore", "tripled", "death", "diseased", "stigma", "prioritysscore", "priorityscore",
-                  "ownershipnotes", "pricebrl", "fx", "brazilflag", "sitevisit", "lat", "lon", "country",
+                  "ownershipnotes", "pricebrl", "fx", "sitevisit", "lat", "lon", "country",
                   "storydepth", "storydepthscore", "depth", "acquisitionscore"}
 DEFAULT_PRIORITY = 50  # Field Desk's own default, used only when our Priority Score is blank
 
@@ -314,7 +327,7 @@ def read_sheet_xlsx_RETIRED(path):
         if mls:
             mls_tokens.update(t for t in re.findall(r"[A-Z]*\d[\w-]{4,}", str(mls)))
         if country not in ("USA", "US", "UNITED STATES"):
-            continue  # Brazil and any other non-US rows are internal-only
+            continue  # non-US rows are not published
         rows.append({
             "row": r, "rating": get("Triple D Status / Rating"), "name": get("Property Name / Identifier"),
             "url": hyperlink_target(ws_f.cell(r, col("Listing Link")).value),
@@ -348,6 +361,40 @@ def to_priority(v):
     except (TypeError, ValueError):
         return DEFAULT_PRIORITY
     return int(n) if n == int(n) else n
+
+
+def clean_media(raw, mls_tokens=()):
+    """Sidecar `media` ([{show, network, season, episode, title, year, url}]) -> (public list, errors).
+    Credit only: names the episode and links to where to watch it. No footage, stills or transcripts, ever."""
+    out, errs = [], []
+    for i, m in enumerate(raw or []):
+        if not isinstance(m, dict):
+            errs.append(f"media[{i}] is not an object"); continue
+        extra = set(m) - set(MEDIA_KEYS)
+        if extra:
+            errs.append(f"media[{i}] has keys not allowed in public output: {sorted(extra)}")
+        e = {}
+        for k, t in MEDIA_KEYS.items():
+            v = m.get(k)
+            if v in (None, ""):
+                continue
+            if t is int:
+                try:
+                    v = int(v)
+                except (TypeError, ValueError):
+                    errs.append(f"media[{i}].{k} must be a number"); continue
+            else:
+                v = str(v).strip()
+            e[k] = v
+        if not e.get("show") or not e.get("year"):
+            errs.append(f"media[{i}] needs at least show and year")
+        u = e.get("url", "")
+        if u and (not u.startswith("https://") or PORTAL_HOST_RE.search(u) or any(t.lower() in u.lower() for t in mls_tokens if len(t) >= 5)
+                  or any(rx.search(u) for rx in MLS_URL_RES)):
+            errs.append(f"media[{i}].url must be an https link to where to watch (no listing-portal or MLS links)")
+        if e:
+            out.append({k: e[k] for k in MEDIA_KEYS if k in e})
+    return out, errs
 
 
 def map_row(row, mls_tokens):
@@ -394,6 +441,31 @@ def map_row(row, mls_tokens):
     }
     if sold:
         item["soldOn"] = sold
+    if status == "Archive" or row.get("shelf") == "archive":   # The Archive shelf (2026-11-16): NOT for sale
+        item.update(shelf="archive", collection="archive")
+        if price in ("", "Ask") or not ps.strip():
+            item["price"] = "Not for sale" if status == "Archive" else "Sold"
+        media, merrs = clean_media(row.get("media"), mls_tokens)
+        ARCHIVE_ERRS.extend(f"{item['id']}: {e}" for e in merrs)
+        if media:
+            item["media"] = media
+        if row.get("crewFeatured") is True:
+            item["crew_featured"] = True
+        if row.get("roadOnly") is True:
+            item["roadOnly"] = True
+        if row.get("privateHome") is True:
+            PRIVATE_HOME_IDS.add(item["id"])
+        if status not in ("Archive", "Sold"):
+            ARCHIVE_ERRS.append(f"{item['id']}: shelf 'archive' needs status Archive or Sold (got {status})")
+    elif row.get("media") or row.get("crewFeatured") or row.get("shelf") not in (None, "", "for-sale"):
+        media, merrs = clean_media(row.get("media"), mls_tokens)    # media / crew credits are allowed on for-sale rows too
+        ARCHIVE_ERRS.extend(f"{item['id']}: {e}" for e in merrs)
+        if media:
+            item["media"] = media
+        if row.get("crewFeatured") is True:
+            item["crew_featured"] = True
+        if row.get("shelf") not in (None, "", "for-sale"):
+            ARCHIVE_ERRS.append(f"{item['id']}: unknown shelf {row.get('shelf')!r}")
     h, h_only, h_extra = heritage_from_row(row, mls_tokens)
     if h:
         item["heritage"] = h
@@ -437,6 +509,11 @@ def merge_dup(base, ours, mls_tokens=()):
     links = [u for u in links if u and u != base.get("url")]
     out["extra"] = {**base.get("extra", {}), "masterSheet": sheet, "links": list(dict.fromkeys(links))}
     out["_sheet"] = ours["_sheet"]
+    for k in ("shelf", "collection", "media", "crew_featured", "roadOnly"):   # moves to / is credited on the Archive shelf
+        if k in ours and (ours.get("collection") == "archive" or k in ("media", "crew_featured")):
+            out[k] = ours[k]
+    if ours.get("collection") == "archive":
+        out["status"] = ours["status"]
     if ours.get("heritage"):   # a built-in (core) listing that also qualifies: cross-link only, stays core
         out["heritage"] = ours["heritage"]
         out["extra"].update({k: ours["extra"][k] for k in ("heritageSources", "structureOriginality") if k in ours["extra"]})
@@ -560,7 +637,8 @@ def validate(base, listings):
     enum = {"kind": {x["id"] for x in e["kind"]}, "layer": {x["id"] for x in e["layer"]},
             "grade": {x["id"] for x in e["grade"]}, "status": set(e["status"]) | set(ENUM_EXT["status"]),
             "significance": {x["id"] for x in e["significance"]}, "figure": {x["id"] for x in e["figure"]},
-            "lane": {x["id"] for x in e["lane"]}, "ground": set(e["ground"]), "grid": set(e["grid"])}
+            "lane": {x["id"] for x in e["lane"]}, "ground": set(e["ground"]), "grid": set(e["grid"]),
+            "shelf": {x["id"] for x in ENUM_EXT["shelf"]}}
     for k in ("grade", "layer"):
         enum[k] |= {x["id"] for x in ENUM_EXT[k]}
     enum["tier"] = {x["id"] for x in ENUM_EXT["tier"]}
@@ -620,6 +698,7 @@ def validate(base, listings):
                     errs.append(f"{lid}: bad image era {im.get('id')}")
             elif im.get("rights") not in set(e["image_rights"]) or im.get("era") not in set(e["image_era"]):
                 errs.append(f"{lid}: bad image {im.get('id')}")
+    errs += archive_errs(listings)
     t1 = [l["priority"] for l in listings if l.get("tier") == 1]
     t2 = [l for l in listings if l.get("tier") == 2]
     if t1 and t2 and max(l["priority"] for l in t2) >= min(t1):
@@ -648,8 +727,6 @@ def enforce_exclusions(base, listings, notes_text, mls_tokens, internal_path):
         st = l["place"].rsplit(",", 1)[-1].strip()
         if st not in US_STATES:
             errs.append(f"{l['id']}: place does not end in a US state ({l['place']})")
-    if re.search(r"\bBrazil\b|\bBrasil\b|\bBRL\b|R\$\s?\d", added_blob):
-        errs.append("Brazil content found in added data")
     for k in walk_keys([l.get("extra", {}) for l in listings]):
         if re.sub(r"[^a-z]", "", k.lower()) in FORBIDDEN_KEYS:
             errs.append(f"forbidden key in extra: {k}")
@@ -674,12 +751,12 @@ def enforce_exclusions(base, listings, notes_text, mls_tokens, internal_path):
     if internal_path and os.path.exists(internal_path):
         props = json.load(open(internal_path)).get("properties", [])
         for p in props:
-            for key in ("fieldNotes", "ownershipNotes", "summary", "siteVisit"):
+            # "summary" is the public one-line blurb (same text the feed is meant to carry), so it is not
+            # a leak signal; only the truly private fields are checked (2026-11-17).
+            for key in ("fieldNotes", "ownershipNotes", "siteVisit"):
                 v = p.get(key)
                 if isinstance(v, str) and len(v) >= 25 and v in added_blob:
                     errs.append(f"internal {key} text from {p.get('id')} leaked")
-            if str(p.get("country", "")).lower().startswith("bra") and p.get("address") and p["address"] in added_blob:
-                errs.append(f"Brazil address {p['address']} leaked")
     return errs
 
 
@@ -810,8 +887,9 @@ def check_locked(public, full_by_id, envelope_keys=()):
         # a photo entry's own url/source (its credit link back) is allowed; any other locked link is a leak
         rest_np = json.dumps({k: (v if k != "images" else [i for i in v if "image_type" not in i])
                               for k, v in l.items() if k not in ("summary", "loreTeaser")}, ensure_ascii=False)
+        media_urls = {m.get("url") for m in l.get("media") or [] if isinstance(m, dict)}   # "where to watch" links are public credits
         for x in f["sources"]:
-            if x["url"] != l.get("url") and x["url"] in rest_np:
+            if x["url"] != l.get("url") and x["url"] not in media_urls and x["url"] in rest_np:
                 errs.append(f"{lid}: locked source URL in public feed: {x['url'][:60]}")
         if f.get("photo") and f["photo"] in rest_np:
             errs.append(f"{lid}: locked photo URL in public feed")
@@ -819,15 +897,13 @@ def check_locked(public, full_by_id, envelope_keys=()):
 
 
 def check_full_private(full, notes_text, mls_tokens, internal_path):
-    """The private file feeds the paid full file, so it gets the same MLS / Brazil / Field Notes rules."""
+    """The private file feeds the paid full file, so it gets the same MLS / Field Notes rules."""
     errs, blob = [], json.dumps(full, ensure_ascii=False)
     if MLS_TEXT_RE.search(blob):
         errs.append("full file: 'MLS <number>' text: " + MLS_TEXT_RE.search(blob).group(0))
     for tok in mls_tokens:
         if len(tok) >= 5 and tok.lower() in blob.lower():
             errs.append(f"full file: MLS number {tok}")
-    if re.search(r"\bBrazil\b|\bBrasil\b|\bBRL\b|R\$\s?\d", blob):
-        errs.append("full file: Brazil content")
     for note in notes_text:
         for frag in re.split(r"[.;\n]", note):
             frag = frag.strip()
@@ -914,9 +990,10 @@ class Geocoder:
 
     def locate(self, listing, seeds):
         a = listing.get("address", "")
-        if addr_key(a) in seeds:
+        town_only = listing.get("collection") == "archive"   # Archive rows: never geocode a street address
+        if not town_only and addr_key(a) in seeds:
             return seeds[addr_key(a)]
-        if re.match(r"\s*\d", a):
+        if not town_only and re.match(r"\s*\d", a):
             hit = self._query(a)
             if hit and hit["house"] and in_us(hit["lat"], hit["lon"]):
                 return {"lat": hit["lat"], "lon": hit["lon"], "geo_precision": "address",
@@ -1003,6 +1080,8 @@ def apply_sheet_wins(listings, sites):
             v = d[sk]
             if v == "" and fk in SHEET_BLANK_KEEPS:
                 continue
+            if v == "" and fk in ("price", "address") and l.get("collection") == "archive":
+                continue   # Archive rows: P / Q / street address may be blank; keep "Not for sale" / the town
             if fk == "url" and v and any(rx.search(v) for rx in MLS_URL_RES):
                 errs.append(f"{l['id']}: sheet Listing Link carries an MLS number"); continue
             if l.get(fk) != v:
@@ -1014,6 +1093,65 @@ def apply_sheet_wins(listings, sites):
     ids = {l["id"] for l in listings}
     errs += [f"{sid}: sheet row has no listing (new rows need a baseline/Master Sheet origin in the sidecar)" for sid in sites if sid not in ids]
     return drift, errs
+
+
+def archive_privacy(listings):
+    """The Archive's hard privacy rule (scouting_notes.md): a TOWN-precision row never publishes an exact pin, a street
+    address or photos of the house. Rows flagged private_home must be town precision. Returns (sanitised count, errors)."""
+    errs, n = [], 0
+    for l in listings:
+        if l.get("collection") != "archive":
+            continue
+        town = l.get("geo_precision") == "town"
+        if l["id"] in PRIVATE_HOME_IDS and not town and "lat" in l:
+            errs.append(f"{l['id']}: private home on the Archive must have Geo Precision 'town' (has {l.get('geo_precision')!r})")
+        if l["id"] in PRIVATE_HOME_IDS and not town:
+            town = True   # no coordinates at all: still treated as a private home below (no address, no photos)
+        if not town:
+            continue
+        n += 1
+        l["address"] = l["place"]            # "Town, ST" only
+        l["images"] = []                     # no photos of a private house
+        l["url"] = ""
+        if "lat" in l:                       # ~1 km grid: the app draws a town-area circle, never a pin
+            l["lat"], l["lon"] = round(l["lat"], 2), round(l["lon"], 2)
+            l["geo_source"] = "Town area (rounded; Archive privacy rule)"
+    return n, errs
+
+
+def archive_errs(listings):
+    """Validation for Archive-collection rows (publish fails on any entry)."""
+    errs = []
+    for l in listings:
+        lid = l.get("id", "?")
+        arch = l.get("collection") == "archive"
+        if arch != (l.get("shelf") == "archive"):
+            errs.append(f"{lid}: shelf 'archive' and collection 'archive' go together")
+        if l.get("status") == "Archive" and not arch:
+            errs.append(f"{lid}: status Archive only belongs on the Archive collection")
+        if arch and l.get("status") not in ("Archive", "Sold"):
+            errs.append(f"{lid}: Archive rows must be status Archive or Sold (got {l.get('status')!r})")
+        if arch and l.get("tier") == 3:
+            errs.append(f"{lid}: Archive rows are never Heritage-only")
+        for i, m in enumerate(l.get("media") or []):
+            if not isinstance(m, dict) or set(m) - set(MEDIA_KEYS) or not m.get("show"):
+                errs.append(f"{lid}: media[{i}] malformed")
+            else:
+                for k, t in MEDIA_KEYS.items():
+                    if k in m and not isinstance(m[k], t):
+                        errs.append(f"{lid}: media[{i}].{k} wrong type")
+        if arch and l.get("geo_precision") == "town":
+            if re.match(r"\s*\d", l.get("address", "")) or l.get("address") != l.get("place"):
+                errs.append(f"{lid}: town-precision Archive row must publish only the town as its address")
+            for k in ("lat", "lon"):
+                if k in l and round(l[k], 2) != l[k]:
+                    errs.append(f"{lid}: town-precision Archive row has an exact {k}")
+            if l.get("images"):
+                errs.append(f"{lid}: town-precision Archive row must not carry photos")
+            blob = json.dumps({k: v for k, v in l.items() if k in ("name", "address", "place", "summary", "loreTeaser", "facts", "media")}, ensure_ascii=False)
+            if STREET_RE.search(blob):
+                errs.append(f"{lid}: town-precision Archive row has a street address in its public text: {STREET_RE.search(blob).group(0)!r}")
+    return errs
 
 
 SHEET_PHOTO_HEADER = "Listing Photos"
@@ -1239,7 +1377,7 @@ def load_scouting(path=SCOUTING):
     since = str(raw.get("since") or "").strip()
     if not label:
         errs.append("scouting label missing")
-    if re.search(r"triple[\s-]?d|mls|brazil|brasil", label, re.I):
+    if re.search(r"triple[\s-]?d|mls", label, re.I):
         errs.append("scouting label contains forbidden text")
     if since and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", since):
         errs.append("scouting since not YYYY-MM-DD")
@@ -1287,7 +1425,7 @@ def paid_research_errs(*groups):
     return errs
 
 
-def build_feed_doc(old, h, listings, scouting, heritage_only, keep_version):
+def build_feed_doc(old, h, listings, scouting, heritage_only, keep_version, archive_rows=()):
     return {
         "version": (old.get("version", 0) if keep_version else old.get("version", 0) + 1) if old else 1,
         "schema_version": SCHEMA_VERSION,
@@ -1302,6 +1440,7 @@ def build_feed_doc(old, h, listings, scouting, heritage_only, keep_version):
         "enums_ext": ENUM_EXT,
         **({"scouting": scouting} if scouting else {}),
         **({"heritage": {"count": len(heritage_only), "url": HERITAGE_URL}} if heritage_only else {}),
+        **({"archive": {"count": len(archive_rows), "url": ARCHIVE_URL}} if archive_rows else {}),
         "listings": listings,
     }
 
@@ -1365,6 +1504,8 @@ def main():
     full_by_id = {f["listing_id"]: f for f in full}
     sheet_drift, SHEET_ERRS = apply_sheet_wins(listings, sites)
     stats["sheet_wins_drift"] = sheet_drift
+    n_town, ARCH_PRIV_ERRS = archive_privacy(listings)
+    stats["archive_town_rows_sanitised"] = n_town
     stats["sheet_outbox_proposals"] = len(outbox)
     added_map, newly = apply_added_at(listings)
     stats["added_at_new_ids"] = newly
@@ -1379,10 +1520,19 @@ def main():
     stats["private_full_records"] = len(full)
     errs = (validate(base, listings) + enforce_exclusions(base, listings, notes_text, mls_tokens, a.internal)
             + check_locked(listings, full_by_id) + check_full_private(full, notes_text, mls_tokens, a.internal) + scout_errs
-            + HERITAGE_ERRS + OVERRIDE_ERRS + SHEET_ERRS + paid_research_errs(listings, full, [scouting] if scouting else []))
+            + HERITAGE_ERRS + ARCHIVE_ERRS + ARCH_PRIV_ERRS + OVERRIDE_ERRS + SHEET_ERRS + paid_research_errs(listings, full, [scouting] if scouting else []))
     # Heritage Homes: heritage-only listings go to feed/heritage.json, never into the core feed/listings.json
     heritage_only = [l for l in listings if l.get("collection") == "heritage"]
     listings = [l for l in listings if l.get("collection") != "heritage"]
+    # The Archive (2026-11-16): places NOT for sale go to feed/archive.json, never into the core listings.json
+    archive_rows = [l for l in listings if l.get("collection") == "archive"]
+    listings = [l for l in listings if l.get("collection") != "archive"]
+    if os.path.exists(ARCHIVE_FEED):   # rows shipped by scripts/publish_archive.py must not be silently dropped by a full publish
+        gone = {x["id"] for x in json.load(open(ARCHIVE_FEED)).get("listings", [])} - {x["id"] for x in archive_rows}
+        if gone:
+            errs.append(f"feed/archive.json holds Archive rows that are not in the Master Sheet: {sorted(gone)}. Add them to the sheet (and sidecar) first, or the full publish would remove them")
+    stats["archive"] = {"archive_rows": len(archive_rows), "town_precision": sum(1 for l in archive_rows if l.get("geo_precision") == "town"),
+                        "with_media": sum(1 for l in archive_rows if l.get("media")), "crew_featured": sum(1 for l in archive_rows if l.get("crew_featured"))}
     stats["heritage"] = {"heritage_only": len(heritage_only), "core_cross_listed": sum(1 for l in listings if l.get("heritage"))}
     print(json.dumps({k: v for k, v in stats.items()}, indent=1))
     if HERITAGE_ERRS:
@@ -1399,9 +1549,11 @@ def main():
         h = listings_hash(listings, scouting)
         if heritage_only:
             h = hashlib.sha256((h + listings_hash(heritage_only)).encode()).hexdigest()
+        if archive_rows:
+            h = hashlib.sha256((h + listings_hash(archive_rows)).encode()).hexdigest()
         old = json.load(open(FEED)) if os.path.exists(FEED) else None
         same = bool(old and old.get("content_hash") == h)
-        feed = build_feed_doc(old, h, listings, scouting, heritage_only, same)
+        feed = build_feed_doc(old, h, listings, scouting, heritage_only, same, archive_rows)
         with open(os.path.join(a.out, "listings.json"), "w") as f:
             json.dump(feed, f, ensure_ascii=False, indent=1)
             f.write("\n")
@@ -1417,11 +1569,13 @@ def main():
     h = listings_hash(listings, scouting)
     if heritage_only:   # empty collection -> core hash unchanged, so no republish just for the new schema
         h = hashlib.sha256((h + listings_hash(heritage_only)).encode()).hexdigest()
+    if archive_rows:    # same rule: an empty Archive changes nothing
+        h = hashlib.sha256((h + listings_hash(archive_rows)).encode()).hexdigest()
     old = json.load(open(FEED)) if os.path.exists(FEED) else None
     if old and old.get("content_hash") == h:
         print("feed unchanged; nothing to publish")
         return
-    feed = build_feed_doc(old, h, listings, scouting, heritage_only, False)
+    feed = build_feed_doc(old, h, listings, scouting, heritage_only, False, archive_rows)
     bad = check_locked(listings, full_by_id, feed.keys())
     if bad:
         sys.exit("VALIDATION FAILED (envelope):\n  " + "\n  ".join(bad))
@@ -1443,8 +1597,22 @@ def main():
             json.dump(hfeed, f, ensure_ascii=False, indent=1)
             f.write("\n")
         print(f"wrote heritage collection ({len(heritage_only)} listings)")
+    if archive_rows or os.path.exists(ARCHIVE_FEED):
+        afeed = {k: feed[k] for k in ("version", "schema_version", "generated_at", "geo_attribution", "enums_ext")}
+        afeed.update(count=len(archive_rows), collection="archive", feed_url=ARCHIVE_URL, core_feed_url=FEED_URL,
+                     source=("Twisted Deeds ARCHIVE shelf, FREE PREVIEW LAYER ONLY. Verified dark-history places that are NOT for sale "
+                             "(haunted TV leads and sold listings). Town-precision rows carry no street address or exact pin. "
+                             "Auto-generated by scripts/publish_feed.py."),
+                     content_hash=listings_hash(archive_rows), listings=archive_rows)
+        bad = check_locked(archive_rows, full_by_id, afeed.keys())
+        if bad:
+            sys.exit("VALIDATION FAILED (archive envelope):\n  " + "\n  ".join(bad))
+        with open(ARCHIVE_FEED, "w") as f:
+            json.dump(afeed, f, ensure_ascii=False, indent=1)
+            f.write("\n")
+        print(f"wrote archive shelf ({len(archive_rows)} records)")
     git = lambda *c: subprocess.run(["git", "-C", REPO, *c], check=True, capture_output=True, text=True).stdout
-    tracked = ["feed/listings.json", *(["feed/heritage.json"] if os.path.exists(HERITAGE_FEED) else []), "baseline/geocode_cache.json", "baseline/photo_cache.json", "baseline/added_at.json",
+    tracked = ["feed/listings.json", *(["feed/heritage.json"] if os.path.exists(HERITAGE_FEED) else []), *(["feed/archive.json"] if os.path.exists(ARCHIVE_FEED) else []), "baseline/geocode_cache.json", "baseline/photo_cache.json", "baseline/added_at.json",
                "baseline/status_changes.json", "photos",
                *(["baseline/overrides.json"] if os.path.exists(OVERRIDES) else [])]
     os.makedirs(os.path.join(REPO, "photos"), exist_ok=True)
