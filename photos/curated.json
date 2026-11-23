@@ -1,219 +1,1435 @@
 {
- "belden-town-ca": [
-  {
-   "author": "Frank Schulenburg",
-   "caption": "Belden Town Hotel, Plumas County-3229",
-   "credit": "Frank Schulenburg, CC BY-SA 4.0, via Wikimedia Commons",
-   "era": "current",
-   "id": "belden-town-ca-c1",
-   "image_type": "cc",
-   "license": "CC BY-SA 4.0",
-   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "rights": "cc",
-   "source": "https://commons.wikimedia.org/wiki/File:Belden_Town_Hotel,_Plumas_County-3229.jpg",
-   "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/belden-town-ca/01-38f2e24d28.jpg"
-  },
-  {
-   "author": "Frank Schulenburg",
-   "caption": "Belden Town Road in Belden, Plumas County-3235",
-   "credit": "Frank Schulenburg, CC BY-SA 4.0, via Wikimedia Commons",
-   "era": "current",
-   "id": "belden-town-ca-c2",
-   "image_type": "cc",
-   "license": "CC BY-SA 4.0",
-   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "rights": "cc",
-   "source": "https://commons.wikimedia.org/wiki/File:Belden_Town_Road_in_Belden,_Plumas_County-3235.jpg",
-   "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/belden-town-ca/02-60edc1b59e.jpg"
-  }
- ],
- "brook-forest-inn-evergreen": [
-  {
-   "author": "Jeffrey Beall",
-   "caption": "Brook Forest Inn",
-   "credit": "Jeffrey Beall, CC BY 3.0, via Wikimedia Commons",
-   "era": "current",
-   "id": "brook-forest-inn-evergreen-c1",
-   "image_type": "cc",
-   "license": "CC BY 3.0",
-   "license_url": "https://creativecommons.org/licenses/by/3.0",
-   "rights": "cc",
-   "source": "https://commons.wikimedia.org/wiki/File:Brook_Forest_Inn.JPG",
-   "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/brook-forest-inn-evergreen/01-e4b86968db.jpg"
-  }
- ],
- "buffalo-bodega": [
-  {
-   "author": "DimiTalen",
-   "caption": "Coca-Cola painted advertisement, Buffalo Bodega, Deadwood, 2009",
-   "credit": "DimiTalen, CC0, via Wikimedia Commons",
-   "era": "current",
-   "id": "buffalo-bodega-c1",
-   "image_type": "public-domain",
-   "license": "CC0",
-   "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-   "rights": "public-domain",
-   "source": "https://commons.wikimedia.org/wiki/File:Coca-Cola_painted_advertisement,_Buffalo_Bodega,_Deadwood,_2009.jpg",
-   "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/buffalo-bodega/01-b5b4d00378.jpg"
-  }
- ],
- "chancellor-house": [
-  {
-   "author": "Jstewall at en.wikipedia",
-   "caption": "Chancellor House",
-   "credit": "Jstewall at en.wikipedia, Public domain, via Wikimedia Commons",
-   "era": "current",
-   "id": "chancellor-house-c1",
-   "image_type": "public-domain",
-   "license": "Public domain",
-   "license_url": "",
-   "rights": "public-domain",
-   "source": "https://commons.wikimedia.org/wiki/File:Chancellor_House.JPG",
-   "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/chancellor-house/01-156cd44668.jpg"
-  }
- ],
- "hudson-evans": [
-  {
-   "author": "Michael Barera",
-   "caption": "Detroit August 2025 06 (Hudson–Evans House)",
-   "credit": "Michael Barera, CC BY-SA 4.0, via Wikimedia Commons",
-   "era": "current",
-   "id": "hudson-evans-c1",
-   "image_type": "cc",
-   "license": "CC BY-SA 4.0",
-   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "rights": "cc",
-   "source": "https://commons.wikimedia.org/wiki/File:Detroit_August_2025_06_(Hudson%E2%80%93Evans_House).jpg",
-   "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/hudson-evans/01-347270575b.jpg"
-  },
-  {
-   "author": "Andrew Jameson",
-   "caption": "Hudson-Evans House Detroit",
-   "credit": "Andrew Jameson, CC BY-SA 3.0, via Wikimedia Commons",
-   "era": "current",
-   "id": "hudson-evans-c2",
-   "image_type": "cc",
-   "license": "CC BY-SA 3.0",
-   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-   "rights": "cc",
-   "source": "https://commons.wikimedia.org/wiki/File:Hudson-Evans_House_Detroit.jpg",
-   "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/hudson-evans/02-8769fabc0f.jpg"
-  }
- ],
- "jacob-ten-broeck-house": [
-  {
-   "author": "Daniel Case",
-   "caption": "Jacob Ten Broeck Stone House, Kingston, NY",
-   "credit": "Daniel Case, CC BY-SA 3.0, via Wikimedia Commons",
-   "era": "current",
-   "id": "jacob-ten-broeck-house-c1",
-   "image_type": "cc",
-   "license": "CC BY-SA 3.0",
-   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-   "rights": "cc",
-   "source": "https://commons.wikimedia.org/wiki/File:Jacob_Ten_Broeck_Stone_House,_Kingston,_NY.jpg",
-   "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/jacob-ten-broeck-house/01-8241a3a255.jpg"
-  }
- ],
- "kendallville-carnegie": [
-  {
-   "author": "HistoricBuildingFan",
-   "caption": "(Former) Kendallville Carnegie Library, Kendallville, Indiana",
-   "credit": "HistoricBuildingFan, CC BY-SA 4.0, via Wikimedia Commons",
-   "era": "current",
-   "id": "kendallville-carnegie-c1",
-   "image_type": "cc",
-   "license": "CC BY-SA 4.0",
-   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "rights": "cc",
-   "source": "https://commons.wikimedia.org/wiki/File:(Former)_Kendallville_Carnegie_Library,_Kendallville,_Indiana.jpg",
-   "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/kendallville-carnegie/01-69510a620c.jpg"
-  }
- ],
- "lemp-mansion": [
-  {
-   "author": "Paul Sableman",
-   "caption": "Lemp Mansion 2012",
-   "credit": "Paul Sableman, CC BY 2.0, via Wikimedia Commons",
-   "era": "current",
-   "id": "lemp-mansion-c1",
-   "image_type": "cc",
-   "license": "CC BY 2.0",
-   "license_url": "https://creativecommons.org/licenses/by/2.0",
-   "rights": "cc",
-   "source": "https://commons.wikimedia.org/wiki/File:Lemp_Mansion_2012.jpg",
-   "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/lemp-mansion/01-af408c91a2.jpg"
-  },
-  {
-   "author": "MattHucke",
-   "caption": "Lemp-mansion",
-   "credit": "MattHucke, CC BY 3.0, via Wikimedia Commons",
-   "era": "current",
-   "id": "lemp-mansion-c2",
-   "image_type": "cc",
-   "license": "CC BY 3.0",
-   "license_url": "https://creativecommons.org/licenses/by/3.0",
-   "rights": "cc",
-   "source": "https://commons.wikimedia.org/wiki/File:Lemp-mansion.jpg",
-   "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/lemp-mansion/02-915a66b250.jpg"
-  }
- ],
- "st-mark-evanston": [
-  {
-   "author": "Warren LeMay from Cincinnati, OH, United States",
-   "caption": "Old St. Mark's Catholic Church, Evanston, Cincinnati, OH (47351872481)",
-   "credit": "Warren LeMay from Cincinnati, OH, United States, CC0, via Wikimedia Commons",
-   "era": "current",
-   "id": "st-mark-evanston-c1",
-   "image_type": "public-domain",
-   "license": "CC0",
-   "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-   "rights": "public-domain",
-   "source": "https://commons.wikimedia.org/wiki/File:Old_St._Mark%27s_Catholic_Church,_Evanston,_Cincinnati,_OH_(47351872481).jpg",
-   "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/st-mark-evanston/01-4a143b897f.jpg"
-  },
-  {
-   "author": "Warren LeMay from Cincinnati, OH, United States",
-   "caption": "Old St. Mark's Catholic Church, Evanston, Cincinnati, OH (47299041412)",
-   "credit": "Warren LeMay from Cincinnati, OH, United States, CC0, via Wikimedia Commons",
-   "era": "current",
-   "id": "st-mark-evanston-c2",
-   "image_type": "public-domain",
-   "license": "CC0",
-   "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-   "rights": "public-domain",
-   "source": "https://commons.wikimedia.org/wiki/File:Old_St._Mark%27s_Catholic_Church,_Evanston,_Cincinnati,_OH_(47299041412).jpg",
-   "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/st-mark-evanston/02-c556536b6d.jpg"
-  }
- ],
- "wareham-trump": [
-  {
-   "author": "Jasebasketball",
-   "caption": "85-15 Wareham Place, Trump childhood home",
-   "credit": "Jasebasketball, CC BY-SA 4.0, via Wikimedia Commons",
-   "era": "current",
-   "id": "wareham-trump-c1",
-   "image_type": "cc",
-   "license": "CC BY-SA 4.0",
-   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "rights": "cc",
-   "source": "https://commons.wikimedia.org/wiki/File:85-15_Wareham_Place,_Trump_childhood_home.jpeg",
-   "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/wareham-trump/01-0fa910d057.jpg"
-  }
- ],
- "wheeler-mansion-orange": [
-  {
-   "author": "Kenneth C. Zirkel",
-   "caption": "Wheeler Mansion, Orange, Massachusetts",
-   "credit": "Kenneth C. Zirkel, CC BY 4.0, via Wikimedia Commons",
-   "era": "current",
-   "id": "wheeler-mansion-orange-c1",
-   "image_type": "cc",
-   "license": "CC BY 4.0",
-   "license_url": "https://creativecommons.org/licenses/by/4.0",
-   "rights": "cc",
-   "source": "https://commons.wikimedia.org/wiki/File:Wheeler_Mansion,_Orange,_Massachusetts.jpg",
-   "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/wheeler-mansion-orange/01-e67afd736d.jpg"
-  }
- ]
+  "belden-town-ca": [
+    {
+      "author": "Frank Schulenburg",
+      "caption": "Belden Town Hotel, Plumas County-3229",
+      "credit": "Frank Schulenburg, CC BY-SA 4.0, via Wikimedia Commons",
+      "era": "current",
+      "id": "belden-town-ca-c1",
+      "image_type": "cc",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "rights": "cc",
+      "source": "https://commons.wikimedia.org/wiki/File:Belden_Town_Hotel,_Plumas_County-3229.jpg",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/belden-town-ca/01-38f2e24d28.jpg"
+    },
+    {
+      "author": "Frank Schulenburg",
+      "caption": "Belden Town Road in Belden, Plumas County-3235",
+      "credit": "Frank Schulenburg, CC BY-SA 4.0, via Wikimedia Commons",
+      "era": "current",
+      "id": "belden-town-ca-c2",
+      "image_type": "cc",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "rights": "cc",
+      "source": "https://commons.wikimedia.org/wiki/File:Belden_Town_Road_in_Belden,_Plumas_County-3235.jpg",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/belden-town-ca/02-60edc1b59e.jpg"
+    }
+  ],
+  "brook-forest-inn-evergreen": [
+    {
+      "author": "Jeffrey Beall",
+      "caption": "Brook Forest Inn",
+      "credit": "Jeffrey Beall, CC BY 3.0, via Wikimedia Commons",
+      "era": "current",
+      "id": "brook-forest-inn-evergreen-c1",
+      "image_type": "cc",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "rights": "cc",
+      "source": "https://commons.wikimedia.org/wiki/File:Brook_Forest_Inn.JPG",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/brook-forest-inn-evergreen/01-e4b86968db.jpg"
+    }
+  ],
+  "buffalo-bodega": [
+    {
+      "author": "DimiTalen",
+      "caption": "Coca-Cola painted advertisement, Buffalo Bodega, Deadwood, 2009",
+      "credit": "DimiTalen, CC0, via Wikimedia Commons",
+      "era": "current",
+      "id": "buffalo-bodega-c1",
+      "image_type": "public-domain",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "rights": "public-domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Coca-Cola_painted_advertisement,_Buffalo_Bodega,_Deadwood,_2009.jpg",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/buffalo-bodega/01-b5b4d00378.jpg"
+    }
+  ],
+  "chancellor-house": [
+    {
+      "author": "Jstewall at en.wikipedia",
+      "caption": "Chancellor House",
+      "credit": "Jstewall at en.wikipedia, Public domain, via Wikimedia Commons",
+      "era": "current",
+      "id": "chancellor-house-c1",
+      "image_type": "public-domain",
+      "license": "Public domain",
+      "license_url": "",
+      "rights": "public-domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Chancellor_House.JPG",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/chancellor-house/01-156cd44668.jpg"
+    }
+  ],
+  "hudson-evans": [
+    {
+      "author": "Michael Barera",
+      "caption": "Detroit August 2025 06 (Hudson–Evans House)",
+      "credit": "Michael Barera, CC BY-SA 4.0, via Wikimedia Commons",
+      "era": "current",
+      "id": "hudson-evans-c1",
+      "image_type": "cc",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "rights": "cc",
+      "source": "https://commons.wikimedia.org/wiki/File:Detroit_August_2025_06_(Hudson%E2%80%93Evans_House).jpg",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/hudson-evans/01-347270575b.jpg"
+    },
+    {
+      "author": "Andrew Jameson",
+      "caption": "Hudson-Evans House Detroit",
+      "credit": "Andrew Jameson, CC BY-SA 3.0, via Wikimedia Commons",
+      "era": "current",
+      "id": "hudson-evans-c2",
+      "image_type": "cc",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "rights": "cc",
+      "source": "https://commons.wikimedia.org/wiki/File:Hudson-Evans_House_Detroit.jpg",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/hudson-evans/02-8769fabc0f.jpg"
+    }
+  ],
+  "jacob-ten-broeck-house": [
+    {
+      "author": "Daniel Case",
+      "caption": "Jacob Ten Broeck Stone House, Kingston, NY",
+      "credit": "Daniel Case, CC BY-SA 3.0, via Wikimedia Commons",
+      "era": "current",
+      "id": "jacob-ten-broeck-house-c1",
+      "image_type": "cc",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "rights": "cc",
+      "source": "https://commons.wikimedia.org/wiki/File:Jacob_Ten_Broeck_Stone_House,_Kingston,_NY.jpg",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/jacob-ten-broeck-house/01-8241a3a255.jpg"
+    }
+  ],
+  "kendallville-carnegie": [
+    {
+      "author": "HistoricBuildingFan",
+      "caption": "(Former) Kendallville Carnegie Library, Kendallville, Indiana",
+      "credit": "HistoricBuildingFan, CC BY-SA 4.0, via Wikimedia Commons",
+      "era": "current",
+      "id": "kendallville-carnegie-c1",
+      "image_type": "cc",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "rights": "cc",
+      "source": "https://commons.wikimedia.org/wiki/File:(Former)_Kendallville_Carnegie_Library,_Kendallville,_Indiana.jpg",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/kendallville-carnegie/01-69510a620c.jpg"
+    }
+  ],
+  "lemp-mansion": [
+    {
+      "author": "Paul Sableman",
+      "caption": "Lemp Mansion 2012",
+      "credit": "Paul Sableman, CC BY 2.0, via Wikimedia Commons",
+      "era": "current",
+      "id": "lemp-mansion-c1",
+      "image_type": "cc",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "rights": "cc",
+      "source": "https://commons.wikimedia.org/wiki/File:Lemp_Mansion_2012.jpg",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/lemp-mansion/01-af408c91a2.jpg"
+    },
+    {
+      "author": "MattHucke",
+      "caption": "Lemp-mansion",
+      "credit": "MattHucke, CC BY 3.0, via Wikimedia Commons",
+      "era": "current",
+      "id": "lemp-mansion-c2",
+      "image_type": "cc",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "rights": "cc",
+      "source": "https://commons.wikimedia.org/wiki/File:Lemp-mansion.jpg",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/lemp-mansion/02-915a66b250.jpg"
+    }
+  ],
+  "st-mark-evanston": [
+    {
+      "author": "Warren LeMay from Cincinnati, OH, United States",
+      "caption": "Old St. Mark's Catholic Church, Evanston, Cincinnati, OH (47351872481)",
+      "credit": "Warren LeMay from Cincinnati, OH, United States, CC0, via Wikimedia Commons",
+      "era": "current",
+      "id": "st-mark-evanston-c1",
+      "image_type": "public-domain",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "rights": "public-domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Old_St._Mark%27s_Catholic_Church,_Evanston,_Cincinnati,_OH_(47351872481).jpg",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/st-mark-evanston/01-4a143b897f.jpg"
+    },
+    {
+      "author": "Warren LeMay from Cincinnati, OH, United States",
+      "caption": "Old St. Mark's Catholic Church, Evanston, Cincinnati, OH (47299041412)",
+      "credit": "Warren LeMay from Cincinnati, OH, United States, CC0, via Wikimedia Commons",
+      "era": "current",
+      "id": "st-mark-evanston-c2",
+      "image_type": "public-domain",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "rights": "public-domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Old_St._Mark%27s_Catholic_Church,_Evanston,_Cincinnati,_OH_(47299041412).jpg",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/st-mark-evanston/02-c556536b6d.jpg"
+    }
+  ],
+  "wareham-trump": [
+    {
+      "author": "Jasebasketball",
+      "caption": "85-15 Wareham Place, Trump childhood home",
+      "credit": "Jasebasketball, CC BY-SA 4.0, via Wikimedia Commons",
+      "era": "current",
+      "id": "wareham-trump-c1",
+      "image_type": "cc",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "rights": "cc",
+      "source": "https://commons.wikimedia.org/wiki/File:85-15_Wareham_Place,_Trump_childhood_home.jpeg",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/wareham-trump/01-0fa910d057.jpg"
+    }
+  ],
+  "wheeler-mansion-orange": [
+    {
+      "author": "Kenneth C. Zirkel",
+      "caption": "Wheeler Mansion, Orange, Massachusetts",
+      "credit": "Kenneth C. Zirkel, CC BY 4.0, via Wikimedia Commons",
+      "era": "current",
+      "id": "wheeler-mansion-orange-c1",
+      "image_type": "cc",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "rights": "cc",
+      "source": "https://commons.wikimedia.org/wiki/File:Wheeler_Mansion,_Orange,_Massachusetts.jpg",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/wheeler-mansion-orange/01-e67afd736d.jpg"
+    }
+  ],
+  "moon-river-brewing-company": [
+    {
+      "id": "moon-river-brewing-company-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/moon-river-brewing-company/01-affc270180.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Moon_River_Brewing_Company_-_Savannah,_Georgia,_USA.jpg",
+      "credit": "Tjbliss, CC BY 4.0, via Wikimedia Commons",
+      "author": "Tjbliss",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Moon River Brewing Company - Savannah, Georgia, USA",
+      "era": "historic"
+    }
+  ],
+  "magnolia-hotel-seguin": [
+    {
+      "id": "magnolia-hotel-seguin-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/magnolia-hotel-seguin/01-3cebe7eb0c.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Magnolia_Hotel_Seguin_Texas_2016.jpg",
+      "credit": "Larry D. Moore, CC BY 4.0, via Wikimedia Commons",
+      "author": "Larry D. Moore",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Magnolia Hotel Seguin Texas 2016",
+      "era": "historic"
+    },
+    {
+      "id": "magnolia-hotel-seguin-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/magnolia-hotel-seguin/02-7d6c530f9d.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey,_Arthur_W._Stewart,_Photographer_April_29,_1936_NORTH_ELEVATION_(FRONT)._-_Magnolia_Hotel,_203_South_Crockett_Street,_Seguin,_Guadalupe_County,_HABS_TEX,94-SEGUI,2-1.tif",
+      "credit": "Unknown author, Public domain, via Wikimedia Commons",
+      "author": "Unknown author",
+      "license": "Public domain (U.S. government work)",
+      "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "image_type": "public-domain",
+      "rights": "public-domain",
+      "caption": "Historic American Buildings Survey, Arthur W. Stewart, Photographer April 29, 1936 NORTH ELEVATION (FRONT). - Magnolia Hotel, 203 South Crockett Street, Seguin,",
+      "era": "historic"
+    },
+    {
+      "id": "magnolia-hotel-seguin-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/magnolia-hotel-seguin/03-10192ea53d.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey,_Arthur_W._Stewart,_Photographer_April_29,_1936_NORTHEAST_ELEVATION_(NORTH_FRONT_AND_EAST_SIDE)._-_Magnolia_Hotel,_203_South_Crockett_Street,_HABS_TEX,94-SEGUI,2-2.tif",
+      "credit": "Unknown author, Public domain, via Wikimedia Commons",
+      "author": "Unknown author",
+      "license": "Public domain (U.S. government work)",
+      "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "image_type": "public-domain",
+      "rights": "public-domain",
+      "caption": "Historic American Buildings Survey, Arthur W. Stewart, Photographer April 29, 1936 NORTHEAST ELEVATION (NORTH FRONT AND EAST SIDE). - Magnolia Hotel, 203 South ",
+      "era": "historic"
+    }
+  ],
+  "old-charleston-jail": [
+    {
+      "id": "old-charleston-jail-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/old-charleston-jail/01-a3288f455d.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Charleston,_SC_Old_City_Jail.jpg",
+      "credit": "ChasNerd, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "ChasNerd",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Charleston, SC Old City Jail",
+      "era": "current"
+    },
+    {
+      "id": "old-charleston-jail-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/old-charleston-jail/02-9e38d9cfd8.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Old_Charleston_Jail_2024.jpg",
+      "credit": "Fayerweather Friend, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Fayerweather Friend",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Old Charleston Jail, 2024",
+      "era": "current"
+    },
+    {
+      "id": "old-charleston-jail-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/old-charleston-jail/03-804cb9c448.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Old_Charleston_Jail_north_face.jpg",
+      "credit": "Michael Rivera, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Michael Rivera",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Old Charleston Jail, north face",
+      "era": "current"
+    }
+  ],
+  "cocke-county-memorial-building": [
+    {
+      "id": "cocke-county-memorial-building-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/cocke-county-memorial-building/03-58e01eff04.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Cocke_County_Memorial_Building_Newport_Tennessee.JPG",
+      "credit": "Dwight Burdette, CC BY 3.0, via Wikimedia Commons",
+      "author": "Dwight Burdette",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Cocke County Memorial Building Newport Tennessee",
+      "era": "current"
+    }
+  ],
+  "beauregard-parish-hanging-jail": [
+    {
+      "id": "beauregard-parish-hanging-jail-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/beauregard-parish-hanging-jail/01-734ab99a73.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Beauregard_Parish_Jail.jpg",
+      "credit": "Otr500 (talk) 08:32, 26 December 2009 (UTC), Public domain, via Wikimedia Commons",
+      "author": "Otr500 (talk) 08:32, 26 December 2009 (UTC)",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image_type": "public-domain",
+      "rights": "public-domain",
+      "caption": "Beauregard Parish Jail",
+      "era": "historic"
+    },
+    {
+      "id": "beauregard-parish-hanging-jail-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/beauregard-parish-hanging-jail/02-21d489619a.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Beauregard_Parish_Jail_caption2.JPG",
+      "credit": "Otr500 (talk) (Uploads), Public domain, via Wikimedia Commons",
+      "author": "Otr500 (talk) (Uploads)",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image_type": "public-domain",
+      "rights": "public-domain",
+      "caption": "Beauregard Parish Jail caption2",
+      "era": "current"
+    },
+    {
+      "id": "beauregard-parish-hanging-jail-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/beauregard-parish-hanging-jail/03-0593d994a0.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Old_DeRidder_Jail,_January_2020_-_6.jpg",
+      "credit": "mike_troiano, CC BY 2.0, via Wikimedia Commons",
+      "author": "mike_troiano",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Old DeRidder Jail, January 2020 - 6",
+      "era": "current"
+    }
+  ],
+  "yuma-territorial-prison": [
+    {
+      "id": "yuma-territorial-prison-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/yuma-territorial-prison/01-8a4f6661da.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Yuma3-13-04_(16).jpg",
+      "credit": "Ralph Hawkins, CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "Ralph Hawkins",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Yuma3-13-04 (16)",
+      "era": "current"
+    },
+    {
+      "id": "yuma-territorial-prison-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/yuma-territorial-prison/02-4ec0277257.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Yuma_prison_main_guard_tower.jpg",
+      "credit": "Pretzelpaws at English Wikipedia, CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "Pretzelpaws at English Wikipedia",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Yuma prison main guard tower",
+      "era": "current"
+    },
+    {
+      "id": "yuma-territorial-prison-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/yuma-territorial-prison/03-91e71c5c3d.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Yuma-Yuma_Territorial_Prison-1875-11.jpg",
+      "credit": "Marine 69-71, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Marine 69-71",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Yuma-Yuma Territorial Prison-1875-11",
+      "era": "current"
+    }
+  ],
+  "ohio-state-reformatory": [
+    {
+      "id": "ohio-state-reformatory-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/ohio-state-reformatory/01-c34dd416c4.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Ohio_State_Reformatory_Mansfield_08.jpg",
+      "credit": "Niagara66, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Niagara66",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Ohio State Reformatory Mansfield 08",
+      "era": "current"
+    },
+    {
+      "id": "ohio-state-reformatory-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/ohio-state-reformatory/02-a8eec7dc63.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Ohio_State_Reformatory-1.jpg",
+      "credit": "Marianodemiguel, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Marianodemiguel",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Ohio State Reformatory-1",
+      "era": "historic"
+    },
+    {
+      "id": "ohio-state-reformatory-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/ohio-state-reformatory/03-1c92c8e9ac.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Ohio_State_Reformatory-4.jpg",
+      "credit": "Marianodemiguel, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Marianodemiguel",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Ohio State Reformatory-4",
+      "era": "historic"
+    }
+  ],
+  "trans-allegheny-lunatic-asylum": [
+    {
+      "id": "trans-allegheny-lunatic-asylum-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/trans-allegheny-lunatic-asylum/01-617fe7c156.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Weston_State_Hospital.jpg",
+      "credit": "Tim Kiser (w:User:Malepheasant), CC BY-SA 2.5, via Wikimedia Commons",
+      "author": "Tim Kiser (w:User:Malepheasant)",
+      "license": "CC BY-SA 2.5",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Weston State Hospital",
+      "era": "current"
+    },
+    {
+      "id": "trans-allegheny-lunatic-asylum-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/trans-allegheny-lunatic-asylum/02-57e0c26519.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Trans-Allegheny_Lunatic_Asylum_2017_-1.jpg",
+      "credit": "John Manard, CC BY-SA 2.0, via Wikimedia Commons",
+      "author": "John Manard",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Trans-Allegheny Lunatic Asylum 2017 -1",
+      "era": "current"
+    },
+    {
+      "id": "trans-allegheny-lunatic-asylum-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/trans-allegheny-lunatic-asylum/03-7b2168fc97.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Trans-Allegheny_Lunatic_Asylum_2017_-10.jpg",
+      "credit": "John Manard, CC BY-SA 2.0, via Wikimedia Commons",
+      "author": "John Manard",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Trans-Allegheny Lunatic Asylum 2017 -10",
+      "era": "current"
+    }
+  ],
+  "waverly-hills-sanatorium": [
+    {
+      "id": "waverly-hills-sanatorium-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/waverly-hills-sanatorium/01-e91b7054bf.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Waverly_Hills_Sanatorium_2018.jpg",
+      "credit": "Royasfoto73, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Royasfoto73",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Waverly Hills Sanatorium 2018",
+      "era": "current"
+    }
+  ],
+  "winchester-mystery-house": [
+    {
+      "id": "winchester-mystery-house-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/winchester-mystery-house/01-4a7c0432b6.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Winchester_Mystery_House_2023-07-17_02.jpg",
+      "credit": "The wub, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "The wub",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Winchester Mystery House 2023-07-17 02",
+      "era": "current"
+    },
+    {
+      "id": "winchester-mystery-house-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/winchester-mystery-house/02-5c45f8f0e0.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Arboretum_Hallway_in_Winchester_Mystery_House.jpg",
+      "credit": "Sgerbic, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Sgerbic",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Arboretum Hallway in Winchester Mystery House",
+      "era": "current"
+    },
+    {
+      "id": "winchester-mystery-house-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/winchester-mystery-house/03-187591da7c.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Bell_Tower_at_Winchester_Mystery_House.jpg",
+      "credit": "Sgerbic, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Sgerbic",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Bell Tower at Winchester Mystery House",
+      "era": "current"
+    }
+  ],
+  "uss-lexington-museum-ship": [
+    {
+      "id": "uss-lexington-museum-ship-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/uss-lexington-museum-ship/01-ec39c75f89.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:USS_Lexington_(CVA-16)_underway_at_sea_on_16_August_1958.jpg",
+      "credit": "U.S. Navy, Public domain, via Wikimedia Commons",
+      "author": "U.S. Navy",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image_type": "public-domain",
+      "rights": "public-domain",
+      "caption": "USS Lexington (CVA-16) underway at sea on 16 August 1958",
+      "era": "historic"
+    },
+    {
+      "id": "uss-lexington-museum-ship-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/uss-lexington-museum-ship/02-1d59f1f7f6.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:USS_Lexington_(CVS-16)_underway_in_the_1960s.JPEG",
+      "credit": "USN, Public domain, via Wikimedia Commons",
+      "author": "USN",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image_type": "public-domain",
+      "rights": "public-domain",
+      "caption": "USS Lexington (CVS-16) underway in the 1960s",
+      "era": "historic"
+    },
+    {
+      "id": "uss-lexington-museum-ship-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/uss-lexington-museum-ship/03-d87a0efe4a.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:An_aerial_photo_of_the_USS_Lexington_in_Corpus_Christi.jpg",
+      "credit": "Matthew T Rader, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Matthew T Rader",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "An aerial photo of the USS Lexington in Corpus Christi",
+      "era": "current"
+    }
+  ],
+  "palace-hotel-port-townsend": [
+    {
+      "id": "palace-hotel-port-townsend-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/palace-hotel-port-townsend/01-a93d9b0c31.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Port_Townsend_-_Pioneer_Building_%26_Captain_Tibbals_Building_from_Union_Pier.jpg",
+      "credit": "Joe Mabel, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Joe Mabel",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Port Townsend - Pioneer Building & Captain Tibbals Building from Union Pier",
+      "era": "current"
+    },
+    {
+      "id": "palace-hotel-port-townsend-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/palace-hotel-port-townsend/02-893679cdf1.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Port_Townsend_-_Pioneer_Building_%26_Captain_Tibbals_Building_02.jpg",
+      "credit": "Joe Mabel, CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "Joe Mabel",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Port Townsend - Pioneer Building & Captain Tibbals Building 02",
+      "era": "current"
+    },
+    {
+      "id": "palace-hotel-port-townsend-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/palace-hotel-port-townsend/03-703fcc64a3.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Port_Townsend_-_Pioneer_Building_%26_Captain_Tibbals_Building_01.jpg",
+      "credit": "Joe Mabel, CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "Joe Mabel",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Port Townsend - Pioneer Building & Captain Tibbals Building 01",
+      "era": "current"
+    }
+  ],
+  "mcraven-house-vicksburg": [
+    {
+      "id": "mcraven-house-vicksburg-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/mcraven-house-vicksburg/01-bf9d49e2ca.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:McRaven_House.jpg",
+      "credit": "Zamburak, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Zamburak",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "McRaven House",
+      "era": "current"
+    }
+  ],
+  "lizzie-borden-house-fall-river": [
+    {
+      "id": "lizzie-borden-house-fall-river-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/lizzie-borden-house-fall-river/01-b1dc78d6ab.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Lizzie_Borden_House_(Bed_Breakfast)_(3535957840).jpg",
+      "credit": "dbking from Washington, DC, CC BY 2.0, via Wikimedia Commons",
+      "author": "dbking from Washington, DC",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Lizzie Borden House (Bed Breakfast) (3535957840)",
+      "era": "historic"
+    },
+    {
+      "id": "lizzie-borden-house-fall-river-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/lizzie-borden-house-fall-river/02-8e347150d4.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Borden_House_Fall_River_in_2008.jpg",
+      "credit": "DkEgy, Public domain, via Wikimedia Commons",
+      "author": "DkEgy",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image_type": "public-domain",
+      "rights": "public-domain",
+      "caption": "Borden House Fall River in 2008",
+      "era": "current"
+    },
+    {
+      "id": "lizzie-borden-house-fall-river-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/lizzie-borden-house-fall-river/03-3568f5adea.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Borden_House_92_Second_St_Fall_River_Massachusetts_1892.jpg",
+      "credit": "1892 image, Public domain, via Wikimedia Commons",
+      "author": "1892 image",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image_type": "public-domain",
+      "rights": "public-domain",
+      "caption": "Borden House 92 Second St Fall River Massachusetts 1892",
+      "era": "historic"
+    }
+  ],
+  "old-idaho-penitentiary-boise": [
+    {
+      "id": "old-idaho-penitentiary-boise-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/old-idaho-penitentiary-boise/01-a6587d4592.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Image-Id-state-penitentiary-old-facade.jpg",
+      "credit": "Peter Wollheim, CC BY 2.5, via Wikimedia Commons",
+      "author": "Peter Wollheim",
+      "license": "CC BY 2.5",
+      "license_url": "https://creativecommons.org/licenses/by/2.5",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Image-Id-state-penitentiary-old-facade",
+      "era": "current"
+    },
+    {
+      "id": "old-idaho-penitentiary-boise-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/old-idaho-penitentiary-boise/02-fbf9d93c49.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Old_Idaho_Penitentiary.jpg",
+      "credit": "TFMedia, CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "TFMedia",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Old Idaho Penitentiary",
+      "era": "current"
+    },
+    {
+      "id": "old-idaho-penitentiary-boise-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/old-idaho-penitentiary-boise/03-70990acef2.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Old_Idaho_State_Penitentary_-_Boise,_Idaho_(14377641680).jpg",
+      "credit": "Doug Kerr from Albany, NY, United States, CC BY-SA 2.0, via Wikimedia Commons",
+      "author": "Doug Kerr from Albany, NY, United States",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Old Idaho State Penitentary - Boise, Idaho (14377641680)",
+      "era": "current"
+    }
+  ],
+  "wyoming-frontier-prison-rawlins": [
+    {
+      "id": "wyoming-frontier-prison-rawlins-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/wyoming-frontier-prison-rawlins/01-35e98bc6ef.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Wyoming_State_Penitentiary_aerial_2.jpg",
+      "credit": "Tedder, CC BY 4.0, via Wikimedia Commons",
+      "author": "Tedder",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Wyoming State Penitentiary aerial 2",
+      "era": "current"
+    },
+    {
+      "id": "wyoming-frontier-prison-rawlins-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/wyoming-frontier-prison-rawlins/02-78c4fbda44.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:State_Penitentiery,_Rawlins_Wyoming.jpg",
+      "credit": "Stuart and Jen Robertson, CC BY-SA 2.0, via Wikimedia Commons",
+      "author": "Stuart and Jen Robertson",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "State Penitentiery, Rawlins Wyoming",
+      "era": "current"
+    },
+    {
+      "id": "wyoming-frontier-prison-rawlins-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/wyoming-frontier-prison-rawlins/03-a7a9eb1bb5.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Old_Pen_Rawlins_Wyoming.jpeg",
+      "credit": "Ntsimp, CC0, via Wikimedia Commons",
+      "author": "Ntsimp",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "image_type": "public-domain",
+      "rights": "public-domain",
+      "caption": "Old Pen Rawlins Wyoming",
+      "era": "current"
+    }
+  ],
+  "hangmans-building-virginia-city-montana": [
+    {
+      "id": "hangmans-building-virginia-city-montana-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/hangmans-building-virginia-city-montana/01-af67b81da9.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Hangmans_building_Virginia_City,_Montana.jpg",
+      "credit": "Arthur Rothstein, Public domain, via Wikimedia Commons",
+      "author": "Arthur Rothstein",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image_type": "public-domain",
+      "rights": "public-domain",
+      "caption": "Hangmans building Virginia City, Montana",
+      "era": "historic"
+    }
+  ],
+  "houghton-mansion-north-adams": [
+    {
+      "id": "houghton-mansion-north-adams-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/houghton-mansion-north-adams/01-1e24941de4.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Houghton_Mansion.jpg",
+      "credit": "Josh karpf, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Josh karpf",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Houghton Mansion",
+      "era": "current"
+    }
+  ],
+  "west-virginia-penitentiary-moundsville": [
+    {
+      "id": "west-virginia-penitentiary-moundsville-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/west-virginia-penitentiary-moundsville/01-bd82fcd087.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:West_Virginia_State_Penitentiary,_Moundsville,_WV.jpg",
+      "credit": "Rhonda Humphreys, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Rhonda Humphreys",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "West Virginia State Penitentiary, Moundsville, WV",
+      "era": "current"
+    },
+    {
+      "id": "west-virginia-penitentiary-moundsville-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/west-virginia-penitentiary-moundsville/02-fa0d232ca2.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:West_Virginia_State_Penitentiary.jpg",
+      "credit": "Tim Kiser (w:User:Malepheasant), CC BY-SA 2.5, via Wikimedia Commons",
+      "author": "Tim Kiser (w:User:Malepheasant)",
+      "license": "CC BY-SA 2.5",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "West Virginia State Penitentiary",
+      "era": "current"
+    },
+    {
+      "id": "west-virginia-penitentiary-moundsville-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/west-virginia-penitentiary-moundsville/03-51da4504c1.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:West_Virginia_State_Penitentiary,_Moundsville,_WV_Taken_from_top_of_the_Grave_Creek_Mound.jpg",
+      "credit": "Rhonda Humphreys, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Rhonda Humphreys",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "West Virginia State Penitentiary, Moundsville, WV Taken from top of the Grave Creek Mound",
+      "era": "current"
+    }
+  ],
+  "riddle-house-yesteryear-village": [
+    {
+      "id": "riddle-house-yesteryear-village-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/riddle-house-yesteryear-village/01-3e32eced54.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Riddle_house.jpg",
+      "credit": "12george1, CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "12george1",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Riddle house",
+      "era": "current"
+    }
+  ],
+  "sloss-furnaces-birmingham": [
+    {
+      "id": "sloss-furnaces-birmingham-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/sloss-furnaces-birmingham/02-2171fb6bb9.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Birmingham_AL_IMG_2584_Sloss_Furnaces_National_Historic_Landmark.jpg",
+      "credit": "Bjoertvedt, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Bjoertvedt",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Birmingham AL IMG 2584 Sloss Furnaces National Historic Landmark",
+      "era": "current"
+    },
+    {
+      "id": "sloss-furnaces-birmingham-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/sloss-furnaces-birmingham/03-6a2a67df9f.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Birmingham_AL_IMG_2587_Sloss_Furnaces_National_Historic_Landmark.jpg",
+      "credit": "Bjoertvedt, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Bjoertvedt",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Birmingham AL IMG 2587 Sloss Furnaces National Historic Landmark",
+      "era": "current"
+    }
+  ],
+  "preston-castle-ione": [
+    {
+      "id": "preston-castle-ione-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/preston-castle-ione/01-01a7cd6bee.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Preston_Castle_(Ione).jpg",
+      "credit": "There is always more mystery, CC BY-SA 2.0, via Wikimedia Commons",
+      "author": "There is always more mystery",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Preston Castle (Ione)",
+      "era": "current"
+    },
+    {
+      "id": "preston-castle-ione-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/preston-castle-ione/03-4e411605c1.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Preston_Castle_5.jpg",
+      "credit": "Amadscientist, CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "Amadscientist",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Preston Castle 5",
+      "era": "current"
+    }
+  ],
+  "castillo-de-san-marcos": [
+    {
+      "id": "castillo-de-san-marcos-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/castillo-de-san-marcos/01-1ea02131b4.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_Castillo_de_San_Marcos,_St._Augustine,_FL_2025-05-20.jpg",
+      "credit": "Schwerdf, CC BY 4.0, via Wikimedia Commons",
+      "author": "Schwerdf",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Aerial view of the Castillo de San Marcos, St. Augustine, FL 2025-05-20",
+      "era": "current"
+    },
+    {
+      "id": "castillo-de-san-marcos-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/castillo-de-san-marcos/02-ec93c2fa6c.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Castillo_de_San_Marcos.jpg",
+      "credit": "National Park Service, Public domain, via Wikimedia Commons",
+      "author": "National Park Service",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image_type": "public-domain",
+      "rights": "public-domain",
+      "caption": "Castillo de San Marcos",
+      "era": "current"
+    },
+    {
+      "id": "castillo-de-san-marcos-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/castillo-de-san-marcos/03-d80e54376d.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Castillo_De_San_Marcos_-_02_cropped_01.jpg",
+      "credit": "Jack E. Boucher\n\n\nFor Historic American Buildings Survey, Heritage Documentation Programs, a division of the U.S. Nation, Public domain, via Wikimedia Commons",
+      "author": "Jack E. Boucher\n\n\nFor Historic American Buildings Survey, Heritage Documentation Programs, a division of the U.S. Nation",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image_type": "public-domain",
+      "rights": "public-domain",
+      "caption": "Aerial view of Castillo De San Marcos - 02 cropped 01",
+      "era": "current"
+    }
+  ],
+  "la-purisima-mission-lompoc": [
+    {
+      "id": "la-purisima-mission-lompoc-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/la-purisima-mission-lompoc/01-865db087bb.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:La_Purisima_Mission_-_Lompoc,_CA.jpg",
+      "credit": "Jsweida, CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "Jsweida",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "La Purisima Mission - Lompoc, CA",
+      "era": "current"
+    },
+    {
+      "id": "la-purisima-mission-lompoc-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/la-purisima-mission-lompoc/02-97005c88de.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Bell_Tower_of_La_Purisima_Mission.jpg",
+      "credit": "Red3two, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Red3two",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Bell Tower of La Purisima Mission",
+      "era": "current"
+    },
+    {
+      "id": "la-purisima-mission-lompoc-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/la-purisima-mission-lompoc/03-c65d07ddfd.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:LIBRARY,_LA_PURISIMA_MISSION,_CA.jpg",
+      "credit": "JERRYE AND ROY KLOTZ MD, CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "JERRYE AND ROY KLOTZ MD",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "LIBRARY, LA PURISIMA MISSION, CA",
+      "era": "current"
+    }
+  ],
+  "bird-cage-theatre-tombstone": [
+    {
+      "id": "bird-cage-theatre-tombstone-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/bird-cage-theatre-tombstone/01-cc6877e7a9.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:BirdcageTheater.jpg",
+      "credit": "Hawkeye58, CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "Hawkeye58",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "BirdcageTheater",
+      "era": "current"
+    },
+    {
+      "id": "bird-cage-theatre-tombstone-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/bird-cage-theatre-tombstone/02-24de52dd1d.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Tombstone-Building-Bird_Cage_Theatre-Poker_Room_Table.jpg",
+      "credit": "Marine 69-71, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Marine 69-71",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Tombstone-Building-Bird Cage Theatre-Poker Room Table",
+      "era": "historic"
+    },
+    {
+      "id": "bird-cage-theatre-tombstone-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/bird-cage-theatre-tombstone/03-c6a82601ba.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Tombstone-Bird_Cage_Theatre-13.jpg",
+      "credit": "Marine 69-71, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Marine 69-71",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Tombstone-Bird Cage Theatre-13",
+      "era": "current"
+    }
+  ],
+  "eastern-state-penitentiary": [
+    {
+      "id": "eastern-state-penitentiary-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/eastern-state-penitentiary/01-1af611dab5.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Eastern_state_penitentiary09.JPG",
+      "credit": "Davidt8, Public domain, via Wikimedia Commons",
+      "author": "Davidt8",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image_type": "public-domain",
+      "rights": "public-domain",
+      "caption": "Eastern state penitentiary09",
+      "era": "historic"
+    },
+    {
+      "id": "eastern-state-penitentiary-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/eastern-state-penitentiary/02-4fd8998286.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Eastern_State_Penitentiary,_Philadelphia,_PA_barber_shop.jpg",
+      "credit": "Bruce C. Cooper (Centpacrr) (original digital image), CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "Bruce C. Cooper (Centpacrr) (original digital image)",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Eastern State Penitentiary, Philadelphia, PA barber shop",
+      "era": "current"
+    },
+    {
+      "id": "eastern-state-penitentiary-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/eastern-state-penitentiary/03-953a087ba9.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Eastern_State_Penitentiary_-_Philadelphia_-_Pennsylvania_-_09.jpg",
+      "credit": "Adam Jones, Ph.D., CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "Adam Jones, Ph.D.",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Eastern State Penitentiary - Philadelphia - Pennsylvania - 09",
+      "era": "current"
+    }
+  ],
+  "pennhurst-state-school": [
+    {
+      "id": "pennhurst-state-school-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/pennhurst-state-school/01-7fd8b94ef5.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Admin-current-pennhurst.jpg",
+      "credit": "Smccphotog (talk) (Uploads), Public domain, via Wikimedia Commons",
+      "author": "Smccphotog (talk) (Uploads)",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image_type": "public-domain",
+      "rights": "public-domain",
+      "caption": "Admin-current-pennhurst",
+      "era": "current"
+    },
+    {
+      "id": "pennhurst-state-school-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/pennhurst-state-school/02-b1f5c4821d.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:2016-Jun-27_Pennhurst_exhibit_Russell_rotunda.jpg",
+      "credit": "Taylordw, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Taylordw",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "2016-Jun-27 Pennhurst exhibit Russell rotunda",
+      "era": "current"
+    }
+  ],
+  "washoe-club-virginia-city": [
+    {
+      "id": "washoe-club-virginia-city-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/washoe-club-virginia-city/01-fc71c8562f.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Old_Washoe_Club_in_Virginia_City_(1982).jpg",
+      "credit": "Bill Golladay, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Bill Golladay",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Old Washoe Club in Virginia City (1982)",
+      "era": "historic"
+    },
+    {
+      "id": "washoe-club-virginia-city-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/washoe-club-virginia-city/02-b31bfcdf9d.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Old_Washoe_Club_Virginia_City_NV_-_panoramio.jpg",
+      "credit": "Noah_Loverbear, CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "Noah_Loverbear",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Old Washoe Club Virginia City NV - panoramio",
+      "era": "current"
+    },
+    {
+      "id": "washoe-club-virginia-city-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/washoe-club-virginia-city/03-44071839c1.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Old_Washoe_Club_Virginia_City_NV_-_panoramio_(1).jpg",
+      "credit": "Noah_Loverbear, CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "Noah_Loverbear",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Old Washoe Club Virginia City NV - panoramio (1)",
+      "era": "current"
+    }
+  ],
+  "execution-rocks-lighthouse": [
+    {
+      "id": "execution-rocks-lighthouse-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/execution-rocks-lighthouse/01-69a7077f14.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Line4046_-_Flickr_-_NOAA_Photo_Library.jpg",
+      "credit": "NOAA Historical Collection., Public domain, via Wikimedia Commons",
+      "author": "NOAA Historical Collection.",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image_type": "public-domain",
+      "rights": "public-domain",
+      "caption": "Line4046 - Flickr - NOAA Photo Library",
+      "era": "current"
+    },
+    {
+      "id": "execution-rocks-lighthouse-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/execution-rocks-lighthouse/02-eaf86b25ce.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Execution_Rocks_Lighthouse_Long_Island_Sound,_NY.jpg",
+      "credit": "Ginger10180, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Ginger10180",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Execution Rocks Light, Long Island Sound",
+      "era": "current"
+    }
+  ],
+  "boothill-graveyard-tombstone": [
+    {
+      "id": "boothill-graveyard-tombstone-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/boothill-graveyard-tombstone/01-c684d704c8.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Boothill_Graveyard,_Tombstone,_Arizona_(6).jpg",
+      "credit": "Ken Lund, CC BY-SA 2.0, via Wikimedia Commons",
+      "author": "Ken Lund",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Boothill Graveyard, Tombstone, Arizona (6)",
+      "era": "current"
+    },
+    {
+      "id": "boothill-graveyard-tombstone-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/boothill-graveyard-tombstone/02-f309ef6266.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Boothill_Graveyard_Tombstone,_AZ_plaque_dedicated_2023.jpg",
+      "credit": "Megalibrarygirl, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Megalibrarygirl",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Boothill Graveyard Tombstone, AZ plaque dedicated 2023",
+      "era": "current"
+    },
+    {
+      "id": "boothill-graveyard-tombstone-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/boothill-graveyard-tombstone/03-cc244629b0.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Boothill_Graveyard_Tombstone,_AZ_plaque_dedicated_April_2023.jpg",
+      "credit": "Megalibrarygirl, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Megalibrarygirl",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Boothill Graveyard Tombstone, AZ plaque dedicated April 2023",
+      "era": "current"
+    }
+  ],
+  "magnolia-plantation-cane-river": [
+    {
+      "id": "magnolia-plantation-cane-river-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/magnolia-plantation-cane-river/01-0e85e4f1fb.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Magnolia_Plantation,_Louisiana_Route_119,_Natchitoches_(Natchitoches_Parish,_Louisiana).jpg",
+      "credit": "Unknown authorUnknown author, Public domain, via Wikimedia Commons",
+      "author": "Unknown authorUnknown author",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image_type": "public-domain",
+      "rights": "public-domain",
+      "caption": "Magnolia Plantation, Louisiana Route 119, Natchitoches (Natchitoches Parish, Louisiana)",
+      "era": "current"
+    },
+    {
+      "id": "magnolia-plantation-cane-river-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/magnolia-plantation-cane-river/02-c20188b045.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Magnolia_Plantation;_Natchitoches_Parish,_LA_IMG_3472.JPG",
+      "credit": "Billy Hathorn, CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "Billy Hathorn",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Magnolia Plantation; Natchitoches Parish, LA IMG 3472",
+      "era": "current"
+    },
+    {
+      "id": "magnolia-plantation-cane-river-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/magnolia-plantation-cane-river/03-21da45688a.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Slave_quarters_at_Magnolia_Plantation,_Natchitoches_Parish,_LA_IMG_3473.JPG",
+      "credit": "Billy Hathorn, CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "Billy Hathorn",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Slave quarters at Magnolia Plantation, Natchitoches Parish, LA IMG 3473",
+      "era": "current"
+    }
+  ],
+  "prospect-place-trinway": [
+    {
+      "id": "prospect-place-trinway-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/prospect-place-trinway/01-6ff3f94309.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Prospect_Place.jpg",
+      "credit": "Wdzinc, CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "Wdzinc",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Prospect Place",
+      "era": "current"
+    }
+  ],
+  "vulture-mine-wickenburg": [
+    {
+      "id": "vulture-mine-wickenburg-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/vulture-mine-wickenburg/01-250993071d.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Wickenbug_Vulture_Mine_-_Marker.jpg",
+      "credit": "Tony the Marine (talk), Public domain, via Wikimedia Commons",
+      "author": "Tony the Marine (talk)",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image_type": "public-domain",
+      "rights": "public-domain",
+      "caption": "Wickenbug Vulture Mine - Marker",
+      "era": "historic"
+    },
+    {
+      "id": "vulture-mine-wickenburg-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/vulture-mine-wickenburg/02-c3cd847cc7.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Wickenbug_Vulture_Mine-Entrance_to_Vulture_Mine_Shaft.jpg",
+      "credit": "Tony the Marine, CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "Tony the Marine",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Wickenbug Vulture Mine-Entrance to Vulture Mine Shaft",
+      "era": "historic"
+    },
+    {
+      "id": "vulture-mine-wickenburg-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/vulture-mine-wickenburg/03-ba46587bb2.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Wickenbug_Vulture_Mine-Nickel_Shaft.jpg",
+      "credit": "Tony the Marine, CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "Tony the Marine",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Wickenbug Vulture Mine-Nickel Shaft",
+      "era": "historic"
+    }
+  ],
+  "tampa-theatre": [
+    {
+      "id": "tampa-theatre-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/tampa-theatre/01-4cdf8ecf32.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:TampaTheatre01.jpg",
+      "credit": "Ebyabe, CC BY 2.5, via Wikimedia Commons",
+      "author": "Ebyabe",
+      "license": "CC BY 2.5",
+      "license_url": "https://creativecommons.org/licenses/by/2.5",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "TampaTheatre01",
+      "era": "current"
+    },
+    {
+      "id": "tampa-theatre-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/tampa-theatre/02-a5f91c53e6.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:TampaTheatre_front05.jpg",
+      "credit": "Ebyabe, CC BY 2.5, via Wikimedia Commons",
+      "author": "Ebyabe",
+      "license": "CC BY 2.5",
+      "license_url": "https://creativecommons.org/licenses/by/2.5",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "TampaTheatre front05",
+      "era": "current"
+    },
+    {
+      "id": "tampa-theatre-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/tampa-theatre/03-ea6b555b64.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Eraserhead_at_Tampa_Theatre.jpg",
+      "credit": "HaxanWitchcraft, CC0, via Wikimedia Commons",
+      "author": "HaxanWitchcraft",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "image_type": "public-domain",
+      "rights": "public-domain",
+      "caption": "Eraserhead at Tampa Theatre",
+      "era": "current"
+    }
+  ],
+  "wright-square-savannah": [
+    {
+      "id": "wright-square-savannah-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/wright-square-savannah/01-b136b6bd30.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Monument_-_panoramio_(48).jpg",
+      "credit": "---=XEON=---, CC BY 3.0, via Wikimedia Commons",
+      "author": "---=XEON=---",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Gordon Monument in Wright Square, Savannah",
+      "era": "current"
+    },
+    {
+      "id": "wright-square-savannah-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/wright-square-savannah/02-0ce9ad3842.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Wright_Square_Savannah_2021.jpg",
+      "credit": "Antony-22, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "Antony-22",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Wright Square, Savannah",
+      "era": "current"
+    },
+    {
+      "id": "wright-square-savannah-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/wright-square-savannah/03-b04ff50b11.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Wright_square.jpg",
+      "credit": "S. Matthew English, CC BY-SA 4.0, via Wikimedia Commons",
+      "author": "S. Matthew English",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Wright Square, Savannah",
+      "era": "current"
+    }
+  ],
+  "emlen-physick-estate-cape-may": [
+    {
+      "id": "emlen-physick-estate-cape-may-c1",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/emlen-physick-estate-cape-may/01-f254681787.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Emlen-physick-estate.jpg",
+      "credit": "Staib, CC BY-SA 3.0, via Wikimedia Commons",
+      "author": "Staib",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Emlen-physick-estate",
+      "era": "historic"
+    },
+    {
+      "id": "emlen-physick-estate-cape-may-c2",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/emlen-physick-estate-cape-may/02-e8930f5b8e.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Emlem_Physick_Estate_LOC_Highsmith.jpg",
+      "credit": "Carol M. Highsmith., Public domain, via Wikimedia Commons",
+      "author": "Carol M. Highsmith.",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image_type": "public-domain",
+      "rights": "public-domain",
+      "caption": "Emlem Physick Estate LOC Highsmith",
+      "era": "historic"
+    },
+    {
+      "id": "emlen-physick-estate-cape-may-c3",
+      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/emlen-physick-estate-cape-may/03-23e6bb9fca.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Frank_Furness_-_Cape_May,_NJ_-_Emlen_Physick_House_(9.4).jpg",
+      "credit": "Bmzuckerman, CC BY 4.0, via Wikimedia Commons",
+      "author": "Bmzuckerman",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "image_type": "cc",
+      "rights": "cc",
+      "caption": "Frank Furness - Cape May, NJ - Emlen Physick House (9.4)",
+      "era": "historic"
+    }
+  ]
 }

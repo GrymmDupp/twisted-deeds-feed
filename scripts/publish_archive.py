@@ -26,6 +26,7 @@ import argparse, hashlib, json, os, re, subprocess, sys
 from datetime import datetime, timezone
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import publish_feed as pf
+import listing_photos as lp_photos
 
 STAGING = "/workspace/twisted-deeds/_data/archive_staging.json"
 STATES = pf.US_STATES
@@ -115,6 +116,22 @@ def from_sheet(sheet, max_age):
     return rows, fulls, errs, base, notes_text, mls_tokens
 
 
+def attach_curated_archive_photos(rows):
+    """Attach free-licence photos from photos/curated.json. Town-precision and private-home rows stay image-less."""
+    curated = lp_photos._load_json(lp_photos.CURATED)
+    n = 0
+    for r in rows:
+        if r.get("geo_precision") == "town" or r["id"] in pf.PRIVATE_HOME_IDS:
+            r["images"] = []
+            continue
+        imgs = lp_photos.attach_images(r["id"], [], curated, {})
+        imgs = [im for im in imgs if im.get("image_type") in ("cc", "public-domain") and not lp_photos.image_mls_hits(im)]
+        r["images"] = imgs[:3]
+        if r["images"]:
+            n += 1
+    return n
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--from", dest="src", choices=["staging", "sheet"], default="staging")
@@ -138,6 +155,7 @@ def main():
             pass
     else:
         rows, fulls, errs, base, notes_text, mls_tokens = from_sheet(a.sheet_cache, None if (a.check or a.out) else a.max_cache_age_hours)
+    n_photos = attach_curated_archive_photos(rows)
     n_town, priv_errs = pf.archive_privacy(rows)
     existing = {l["id"] for l in old["listings"]}
     errs += priv_errs + pf.ARCHIVE_ERRS
@@ -149,6 +167,7 @@ def main():
         if re.search(r"triple[\s-]?d", json.dumps(r, ensure_ascii=False), re.I):
             errs.append(f"{r['id']}: public text must never say 'Triple-D'")
     print(json.dumps({"source": a.src, "approved_archive_rows": len(rows), "town_precision_sanitised": n_town,
+                      "with_photos": sum(1 for r in rows if r.get("images")), "photo_files_attached": n_photos,
                       "with_media": sum(1 for r in rows if r.get("media")), "crew_featured": sum(1 for r in rows if r.get("crew_featured"))}, indent=1))
     if errs:
         print("VALIDATION FAILED (nothing written):\n  " + "\n  ".join(dict.fromkeys(errs)))
@@ -191,11 +210,11 @@ def main():
         with open(pf.FEED, "w") as f:
             json.dump(new, f, ensure_ascii=False, indent=1); f.write("\n")
     git = lambda *c: subprocess.run(["git", "-C", pf.REPO, *c], check=True, capture_output=True, text=True).stdout
-    paths = ["feed/archive.json", "feed/listings.json"]
+    paths = ["feed/archive.json", "feed/listings.json", "photos", "scripts/publish_archive.py"]
     git("add", "-A", *paths)
     if not git("status", "--porcelain", *paths).strip():
         print("no git changes"); return
-    git("commit", "-m", f"Archive shelf v{doc['version']}: {len(rows)} reviewed places (archive-only publish; for-sale listings untouched)")
+    git("commit", "-m", f"Archive shelf v{doc['version']}: {len(rows)} reviewed places, {sum(1 for r in rows if r.get('images'))} with photos (archive-only publish; for-sale listings untouched)")
     if not a.no_push:
         git("push", "origin", "HEAD:main"); print("pushed to origin/main")
     if a.src == "staging":   # private bookkeeping only
