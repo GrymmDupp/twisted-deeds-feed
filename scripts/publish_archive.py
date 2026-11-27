@@ -17,7 +17,7 @@ Safety rules (all enforced; any problem exits non-zero and writes nothing):
   * town-precision rows: no street address, coordinates rounded to ~1 km, no photos, no listing URL (publish_feed.archive_privacy / archive_errs)
   * neighborhood / township rows (2026-11-27): the staged lat/lon is a PRECOMPUTED public center (independent random offset, chosen
     once on the box; never derived from the id). Shipped unrounded with circle_mi (width in miles), radiusM, area and, for townships,
-    area_outline. The true point (in private scout_notes only) must lie inside the circle and must not be the published center.
+    area_outline. The true point (in private scout_notes only) must lie inside the circle, at least 40% of the radius from the published center.
   * an Archive id that already exists in feed/listings.json is refused (a sold listing moving to the Archive needs the full publish,
     because it must also leave listings.json; fix the 38 leak flags first)
   * nothing is written to the Master Sheet, the sheet outbox, the geocode cache or any listing file
@@ -147,6 +147,8 @@ def true_point_errors(sid, c):
         d = _m(lat, lon, tl, tn)
         if d < 25:
             errs.append(f"{sid}: published center is within {d:.0f} m of the private true point (must be an offset area center)")
+        elif r and d < 0.4 * r:
+            errs.append(f"{sid}: published center is only {d:.0f} m ({d / r:.0%} of the radius) from the private true point; the rule is 40-70%")
         elif r and d > r:
             errs.append(f"{sid}: the private true point is outside the {c.get('circle_mi')} mi circle; recompute the offset")
     return errs

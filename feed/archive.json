@@ -1,7 +1,7 @@
 {
- "version": 5,
+ "version": 6,
  "schema_version": 3,
- "generated_at": "2026-11-27T20:26:45Z",
+ "generated_at": "2026-11-27T20:37:13Z",
  "geo_attribution": "Geocoding: OpenStreetMap Nominatim, (c) OpenStreetMap contributors, ODbL",
  "enums_ext": {
   "grade": [
@@ -149,7 +149,7 @@
  "feed_url": "https://grymmdupp.github.io/twisted-deeds-feed/feed/archive.json",
  "core_feed_url": "https://grymmdupp.github.io/twisted-deeds-feed/feed/listings.json",
  "source": "Twisted Deeds ARCHIVE shelf, FREE PREVIEW LAYER ONLY. Verified dark-history places that are NOT for sale. Town-precision rows carry no street address or exact pin; neighborhood/township rows are an area (offset center + circle_mi or outline), never the site. Published by scripts/publish_archive.py.",
- "content_hash": "4d75fbfe948c62c2112937577d00fd70f9b469f932dfcb5d5157cbec0b8df926",
+ "content_hash": "71eb8662b66b0b0d8d9679ded694514b066e31b53fc43a9aa4898a7a54d8addd",
  "listings": [
   {
    "id": "moon-river-brewing-company",
@@ -3694,8 +3694,8 @@
    "lastChecked": "2026-11-21",
    "dossier": false,
    "lore": true,
-   "lat": 42.151692,
-   "lon": -84.846429,
+   "lat": 42.150328,
+   "lon": -84.846809,
    "geo_precision": "neighborhood",
    "geo_source": "Neighborhood circle (offset center, not the house; Archive privacy rule)",
    "collection": "archive",
@@ -3729,8 +3729,8 @@
    "lastChecked": "2026-11-21",
    "dossier": false,
    "lore": true,
-   "lat": 42.182063,
-   "lon": -84.482903,
+   "lat": 42.181885,
+   "lon": -84.483491,
    "geo_precision": "neighborhood",
    "geo_source": "Neighborhood circle (offset center, not the house; Archive privacy rule)",
    "collection": "archive",

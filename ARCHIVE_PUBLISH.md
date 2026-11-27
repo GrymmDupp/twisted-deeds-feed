@@ -36,7 +36,7 @@ because the row must also leave `listings.json`; `publish_archive.py` refuses an
   (= circle_mi / 2 in metres), `area` (label) and, for townships, `area_outline` (simplified GeoJSON Polygon from OSM; circle_mi is the
   fallback). Address = place, no photos, no link, street-address regex backstop. `private_home` is allowed at `town` or `neighborhood`
   only; `neighborhood` is for private homes. The publisher refuses a neighborhood row unless its private true point (in `scout_notes`
-  after "TRUE COORDINATES"/"private only", or `true_lat`/`true_lon`) is inside the circle and at least 25 m from the published center,
+  after "TRUE COORDINATES"/"private only", or `true_lat`/`true_lon`) is inside the circle and at least 40% of the radius (and 25 m) from the published center,
   and fails if any true point appears in the shipped JSON. The app draws a circle or outline, never a pin.
 - the usual MLS, "Triple-D", locked-text and public-key allow-list checks
 
