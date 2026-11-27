@@ -459,6 +459,12 @@ def map_row(row, mls_tokens):
             item["roadOnly"] = True
         if row.get("privateHome") is True:
             PRIVATE_HOME_IDS.add(item["id"])
+        if row.get("area"):   # neighborhood / township rows: area label and circle width from the private sidecar (2026-11-27)
+            item["area"] = str(row["area"])
+        if isinstance(row.get("circleMi"), (int, float)):
+            item["circle_mi"] = float(row["circleMi"])
+        if str(row.get("storyStatus") or "").lower() == "unwritten":
+            item["storyStatus"] = "unwritten"
         if status not in ("Archive", "Sold"):
             ARCHIVE_ERRS.append(f"{item['id']}: shelf 'archive' needs status Archive or Sold (got {status})")
     elif row.get("media") or row.get("crewFeatured") or row.get("shelf") not in (None, "", "for-sale"):
