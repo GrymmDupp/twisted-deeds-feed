@@ -1,7 +1,7 @@
 {
- "version": 7,
+ "version": 8,
  "schema_version": 3,
- "generated_at": "2026-11-27T22:28:14Z",
+ "generated_at": "2026-11-27T22:38:28Z",
  "geo_attribution": "Geocoding: OpenStreetMap Nominatim, (c) OpenStreetMap contributors, ODbL",
  "enums_ext": {
   "grade": [
@@ -144,12 +144,12 @@
    }
   ]
  },
- "count": 71,
+ "count": 72,
  "collection": "archive",
  "feed_url": "https://grymmdupp.github.io/twisted-deeds-feed/feed/archive.json",
  "core_feed_url": "https://grymmdupp.github.io/twisted-deeds-feed/feed/listings.json",
  "source": "Twisted Deeds ARCHIVE shelf, FREE PREVIEW LAYER ONLY. Verified dark-history places that are NOT for sale. Town-precision rows carry no street address or exact pin; neighborhood/township rows are an area (offset center + circle_mi or outline), never the site. Published by scripts/publish_archive.py.",
- "content_hash": "fbb629f76ef2fa465155dc57d23dc715f9aac3db4623539566d30e2093dc198b",
+ "content_hash": "693fe204d29555450f12012436b1ab6f38dd2cb12622dbe27ce988721e17db96",
  "listings": [
   {
    "id": "moon-river-brewing-company",
@@ -4086,6 +4086,41 @@
    "circle_mi": 0.5,
    "privateHome": true,
    "radiusM": 402.3
+  },
+  {
+   "id": "octagon-mansion",
+   "name": "Octagon Mansion",
+   "grade": "story",
+   "layer": "spectral",
+   "kind": "house",
+   "tier": 2,
+   "storyCategory": "folklore",
+   "address": "Wytheville, Wythe County, VA",
+   "place": "Wytheville, Wythe County, VA",
+   "price": "Sold",
+   "status": "Sold",
+   "url": "",
+   "summary": "An 1870 octagon house in Wytheville, one of the few left in Virginia. It later ran as the Octagon Mansion History Museum, with Dinner with a Ghost nights, until March 2025. It sold in July 2026.",
+   "facts": "Built 1870 · 6 bedrooms · about 5,000 sq ft · sold 28 Jul 2026; no longer for sale",
+   "loreTeaser": "The haunting is the museum's ghost dinners, not a death file.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-10-23",
+   "lastChecked": "2026-10-23",
+   "dossier": false,
+   "lore": true,
+   "lat": 36.947209,
+   "lon": -81.086709,
+   "geo_precision": "neighborhood",
+   "geo_source": "Neighborhood circle (offset center, not the house; Archive privacy rule)",
+   "soldOn": "2026-07-28",
+   "collection": "archive",
+   "shelf": "archive",
+   "roadOnly": true,
+   "area": "Wytheville, VA",
+   "circle_mi": 0.25,
+   "privateHome": true,
+   "radiusM": 201.2
   }
  ]
 }
