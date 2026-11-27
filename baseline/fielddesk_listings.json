@@ -1,7 +1,7 @@
 {
   "source": "Field Desk built-in listings (array D) extracted from https://twisteddeeds.grok.me/assets/routes-Dz-GLhHZ.js",
   "extracted_at": "2026-10-23T16:40:58.814Z",
-  "count": 101,
+  "count": 94,
   "enums": {
     "kind": [
       {
@@ -215,47 +215,6 @@
         }
       ],
       "priority": 98,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": true
-    },
-    {
-      "id": "emmons-mansion",
-      "name": "Emmons Mansion",
-      "grade": "sovereign",
-      "layer": "spectral",
-      "kind": "house",
-      "address": "306 S Lansing St, St. Johns, MI 48879",
-      "place": "St. Johns, Clinton County, MI",
-      "price": "$270,000",
-      "status": "Pending",
-      "url": "https://www.lansingstatejournal.com/story/news/local/2026/10/20/historic-st-johns-mansion-for-sale-comes-with-history-ghost-stories/92251369007/",
-      "hook": "Local paper ran it as a ghost-story mansion. DiedInHouse found no investigation file and no national show. Pending.",
-      "story": "Lansing State Journal covered 306 South Lansing on 20 Oct 2026 as a mansion for sale that comes with ghost stories. DiedInHouse, writing 27 Sep 2026, said it had not found a reliable record of a haunting. The listing agent, Ashley Smith, has posted about the house. This sheet does not have a post in which she calls the residents professional ghost hunters, so that line is not used. No Ghost Hunters, Ghost Adventures, or other national episode is on file.",
-      "history": "Eight bedrooms, seven baths, about 5,748 square feet, multiple fireplaces, a third-floor apartment, stairs into a cupola. Later carved into apartments; neighbors on a listing reel remembered living in numbered units including the tower. Listed by Ashley Smith, Oasis Realty. A local MLS index showed Pending at $270,000 on 22 Oct 2026. The press URL is not the listing contract.",
-      "citation": "Lansing State Journal, 20 Oct 2026. DiedInHouse, 27 Sep 2026. DeWitt District Library photograph CCHSA-F-12. MLS index 22 Oct 2026.",
-      "notes": "Closest verified row to Horton. Recheck before promising a video or a referral.",
-      "facts": "8 bd · 7 ba · 5,748 sf",
-      "images": [
-        {
-          "id": "emmons-library",
-          "era": "historic",
-          "caption": "Emmons House, Second Empire, also called Barber Apartments. Library catalog photograph.",
-          "source": "DeWitt District Library, CCHSA-F-12",
-          "page": "https://hub.catalogit.app/dewitt-district-library/folder/entry/emmons-house",
-          "rights": "permission"
-        },
-        {
-          "id": "emmons-lsj",
-          "era": "current",
-          "caption": "News photos attached to the October 2026 ghost-story feature.",
-          "source": "Lansing State Journal",
-          "page": "https://www.lansingstatejournal.com/story/news/local/2026/10/20/historic-st-johns-mansion-for-sale-comes-with-history-ghost-stories/92251369007/",
-          "rights": "reference"
-        }
-      ],
-      "priority": 96,
       "logged": "2026-10-23",
       "lastChecked": "2026-10-23",
       "dossier": true,
@@ -954,39 +913,6 @@
       "lore": true
     },
     {
-      "id": "bolem-house",
-      "name": "Thomas Bolem House",
-      "grade": "sovereign",
-      "layer": "spectral",
-      "kind": "house",
-      "address": "719 Prince St, Georgetown, SC 29440",
-      "place": "Georgetown, Georgetown County, SC",
-      "price": "$1,050,000",
-      "status": "Pending",
-      "url": "https://www.exprealty.com/georgetown-sc-real-estate/not-within-a-subdivision/719-prince-st",
-      "hook": "A 1734 house. The listing itself mentions an elderly sailor and unexplained visitors. Backup offers are still invited.",
-      "story": "DiedInHouse, citing Elizabeth Robertson Huntsinger's 1998 book More Ghosts of Georgetown, retells a Christmas 1993 account of an elderly sailor in the house. The 2026 listing copy repeats that folklore. This sheet does not have a death certificate for the sailor.",
-      "history": "Single-family house, about 3,444 square feet, 4 bedrooms, 0.18 acres. MLS 2623401. Listed 22 Sep 2026 at $1,050,000 by Cal Harrelson, Peace Sotheby's. eXp still showed it Pending. DiedInHouse said the contract has a contingency and the agent was taking backup offers.",
-      "citation": "eXp Realty, MLS 2623401. DiedInHouse, 27 Sep 2026. More Ghosts of Georgetown, 1998.",
-      "notes": "Pending, not active. A referral only works if the contract falls through.",
-      "facts": "About 1734 · 4 bedrooms · pending",
-      "images": [
-        {
-          "id": "bolem-exp",
-          "era": "current",
-          "caption": "Listing page. Reference only.",
-          "source": "eXp Realty",
-          "page": "https://www.exprealty.com/georgetown-sc-real-estate/not-within-a-subdivision/719-prince-st",
-          "rights": "reference"
-        }
-      ],
-      "priority": 78,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": true
-    },
-    {
       "id": "bayside-cape",
       "name": "Bayside Cape",
       "grade": "death",
@@ -1120,42 +1046,6 @@
         }
       ],
       "priority": 80,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": true
-    },
-    {
-      "id": "rifkin-house",
-      "name": "Rifkin House",
-      "grade": "death",
-      "layer": "mayhem",
-      "kind": "house",
-      "quiet": true,
-      "address": "1492 Garden St, East Meadow, NY 11554",
-      "place": "East Meadow, Nassau County, NY",
-      "price": "Sold $670,000",
-      "status": "Sold",
-      "soldOn": "2026-10-21",
-      "url": "https://www.newsday.com/real-estate/joel-rifkin-house-sold-yz1msnh7",
-      "photo": "https://cdn.newsday.com/ace/c:OTU2YTEzYzgtY2RlYy00:ZTk3MWZhNzEtZTAxMi00/landscape/1280",
-      "hook": "Joel Rifkin killed women in this house. It closed this week. Video only. No referral.",
-      "story": "Joel Rifkin told police he murdered women here between 1989 and 1993. Newsday says some of the 17 victims were killed in the house. His mother, Jeanne, lived here until she died in 2010. The Aiosa family bought it in 2011 for $322,000. It was listed again in April 2026 at $825,000. Two contracts died after the history was disclosed.",
-      "history": "Newsday and the listing agent, Angela Cernuto of Pinpoint Realty, said the closing was Wednesday, 21 Oct 2026, at $670,000. Last ask was $780,000. Four bedrooms, about 1,675 square feet, built 1951. The buyer may demolish part of it. This row leaves the sheet one year after the closing.",
-      "citation": "Newsday, 21 Oct 2026. Realtor.com, 22 Oct 2026. Newsday listing story, 31 May 2026.",
-      "notes": "Sold lane. Do not pitch a referral. The sale is the news hook for a video.",
-      "facts": "Closed 21 Oct 2026 · $670,000 · 4 bedrooms",
-      "images": [
-        {
-          "id": "rifkin-newsday",
-          "era": "current",
-          "caption": "Newsday sale story. Reference only.",
-          "source": "Newsday",
-          "page": "https://www.newsday.com/real-estate/joel-rifkin-house-sold-yz1msnh7",
-          "rights": "reference"
-        }
-      ],
-      "priority": 90,
       "logged": "2026-10-23",
       "lastChecked": "2026-10-23",
       "dossier": true,
@@ -1367,41 +1257,6 @@
         }
       ],
       "priority": 72,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": false
-    },
-    {
-      "id": "chancellor-house",
-      "name": "Chancellor House",
-      "grade": "sovereign",
-      "layer": "record",
-      "significance": "district",
-      "kind": "house",
-      "address": "904 Juliana St, Parkersburg, WV 26101",
-      "place": "Parkersburg, Wood County, WV",
-      "price": "$668,000",
-      "status": "Sold",
-      "soldOn": "2026-10-16",
-      "url": "https://www.redfin.com/WV/Parkersburg/904-Juliana-St-26101/home/128464729",
-      "hook": "Built in 1878 and kept in one family until it sold this month. No death file found.",
-      "story": "William Nelson Chancellor built it in 1878. Five generations of the family lived here, and the listing called that a fabled story. That is marketing. No murder, brothel, or reported presence turned up for the address. Homes.com places it in the Julia-Ann Square Historic District.",
-      "history": "Listed 29 Aug 2026 at $695,000 by Eric Corder of Coldwell Banker Select. Redfin shows it sold 16 Oct 2026 for $668,000. About 5,827 square feet, 4 bedrooms, 0.28 acres. MLSNOW 5236775. The referral is gone. The sale is a week old.",
-      "citation": "Redfin, sold 16 Oct 2026, MLSNOW 5236775. Homes.com, 4 Sep 2026.",
-      "notes": "Sold lane. Historic district. Do not invent a ghost from the word fabled.",
-      "facts": "Sold 16 Oct 2026 · $668,000 · built 1878",
-      "images": [
-        {
-          "id": "chancellor-redfin",
-          "era": "current",
-          "caption": "Redfin sale record. Reference only.",
-          "source": "Redfin",
-          "page": "https://www.redfin.com/WV/Parkersburg/904-Juliana-St-26101/home/128464729",
-          "rights": "reference"
-        }
-      ],
-      "priority": 60,
       "logged": "2026-10-23",
       "lastChecked": "2026-10-23",
       "dossier": true,
@@ -1818,41 +1673,6 @@
       "lore": false
     },
     {
-      "id": "farallones-fire",
-      "name": "Farallones Fire House",
-      "grade": "sovereign",
-      "layer": "blight",
-      "kind": "house",
-      "lane": "disaster",
-      "address": "266 Farallones St, San Francisco, CA",
-      "place": "San Francisco, San Francisco County, CA",
-      "price": "$555,000",
-      "status": "Sold",
-      "soldOn": "2026-10-22",
-      "url": "https://hoodline.com/2026/10/fire-gutted-oceanview-shack-with-squatters-sells-for-555k-106k-over-ask/",
-      "hook": "Two fires, a collapsing roof, a squatter inside. It sold over the ask.",
-      "story": "Hoodline and the agent, Janice Lee of Coldwell Banker, describe a studio gutted by two fires, charred inside, roof collapsing, city violations, and a squatter who had been there since the pandemic. Buyers were not allowed to walk through. The paper does not name a death.",
-      "history": "Listed at $449,000. Reported sold for $555,000 on 22 Oct 2026, $106,000 over the ask. About 1,310 square feet, one bath. The story does not print the deed date. The referral is gone.",
-      "citation": "Hoodline, Eileen Vargas, 22 Oct 2026, citing Janice Lee and the New York Post.",
-      "notes": "Sold lane and Disaster. Deed date not in the story.",
-      "facts": "Reported sold 22 Oct 2026 · listed $449,000",
-      "images": [
-        {
-          "id": "farallones-news",
-          "era": "current",
-          "caption": "Sale story. Reference only.",
-          "source": "Hoodline",
-          "page": "https://hoodline.com/2026/10/fire-gutted-oceanview-shack-with-squatters-sells-for-555k-106k-over-ask/",
-          "rights": "reference"
-        }
-      ],
-      "priority": 76,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": false
-    },
-    {
       "id": "deerwood-golf",
       "name": "Traditions Mini Golf",
       "grade": "sovereign",
@@ -2091,41 +1911,6 @@
       "lastChecked": "2026-10-23",
       "dossier": true,
       "lore": true
-    },
-    {
-      "id": "wareham-trump",
-      "name": "Wareham Place House",
-      "grade": "sovereign",
-      "layer": "record",
-      "kind": "house",
-      "figure": "name",
-      "address": "85-15 Wareham Pl, Jamaica, NY 11432",
-      "place": "Jamaica, Queens County, NY",
-      "price": "$1,930,000",
-      "status": "Sold",
-      "soldOn": "2026-09-10",
-      "url": "https://www.nytimes.com/2026/09/12/nyregion/trumps-childhood-home-sells-queens.html",
-      "hook": "Fred Trump built it. Donald Trump lived here until he was four. Sold.",
-      "story": "Fred Trump built the Tudor in 1940. Donald Trump, born in 1946, lived here until the family moved in 1950 to a larger house behind it. After 2016 it was briefly an Airbnb dressed with a cardboard cutout. It then sat empty. Tommy Lin bought it in March 2025 for $835,000, gutted it, and asked $2.3 million.",
-      "history": "The New York Times reported a sale for $1.93 million on 10 Sep 2026. The buyer has not been named and plans to live there. The referral is gone.",
-      "citation": "The New York Times, Mack Liederman, 12 Sep 2026.",
-      "notes": "Sold lane and Backstory. Famous name, not a crime file.",
-      "facts": "Built 1940 · sold 10 Sep 2026 · $1.93 million",
-      "images": [
-        {
-          "id": "wareham-nyt",
-          "era": "current",
-          "caption": "Sale story. Reference only.",
-          "source": "The New York Times",
-          "page": "https://www.nytimes.com/2026/09/12/nyregion/trumps-childhood-home-sells-queens.html",
-          "rights": "reference"
-        }
-      ],
-      "priority": 75,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": false
     },
     {
       "id": "trails-end",
@@ -3288,41 +3073,6 @@
         }
       ],
       "priority": 78,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": false
-    },
-    {
-      "id": "rubio-friends",
-      "name": "Rubio Friends Church",
-      "grade": "sovereign",
-      "layer": "record",
-      "kind": "house",
-      "ground": "church",
-      "address": "394 Prost St, Rubio, IA 52585",
-      "place": "Rubio, Washington County, IA",
-      "price": "$145,000",
-      "status": "Sold",
-      "soldOn": "2026-09-08",
-      "url": "https://www.redfin.com/IA/Rubio/394-Prost-St-52585/home/81848080",
-      "hook": "A 1906 Friends church, converted, sold this September. It is off the live sheet and on the sold-this-year file.",
-      "story": "Built in 1906 as Rubio Friends Church. Later a house and a recording studio. Bell tower still there. About 1.2 acres. A May 2026 story used 394 Prost Ave and $225,000. The sold record uses Prost St. Use the street the deed page uses.",
-      "history": "Redfin, IAR 6337447. Sold 8 Sep 2026 for $145,000. Last list price on that sheet was $145,000. Lisa Murguia, Fairfield Real Estate, both sides. Inside the 366-day sold window as of 23 Oct 2026.",
-      "citation": "Redfin, IAR 6337447, sold 8 Sep 2026.",
-      "notes": "Iowa. Sold. Do not call it active.",
-      "facts": "1.2 acres · built 1906 · sold $145,000",
-      "images": [
-        {
-          "id": "rubio-redfin",
-          "era": "current",
-          "caption": "Sold listing. Reference only.",
-          "source": "Redfin",
-          "page": "https://www.redfin.com/IA/Rubio/394-Prost-St-52585/home/81848080",
-          "rights": "reference"
-        }
-      ],
-      "priority": 60,
       "logged": "2026-10-23",
       "lastChecked": "2026-10-23",
       "dossier": true,

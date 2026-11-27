@@ -73,13 +73,6 @@
   "display": "Assembly of God Full Gospel, 1424, South 55th Street, Turner, Kansas City, Wyandotte County, Kansas, 66106, United States"
  },
  "q:14286 old highway 50, clay city, il 62824": null,
- "q:1492 garden st, east meadow, ny 11554": {
-  "lat": 40.7086492,
-  "lon": -73.5660107,
-  "house": true,
-  "type": "place/house",
-  "display": "1492, Garden Street, East Meadow, Town of Hempstead, Nassau County, New York, 11554, United States"
- },
  "q:159 matthewson rd sw, pelham, ga 31779": null,
  "q:1629 nebraska ave, toledo, oh 43607": {
   "lat": 41.6454297,
@@ -207,13 +200,6 @@
  },
  "q:24228 state highway 210, deerwood, mn 56444": null,
  "q:256 halltown rd, harpers ferry, wv 25425": null,
- "q:266 farallones st, san francisco, ca": {
-  "lat": 37.7142309,
-  "lon": -122.4614579,
-  "house": true,
-  "type": "building/yes",
-  "display": "266, Farallones Street, Ocean View, Ingleside, San Francisco, California, 94112, United States"
- },
  "q:27398 us 12, edwardsburg, mi 49112": {
   "lat": 41.7975117,
   "lon": -86.0875564,
@@ -275,13 +261,6 @@
   "house": true,
   "type": "place/house",
   "display": "3860, West 44th Street, Brooklyn Centre, Cleveland, Cuyahoga County, Ohio, 44109, United States"
- },
- "q:394 prost st, rubio, ia 52585": {
-  "lat": 41.2182681,
-  "lon": -91.936742,
-  "house": true,
-  "type": "place/house",
-  "display": "394, Prost Street, Rubio, Clay Township, Washington County, Iowa, 52585, United States"
  },
  "q:4009 lloyd noland pkwy, fairfield, al 35064": {
   "lat": 33.4939467,
@@ -474,13 +453,6 @@
   "type": "place/house",
   "display": "8488, Main Street, Rushville Historic District, Rushville, Richland Township, Fairfield County, Ohio, 43150, United States"
  },
- "q:85-15 wareham pl, jamaica, ny 11432": {
-  "lat": 40.7170392,
-  "lon": -73.7857982,
-  "house": true,
-  "type": "building/detached",
-  "display": "85-15, Wareham Place, Queens, Queens County, New York, 11432, United States"
- },
  "q:8833 ashwood dr, riverdale, ga 30274": null,
  "q:900 o st, gering, ne 69341": {
   "lat": 41.823768,
@@ -502,13 +474,6 @@
   "house": true,
   "type": "building/commercial",
   "display": "901, West Main Street, Merced, Merced County, California, 95340, United States"
- },
- "q:904 juliana st, parkersburg, wv 26101": {
-  "lat": 39.2688425,
-  "lon": -81.5571175,
-  "house": true,
-  "type": "place/house",
-  "display": "904, Juliana Street, Julia-Ann Square Historic District, North Parkersburg, Parkersburg, Wood County, West Virginia, 26101, United States"
  },
  "q:906 e 2nd ave, rome, ga 30161": {
   "lat": 34.2402662,

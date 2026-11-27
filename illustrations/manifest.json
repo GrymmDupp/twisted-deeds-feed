@@ -39,16 +39,6 @@
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/bellaire-house.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/bellaire-house.jpg"
  },
- "bolem-house": {
-  "caption": "Illustration of Thomas Bolem House (not a photo)",
-  "credit": "Illustration by Twisted Deeds (not a photo)",
-  "era": "current",
-  "id": "bolem-house-i1",
-  "image_type": "illustration",
-  "rights": "illustration",
-  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/bolem-house.jpg",
-  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/bolem-house.jpg"
- },
  "brook-forest-inn-evergreen": {
   "caption": "Illustration of Brook Forest Inn (not a photo)",
   "credit": "Illustration by Twisted Deeds (not a photo)",
@@ -109,16 +99,6 @@
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/cavendish-school.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/cavendish-school.jpg"
  },
- "chancellor-house": {
-  "caption": "Illustration of Chancellor House (not a photo)",
-  "credit": "Illustration by Twisted Deeds (not a photo)",
-  "era": "current",
-  "id": "chancellor-house-i1",
-  "image_type": "illustration",
-  "rights": "illustration",
-  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/chancellor-house.jpg",
-  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/chancellor-house.jpg"
- },
  "creel-house": {
   "caption": "Illustration of Creel House (not a photo)",
   "credit": "Illustration by Twisted Deeds (not a photo)",
@@ -158,16 +138,6 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/eloise-complex.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/eloise-complex.jpg"
- },
- "emmons-mansion": {
-  "caption": "Illustration of Emmons Mansion (not a photo)",
-  "credit": "Illustration by Twisted Deeds (not a photo)",
-  "era": "current",
-  "id": "emmons-mansion-i1",
-  "image_type": "illustration",
-  "rights": "illustration",
-  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/emmons-mansion.jpg",
-  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/emmons-mansion.jpg"
  },
  "eppstein-house": {
   "caption": "Illustration of Eppstein House (Frank Lloyd Wright Usonian, The Acres) (not a photo)",
@@ -449,16 +419,6 @@
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/ridge-italianate.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/ridge-italianate.jpg"
  },
- "rifkin-house": {
-  "caption": "Illustration of Rifkin House (not a photo)",
-  "credit": "Illustration by Twisted Deeds (not a photo)",
-  "era": "current",
-  "id": "rifkin-house-i1",
-  "image_type": "illustration",
-  "rights": "illustration",
-  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/rifkin-house.jpg",
-  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/rifkin-house.jpg"
- },
  "seymour-funeral": {
   "caption": "Illustration of Seymour Funeral Home (not a photo)",
   "credit": "Illustration by Twisted Deeds (not a photo)",
@@ -528,16 +488,6 @@
   "rights": "illustration",
   "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/verdier-mansion-sf.jpg",
   "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/verdier-mansion-sf.jpg"
- },
- "wareham-trump": {
-  "caption": "Illustration of Wareham Place House (not a photo)",
-  "credit": "Illustration by Twisted Deeds (not a photo)",
-  "era": "current",
-  "id": "wareham-trump-i1",
-  "image_type": "illustration",
-  "rights": "illustration",
-  "source": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/wareham-trump.jpg",
-  "url": "https://grymmdupp.github.io/twisted-deeds-feed/illustrations/wareham-trump.jpg"
  },
  "wheeler-mansion-orange": {
   "caption": "Illustration of Wheeler Mansion (former Eastern Star Home) (not a photo)",

@@ -57,21 +57,6 @@
       "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/buffalo-bodega/01-b5b4d00378.jpg"
     }
   ],
-  "chancellor-house": [
-    {
-      "author": "Jstewall at en.wikipedia",
-      "caption": "Chancellor House",
-      "credit": "Jstewall at en.wikipedia, Public domain, via Wikimedia Commons",
-      "era": "current",
-      "id": "chancellor-house-c1",
-      "image_type": "public-domain",
-      "license": "Public domain",
-      "license_url": "",
-      "rights": "public-domain",
-      "source": "https://commons.wikimedia.org/wiki/File:Chancellor_House.JPG",
-      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/chancellor-house/01-156cd44668.jpg"
-    }
-  ],
   "hudson-evans": [
     {
       "author": "Michael Barera",
@@ -184,21 +169,6 @@
       "rights": "public-domain",
       "source": "https://commons.wikimedia.org/wiki/File:Old_St._Mark%27s_Catholic_Church,_Evanston,_Cincinnati,_OH_(47299041412).jpg",
       "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/st-mark-evanston/02-c556536b6d.jpg"
-    }
-  ],
-  "wareham-trump": [
-    {
-      "author": "Jasebasketball",
-      "caption": "85-15 Wareham Place, Trump childhood home",
-      "credit": "Jasebasketball, CC BY-SA 4.0, via Wikimedia Commons",
-      "era": "current",
-      "id": "wareham-trump-c1",
-      "image_type": "cc",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-      "rights": "cc",
-      "source": "https://commons.wikimedia.org/wiki/File:85-15_Wareham_Place,_Trump_childhood_home.jpeg",
-      "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/wareham-trump/01-0fa910d057.jpg"
     }
   ],
   "wheeler-mansion-orange": [

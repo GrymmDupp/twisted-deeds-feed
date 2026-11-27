@@ -1583,6 +1583,9 @@ def main():
         gone = {x["id"] for x in json.load(open(ARCHIVE_FEED)).get("listings", [])} - {x["id"] for x in archive_rows}
         if gone:
             errs.append(f"feed/archive.json holds Archive rows that are not in the Master Sheet: {sorted(gone)}. Add them to the sheet (and sidecar) first, or the full publish would remove them")
+        dup = {x["id"] for x in json.load(open(ARCHIVE_FEED)).get("listings", [])} & {x["id"] for x in listings}
+        if dup:   # 2026-11-27: sold homes moved to the Archive (Grymm) must never come back as for-sale rows with their address
+            errs.append(f"these ids are on the Archive shelf but would also publish as for-sale rows: {sorted(dup)}. Set them to Archive in the Master Sheet first")
     stats["archive"] = {"archive_rows": len(archive_rows), "town_precision": sum(1 for l in archive_rows if l.get("geo_precision") == "town"),
                         "with_media": sum(1 for l in archive_rows if l.get("media")), "crew_featured": sum(1 for l in archive_rows if l.get("crew_featured"))}
     stats["heritage"] = {"heritage_only": len(heritage_only), "core_cross_listed": sum(1 for l in listings if l.get("heritage"))}
