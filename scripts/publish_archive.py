@@ -15,6 +15,9 @@ Sources of Archive rows (pick one):
 Safety rules (all enforced; any problem exits non-zero and writes nothing):
   * the same schema, MLS, portal-URL, 'Triple-D' and locked-text checks the full publish uses, on the Archive rows only
   * town-precision rows: no street address, coordinates rounded to ~1 km, no photos, no listing URL (publish_feed.archive_privacy / archive_errs)
+  * neighborhood / township rows (2026-11-27): the staged lat/lon is a PRECOMPUTED public center (independent random offset, chosen
+    once on the box; never derived from the id). Shipped unrounded with circle_mi (width in miles), radiusM, area and, for townships,
+    area_outline. The true point (in private scout_notes only) must lie inside the circle and must not be the published center.
   * an Archive id that already exists in feed/listings.json is refused (a sold listing moving to the Archive needs the full publish,
     because it must also leave listings.json; fix the 38 leak flags first)
   * nothing is written to the Master Sheet, the sheet outbox, the geocode cache or any listing file
@@ -47,10 +50,11 @@ def staged_listing(c):
     tier = 2 if grade == "story" else 1
     private = c.get("private_home") is True
     prec = c.get("geo_precision")
+    area_only = prec in pf.AREA_PRECISIONS
     item = {
         "id": sid, "name": c["name"].strip(), "grade": grade, "layer": c["layer"], "kind": c.get("kind") or ("house" if private else "commercial"),
         "tier": tier, "storyCategory": c["story_category"],
-        "address": (c.get("address") if prec == "address" and not private and c.get("address") else c["place"]),
+        "address": (c.get("address") if prec == "address" and not private and not area_only and c.get("address") else c["place"]),
         "place": c["place"], "price": "Sold" if status == "Sold" else "Not for sale", "status": status, "url": "",
         "summary": pf.cut(c["summary"], pf.SUMMARY_MAX), "facts": str(c.get("facts") or ""), "loreTeaser": pf.cut(str(c.get("lore_teaser") or ""), pf.TEASER_MAX),
         "images": [], "priority": c.get("priority", 20 if tier == 2 else 60),
@@ -62,6 +66,21 @@ def staged_listing(c):
         item["soldOn"] = c["sold_on"]
     if c.get("lat") is not None and c.get("lon") is not None:
         item.update(lat=float(c["lat"]), lon=float(c["lon"]), geo_precision=prec or "address", geo_source=str(c.get("geo_source") or "Archive scout (public record)"))
+    if area_only:
+        if str(c.get("area") or "").strip():
+            item["area"] = str(c["area"]).strip()
+        if c.get("circle_mi") is not None:
+            item["circle_mi"] = float(c["circle_mi"])
+        ao = c.get("area_outline")
+        if isinstance(ao, dict) and ao.get("type") == "Polygon" and ao.get("coordinates"):   # no geometry staged: circle_mi is the fallback
+            item["area_outline"] = {k: ao[k] for k in ("type", "coordinates", "source", "osm_relation", "name") if k in ao}
+        if prec == "neighborhood" and not private:
+            raise ValueError(f"{sid}: neighborhood precision is for private homes; use address, town or township")
+        leak = true_point_errors(sid, c)
+        if leak:
+            raise ValueError("; ".join(leak))
+    if str(c.get("story_status") or "").lower() == "unwritten":
+        item["storyStatus"] = "unwritten"
     media, merrs = pf.clean_media(c.get("media"))
     if merrs:
         raise ValueError(f"{sid}: " + "; ".join(merrs))
@@ -73,9 +92,14 @@ def staged_listing(c):
         item["roadOnly"] = True
     if private:
         pf.PRIVATE_HOME_IDS.add(sid)
-    srcs = [s for s in c.get("sources") or [] if isinstance(s, dict) and str(s.get("url", "")).startswith("https://")]
+    srcs = [s for s in c.get("sources") or [] if isinstance(s, dict) and str(s.get("url") or "").startswith("https://")]
     written = [s for s in srcs if s.get("kind") == "written"]
-    if len(srcs) < 2 or not written:
+    unwritten = item.get("storyStatus") == "unwritten"
+    if unwritten:
+        # an Unwritten story makes no historical claim: it needs a confirmed location (a public record, details private), not 2 URLs
+        if not [s for s in c.get("sources") or [] if isinstance(s, dict) and s.get("kind") == "written" and str(s.get("label") or "").strip()]:
+            raise ValueError(f"{sid}: an unwritten record still needs one written location source (label), even without a URL")
+    elif len(srcs) < 2 or not written:
         raise ValueError(f"{sid}: needs 2+ https sources, at least 1 written (has {len(srcs)} sources, {len(written)} written)")
     if not str(c.get("location_confirmed_by") or "").strip():
         raise ValueError(f"{sid}: location_confirmed_by is required (a public record or written source, not the show alone)")
@@ -83,6 +107,49 @@ def staged_listing(c):
     full = {"listing_id": sid, "story": "", "history": "", "timeline": [], "lore": "", "citations": "", "ownership_chain": "", "story_fields": {},
             "sources": [{"url": s["url"], "label": s.get("label") or pf.host_label(s["url"])} for s in srcs], "images": [], "photo": ""}
     return item, full
+
+
+COORD_RE = re.compile(r"(-?\d{1,3}\.\d{4,})\s*,\s*(-?\d{1,3}\.\d{4,})")
+TRUE_RE = re.compile(r"TRUE COORDINATES|true point|private only", re.I)
+
+
+def _m(a, b, c, d):
+    import math
+    r = math.pi / 180
+    x = math.sin((c - a) * r / 2) ** 2 + math.cos(a * r) * math.cos(c * r) * math.sin((d - b) * r / 2) ** 2
+    return 2 * 6371000 * math.asin(min(1, math.sqrt(x)))
+
+
+def true_points(c):
+    """Private true point(s) for an area-only row: structured true_lat/true_lon, else coordinate pairs that follow a
+    'TRUE COORDINATES' / 'private only' note in the private scout_notes. Never shipped."""
+    pts = []
+    if c.get("true_lat") is not None and c.get("true_lon") is not None:
+        pts.append((float(c["true_lat"]), float(c["true_lon"])))
+    notes = str(c.get("scout_notes") or "")
+    for m in TRUE_RE.finditer(notes):
+        hit = COORD_RE.search(notes, m.end(), m.end() + 160)
+        if hit:
+            pts.append((float(hit.group(1)), float(hit.group(2))))
+    return list(dict.fromkeys(pts))
+
+
+def true_point_errors(sid, c):
+    """Leak check for neighborhood rows: the published center is not the house, and the house lies inside the circle."""
+    if c.get("geo_precision") != "neighborhood" or c.get("lat") is None:
+        return []
+    errs, pts = [], true_points(c)
+    if not pts:
+        return [f"{sid}: neighborhood row has no private true point on file (true_lat/true_lon or a 'TRUE COORDINATES' note); cannot verify the offset"]
+    r = float(c.get("circle_mi") or 0) * 1609.344 / 2
+    lat, lon = float(c["lat"]), float(c["lon"])
+    for tl, tn in pts:
+        d = _m(lat, lon, tl, tn)
+        if d < 25:
+            errs.append(f"{sid}: published center is within {d:.0f} m of the private true point (must be an offset area center)")
+        elif r and d > r:
+            errs.append(f"{sid}: the private true point is outside the {c.get('circle_mi')} mi circle; recompute the offset")
+    return errs
 
 
 def from_staging(path):
@@ -121,7 +188,7 @@ def attach_curated_archive_photos(rows):
     curated = lp_photos._load_json(lp_photos.CURATED)
     n = 0
     for r in rows:
-        if r.get("geo_precision") == "town" or r["id"] in pf.PRIVATE_HOME_IDS:
+        if r.get("geo_precision") in ("town",) + pf.AREA_PRECISIONS or r["id"] in pf.PRIVATE_HOME_IDS:
             r["images"] = []
             continue
         imgs = lp_photos.attach_images(r["id"], [], curated, {})
@@ -157,6 +224,17 @@ def main():
         rows, fulls, errs, base, notes_text, mls_tokens = from_sheet(a.sheet_cache, None if (a.check or a.out) else a.max_cache_age_hours)
     n_photos = attach_curated_archive_photos(rows)
     n_town, priv_errs = pf.archive_privacy(rows)
+    if a.src == "staging":   # no private true point may appear anywhere in the shipped rows
+        blob = json.dumps(rows)
+        for c in json.load(open(a.staging)).get("candidates", []):
+            if c.get("review") != "approved":
+                continue
+            for tl, tn in true_points(c):
+                for r in rows:
+                    if "lat" in r and _m(r["lat"], r["lon"], tl, tn) < 25:
+                        priv_errs.append(f"{r['id']}: shipped point is within 25 m of the private true point of {c['site_id']}")
+                if f"{tl:.5f}"[:-1] in blob and f"{tn:.5f}"[:-1] in blob:
+                    priv_errs.append(f"{c['site_id']}: private true coordinates appear in the shipped JSON")
     existing = {l["id"] for l in old["listings"]}
     errs += priv_errs + pf.ARCHIVE_ERRS
     errs += [f"{r['id']}: already in feed/listings.json. A listing moving to the Archive needs the FULL publish (it must also leave listings.json)" for r in rows if r["id"] in existing]
@@ -183,7 +261,8 @@ def main():
            "geo_attribution": pf.GEO_ATTRIBUTION, "enums_ext": pf.ENUM_EXT, "count": len(rows), "collection": "archive",
            "feed_url": pf.ARCHIVE_URL, "core_feed_url": pf.FEED_URL,
            "source": ("Twisted Deeds ARCHIVE shelf, FREE PREVIEW LAYER ONLY. Verified dark-history places that are NOT for sale. "
-                      "Town-precision rows carry no street address or exact pin. Published by scripts/publish_archive.py."),
+                      "Town-precision rows carry no street address or exact pin; neighborhood/township rows are an area (offset center + circle_mi "
+                      "or outline), never the site. Published by scripts/publish_archive.py."),
            "content_hash": h, "listings": rows}
     bad = pf.check_locked(rows, fulls, doc.keys())
     if bad:
@@ -210,7 +289,7 @@ def main():
         with open(pf.FEED, "w") as f:
             json.dump(new, f, ensure_ascii=False, indent=1); f.write("\n")
     git = lambda *c: subprocess.run(["git", "-C", pf.REPO, *c], check=True, capture_output=True, text=True).stdout
-    paths = ["feed/archive.json", "feed/listings.json", "photos", "scripts/publish_archive.py"]
+    paths = ["feed/archive.json", "feed/listings.json", "photos", "scripts/publish_archive.py", "scripts/publish_feed.py", "ARCHIVE_PUBLISH.md"]
     git("add", "-A", *paths)
     if not git("status", "--porcelain", *paths).strip():
         print("no git changes"); return

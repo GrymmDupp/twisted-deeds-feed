@@ -191,7 +191,11 @@ OPTIONAL = {"lat": (int, float), "lon": (int, float), "geo_precision": str, "geo
             "lane": str, "quiet": bool, "soldOn": str, "bargain": bool, "ground": str, "figure": str,
             "community": bool, "grid": str, "addedAt": str, "statusChangedAt": str,
             "collection": str, "heritage": dict,
-            "shelf": str, "media": list, "crew_featured": bool, "roadOnly": bool}
+            "shelf": str, "media": list, "crew_featured": bool, "roadOnly": bool,
+            # Archive area-only rows (2026-11-27): private homes at neighborhood precision and whole-township records.
+            # lat/lon on these rows is a PRECOMPUTED public center (offset from the true point, chosen once on the box), never the site.
+            "privateHome": bool, "area": str, "circle_mi": (int, float), "radiusM": (int, float), "area_outline": dict, "storyStatus": str}
+AREA_PRECISIONS = ("neighborhood", "township")   # drawn as a circle (circle_mi wide) or an outline, never a pin
 PUBLIC_KEYS = set(REQUIRED) | set(OPTIONAL)
 PUBLIC_IMAGE_KEYS = {"id", "era", "caption", "source", "page", "rights"}
 SAMPLE_RIGHTS = {"permission", "cleared"}          # broker/press "reference" images are never samples
@@ -689,7 +693,7 @@ def validate(base, listings):
         if "lat" in l or "lon" in l:
             if not all(isinstance(l.get(k), (int, float)) for k in ("lat", "lon")) or not in_us(l["lat"], l["lon"]):
                 errs.append(f"{lid}: bad lat/lon")
-            if l.get("geo_precision") not in ("address", "listing", "town") or not isinstance(l.get("geo_source"), str):
+            if l.get("geo_precision") not in ("address", "listing", "town") + AREA_PRECISIONS or not isinstance(l.get("geo_source"), str):
                 errs.append(f"{lid}: bad geo_precision/geo_source")
         for im in l.get("images", []):
             if "image_type" in im:
@@ -1097,14 +1101,44 @@ def apply_sheet_wins(listings, sites):
 
 def archive_privacy(listings):
     """The Archive's hard privacy rule (scouting_notes.md): a TOWN-precision row never publishes an exact pin, a street
-    address or photos of the house. Rows flagged private_home must be town precision. Returns (sanitised count, errors)."""
+    address or photos of the house. Rows flagged private_home must be town or neighborhood precision.
+    NEIGHBORHOOD / TOWNSHIP rows (2026-11-27) carry a precomputed public center (independent random offset chosen once on the
+    box, never derived from the public id) plus circle_mi (circle width in miles: rural 0.5, in-town 0.25) and an area label;
+    township rows may also carry area_outline (simplified OSM boundary). Their centers are NOT rounded (rounding a 0.25 mi
+    circle to a ~1 km grid would move it off the home). Returns (sanitised count, errors)."""
     errs, n = [], 0
     for l in listings:
         if l.get("collection") != "archive":
             continue
+        if l.get("geo_precision") in AREA_PRECISIONS:
+            n += 1
+            lid = l["id"]
+            cm = l.get("circle_mi")
+            if not isinstance(cm, (int, float)) or not (0.1 <= cm <= 15):
+                errs.append(f"{lid}: {l['geo_precision']}-precision Archive row needs circle_mi (circle width in miles, 0.1-15)")
+                cm = None
+            if "lat" not in l:
+                errs.append(f"{lid}: {l['geo_precision']}-precision Archive row needs its precomputed public center (lat/lon)")
+            if not str(l.get("area") or "").strip():
+                errs.append(f"{lid}: {l['geo_precision']}-precision Archive row needs an area label")
+            if l["id"] in PRIVATE_HOME_IDS and l["geo_precision"] != "neighborhood":
+                errs.append(f"{lid}: a private home is published at neighborhood (or town) precision, not {l['geo_precision']!r}")
+            if l["id"] in PRIVATE_HOME_IDS:
+                l["privateHome"] = True
+            l["address"] = l["place"]
+            l["images"] = []
+            l["url"] = ""
+            if cm:
+                l["radiusM"] = round(cm * 1609.344 / 2, 1)
+            if "lat" in l:
+                l["lat"], l["lon"] = round(l["lat"], 6), round(l["lon"], 6)
+                l["geo_source"] = ("Whole-township area (center is not the site; Archive privacy rule)" if l["geo_precision"] == "township"
+                                   else "Neighborhood circle (offset center, not the house; Archive privacy rule)")
+            continue
+        l.pop("area_outline", None); l.pop("circle_mi", None)
         town = l.get("geo_precision") == "town"
         if l["id"] in PRIVATE_HOME_IDS and not town and "lat" in l:
-            errs.append(f"{l['id']}: private home on the Archive must have Geo Precision 'town' (has {l.get('geo_precision')!r})")
+            errs.append(f"{l['id']}: private home on the Archive must have Geo Precision 'town' or 'neighborhood' (has {l.get('geo_precision')!r})")
         if l["id"] in PRIVATE_HOME_IDS and not town:
             town = True   # no coordinates at all: still treated as a private home below (no address, no photos)
         if not town:
@@ -1140,6 +1174,24 @@ def archive_errs(listings):
                 for k, t in MEDIA_KEYS.items():
                     if k in m and not isinstance(m[k], t):
                         errs.append(f"{lid}: media[{i}].{k} wrong type")
+        if arch and l.get("geo_precision") in AREA_PRECISIONS:
+            if l.get("address") != l.get("place") or re.match(r"\s*\d", l.get("address", "")):
+                errs.append(f"{lid}: area-only Archive row must publish only the place as its address")
+            if l.get("images") or l.get("url"):
+                errs.append(f"{lid}: area-only Archive row must not carry photos or a link")
+            if not isinstance(l.get("radiusM"), (int, float)) or l["radiusM"] <= 0:
+                errs.append(f"{lid}: area-only Archive row needs radiusM (from circle_mi)")
+            ao = l.get("area_outline")
+            if ao is not None:
+                ring = (ao.get("coordinates") or [[]])[0] if isinstance(ao, dict) else []
+                if not (isinstance(ao, dict) and ao.get("type") == "Polygon" and len(ring) >= 4 and ring[0] == ring[-1]
+                        and all(isinstance(p, list) and len(p) == 2 and in_us(p[1], p[0]) for p in ring) and len(ring) <= 400):
+                    errs.append(f"{lid}: area_outline must be a closed GeoJSON Polygon (lon, lat) of at most 400 points")
+                elif set(ao) - {"type", "coordinates", "source", "osm_relation", "name"}:
+                    errs.append(f"{lid}: area_outline has unexpected keys {sorted(set(ao) - {'type', 'coordinates', 'source', 'osm_relation', 'name'})}")
+            blob = json.dumps({k: v for k, v in l.items() if k in ("name", "address", "place", "area", "summary", "loreTeaser", "facts", "media")}, ensure_ascii=False)
+            if STREET_RE.search(blob):
+                errs.append(f"{lid}: area-only Archive row has a street address in its public text: {STREET_RE.search(blob).group(0)!r}")
         if arch and l.get("geo_precision") == "town":
             if re.match(r"\s*\d", l.get("address", "")) or l.get("address") != l.get("place"):
                 errs.append(f"{lid}: town-precision Archive row must publish only the town as its address")

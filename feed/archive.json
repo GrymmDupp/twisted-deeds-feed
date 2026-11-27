@@ -1,7 +1,7 @@
 {
- "version": 4,
+ "version": 5,
  "schema_version": 3,
- "generated_at": "2026-11-27T20:21:15Z",
+ "generated_at": "2026-11-27T20:26:45Z",
  "geo_attribution": "Geocoding: OpenStreetMap Nominatim, (c) OpenStreetMap contributors, ODbL",
  "enums_ext": {
   "grade": [
@@ -144,12 +144,12 @@
    }
   ]
  },
- "count": 60,
+ "count": 64,
  "collection": "archive",
  "feed_url": "https://grymmdupp.github.io/twisted-deeds-feed/feed/archive.json",
  "core_feed_url": "https://grymmdupp.github.io/twisted-deeds-feed/feed/listings.json",
- "source": "Twisted Deeds ARCHIVE shelf, FREE PREVIEW LAYER ONLY. Verified dark-history places that are NOT for sale. Town-precision rows carry no street address or exact pin. Published by scripts/publish_archive.py.",
- "content_hash": "ab0b7927c70c606303bdae764636076d300f72b69395c04a22c2cf2c8dfcbdee",
+ "source": "Twisted Deeds ARCHIVE shelf, FREE PREVIEW LAYER ONLY. Verified dark-history places that are NOT for sale. Town-precision rows carry no street address or exact pin; neighborhood/township rows are an area (offset center + circle_mi or outline), never the site. Published by scripts/publish_archive.py.",
+ "content_hash": "4d75fbfe948c62c2112937577d00fd70f9b469f932dfcb5d5157cbec0b8df926",
  "listings": [
   {
    "id": "moon-river-brewing-company",
@@ -3671,6 +3671,176 @@
    "collection": "archive",
    "shelf": "archive",
    "roadOnly": true
+  },
+  {
+   "id": "clarendon-house-west-of-homer",
+   "name": "Abandoned house west of Homer",
+   "grade": "story",
+   "layer": "blight",
+   "kind": "house",
+   "tier": 2,
+   "storyCategory": "long-vacant",
+   "address": "Clarendon Township, Calhoun County, MI",
+   "place": "Clarendon Township, Calhoun County, MI",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "An abandoned house stands in rural Clarendon Township, west of Homer. No published history for the property has been found yet.",
+   "facts": "",
+   "loreTeaser": "An abandoned house west of Homer. Its story is still unwritten.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-21",
+   "lastChecked": "2026-11-21",
+   "dossier": false,
+   "lore": true,
+   "lat": 42.151692,
+   "lon": -84.846429,
+   "geo_precision": "neighborhood",
+   "geo_source": "Neighborhood circle (offset center, not the house; Archive privacy rule)",
+   "collection": "archive",
+   "shelf": "archive",
+   "roadOnly": true,
+   "area": "Clarendon Township, west of Homer",
+   "circle_mi": 0.5,
+   "storyStatus": "unwritten",
+   "privateHome": true,
+   "radiusM": 402.3
+  },
+  {
+   "id": "crouch-farm-spring-arbor",
+   "name": "Crouch farm (1883 murders)",
+   "grade": "story",
+   "layer": "mayhem",
+   "kind": "house",
+   "tier": 2,
+   "storyCategory": "heritage",
+   "address": "Spring Arbor Township, Jackson County, MI",
+   "place": "Spring Arbor Township, Jackson County, MI",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "Four people were shot to death in their beds at a Spring Arbor Township farmhouse on November 22, 1883: Jacob Crouch, his pregnant daughter Eunice White, her husband Henry White, and visitor Moses Polley. No one was convicted.",
+   "facts": "",
+   "loreTeaser": "Jackson County's most infamous unsolved murders, later wrapped in a cemetery legend that the victims still meet.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-21",
+   "lastChecked": "2026-11-21",
+   "dossier": false,
+   "lore": true,
+   "lat": 42.182063,
+   "lon": -84.482903,
+   "geo_precision": "neighborhood",
+   "geo_source": "Neighborhood circle (offset center, not the house; Archive privacy rule)",
+   "collection": "archive",
+   "shelf": "archive",
+   "roadOnly": true,
+   "area": "eastern Spring Arbor Township, northeast of Horton",
+   "circle_mi": 0.5,
+   "privateHome": true,
+   "radiusM": 402.3
+  },
+  {
+   "id": "mary-latimer-murder-jackson",
+   "name": "Mary Latimer murder (Jackson)",
+   "grade": "story",
+   "layer": "mayhem",
+   "kind": "house",
+   "tier": 2,
+   "storyCategory": "heritage",
+   "address": "Jackson, Jackson County, MI",
+   "place": "Jackson, Jackson County, MI",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "In January 1889, Mary Latimer was found shot to death in her Jackson home. Her son, Robert Irving Latimer, was convicted of the murder and sentenced to life in the state prison.",
+   "facts": "",
+   "loreTeaser": "A notorious 1889 Jackson matricide that ended in a life sentence at the old state prison. Private homes nearby; view from the street only.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-21",
+   "lastChecked": "2026-11-21",
+   "dossier": false,
+   "lore": true,
+   "lat": 42.242216,
+   "lon": -84.413087,
+   "geo_precision": "neighborhood",
+   "geo_source": "Neighborhood circle (offset center, not the house; Archive privacy rule)",
+   "collection": "archive",
+   "shelf": "archive",
+   "roadOnly": true,
+   "area": "west side of Jackson, south of West Michigan Avenue",
+   "circle_mi": 0.25,
+   "privateHome": true,
+   "radiusM": 201.2
+  },
+  {
+   "id": "deborah-greene-murder-liberty",
+   "name": "Deborah Greene murder (Liberty Township)",
+   "grade": "story",
+   "layer": "mayhem",
+   "kind": "house",
+   "tier": 2,
+   "storyCategory": "heritage",
+   "address": "Liberty Township, Jackson County, MI",
+   "place": "Liberty Township, Jackson County, MI",
+   "price": "Not for sale",
+   "status": "Archive",
+   "url": "",
+   "summary": "On January 22, 1878, Deborah Green, an aged widow, was murdered in her home in Liberty Township. An inquest blamed a person or persons unknown. A man was later tried, but the jury could not agree and the case was dropped.",
+   "facts": "",
+   "loreTeaser": "An unsolved 1878 murder somewhere in Liberty Township. The house site is unknown, so the whole township is shown. Private land; view from public roads only.",
+   "images": [],
+   "priority": 20,
+   "logged": "2026-11-27",
+   "lastChecked": "2026-11-27",
+   "dossier": false,
+   "lore": true,
+   "lat": 42.116901,
+   "lon": -84.421457,
+   "geo_precision": "township",
+   "geo_source": "Whole-township area (center is not the site; Archive privacy rule)",
+   "collection": "archive",
+   "shelf": "archive",
+   "roadOnly": true,
+   "area": "Liberty Township (whole township; exact site unknown)",
+   "circle_mi": 6.0,
+   "area_outline": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -84.48047,
+       42.16013
+      ],
+      [
+       -84.47784,
+       42.07285
+      ],
+      [
+       -84.36339,
+       42.07347
+      ],
+      [
+       -84.36395,
+       42.14617
+      ],
+      [
+       -84.36421,
+       42.16068
+      ],
+      [
+       -84.48047,
+       42.16013
+      ]
+     ]
+    ],
+    "source": "OpenStreetMap administrative boundary",
+    "osm_relation": 10168065,
+    "name": "Liberty Township, Jackson County, Michigan"
+   },
+   "radiusM": 4828.0
   }
  ]
 }

@@ -25,11 +25,19 @@ because the row must also leave `listings.json`; `publish_archive.py` refuses an
 
 ## What the publisher enforces on Archive rows (publish fails, nothing written)
 - 2+ https sources, at least 1 `written`; an episode alone never qualifies; `location_confirmed_by` is required (staging path)
+  (exception: `story_status: "unwritten"` rows make no historical claim and need only one written location source, URL optional)
 - status `Archive` or `Sold`; price/link may be blank (shown as "Not for sale" / "Sold")
 - `media[]` = `{show, network, season, episode, title, year, url}` credit only; https link to where to watch; no listing-portal or MLS URL
 - **town-precision / `private_home` rows:** public address = the town only, coordinates rounded to 2 decimals (~1 km), no photos, no listing link,
-  no street address anywhere in the public text (regex backstop). A `private_home` row with any precision other than `town` is refused.
+  no street address anywhere in the public text (regex backstop). A `private_home` row at any precision other than `town` or `neighborhood` is refused.
   The app draws a dashed town-area circle, never a pin, and also re-applies this rule in the browser.
+- **neighborhood / township rows (2026-11-27):** `lat`/`lon` are a PRECOMPUTED public center (independent random offset chosen once
+  on the box, never derived from the id), shipped unrounded with `circle_mi` (circle width: rural 0.5, in-town 0.25), `radiusM`
+  (= circle_mi / 2 in metres), `area` (label) and, for townships, `area_outline` (simplified GeoJSON Polygon from OSM; circle_mi is the
+  fallback). Address = place, no photos, no link, street-address regex backstop. `private_home` is allowed at `town` or `neighborhood`
+  only; `neighborhood` is for private homes. The publisher refuses a neighborhood row unless its private true point (in `scout_notes`
+  after "TRUE COORDINATES"/"private only", or `true_lat`/`true_lon`) is inside the circle and at least 25 m from the published center,
+  and fails if any true point appears in the shipped JSON. The app draws a circle or outline, never a pin.
 - the usual MLS, "Triple-D", locked-text and public-key allow-list checks
 
 ## Row data (Master Sheet path)
