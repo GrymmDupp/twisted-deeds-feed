@@ -376,13 +376,6 @@
   "display": "Calvary Chapel, 564, South 800 East, Clearfield, Davis County, Utah, 84015, United States"
  },
  "q:5730 schuss mountain rd, bellaire, mi 49615": null,
- "q:585 w main st, wytheville, va 24382": {
-  "lat": 36.9464057,
-  "lon": -81.0878504,
-  "house": true,
-  "type": "place/house",
-  "display": "585, West Main Street, Wytheville, Wythe County, Virginia, 24382, United States"
- },
  "q:627 jefferson ave se, grand rapids, mi 49503": {
   "lat": 42.950828,
   "lon": -85.664111,

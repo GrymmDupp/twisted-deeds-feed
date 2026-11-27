@@ -1,7 +1,7 @@
 {
   "source": "Field Desk built-in listings (array D) extracted from https://twisteddeeds.grok.me/assets/routes-Dz-GLhHZ.js",
   "extracted_at": "2026-10-23T16:40:58.814Z",
-  "count": 94,
+  "count": 93,
   "enums": {
     "kind": [
       {
@@ -1430,40 +1430,6 @@
         }
       ],
       "priority": 66,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": true
-    },
-    {
-      "id": "octagon-mansion",
-      "name": "Octagon Mansion",
-      "grade": "sovereign",
-      "layer": "spectral",
-      "kind": "house",
-      "lane": "attraction",
-      "address": "585 W Main St, Wytheville, VA 24382",
-      "place": "Wytheville, Wythe County, VA",
-      "price": "$295,000",
-      "status": "Pending",
-      "url": "https://www.coldwellbanker.com/va/wytheville/585-w-main-st/lid-P00800000HCr8mSlTPXsoBgC48GgCs1HkGyCnk9X",
-      "hook": "An 1870 octagon house. The haunting is the museum's ghost dinners, not a death file.",
-      "story": "Built in 1870. It sat empty for about a decade, then John Cushman ran it as the Octagon Mansion History Museum and hosted Dinner with a Ghost nights. The museum closed in March 2025. Fox Business and Realtor.com called that a haunted reputation. This pass found no coroner record and no investigated death at the address.",
-      "history": "Coldwell Banker still showed it Pending at $295,000, last updated 26 Jul 2026. About 5,000 square feet, 6 bedrooms, half an acre, B-2 zoning, vacant. MLS 110654. Agent Ryan Cummins, KW Wytheville. Recheck. A pending file from July can already have closed.",
-      "citation": "Coldwell Banker, MLS 110654, updated 26 Jul 2026. Fox Business, 28 Jun 2026.",
-      "notes": "Pending. Do not sell the ghost dinners as a haunting.",
-      "facts": "Built 1870 · 6 bedrooms · pending since July",
-      "images": [
-        {
-          "id": "octagon-cb",
-          "era": "current",
-          "caption": "Coldwell Banker listing. Reference only.",
-          "source": "Coldwell Banker",
-          "page": "https://www.coldwellbanker.com/va/wytheville/585-w-main-st/lid-P00800000HCr8mSlTPXsoBgC48GgCs1HkGyCnk9X",
-          "rights": "reference"
-        }
-      ],
-      "priority": 74,
       "logged": "2026-10-23",
       "lastChecked": "2026-10-23",
       "dossier": true,
