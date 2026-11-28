@@ -1,7 +1,7 @@
 {
   "source": "Field Desk built-in listings (array D) extracted from https://twisteddeeds.grok.me/assets/routes-Dz-GLhHZ.js",
   "extracted_at": "2026-10-23T16:40:58.814Z",
-  "count": 89,
+  "count": 74,
   "enums": {
     "kind": [
       {
@@ -470,80 +470,6 @@
       "lore": true
     },
     {
-      "id": "eight-mile-club",
-      "name": "Former Penthouse Club",
-      "grade": "sovereign",
-      "layer": "vice",
-      "kind": "commercial",
-      "address": "20771 Eight Mile Rd, Detroit, MI 48219",
-      "place": "Detroit, Wayne County, MI",
-      "price": "$2,495,000",
-      "status": "Active",
-      "url": "https://www.commercialcafe.com/commercial-property/us/mi/detroit/former-adult-entertainment-club/",
-      "hook": "Closed Eight Mile adult club, sold with a liquor license and a cabaret license. Vice file, not a historic brothel.",
-      "story": "The broker is selling the former adult-entertainment venue on West Eight Mile as a turnkey nightclub or event space. The package includes the business, a liquor license, and a cabaret license. Yelp still lists the address as the Penthouse Club and marks it closed. The seller bought it in 2020 and put about $400,000 into bars, booths, and televisions without a full renovation.",
-      "history": "Two stories, about 8,736 square feet, 0.24 acres in the listing, with the broker also describing two lots and about 575 feet of frontage. Asking $2,495,000. CommercialCafe dated the page 12 Oct 2026 and still marked it for sale. Broker Brandon Kassab, Encore Real Estate. This is a modern cabaret, not a 19th-century brothel.",
-      "citation": "CommercialCafe, date updated 12 Oct 2026. Yelp page for Penthouse Club, 20771 Eight Mile Rd, marked closed.",
-      "notes": "High-ticket vice referral. Confirm both licenses are actually transferable before you talk a fee.",
-      "facts": "8,736 sf · cabaret license · liquor license",
-      "images": [
-        {
-          "id": "eight-mile-cafe",
-          "era": "current",
-          "caption": "Broker photo on the commercial listing. Reference only.",
-          "source": "CommercialCafe",
-          "page": "https://www.commercialcafe.com/commercial-property/us/mi/detroit/former-adult-entertainment-club/",
-          "rights": "reference"
-        }
-      ],
-      "priority": 74,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": true
-    },
-    {
-      "id": "cbrown-funeral",
-      "name": "C. Brown Funeral Home",
-      "grade": "sovereign",
-      "layer": "mortuary",
-      "kind": "commercial",
-      "address": "1629 Nebraska Ave, Toledo, OH 43607",
-      "place": "Toledo, Lucas County, OH",
-      "price": "$299,000",
-      "status": "Active",
-      "url": "https://www.crexi.com/properties/2242223/ohio-former-c-brown-funeral-home",
-      "hook": "Former funeral home with a coffin elevator, flower room, and a casket room in the basement. An older flyer asked $350,000. Crexi now shows $299,000.",
-      "story": "The building worked as a funeral home, with room for about 150 to 200 people on the first floor and 50 more upstairs. The broker cites a historical average of 175 services a year. The basement holds a casket showroom and a coffin elevator to the second floor. A vacant house next door, in poor condition, comes with an oversized two-car garage. A 1957 auditor block card also ties this address to the Sujkowski Funeral Home.",
-      "history": "Built 1953, about 4,906 square feet, two stories, roughly 1.45 acres across several parcels, 42 parking spaces. Crexi still marked it for sale at $299,000 on 23 Oct 2026 and said the page had been updated 11 days earlier. Signature Associates, Rob Keleghan and Keenan Fields. An older flyer listed $350,000. Recheck the price before a video.",
-      "citation": "Crexi listing 2242223, checked 23 Oct 2026. Signature Associates flyer. Toledo library auditor card, 1957, Sujkowski Funeral Home.",
-      "notes": "Cheapest Ohio mortuary row. The price on the flyer and the price on Crexi do not match.",
-      "facts": "4,906 sf · built 1953 · coffin elevator · 1.45 acres",
-      "images": [
-        {
-          "id": "cbrown-crexi",
-          "era": "current",
-          "caption": "Crexi gallery, about 16 photos. Reference only.",
-          "source": "Crexi / Signature Associates",
-          "page": "https://www.crexi.com/properties/2242223/ohio-former-c-brown-funeral-home",
-          "rights": "reference"
-        },
-        {
-          "id": "cbrown-card",
-          "era": "historic",
-          "caption": "1957 auditor block card. Library scan, not cleared for the edit.",
-          "source": "Toledo Lucas County Public Library",
-          "page": "https://ohiomemory.org/digital/collection/p16007coll88/id/77256/",
-          "rights": "reference"
-        }
-      ],
-      "priority": 64,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": true
-    },
-    {
       "id": "eloise-complex",
       "name": "Eloise Complex",
       "grade": "diseased",
@@ -572,39 +498,6 @@
         }
       ],
       "priority": 92,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": true
-    },
-    {
-      "id": "bunny-ranch",
-      "name": "Bunny Ranch Legacy Portfolio",
-      "grade": "sovereign",
-      "layer": "vice",
-      "kind": "commercial",
-      "address": "Mound House, Lyon County, NV",
-      "place": "Mound House, Lyon County, NV",
-      "price": "$33,900,000",
-      "status": "Active",
-      "url": "https://www.rgj.com/story/news/money/business/2026/09/04/moonlite-bunny-ranch-sale-dennis-hof/91600354007/",
-      "hook": "HBO's Cathouse brothels, sold as one portfolio. Dennis Hof died at the Love Ranch house in 2018.",
-      "story": "The package is the Moonlite Bunny Ranch, the Sagebrush Ranch, and the Love Ranch, plus other Lyon County parcels. Moonlite was the set of HBO's Cathouse. Dennis Hof died at Love Ranch in October 2018. The Reno Gazette Journal and Carson Now both reported the offering on 3–4 Sep 2026.",
-      "history": "Asking price $33,900,000 for 11 parcels, about 49.79 acres, four licensed businesses, furniture, vehicles, and the trade names. Broker Bob Fredlund, Coldwell Banker Select. Financials sit behind a nondisclosure agreement, so there is no public street-level listing page. Recheck before a referral. The street address is not on the public write-ups.",
-      "citation": "Reno Gazette Journal, 4 Sep 2026. Carson Now, 3 Sep 2026. ASN Hub, 3 Sep 2026.",
-      "notes": "Strongest vice file in the country. The book is confidential. Do not quote a street number that is not on the public page.",
-      "facts": "11 parcels · HBO Cathouse · Hof death 2018",
-      "images": [
-        {
-          "id": "bunny-rgj",
-          "era": "current",
-          "caption": "News report of the offering. No public photo set.",
-          "source": "Reno Gazette Journal",
-          "page": "https://www.rgj.com/story/news/money/business/2026/09/04/moonlite-bunny-ranch-sale-dennis-hof/91600354007/",
-          "rights": "reference"
-        }
-      ],
-      "priority": 90,
       "logged": "2026-10-23",
       "lastChecked": "2026-10-23",
       "dossier": true,
@@ -746,39 +639,6 @@
       "lore": true
     },
     {
-      "id": "houston-funeral",
-      "name": "Montgomery Road Funeral Home",
-      "grade": "death",
-      "layer": "mortuary",
-      "kind": "commercial",
-      "address": "8011 W Montgomery Rd, Houston, TX 77088",
-      "place": "Houston, Harris County, TX",
-      "price": "$1,400,000",
-      "status": "Active",
-      "url": "https://www.commercialcafe.com/commercial-property/us/tx/houston/8011-w-montgomery-premium-funeral-home-property-redevelopmnt/",
-      "hook": "Funeral home on an acre and a half in Houston, marketed for reuse or another operator.",
-      "story": "The broker page calls it an established funeral home with the chapel infrastructure still in place. No famous case is attached. The death file is the use itself.",
-      "history": "CommercialCafe updated 9 Oct 2026. Asking $1,400,000. About 6,039 square feet on 1.51 acres, built 1980. The copy also pitches redevelopment.",
-      "citation": "CommercialCafe, date updated 9 Oct 2026.",
-      "notes": "Investment angle is reuse. The mortuary file is why it is here.",
-      "facts": "6,039 sf · 1.51 acres · built 1980",
-      "images": [
-        {
-          "id": "houston-cafe",
-          "era": "current",
-          "caption": "Broker page. Reference only.",
-          "source": "CommercialCafe",
-          "page": "https://www.commercialcafe.com/commercial-property/us/tx/houston/8011-w-montgomery-premium-funeral-home-property-redevelopmnt/",
-          "rights": "reference"
-        }
-      ],
-      "priority": 50,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": true
-    },
-    {
       "id": "dundalk-funeral",
       "name": "Willow Spring Funeral Home",
       "grade": "death",
@@ -840,40 +700,6 @@
         }
       ],
       "priority": 51,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": true
-    },
-    {
-      "id": "pelham-jail",
-      "name": "Old Pelham Jail",
-      "grade": "sovereign",
-      "layer": "mayhem",
-      "kind": "commercial",
-      "lane": "institution",
-      "address": "159 Matthewson Rd SW, Pelham, GA 31779",
-      "place": "Pelham, Mitchell County, GA",
-      "price": "$20,000",
-      "status": "Active",
-      "url": "https://www.jromerogroup.com/properties/ga/historic-1920-jail-in-old-pelham-ga-unique-opportunity/1124411/",
-      "hook": "1920 brick jail with the iron-barred cells still in it.",
-      "story": "The broker page calls it the old city jail, built in 1920, with original cells and doors. No named prisoner story is on that page. The file is the jail itself.",
-      "history": "J. Romero Group lists 159 Matthewson Road SW at $20,000, 0.32 acres, MLS 10091-15901. The page says for sale. It does not show a refresh date, so recheck before a referral. Agent Jesse Romero.",
-      "citation": "J. Romero Group, MLS 10091-15901.",
-      "notes": "Cheap, and the page may be older than it looks. Confirm it is unsold.",
-      "facts": "Built 1920 · 0.32 acres · cells intact",
-      "images": [
-        {
-          "id": "pelham-broker",
-          "era": "current",
-          "caption": "Broker page. Reference only.",
-          "source": "J. Romero Group",
-          "page": "https://www.jromerogroup.com/properties/ga/historic-1920-jail-in-old-pelham-ga-unique-opportunity/1124411/",
-          "rights": "reference"
-        }
-      ],
-      "priority": 60,
       "logged": "2026-10-23",
       "lastChecked": "2026-10-23",
       "dossier": true,
@@ -1123,41 +949,6 @@
       "lore": false
     },
     {
-      "id": "pinckney-inn",
-      "name": "Pinckney Inn",
-      "grade": "sovereign",
-      "layer": "record",
-      "significance": "local",
-      "kind": "house",
-      "bargain": true,
-      "address": "110 Pinckney St, Chester, SC 29706",
-      "place": "Chester, Chester County, SC",
-      "price": "$99,000",
-      "status": "Active",
-      "url": "https://www.zillow.com/homedetails/110-Pinckney-St-Chester-SC-29706/70215748_zpid/",
-      "hook": "An 1848 house, about 3,300 square feet, for $99,000. You buy the house. The price is the warning.",
-      "story": "Built in 1848 for Chester's first mayor. The owner listing calls it the former Pinckney Inn and the McClure home, with six fireplaces and more than 14 rooms. Zillow shows a $60,000 cut on 13 Oct, down from $159,000, to $30 a square foot. That is the something-wrong price. No murder or haunting turned up.",
-      "history": "For sale by owner. Zillow and Trulia still show $99,000. About 3,300 square feet, 4 bedrooms, 4 baths, 0.93 acres. Furnace and foundation work in 2014. The seller wants a texted driver's license and a lender prequalification. The listing says it sits in Chester's historic district, so exterior changes can need review. That is the only string on the page. It is not a business sale.",
-      "citation": "Zillow, price cut 13 Oct 2026. Trulia, for sale by owner. Old Houses Under $100K, 17 Oct 2026.",
-      "notes": "Too-cheap lane. Recheck the FSBO before anyone drives. Do not invent a ghost.",
-      "facts": "$30 a square foot · cut from $159,000 · FSBO",
-      "images": [
-        {
-          "id": "pinckney-zillow",
-          "era": "current",
-          "caption": "Owner listing. Reference only.",
-          "source": "Zillow",
-          "page": "https://www.zillow.com/homedetails/110-Pinckney-St-Chester-SC-29706/70215748_zpid/",
-          "rights": "reference"
-        }
-      ],
-      "priority": 68,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": false
-    },
-    {
       "id": "ridge-italianate",
       "name": "Ridge Avenue Italianate",
       "grade": "sovereign",
@@ -1333,41 +1124,6 @@
       "lore": false
     },
     {
-      "id": "st-mark-evanston",
-      "name": "St. Mark Church",
-      "grade": "sovereign",
-      "layer": "record",
-      "kind": "commercial",
-      "ground": "church",
-      "address": "3500 Montgomery Rd, Cincinnati, OH 45207",
-      "place": "Cincinnati, Hamilton County, OH",
-      "price": "$150,000 opening",
-      "status": "Active",
-      "url": "https://hoodline.com/2026/10/historic-evanston-church-hits-auction-block-after-21-8m-revival-stalls/",
-      "photo": "https://img.hoodline.com/2026/10/historic-evanston-church-hits-auction-block-after-21-8m-revival-stalls.webp",
-      "hook": "A 110-year-old Catholic church going to auction. No cemetery in the sale story.",
-      "story": "Former St. Mark Catholic Church in Evanston. The complex is the sanctuary, a 130-foot bell tower, a rectory, and a bridge between the buildings. Neighbors fought a demolition. A $21.8 million reuse stalled after a $2 million state tax credit. The news story does not mention a graveyard.",
-      "history": "Crexi auction scheduled 26 Oct through 28 Oct 2026. Opening bid $150,000. Reserve was not published. About 47,534 square feet on 2.4 acres. Kingsley and Co. bought it from the Archdiocese for $650,000 in December 2022. Astonish Commercial is running the auction. The opening bid is not the price.",
-      "citation": "Hoodline, 19 Oct 2026, citing the Cincinnati Business Courier and the Cincinnati Enquirer.",
-      "notes": "Auction. Confirm the reserve before a referral.",
-      "facts": "Auction 26–28 Oct · opening $150,000 · no cemetery named",
-      "images": [
-        {
-          "id": "st-mark-news",
-          "era": "current",
-          "caption": "Auction story. Reference only.",
-          "source": "Hoodline",
-          "page": "https://hoodline.com/2026/10/historic-evanston-church-hits-auction-block-after-21-8m-revival-stalls/",
-          "rights": "reference"
-        }
-      ],
-      "priority": 70,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": false
-    },
-    {
       "id": "mulberry-cemetery",
       "name": "Mulberry River Cemetery Tract",
       "grade": "death",
@@ -1401,39 +1157,6 @@
       "lastChecked": "2026-10-23",
       "dossier": true,
       "lore": true
-    },
-    {
-      "id": "corunna-funeral",
-      "name": "Corunna Former Funeral Home",
-      "grade": "sovereign",
-      "layer": "mortuary",
-      "kind": "commercial",
-      "address": "302 W Corunna Ave, Corunna, MI 48817",
-      "place": "Corunna, Shiawassee County, MI",
-      "price": "$359,900",
-      "status": "Active",
-      "url": "https://www.showcase.com/302-w-corunna-ave-corunna-mi-48817/26846968/",
-      "hook": "A former funeral home. The deed says it cannot be a funeral home again.",
-      "story": "Showcase still describes it as a former funeral home for sale, with a lobby, a room that can be divided, a basement office, and an attached garage. The same page says a deed restriction bars running it as a funeral home. No murder or haunting turned up for the address.",
-      "history": "Asking $359,900. About 7,744 square feet, built 1973, roughly two-thirds of an acre. Agent Ryan Calhoun, Woodworth Commercial, 989-723-3711. This pass did not find an October date on the page. Recheck before a referral.",
-      "citation": "Showcase, listing 26846968. Cityfeet carries the same ask.",
-      "notes": "Funeral building with a deed string. Recheck the ask.",
-      "facts": "Built 1973 · 7,744 sf · cannot reopen as a funeral home",
-      "images": [
-        {
-          "id": "corunna-showcase",
-          "era": "current",
-          "caption": "Broker listing. Reference only.",
-          "source": "Showcase",
-          "page": "https://www.showcase.com/302-w-corunna-ave-corunna-mi-48817/26846968/",
-          "rights": "reference"
-        }
-      ],
-      "priority": 64,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": false
     },
     {
       "id": "marcola-school",
@@ -2328,39 +2051,6 @@
       "lore": false
     },
     {
-      "id": "fairfield-funeral",
-      "name": "Lloyd Noland Funeral Building",
-      "grade": "death",
-      "layer": "mortuary",
-      "kind": "commercial",
-      "address": "4009 Lloyd Noland Pkwy, Fairfield, AL 35064",
-      "place": "Fairfield, Jefferson County, AL",
-      "price": "$335,000",
-      "status": "Active",
-      "url": "https://realmo.com/listing/4009-lloyd-noland-pkwy-fairfield-al-35064/20194090",
-      "hook": "A former funeral home on six-tenths of an acre. The building is the sale. The book of business is not.",
-      "story": "Realmo says the 3,300-square-foot building formerly operated as a funeral home. About 0.60 acres, near the interstate in Fairfield. No chapel name, no death file, and no claim that a funeral is still being held here.",
-      "history": "MLS 11651739. Realmo last checked the page 18 Oct 2026 and still showed Active at $335,000. Listed by Mark Mizell, MARMAC Commercial. Added 9 Feb 2026, changed 8 Oct 2026. About 251 days on market when that page was read.",
-      "citation": "Realmo, MLS 11651739, last checked 18 Oct 2026.",
-      "notes": "Alabama. Recheck before a call. Listing photos are reference only.",
-      "facts": "3,300 sf · 0.60 acres · former funeral home",
-      "images": [
-        {
-          "id": "fairfield-realmo",
-          "era": "current",
-          "caption": "Commercial listing. Reference only.",
-          "source": "Realmo / My State MLS",
-          "page": "https://realmo.com/listing/4009-lloyd-noland-pkwy-fairfield-al-35064/20194090",
-          "rights": "reference"
-        }
-      ],
-      "priority": 70,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": false
-    },
-    {
       "id": "gardendale-churchyard",
       "name": "Friendship Church and Cemetery",
       "grade": "sovereign",
@@ -2632,72 +2322,6 @@
         }
       ],
       "priority": 77,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": false
-    },
-    {
-      "id": "chesterfield-crematory",
-      "name": "Newcomer's West County",
-      "grade": "death",
-      "layer": "mortuary",
-      "kind": "commercial",
-      "address": "2211 Clarkson Rd, Chesterfield, MO 63017",
-      "place": "Chesterfield, St. Louis County, MO",
-      "price": "$3,200,000",
-      "status": "Active",
-      "url": "https://www.cimls.com/sale-listing/1197153/multiuse-2211-clarkson-road-Chesterfield-MO",
-      "hook": "A funeral home with a permitted crematory. The business does not come with the building.",
-      "story": "CIMLS says the building most recently operated as Newcomer's West County funeral home and includes a permitted on-site crematory. About 26,748 square feet on 3.26 acres, built 1994. The going concern, death calls, and preneed accounts do not convey. Real estate only.",
-      "history": "CIMLS 1197153, updated 29 Sep 2026, still priced at $3,200,000. Agent Ben Cherry, Manor Real Estate. That page is three and a half weeks old. Recheck before a call.",
-      "citation": "CIMLS, updated 29 Sep 2026.",
-      "notes": "Missouri. The crematory permit is the point. Confirm it is still in force.",
-      "facts": "26,748 sf · 3.26 acres · crematory",
-      "images": [
-        {
-          "id": "chesterfield-cimls",
-          "era": "current",
-          "caption": "Commercial listing. Reference only.",
-          "source": "CIMLS",
-          "page": "https://www.cimls.com/sale-listing/1197153/multiuse-2211-clarkson-road-Chesterfield-MO",
-          "rights": "reference"
-        }
-      ],
-      "priority": 75,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": false
-    },
-    {
-      "id": "woodville-chapel",
-      "name": "Woodville Chapel",
-      "grade": "death",
-      "layer": "mortuary",
-      "kind": "commercial",
-      "address": "504 Main St, Woodville, MS 39669",
-      "place": "Woodville, Wilkinson County, MS",
-      "price": "$149,000",
-      "status": "Active",
-      "url": "https://www.ezhomesearch.com/propertydetails/us/ms/woodville/504-main-street-39669/4124186/",
-      "hook": "A working funeral chapel from about 1900, still written as Active. The page is five weeks old.",
-      "story": "The listing calls it a preserved funeral home on a downtown corner. Original chapel about 1900, with cathedral ceilings, arched windows, and pews. Later offices, a lounge, and two restrooms bring it to about 3,026 square feet. A lower level could be a hall. It says the building can stay a funeral home or become a chapel or event room. No death outside the trade is described.",
-      "history": "MLS 4124186. ez Home Search, page dated 14 Sep 2026, status Active at $149,000. Agent Leighton Netterville, Murray Land & Homes. Recheck. That is the last public page on file.",
-      "citation": "ez Home Search, MLS 4124186, page dated 14 Sep 2026.",
-      "notes": "Mississippi. Treat as needs a fresh check before anyone drives.",
-      "facts": "3,026 sf · chapel circa 1900",
-      "images": [
-        {
-          "id": "woodville-mls",
-          "era": "current",
-          "caption": "Listing page. Reference only.",
-          "source": "ez Home Search",
-          "page": "https://www.ezhomesearch.com/propertydetails/us/ms/woodville/504-main-street-39669/4124186/",
-          "rights": "reference"
-        }
-      ],
-      "priority": 64,
       "logged": "2026-10-23",
       "lastChecked": "2026-10-23",
       "dossier": true,
@@ -2978,39 +2602,6 @@
       "lore": false
     },
     {
-      "id": "lutcher-funeral",
-      "name": "Jefferson Highway Funeral Building",
-      "grade": "death",
-      "layer": "mortuary",
-      "kind": "commercial",
-      "address": "2208 Jefferson Hwy, Lutcher, LA 70071",
-      "place": "Lutcher, St. James Parish, LA",
-      "price": "$210,000",
-      "status": "Active",
-      "url": "https://myelisting.com/listing/239748/2208-jefferson-highway-lutcher-la-70071/",
-      "hook": "A former funeral home. The sale will forbid using it as a funeral home or a cemetery.",
-      "story": "The flyer says former funeral home, about 6,476 square feet counting a 1,550-square-foot garage, on about 2 acres, with 165 feet on Jefferson Highway. A title restriction will ban funeral, cemetery, and related use. No survey. Shown by appointment. That restriction is the story. Do not plan a chapel video as if the use can continue.",
-      "history": "MyEListing flyer generated 5 Sep 2026 at $210,000. Agent Beth Cristina, Stirling Properties. Recheck. That page is seven weeks old.",
-      "citation": "MyEListing, generated 5 Sep 2026.",
-      "notes": "Louisiana. Needs a fresh check. The restriction is the reason it is cheap.",
-      "facts": "6,476 sf · about 2 acres · use restriction",
-      "images": [
-        {
-          "id": "lutcher-flyer",
-          "era": "current",
-          "caption": "Commercial flyer. Reference only.",
-          "source": "Stirling / MyEListing",
-          "page": "https://myelisting.com/listing/239748/2208-jefferson-highway-lutcher-la-70071/",
-          "rights": "reference"
-        }
-      ],
-      "priority": 62,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": false
-    },
-    {
       "id": "kck-parsonage",
       "name": "55th Street Church and Parsonage",
       "grade": "sovereign",
@@ -3039,108 +2630,6 @@
         }
       ],
       "priority": 76,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": false
-    },
-    {
-      "id": "peanut-farm",
-      "name": "The Peanut Farm",
-      "grade": "sovereign",
-      "layer": "vice",
-      "kind": "commercial",
-      "lane": "bundle",
-      "address": "5227 Old Seward Hwy, Anchorage, AK 99518",
-      "place": "Anchorage, Anchorage Municipality, AK",
-      "price": "$4,625,000",
-      "status": "Active",
-      "url": "https://www.crexi.com/properties/2167386/alaska-5227-old-seward-highway",
-      "hook": "A landmark sports bar. The building, the business, and the liquor license are in the price. The acreage disagrees with itself.",
-      "story": "Crexi calls it the Peanut Farm Restaurant and Sports Bar. About 19,959 square feet, two stories, bar, dining, and creekside seats. The package includes the business, fixtures, and a liquor license. The headline says 5 acres. The detail line, and a May price-cut sheet, say 3.34 acres. A separate parking lot is MLS 26-5020 and is not this price. Do not add the lots together.",
-      "history": "Crexi still showed For Sale at $4,625,000 when read 23 Oct 2026, updated about five days before that, Jack White Commercial. MLS 25-11649 on an IDX page that recorded the cut from $8,000,000 to $4,625,000 on 7 May 2026. Use the Crexi date as the fresh check, and recheck the acres.",
-      "citation": "Crexi, read 23 Oct 2026. Alaska MLS 25-11649 price history.",
-      "notes": "Alaska. Vice is the bar, which the listing states. Acreage is unresolved.",
-      "facts": "19,959 sf · bar and license · 3.34 or 5 acres",
-      "images": [
-        {
-          "id": "peanut-crexi",
-          "era": "current",
-          "caption": "Commercial listing. Reference only.",
-          "source": "Crexi / Jack White",
-          "page": "https://www.crexi.com/properties/2167386/alaska-5227-old-seward-highway",
-          "rights": "reference"
-        }
-      ],
-      "priority": 82,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": false
-    },
-    {
-      "id": "mandan-michael",
-      "name": "St. Michael's, Mandan",
-      "grade": "sovereign",
-      "layer": "record",
-      "kind": "commercial",
-      "ground": "church",
-      "address": "210 5th Ave NW, Mandan, ND 58554",
-      "place": "Mandan, Morton County, ND",
-      "price": "$899,000",
-      "status": "Active",
-      "url": "https://www.showcase.com/210-5th-ave-nw-mandan-nd-58554/35215086/",
-      "hook": "A 1948 Gothic church, and the house next door is in the price. The parish has said it is leaving.",
-      "story": "Showcase titles it St. Michael's Church. About 7,000 square feet, built 1948, capacity 166, on 0.16 acres. The price includes 208 5th Ave NW, a three-bedroom house with a garage. Roof replaced in 2022. The parish site, writing 13 Aug 2026, said they were close to leaving this building for a new church. The sale page does not say they have already gone. No cemetery in the sale copy.",
-      "history": "Showcase and Crexi both still showed $899,000 for sale when read 23 Oct 2026. Neither page printed a refresh date. Treat the August parish note as the last dated source, and call before a drive.",
-      "citation": "Showcase listing. Parish note, 13 Aug 2026.",
-      "notes": "North Dakota. Church plus house. The date on the sale page is thin. Recheck.",
-      "facts": "7,000 sf church · house next door · built 1948",
-      "images": [
-        {
-          "id": "mandan-showcase",
-          "era": "current",
-          "caption": "Commercial listing. Reference only.",
-          "source": "Showcase",
-          "page": "https://www.showcase.com/210-5th-ave-nw-mandan-nd-58554/35215086/",
-          "rights": "reference"
-        }
-      ],
-      "priority": 70,
-      "logged": "2026-10-23",
-      "lastChecked": "2026-10-23",
-      "dossier": true,
-      "lore": false
-    },
-    {
-      "id": "gering-umc",
-      "name": "Gering Church Building",
-      "grade": "death",
-      "layer": "mortuary",
-      "kind": "commercial",
-      "ground": "church",
-      "address": "900 O St, Gering, NE 69341",
-      "place": "Gering, Scotts Bluff County, NE",
-      "price": "$250,000",
-      "status": "Active",
-      "url": "https://realmo.com/listing/900-o-st-gering-ne-69341/13172206",
-      "hook": "The United Methodist address, still listed. The elevator was built to hold a casket and six people.",
-      "story": "Crexi titles this the Gering United Methodist Church building. Realmo, which is the dated page, calls it a mixed-use building of about 12,932 square feet on half an acre, with a community room, a renovated kitchen, and a basement that once held a daycare. The same page says the elevator, about 12 years old, was designed to accommodate a casket and six people. It does not say the congregation has left. A chamber page still lists Sunday hours. Do not say the church is closed.",
-      "history": "Realmo last checked 20 Oct 2026, Active at $250,000. Changed 13 Oct 2026. Added 15 Jan. Agent Cinda Munoz, Nebraska Realty. Older indexes showed $275,000 and $297,000. Use $250,000.",
-      "citation": "Realmo, last checked 20 Oct 2026. Crexi title.",
-      "notes": "Nebraska. The casket elevator is the mortuary fact. The church may still be meeting. Recheck both.",
-      "facts": "12,932 sf · 0.50 acres · casket elevator",
-      "images": [
-        {
-          "id": "gering-realmo",
-          "era": "current",
-          "caption": "Commercial listing. Reference only.",
-          "source": "Realmo",
-          "page": "https://realmo.com/listing/900-o-st-gering-ne-69341/13172206",
-          "rights": "reference"
-        }
-      ],
-      "priority": 74,
       "logged": "2026-10-23",
       "lastChecked": "2026-10-23",
       "dossier": true,

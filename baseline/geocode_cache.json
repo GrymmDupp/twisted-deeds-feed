@@ -29,13 +29,6 @@
  },
  "q:105 n jose serna st, hatch, nm 87937": null,
  "q:108 gatehouse rd, kennett square, pa 19348": null,
- "q:110 pinckney st, chester, sc 29706": {
-  "lat": 34.7057153,
-  "lon": -81.2174599,
-  "house": true,
-  "type": "place/house",
-  "display": "110, Pinckney Street, Brooklyn, Chester, Chester County, South Carolina, 29706, United States"
- },
  "q:110 w 2nd st, junction city, ar 71749": {
   "lat": 33.0155924,
   "lon": -92.725021,
@@ -73,27 +66,12 @@
   "display": "Assembly of God Full Gospel, 1424, South 55th Street, Turner, Kansas City, Wyandotte County, Kansas, 66106, United States"
  },
  "q:14286 old highway 50, clay city, il 62824": null,
- "q:159 matthewson rd sw, pelham, ga 31779": null,
- "q:1629 nebraska ave, toledo, oh 43607": {
-  "lat": 41.6454297,
-  "lon": -83.5832912,
-  "house": true,
-  "type": "place/house",
-  "display": "1629, Nebraska Avenue, ONYX, Air Line Junction, Toledo, Lucas County, Ohio, 43607, United States"
- },
  "q:163 n ashland ave, lexington, ky": {
   "lat": 38.0373736,
   "lon": -84.4822925,
   "house": true,
   "type": "amenity/place_of_worship",
   "display": "Heritage Baptist Church, 163, North Ashland Avenue, Woodlands, Lexington Manor, Lexington, Fayette County, Kentucky, 40508, United States"
- },
- "q:1699 belmont st, bellaire, oh 43906": {
-  "lat": 40.002878,
-  "lon": -80.744075,
-  "house": true,
-  "type": "place/house",
-  "display": "1699, Belmont Street, Bellaire, Pultney Township, Belmont County, Ohio, 43906, United States"
  },
  "q:17321 old rome rd, watertown, ny 13601": {
   "lat": 43.9176515,
@@ -131,20 +109,12 @@
   "display": "202, South Main Street, Belton, Bell County, Texas, 76513, United States"
  },
  "q:2071 deer creek rd, linden, tn 37096": null,
- "q:20771 eight mile rd, detroit, mi 48219": null,
  "q:209 w river st, ozark, ar 72949": {
   "lat": 35.485338,
   "lon": -93.8276388,
   "house": true,
   "type": "place/house",
   "display": "209, West River Street, Ozark, Franklin County, Arkansas, 72949, United States"
- },
- "q:210 5th ave nw, mandan, nd 58554": {
-  "lat": 46.8271526,
-  "lon": -100.8975054,
-  "house": true,
-  "type": "place/house",
-  "display": "210, 5th Avenue Northwest, Mandan, Morton County, North Dakota, 58554, United States"
  },
  "q:21177 us highway 80 e, wills point, tx 75169": null,
  "q:2134 willow spring rd, dundalk, md 21222": {
@@ -161,14 +131,6 @@
   "house": true,
   "type": "place/house",
   "display": "21920, Branson Road, Poteau, LeFlore County, Oklahoma, 74953, United States"
- },
- "q:2208 jefferson hwy, lutcher, la 70071": null,
- "q:2211 clarkson rd, chesterfield, mo 63017": {
-  "lat": 38.6290451,
-  "lon": -90.5797972,
-  "house": true,
-  "type": "shop/funeral_directors",
-  "display": "Buchholz Mortuary West, 2211, Clarkson Road, Chesterfield, Saint Louis County, Missouri, 63017, United States"
  },
  "q:226 n walnut st, wilmington, de 19801": {
   "lat": 39.7384645,
@@ -209,13 +171,6 @@
  },
  "q:288 county road 3650, hawkins, tx 75765": null,
  "q:3 winkelman ave, big piney, wy 83113": null,
- "q:302 w corunna ave, corunna, mi 48817": {
-  "lat": 42.981979,
-  "lon": -84.1208692,
-  "house": true,
-  "type": "place/house",
-  "display": "302, West Corunna Avenue, Caledonia Charter Township, Shiawassee County, Michigan, 48817, United States"
- },
  "q:30600 michigan ave, westland, mi 48186": {
   "lat": 42.28675,
   "lon": -83.341444,
@@ -239,13 +194,6 @@
  },
  "q:3235 us route 52, felicity, oh 45120": null,
  "q:3500 governor's trail, kettering, oh": null,
- "q:3500 montgomery rd, cincinnati, oh 45207": {
-  "lat": 39.1424511,
-  "lon": -84.4706672,
-  "house": true,
-  "type": "building/church",
-  "display": "Saint Mark Church, 3500, Montgomery Road, O’Bryonville, Evanston, Cincinnati, Hamilton County, Ohio, 45207, United States"
- },
  "q:35553 m-43, paw paw, mi 49079": null,
  "q:3664 fields station rd, la grange, nc 28551": {
   "lat": 35.2815599,
@@ -261,13 +209,6 @@
   "house": true,
   "type": "place/house",
   "display": "3860, West 44th Street, Brooklyn Centre, Cleveland, Cuyahoga County, Ohio, 44109, United States"
- },
- "q:4009 lloyd noland pkwy, fairfield, al 35064": {
-  "lat": 33.4939467,
-  "lon": -86.9107149,
-  "house": true,
-  "type": "place/house",
-  "display": "4009, Lloyd Noland Parkway, Ensley Junction, Fairfield, Jefferson County, Alabama, 35064, United States"
  },
  "q:403 e adams st, sandusky, oh 44870": {
   "lat": 41.4554249,
@@ -325,26 +266,12 @@
   "type": "place/house",
   "display": "4653, Glendale Avenue, Toledo, Lucas County, Ohio, 43614, United States"
  },
- "q:504 main st, woodville, ms 39669": {
-  "lat": 31.1041733,
-  "lon": -91.2996164,
-  "house": true,
-  "type": "place/house",
-  "display": "504, Main Street, Woodville, Wilkinson County, Mississippi, 39669, United States"
- },
  "q:51 duncan st, new bedford, ma 02745": {
   "lat": 41.6742827,
   "lon": -70.9225135,
   "house": true,
   "type": "place/house",
   "display": "51, Duncan Street, New Bedford, Bristol County, Massachusetts, 02745, United States"
- },
- "q:5227 old seward hwy, anchorage, ak 99518": {
-  "lat": 61.172856,
-  "lon": -149.8674578,
-  "house": true,
-  "type": "amenity/restaurant",
-  "display": "Peanut Farm, 5227, Old Seward Highway, Anchorage, Alaska, 99518, United States"
  },
  "q:54100 48th ave, lawrence, mi 49064": {
   "lat": 42.2438717,
@@ -404,13 +331,6 @@
   "type": "highway/residential",
   "display": "Eastern Avenue, East Barrington, Barrington, Strafford County, New Hampshire, 03825, United States"
  },
- "q:8011 w montgomery rd, houston, tx 77088": {
-  "lat": 29.8662973,
-  "lon": -95.4312416,
-  "house": true,
-  "type": "place/house",
-  "display": "8011, West Montgomery Road, Highland Heights, Acres Homes, Houston, Harris County, Texas, 77088, United States"
- },
  "q:8488 main st, rushville, oh 43150": {
   "lat": 39.7646204,
   "lon": -82.4312586,
@@ -419,13 +339,6 @@
   "display": "8488, Main Street, Rushville Historic District, Rushville, Richland Township, Fairfield County, Ohio, 43150, United States"
  },
  "q:8833 ashwood dr, riverdale, ga 30274": null,
- "q:900 o st, gering, ne 69341": {
-  "lat": 41.823768,
-  "lon": -103.659055,
-  "house": true,
-  "type": "place/house",
-  "display": "900, O Street, Gering, Scotts Bluff County, Nebraska, 69341, United States"
- },
  "q:900 ridge ave, new cumberland, wv 26047": {
   "lat": 40.492972,
   "lon": -80.603265,

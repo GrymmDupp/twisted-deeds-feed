@@ -308,12 +308,6 @@
    "lastChecked": "2026-11-01",
    "url": "https://www.beldentownforsale.com/"
   },
-  "bellaire-house": {
-   "checked_at": "2026-11-01T15:57:35+00:00",
-   "images": [],
-   "lastChecked": "2026-11-01",
-   "url": "https://www.zillow.com/homedetails/1699-Belmont-St-Bellaire-OH-43906/50572983_zpid/"
-  },
   "belton-opera": {
    "checked_at": "2026-10-30T21:42:28+00:00",
    "images": [
@@ -431,12 +425,6 @@
    "lastChecked": "2026-10-23",
    "url": "https://www.hegg.com/realestate/details/139170659/662-main-deadwood-sd-57732"
   },
-  "bunny-ranch": {
-   "checked_at": "2026-10-30T21:42:22+00:00",
-   "images": [],
-   "lastChecked": "2026-10-23",
-   "url": "https://www.rgj.com/story/news/money/business/2026/09/04/moonlite-bunny-ranch-sale-dennis-hof/91600354007/"
-  },
   "byron-campus": {
    "checked_at": "2026-11-01T15:57:30+00:00",
    "images": [],
@@ -454,12 +442,6 @@
    "images": [],
    "lastChecked": "2026-10-23",
    "url": ""
-  },
-  "cbrown-funeral": {
-   "checked_at": "2026-10-30T21:42:22+00:00",
-   "images": [],
-   "lastChecked": "2026-10-23",
-   "url": "https://www.crexi.com/properties/2242223/ohio-former-c-brown-funeral-home"
   },
   "cedarcroft": {
    "checked_at": "2026-10-30T21:42:25+00:00",
@@ -576,12 +558,6 @@
    ],
    "lastChecked": "2026-11-01",
    "url": "https://property.jll.com/listings/386-acre-riverfront-redevelopment-opportunity-521-colony-rd-not-tracked-virginia"
-  },
-  "chesterfield-crematory": {
-   "checked_at": "2026-10-30T21:42:53+00:00",
-   "images": [],
-   "lastChecked": "2026-10-23",
-   "url": ""
   },
   "cielo-drive-estate": {
    "checked_at": "2026-11-01T15:57:30+00:00",
@@ -762,12 +738,6 @@
    ],
    "lastChecked": "2026-10-23",
    "url": "https://www.residential.com/l/564-S-800-E-Clearfield-UT-84015-ff2029e2b0"
-  },
-  "corunna-funeral": {
-   "checked_at": "2026-11-01T15:57:30+00:00",
-   "images": [],
-   "lastChecked": "2026-11-01",
-   "url": "https://www.crexi.com/properties/935804/michigan-former-funeral-home-available"
   },
   "creel-house": {
    "checked_at": "2026-10-30T21:42:26+00:00",
@@ -979,12 +949,6 @@
    "lastChecked": "2026-10-23",
    "url": "https://www.landsearch.com/properties/27398-us-12-edwardsburg-mi-49112/5618705"
   },
-  "eight-mile-club": {
-   "checked_at": "2026-10-30T21:42:21+00:00",
-   "images": [],
-   "lastChecked": "2026-10-23",
-   "url": "https://www.commercialcafe.com/commercial-property/us/mi/detroit/former-adult-entertainment-club/"
-  },
   "ellis-funeral": {
    "checked_at": "2026-11-01T15:57:29+00:00",
    "images": [],
@@ -1002,12 +966,6 @@
    "images": [],
    "lastChecked": "2026-11-01",
    "url": "https://www.coldwellbanker.com/mi/galesburg/11090-hawthorne-dr/lid-P00800000HH8ebqnotq5w4jfecbtBpV4Dts3UbRV"
-  },
-  "fairfield-funeral": {
-   "checked_at": "2026-10-30T21:42:36+00:00",
-   "images": [],
-   "lastChecked": "2026-10-23",
-   "url": "https://realmo.com/listing/4009-lloyd-noland-pkwy-fairfield-al-35064/20194090"
   },
   "fantasy-island-grand-island": {
    "checked_at": "2026-10-31T14:09:40+00:00",
@@ -1093,26 +1051,6 @@
    "lastChecked": "2026-11-01",
    "url": "https://www.coldwellbankerhomes.com/st-louis/330-milton-st/pid_73739593/"
   },
-  "fossores-chapter-house": {
-   "checked_at": "2026-11-01T07:08:41+00:00",
-   "images": [
-    {
-     "author": "Andrew Jameson",
-     "caption": "Hugh H Richard House Jackson MI",
-     "credit": "Andrew Jameson, CC BY-SA 3.0, via Wikimedia Commons",
-     "era": "current",
-     "id": "fossores-chapter-house-w1",
-     "image_type": "cc",
-     "license": "CC BY-SA 3.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-     "rights": "cc",
-     "source": "https://commons.wikimedia.org/wiki/File:Hugh_H_Richard_House_Jackson_MI.JPG",
-     "url": "https://grymmdupp.github.io/twisted-deeds-feed/photos/fossores-chapter-house/01-69f228b2a5.jpg"
-    }
-   ],
-   "lastChecked": "2026-11-01",
-   "url": "https://www.redfin.com/MI/Jackson/505-Wildwood-Ave-49201/home/202109763"
-  },
   "frisco-bagley-mill": {
    "checked_at": "2026-10-31T13:05:37+00:00",
    "images": [],
@@ -1124,12 +1062,6 @@
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.propertyshark.com/cre/commercial-property/us/al/gardendale/7026-church-rd-gardendale-al-35071-1/"
-  },
-  "gering-umc": {
-   "checked_at": "2026-10-30T21:42:53+00:00",
-   "images": [],
-   "lastChecked": "2026-10-23",
-   "url": "https://realmo.com/listing/900-o-st-gering-ne-69341/13172206"
   },
   "gratiot-funeral": {
    "checked_at": "2026-10-30T21:42:21+00:00",
@@ -1370,12 +1302,6 @@
    "lastChecked": "2026-11-01",
    "url": "https://www.zillow.com/homedetails/619-Willcox-Ave-Marion-SC-29571/462376109_zpid/"
   },
-  "houston-funeral": {
-   "checked_at": "2026-10-30T21:42:25+00:00",
-   "images": [],
-   "lastChecked": "2026-10-23",
-   "url": "https://www.commercialcafe.com/commercial-property/us/tx/houston/8011-w-montgomery-premium-funeral-home-property-redevelopmnt/"
-  },
   "hudson-evans": {
    "checked_at": "2026-10-30T21:42:21+00:00",
    "images": [],
@@ -1393,12 +1319,6 @@
    "images": [],
    "lastChecked": "2026-11-01",
    "url": "https://www.remax-michigan.com/realestate/details/124822219/404-e-main-street-ionia-mi-48846"
-  },
-  "jackson-county-old-jail-kc": {
-   "checked_at": "2026-10-31T14:09:59+00:00",
-   "images": [],
-   "lastChecked": "2026-10-31",
-   "url": "https://www.kctv5.com/2026/10/26/former-jackson-county-jail-downtown-block-up-sale/"
   },
   "jacob-ten-broeck-house": {
    "checked_at": "2026-11-01T15:57:33+00:00",
@@ -1519,12 +1439,6 @@
    "lastChecked": "2026-10-23",
    "url": "https://www.trophypa.com/p/1424-S-55th-Street-Kansas-City-KS-66106/dmgid_187379806"
   },
-  "kendallville-carnegie": {
-   "checked_at": "2026-11-01T15:57:33+00:00",
-   "images": [],
-   "lastChecked": "2026-11-01",
-   "url": "https://www.howardhanna.com/property/124-east-rush-street-kendallville-in-46755-180001101307"
-  },
   "labelle-camp": {
    "checked_at": "2026-10-30T21:42:29+00:00",
    "images": [],
@@ -1636,23 +1550,11 @@
    "lastChecked": "2026-10-31",
    "url": "https://www.loopnet.com/Listing/2555-W-37th-Ave-Denver-CO/35352223/"
   },
-  "lutcher-funeral": {
-   "checked_at": "2026-10-30T21:42:53+00:00",
-   "images": [],
-   "lastChecked": "2026-10-23",
-   "url": "https://myelisting.com/listing/239748/2208-jefferson-highway-lutcher-la-70071/"
-  },
   "macabre-mansion": {
    "checked_at": "2026-10-30T21:42:21+00:00",
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.redfin.com/AZ/Sonoita/92-Cayuse-Trl-85637/home/122034905"
-  },
-  "mandan-michael": {
-   "checked_at": "2026-10-30T21:42:53+00:00",
-   "images": [],
-   "lastChecked": "2026-10-23",
-   "url": "https://www.showcase.com/210-5th-ave-nw-mandan-nd-58554/35215086/"
   },
   "marbleton-chapel": {
    "checked_at": "2026-10-31T03:10:54+00:00",
@@ -2243,45 +2145,6 @@
    "lastChecked": "2026-10-23",
    "url": "https://www.residential.com/l/35553-M-43-Paw-Paw-MI-49079-e1955c43e7"
   },
-  "peanut-farm": {
-   "checked_at": "2026-10-30T21:42:53+00:00",
-   "images": [],
-   "lastChecked": "2026-10-23",
-   "url": "https://www.crexi.com/properties/2167386/alaska-5227-old-seward-highway"
-  },
-  "pelham-jail": {
-   "checked_at": "2026-10-30T21:42:25+00:00",
-   "images": [],
-   "lastChecked": "2026-10-23",
-   "url": "https://www.jromerogroup.com/properties/ga/historic-1920-jail-in-old-pelham-ga-unique-opportunity/1124411/"
-  },
-  "petes-tavern-nampa": {
-   "checked_at": "2026-11-01T15:57:33+00:00",
-   "images": [
-    {
-     "caption": "Listing photo 1 (pacificcontinentalrealty.com)",
-     "credit": "pacificcontinentalrealty.com",
-     "era": "current",
-     "id": "petes-tavern-nampa-p1",
-     "image_type": "listing",
-     "rights": "hotlink",
-     "source": "https://www.pacificcontinentalrealty.com/listing/11-12th-avenue-nampa-id-83651-11-12th-avenue-s/",
-     "url": "https://www.pacificcontinentalrealty.com/wp-content/uploads/2025/11/704593-450x300.jpg"
-    },
-    {
-     "caption": "Listing photo 2 (pacificcontinentalrealty.com)",
-     "credit": "pacificcontinentalrealty.com",
-     "era": "current",
-     "id": "petes-tavern-nampa-p2",
-     "image_type": "listing",
-     "rights": "hotlink",
-     "source": "https://www.pacificcontinentalrealty.com/listing/11-12th-avenue-nampa-id-83651-11-12th-avenue-s/",
-     "url": "https://www.pacificcontinentalrealty.com/wp-content/uploads/2024/12/276181-450x300.jpg"
-    }
-   ],
-   "lastChecked": "2026-11-01",
-   "url": "https://www.pacificcontinentalrealty.com/listing/11-12th-avenue-nampa-id-83651-11-12th-avenue-s/"
-  },
   "philip-knight-house": {
    "checked_at": "2026-11-01T15:57:31+00:00",
    "images": [],
@@ -2293,12 +2156,6 @@
    "images": [],
    "lastChecked": "2026-11-01",
    "url": "https://www.commercialcafe.com/commercial-property/us/ny/phoenix/431-main-st/"
-  },
-  "pinckney-inn": {
-   "checked_at": "2026-10-30T21:42:25+00:00",
-   "images": [],
-   "lastChecked": "2026-10-23",
-   "url": "https://www.zillow.com/homedetails/110-Pinckney-St-Chester-SC-29706/70215748_zpid/"
   },
   "pirates-park": {
    "checked_at": "2026-10-31T13:05:37+00:00",
@@ -2710,12 +2567,6 @@
    "lastChecked": "2026-11-01",
    "url": "https://www.coldwellbanker.com/pa/fredonia/2158-mercer-rd/lid-P00800000HGmCgggnhguqM1iKfwC2kJmYjwLar95"
   },
-  "st-mark-evanston": {
-   "checked_at": "2026-10-30T21:42:28+00:00",
-   "images": [],
-   "lastChecked": "2026-10-23",
-   "url": "https://hoodline.com/2026/10/historic-evanston-church-hits-auction-block-after-21-8m-revival-stalls/"
-  },
   "state-theatre": {
    "checked_at": "2026-10-30T21:42:26+00:00",
    "images": [
@@ -3038,12 +2889,6 @@
    "images": [],
    "lastChecked": "2026-10-23",
    "url": "https://www.briggsfreeman.com/property/21177-us-highway-80-highway-e-wills-point-tx-75169/109403181/"
-  },
-  "woodville-chapel": {
-   "checked_at": "2026-10-30T21:42:53+00:00",
-   "images": [],
-   "lastChecked": "2026-10-23",
-   "url": ""
   },
   "woonsocket-funeral": {
    "checked_at": "2026-10-30T21:42:53+00:00",
