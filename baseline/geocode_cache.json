@@ -276,13 +276,6 @@
   "type": "place/house",
   "display": "403, East Adams Street, Kilbourne Plat, Sandusky, Erie County, Ohio, 44870, United States"
  },
- "q:404 n main st, twin bridges, mt 59754": {
-  "lat": 45.5400632,
-  "lon": -112.3310047,
-  "house": false,
-  "type": "highway/secondary",
-  "display": "Main Street, Twin Bridges, Madison County, Montana, 59754, United States"
- },
  "q:410 n eagle st, marshall, mi 49068": {
   "lat": 42.2753474,
   "lon": -84.961141,
@@ -361,13 +354,6 @@
   "display": "54100, 48th Avenue, Arlington Township, Van Buren County, Michigan, 49064, United States"
  },
  "q:557 unity center rd, pittsburgh, pa 15239": null,
- "q:564 hoaka rd, hilo, hi 96720": {
-  "lat": 19.6594717,
-  "lon": -155.1288626,
-  "house": true,
-  "type": "place/house",
-  "display": "564, Hoaka Road, Hilo, Hawaiʻi County, Hawaii, 96720, United States"
- },
  "q:564 s 800 e, clearfield, ut 84015": {
   "lat": 41.1053583,
   "lon": -112.0111822,
@@ -376,13 +362,6 @@
   "display": "Calvary Chapel, 564, South 800 East, Clearfield, Davis County, Utah, 84015, United States"
  },
  "q:5730 schuss mountain rd, bellaire, mi 49615": null,
- "q:627 jefferson ave se, grand rapids, mi 49503": {
-  "lat": 42.950828,
-  "lon": -85.664111,
-  "house": true,
-  "type": "place/house",
-  "display": "627, Jefferson Avenue Southeast, Grand Rapids, Kent County, Michigan, 49503, United States"
- },
  "q:66 duttonsville school dr, cavendish, vt 05142": {
   "lat": 43.3860978,
   "lon": -72.6052389,
@@ -410,13 +389,6 @@
   "house": true,
   "type": "place/house",
   "display": "7026, Church Road, Gardendale, Jefferson County, Alabama, 35071, United States"
- },
- "q:76 s main st, fairport, ny 14450": {
-  "lat": 43.0994586,
-  "lon": -77.4423158,
-  "house": true,
-  "type": "place/house",
-  "display": "76, South Main Street, Village of Fairport, Town of Perinton, Monroe County, New York, 14450, United States"
  },
  "q:79 alfred st, detroit, mi 48201": {
   "lat": 42.3435623,
